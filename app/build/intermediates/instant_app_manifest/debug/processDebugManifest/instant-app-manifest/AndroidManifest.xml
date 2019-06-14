@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.thunder.thundertweaks"
+    android:targetSandboxVersion="2"
+    android:versionCode="100"
+    android:versionName="1.0.0" >
+
+    <uses-sdk
+        android:minSdkVersion="23"
+        android:targetSdkVersion="28" />
+
+    <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="cyanogenmod.permission.PUBLISH_CUSTOM_TILE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:banner="@drawable/ic_banner"
+        android:debuggable="true"
+        android:fullBackupContent="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Default.Blue" >
+        <activity android:name="com.thunder.thundertweaks.activities.StartActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity>
+        <activity
+            android:name="com.thunder.thundertweaks.activities.StartActivityMaterial"
+            android:enabled="false"
+            android:icon="@mipmap/ic_launcher_material" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity>
+        <activity android:name="com.thunder.thundertweaks.activities.MainActivity" />
+        <activity android:name="com.thunder.thundertweaks.activities.NavigationActivity" />
+        <activity android:name="com.thunder.thundertweaks.activities.TextActivity" />
+        <activity
+            android:name="com.thunder.thundertweaks.views.NavHeaderView$MainHeaderActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name="com.thunder.thundertweaks.activities.tools.CustomControlsActivity" />
+        <activity android:name="com.thunder.thundertweaks.activities.EditorActivity" />
+        <activity android:name="com.thunder.thundertweaks.activities.FilePickerActivity" />
+        <activity android:name="com.thunder.thundertweaks.activities.tools.DownloadsActivity" />
+        <activity android:name="com.thunder.thundertweaks.activities.tools.profile.ProfileActivity" />
+        <activity
+            android:name="com.thunder.thundertweaks.activities.SecurityActivity"
+            android:configChanges="locale|keyboard|keyboardHidden|orientation|screenSize|navigation" />
+        <activity android:name="com.thunder.thundertweaks.activities.BannerResizerActivity" />
+        <activity android:name="com.thunder.thundertweaks.activities.tools.profile.ProfileEditActivity" />
+        <activity android:name="com.thunder.thundertweaks.activities.DataSharingSearchActivity" />
+
+        <receiver
+            android:name="com.thunder.thundertweaks.services.boot.OnBootReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.thunder.thundertweaks.services.boot.ApplyOnBootService" />
+
+        <receiver android:name="com.thunder.thundertweaks.services.boot.ApplyOnBoot$CancelReceiver" />
+
+        <service android:name="com.thunder.thundertweaks.services.monitor.Monitor" />
+
+        <receiver android:name="com.thunder.thundertweaks.services.monitor.Monitor$DisableReceiver" />
+
+        <!-- Profile Widget -->
+        <receiver android:name="com.thunder.thundertweaks.services.profile.Widget" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/profile_widget" />
+        </receiver>
+
+        <service
+            android:name="com.thunder.thundertweaks.services.profile.Widget$WidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <!-- CM SDK -->
+        <receiver android:name="com.thunder.thundertweaks.services.profile.Tile" >
+            <intent-filter>
+                <action android:name="com.hades.hKtweaks.action.ACTION_TOGGLE_STATE" />
+            </intent-filter>
+        </receiver>
+
+        <!-- DashClock -->
+        <service
+            android:name="com.thunder.thundertweaks.services.DashClock"
+            android:icon="@drawable/ic_launcher_preview"
+            android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
+            <intent-filter>
+                <action android:name="com.google.android.apps.dashclock.Extension" />
+            </intent-filter>
+
+            <meta-data
+                android:name="protocolVersion"
+                android:value="1" />
+        </service>
+
+        <!-- Tasker -->
+        <activity android:name="com.thunder.thundertweaks.activities.tools.profile.ProfileTaskerActivity" >
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name="com.thunder.thundertweaks.services.profile.Tasker" >
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.FIRE_SETTING" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Profile Tile -->
+        <service
+            android:name="com.thunder.thundertweaks.utils.kernel.spectrum.ProfileTile"
+            android:enabled="true"
+            android:icon="@drawable/ic_spectrum_tile_logo"
+            android:label="@string/profileTile"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE" >
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.thunder.thundertweaks.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+    </application>
+
+</manifest>

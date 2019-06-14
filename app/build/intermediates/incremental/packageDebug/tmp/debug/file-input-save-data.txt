@@ -1,0 +1,23 @@
+#Internal package file, do not edit.
+#Thu Jun 13 12:55:29 CEST 2019
+2.base=D\:\\ANDROID\\GALAXY S7\\OREO\\TS KERNELS\\TSTweaks\\TTweaks\\app\\build\\intermediates\\merged_assets\\debug\\mergeDebugAssets\\out
+0.path=temp.json
+2.baseType=DIRECTORY
+3.base=D\:\\ANDROID\\GALAXY S7\\OREO\\TS KERNELS\\TSTweaks\\TTweaks\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+2.set=ASSET
+1.path=downloads.json
+4.base=D\:\\ANDROID\\GALAXY S7\\OREO\\TS KERNELS\\TSTweaks\\TTweaks\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
+count=5
+2.path=gamma_profiles.json
+4.set=DEX
+3.path=classes.dex
+3.baseType=DIRECTORY
+1.set=ASSET
+4.path=classes.dex
+1.baseType=DIRECTORY
+0.base=D\:\\ANDROID\\GALAXY S7\\OREO\\TS KERNELS\\TSTweaks\\TTweaks\\app\\build\\intermediates\\merged_assets\\debug\\mergeDebugAssets\\out
+0.baseType=DIRECTORY
+3.set=DEX
+1.base=D\:\\ANDROID\\GALAXY S7\\OREO\\TS KERNELS\\TSTweaks\\TTweaks\\app\\build\\intermediates\\merged_assets\\debug\\mergeDebugAssets\\out
+4.baseType=DIRECTORY
+0.set=ASSET

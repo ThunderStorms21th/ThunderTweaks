@@ -1,0 +1,487 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:2:1-171:12
+INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:2:1-171:12
+INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:2:1-171:12
+INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:2:1-171:12
+MERGED from [com.github.ozodrukh:CircularReveal:1.3.1] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\CircularReveal-1.3.1.aar\2bc9f737fb0c8e6a7a6cb14e8d2acbfa\AndroidManifest.xml:2:1-12:12
+MERGED from [com.google.android.material:material:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\material-1.0.0.aar\b278807cbeb936e89da153152a0cebf1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-preference-v14:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\legacy-preference-v14-1.0.0.aar\283a9dfd5539f53f3cfb1ef95392db8f\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.preference:preference:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\preference-1.0.0.aar\cd50eb7bdbe520a48b77afc724b2477e\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat:1.0.2] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\appcompat-1.0.2.aar\32d91d240eee9d54a0477791df6b7c3e\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\cardview-1.0.0.aar\05d935c11916e3ccf7f65a27cef3f8ab\AndroidManifest.xml:17:1-22:12
+MERGED from [org.adw.library:discrete-seekbar:1.0.1] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-discrete-seekbar-1.0.1.aar\f26c345703da39792d57a8b7d379ef9d\AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\legacy-support-v4-1.0.0.aar\f0c0bcf2e4b812a8a8dce80c2c2da90e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.mattprecious.swirl:swirl:1.2.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-swirl-1.2.0.aar\35e781a3729be99a85fc46157ee5a0c1\AndroidManifest.xml:2:1-8:12
+MERGED from [com.mikhaellopez:circularimageview:3.0.2] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\circularimageview-3.0.2.aar\6ca74da89fe44e5ab972be7011448229\AndroidManifest.xml:2:1-15:12
+MERGED from [org.cyanogenmod:platform.sdk:6.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-platform.sdk-6.0.aar\2dfbd53bebc7548a54647ee2832cb44d\AndroidManifest.xml:19:1-22:12
+MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.8.0.aar\f37fc44c36d8ce10873e66ace54ac08b\AndroidManifest.xml:2:1-12:12
+MERGED from [com.akexorcist:RoundCornerProgressBar:2.0.3] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\RoundCornerProgressBar-2.0.3.aar\c7b330fcff11ba0c3d456d0c06ef5716\AndroidManifest.xml:2:1-12:12
+MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\fragment-1.0.0.aar\7a1ea6f65f96562e797d16743229eeee\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.0.0.aar\045a8eb398918c460548496ee9e03ed8\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\recyclerview-1.0.0.aar\1089552b625b40f8cf5eb87a25c49961\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\1a805d0c88841e3aa0042786da1f322f\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\6a1756d115b01ba303da1c9f80290908\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.0.1.aar\9a804e90bd451d6f84ce7d8405ce385d\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\transition-1.0.0.aar\0dd7c038811c3beec24fe586986c6196\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\media-1.0.0.aar\95393280e89c7e822061ad461660d7dc\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\6e515dbd329fdb0c47f2487656fe16e4\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\c494740c865b2d795829c4d5fc1b0479\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.0.0.aar\bbdb1b181deeeace951ece4c5daac2bb\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\e14d7f4535934fd3fed702f4b41de87f\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\b3e4f7c373b0b2725052a1672a239167\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\fd63bd338ecaab70a8a6345fb906e59d\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\2609d6ae0be5ceec68a60c9c5a243c3f\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\5fd8bdadbae06465ca8e27419ea66778\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.0.1] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\core-1.0.1.aar\148ef8cf85057c5f87c036eb2d2c3955\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\e9b62f82c29396d291ba47b5b7fbaf60\AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\f10df238be48e2240fec8078a77e5bf7\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.0.0.aar\2f849ada733e677e52acdb8c4a33e58c\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\164294821180c3b3b45dfe61dedc2cd1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\56e8792d8009e849b457f92e7599eb9b\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\8ccf177985274656c3b656c344a9f3d0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.0.0.aar\bdebdd0a8db84ea3a9f098ac8380f7c8\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\4a9de6f2aef1c14585ac14875da992b4\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\93f5cafd4372a0930e52828d52d5067c\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\e37f4f37ec7e590c95380cad93ea702d\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\b2321001d22630e938f9116776741257\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.8.0.aar\016515419b10c515428aa20a5eaef302\AndroidManifest.xml:2:1-11:12
+INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:2:1-171:12
+INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:2:1-171:12
+INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:2:1-171:12
+	package
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:4:5-40
+		INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml
+		INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:2:1-171:12
+		INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:2:1-171:12
+		INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.ACCESS_SUPERUSER
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:6:5-75
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:6:22-72
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:7:5-81
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:7:22-78
+uses-permission#android.permission.INTERNET
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:8:5-67
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:8:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:9:5-79
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:9:22-76
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:10:5-81
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:10:22-78
+uses-permission#android.permission.VIBRATE
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:11:5-66
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:11:22-63
+uses-permission#android.permission.USE_FINGERPRINT
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:12:5-74
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:12:22-71
+uses-permission#android.permission.WAKE_LOCK
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:13:5-68
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:13:22-65
+uses-permission#android.permission.REQUEST_INSTALL_PACKAGES
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:14:5-83
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:14:22-80
+uses-permission#cyanogenmod.permission.PUBLISH_CUSTOM_TILE
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:15:5-82
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:15:22-79
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:16:5-77
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:16:22-74
+uses-feature#android.hardware.touchscreen
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:18:5-20:36
+	android:required
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:20:9-33
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:19:9-52
+uses-feature#android.software.leanback
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:22:5-24:36
+	android:required
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:24:9-33
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:23:9-49
+application
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:26:5-169:19
+MERGED from [com.github.ozodrukh:CircularReveal:1.3.1] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\CircularReveal-1.3.1.aar\2bc9f737fb0c8e6a7a6cb14e8d2acbfa\AndroidManifest.xml:10:5-20
+MERGED from [com.github.ozodrukh:CircularReveal:1.3.1] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\CircularReveal-1.3.1.aar\2bc9f737fb0c8e6a7a6cb14e8d2acbfa\AndroidManifest.xml:10:5-20
+MERGED from [com.google.android.material:material:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\material-1.0.0.aar\b278807cbeb936e89da153152a0cebf1\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\material-1.0.0.aar\b278807cbeb936e89da153152a0cebf1\AndroidManifest.xml:22:5-20
+MERGED from [org.adw.library:discrete-seekbar:1.0.1] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-discrete-seekbar-1.0.1.aar\f26c345703da39792d57a8b7d379ef9d\AndroidManifest.xml:27:5-28:19
+MERGED from [org.adw.library:discrete-seekbar:1.0.1] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-discrete-seekbar-1.0.1.aar\f26c345703da39792d57a8b7d379ef9d\AndroidManifest.xml:27:5-28:19
+MERGED from [com.mikhaellopez:circularimageview:3.0.2] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\circularimageview-3.0.2.aar\6ca74da89fe44e5ab972be7011448229\AndroidManifest.xml:11:5-13:38
+MERGED from [com.mikhaellopez:circularimageview:3.0.2] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\circularimageview-3.0.2.aar\6ca74da89fe44e5ab972be7011448229\AndroidManifest.xml:11:5-13:38
+MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.8.0.aar\f37fc44c36d8ce10873e66ace54ac08b\AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.8.0.aar\f37fc44c36d8ce10873e66ace54ac08b\AndroidManifest.xml:10:5-20
+MERGED from [androidx.core:core:1.0.1] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\core-1.0.1.aar\148ef8cf85057c5f87c036eb2d2c3955\AndroidManifest.xml:22:5-89
+MERGED from [androidx.core:core:1.0.1] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\core-1.0.1.aar\148ef8cf85057c5f87c036eb2d2c3955\AndroidManifest.xml:22:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\e9b62f82c29396d291ba47b5b7fbaf60\AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\e9b62f82c29396d291ba47b5b7fbaf60\AndroidManifest.xml:22:5-23:19
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.8.0.aar\016515419b10c515428aa20a5eaef302\AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.8.0.aar\016515419b10c515428aa20a5eaef302\AndroidManifest.xml:9:5-20
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.0.1] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\core-1.0.1.aar\148ef8cf85057c5f87c036eb2d2c3955\AndroidManifest.xml:22:18-86
+	android:supportsRtl
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:33:9-35
+	android:label
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:32:9-41
+	android:hardwareAccelerated
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:30:9-43
+	android:fullBackupContent
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:29:9-41
+	tools:ignore
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:35:9-48
+	android:icon
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:31:9-43
+	android:allowBackup
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:27:9-35
+	android:banner
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:28:9-45
+	android:theme
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:34:9-50
+activity#com.thunder.thundertweaks.activities.StartActivity
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:37:9-47:20
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:37:19-84
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER+category:name:android.intent.category.LEANBACK_LAUNCHER
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:38:13-43:29
+action#android.intent.action.MAIN
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:39:17-69
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:39:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:41:17-77
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:41:27-74
+category#android.intent.category.LEANBACK_LAUNCHER
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:42:17-86
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:42:27-83
+meta-data#android.app.shortcuts
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:44:13-46:53
+	android:resource
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:46:17-50
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:45:17-53
+activity#com.thunder.thundertweaks.activities.StartActivityMaterial
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:49:9-62:20
+	android:enabled
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:51:13-36
+	android:icon
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:52:13-56
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:50:13-86
+activity#com.thunder.thundertweaks.activities.MainActivity
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:64:9-86
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:64:19-83
+activity#com.thunder.thundertweaks.activities.NavigationActivity
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:65:9-92
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:65:19-89
+activity#com.thunder.thundertweaks.activities.TextActivity
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:66:9-86
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:66:19-83
+activity#com.thunder.thundertweaks.views.NavHeaderView$MainHeaderActivity
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:67:9-69:75
+	android:theme
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:69:13-72
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:68:13-92
+activity#com.thunder.thundertweaks.activities.tools.CustomControlsActivity
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:70:9-102
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:70:19-99
+activity#com.thunder.thundertweaks.activities.EditorActivity
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:71:9-88
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:71:19-85
+activity#com.thunder.thundertweaks.activities.FilePickerActivity
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:72:9-92
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:72:19-89
+activity#com.thunder.thundertweaks.activities.tools.DownloadsActivity
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:73:9-97
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:73:19-94
+activity#com.thunder.thundertweaks.activities.tools.profile.ProfileActivity
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:74:9-103
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:74:19-100
+activity#com.thunder.thundertweaks.activities.SecurityActivity
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:75:9-77:104
+	android:configChanges
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:77:13-101
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:76:13-81
+activity#com.thunder.thundertweaks.activities.BannerResizerActivity
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:78:9-95
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:78:19-92
+activity#com.thunder.thundertweaks.activities.tools.profile.ProfileEditActivity
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:79:9-107
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:79:19-104
+activity#com.thunder.thundertweaks.activities.DataSharingSearchActivity
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:80:9-99
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:80:19-96
+receiver#com.thunder.thundertweaks.services.boot.OnBootReceiver
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:82:9-90:20
+	android:enabled
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:84:13-35
+	android:exported
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:85:13-36
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:83:13-82
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED+category:name:android.intent.category.DEFAULT
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:86:13-89:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:87:17-79
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:87:25-76
+category#android.intent.category.DEFAULT
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:88:17-76
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:88:27-73
+service#com.thunder.thundertweaks.services.boot.ApplyOnBootService
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:92:9-94
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:92:18-91
+receiver#com.thunder.thundertweaks.services.boot.ApplyOnBoot$CancelReceiver
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:93:9-103
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:93:19-100
+service#com.thunder.thundertweaks.services.monitor.Monitor
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:95:9-86
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:95:18-83
+receiver#com.thunder.thundertweaks.services.monitor.Monitor$DisableReceiver
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:96:9-103
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:96:19-100
+receiver#com.thunder.thundertweaks.services.profile.Widget
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:99:9-107:20
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:99:19-83
+intent-filter#action:name:android.appwidget.action.APPWIDGET_UPDATE
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:100:13-102:29
+action#android.appwidget.action.APPWIDGET_UPDATE
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:101:17-84
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:101:25-81
+meta-data#android.appwidget.provider
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:104:13-106:58
+	android:resource
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:106:17-55
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:105:17-58
+service#com.thunder.thundertweaks.services.profile.Widget$WidgetService
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:109:9-111:72
+	android:permission
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:111:13-69
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:110:13-91
+receiver#com.thunder.thundertweaks.services.profile.Tile
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:114:9-118:20
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:114:19-81
+intent-filter#action:name:com.hades.hKtweaks.action.ACTION_TOGGLE_STATE
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:115:13-117:29
+action#com.hades.hKtweaks.action.ACTION_TOGGLE_STATE
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:116:17-88
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:116:25-85
+service#com.thunder.thundertweaks.services.DashClock
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:121:9-132:19
+	android:permission
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:124:13-98
+	android:icon
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:123:13-57
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:122:13-72
+intent-filter#action:name:com.google.android.apps.dashclock.Extension
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:125:13-127:29
+action#com.google.android.apps.dashclock.Extension
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:126:17-86
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:126:25-83
+meta-data#protocolVersion
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:129:13-131:37
+	android:value
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:131:17-34
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:130:17-47
+activity#com.thunder.thundertweaks.activities.tools.profile.ProfileTaskerActivity
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:135:9-139:20
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:135:19-106
+intent-filter#action:name:com.twofortyfouram.locale.intent.action.EDIT_SETTING
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:136:13-138:29
+action#com.twofortyfouram.locale.intent.action.EDIT_SETTING
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:137:17-95
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:137:25-92
+receiver#com.thunder.thundertweaks.services.profile.Tasker
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:141:9-145:20
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:141:19-83
+intent-filter#action:name:com.twofortyfouram.locale.intent.action.FIRE_SETTING
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:142:13-144:29
+action#com.twofortyfouram.locale.intent.action.FIRE_SETTING
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:143:17-95
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:143:25-92
+service#com.thunder.thundertweaks.utils.kernel.spectrum.ProfileTile
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:148:9-157:19
+	android:enabled
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:150:13-35
+	android:label
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:152:13-48
+	android:permission
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:153:13-77
+	android:icon
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:151:13-59
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:149:13-87
+intent-filter#action:name:android.service.quicksettings.action.QS_TILE
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:154:13-156:29
+action#android.service.quicksettings.action.QS_TILE
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:155:17-86
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:155:25-84
+provider#androidx.core.content.FileProvider
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:159:9-167:20
+	android:grantUriPermissions
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:163:13-47
+	android:authorities
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:161:13-69
+	android:exported
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:162:13-37
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:160:13-62
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:164:13-166:57
+	android:resource
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:166:17-55
+	android:name
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:165:17-67
+uses-sdk
+INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml
+INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml
+MERGED from [com.github.ozodrukh:CircularReveal:1.3.1] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\CircularReveal-1.3.1.aar\2bc9f737fb0c8e6a7a6cb14e8d2acbfa\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.ozodrukh:CircularReveal:1.3.1] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\CircularReveal-1.3.1.aar\2bc9f737fb0c8e6a7a6cb14e8d2acbfa\AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.android.material:material:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\material-1.0.0.aar\b278807cbeb936e89da153152a0cebf1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\material-1.0.0.aar\b278807cbeb936e89da153152a0cebf1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-preference-v14:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\legacy-preference-v14-1.0.0.aar\283a9dfd5539f53f3cfb1ef95392db8f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-preference-v14:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\legacy-preference-v14-1.0.0.aar\283a9dfd5539f53f3cfb1ef95392db8f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.preference:preference:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\preference-1.0.0.aar\cd50eb7bdbe520a48b77afc724b2477e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.preference:preference:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\preference-1.0.0.aar\cd50eb7bdbe520a48b77afc724b2477e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.0.2] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\appcompat-1.0.2.aar\32d91d240eee9d54a0477791df6b7c3e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.0.2] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\appcompat-1.0.2.aar\32d91d240eee9d54a0477791df6b7c3e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\cardview-1.0.0.aar\05d935c11916e3ccf7f65a27cef3f8ab\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\cardview-1.0.0.aar\05d935c11916e3ccf7f65a27cef3f8ab\AndroidManifest.xml:20:5-44
+MERGED from [org.adw.library:discrete-seekbar:1.0.1] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-discrete-seekbar-1.0.1.aar\f26c345703da39792d57a8b7d379ef9d\AndroidManifest.xml:23:5-25:41
+MERGED from [org.adw.library:discrete-seekbar:1.0.1] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-discrete-seekbar-1.0.1.aar\f26c345703da39792d57a8b7d379ef9d\AndroidManifest.xml:23:5-25:41
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\legacy-support-v4-1.0.0.aar\f0c0bcf2e4b812a8a8dce80c2c2da90e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\legacy-support-v4-1.0.0.aar\f0c0bcf2e4b812a8a8dce80c2c2da90e\AndroidManifest.xml:20:5-44
+MERGED from [com.mattprecious.swirl:swirl:1.2.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-swirl-1.2.0.aar\35e781a3729be99a85fc46157ee5a0c1\AndroidManifest.xml:6:5-44
+MERGED from [com.mattprecious.swirl:swirl:1.2.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-swirl-1.2.0.aar\35e781a3729be99a85fc46157ee5a0c1\AndroidManifest.xml:6:5-44
+MERGED from [com.mikhaellopez:circularimageview:3.0.2] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\circularimageview-3.0.2.aar\6ca74da89fe44e5ab972be7011448229\AndroidManifest.xml:7:5-9:41
+MERGED from [com.mikhaellopez:circularimageview:3.0.2] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\circularimageview-3.0.2.aar\6ca74da89fe44e5ab972be7011448229\AndroidManifest.xml:7:5-9:41
+MERGED from [org.cyanogenmod:platform.sdk:6.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-platform.sdk-6.0.aar\2dfbd53bebc7548a54647ee2832cb44d\AndroidManifest.xml:21:5-43
+MERGED from [org.cyanogenmod:platform.sdk:6.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-platform.sdk-6.0.aar\2dfbd53bebc7548a54647ee2832cb44d\AndroidManifest.xml:21:5-43
+MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.8.0.aar\f37fc44c36d8ce10873e66ace54ac08b\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.8.0.aar\f37fc44c36d8ce10873e66ace54ac08b\AndroidManifest.xml:6:5-8:41
+MERGED from [com.akexorcist:RoundCornerProgressBar:2.0.3] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\RoundCornerProgressBar-2.0.3.aar\c7b330fcff11ba0c3d456d0c06ef5716\AndroidManifest.xml:8:5-10:41
+MERGED from [com.akexorcist:RoundCornerProgressBar:2.0.3] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\RoundCornerProgressBar-2.0.3.aar\c7b330fcff11ba0c3d456d0c06ef5716\AndroidManifest.xml:8:5-10:41
+MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\fragment-1.0.0.aar\7a1ea6f65f96562e797d16743229eeee\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\fragment-1.0.0.aar\7a1ea6f65f96562e797d16743229eeee\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.0.0.aar\045a8eb398918c460548496ee9e03ed8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.0.0.aar\045a8eb398918c460548496ee9e03ed8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\recyclerview-1.0.0.aar\1089552b625b40f8cf5eb87a25c49961\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\recyclerview-1.0.0.aar\1089552b625b40f8cf5eb87a25c49961\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\1a805d0c88841e3aa0042786da1f322f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\1a805d0c88841e3aa0042786da1f322f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\6a1756d115b01ba303da1c9f80290908\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\6a1756d115b01ba303da1c9f80290908\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.0.1.aar\9a804e90bd451d6f84ce7d8405ce385d\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.0.1.aar\9a804e90bd451d6f84ce7d8405ce385d\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\transition-1.0.0.aar\0dd7c038811c3beec24fe586986c6196\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\transition-1.0.0.aar\0dd7c038811c3beec24fe586986c6196\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\media-1.0.0.aar\95393280e89c7e822061ad461660d7dc\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\media-1.0.0.aar\95393280e89c7e822061ad461660d7dc\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\6e515dbd329fdb0c47f2487656fe16e4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\6e515dbd329fdb0c47f2487656fe16e4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\c494740c865b2d795829c4d5fc1b0479\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\c494740c865b2d795829c4d5fc1b0479\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.0.0.aar\bbdb1b181deeeace951ece4c5daac2bb\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.0.0.aar\bbdb1b181deeeace951ece4c5daac2bb\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\e14d7f4535934fd3fed702f4b41de87f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\e14d7f4535934fd3fed702f4b41de87f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\b3e4f7c373b0b2725052a1672a239167\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\b3e4f7c373b0b2725052a1672a239167\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\fd63bd338ecaab70a8a6345fb906e59d\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\fd63bd338ecaab70a8a6345fb906e59d\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\2609d6ae0be5ceec68a60c9c5a243c3f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\2609d6ae0be5ceec68a60c9c5a243c3f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\5fd8bdadbae06465ca8e27419ea66778\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\5fd8bdadbae06465ca8e27419ea66778\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.1] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\core-1.0.1.aar\148ef8cf85057c5f87c036eb2d2c3955\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.1] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\core-1.0.1.aar\148ef8cf85057c5f87c036eb2d2c3955\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\e9b62f82c29396d291ba47b5b7fbaf60\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\e9b62f82c29396d291ba47b5b7fbaf60\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\f10df238be48e2240fec8078a77e5bf7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\f10df238be48e2240fec8078a77e5bf7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.0.0.aar\2f849ada733e677e52acdb8c4a33e58c\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.0.0.aar\2f849ada733e677e52acdb8c4a33e58c\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\164294821180c3b3b45dfe61dedc2cd1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\164294821180c3b3b45dfe61dedc2cd1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\56e8792d8009e849b457f92e7599eb9b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\56e8792d8009e849b457f92e7599eb9b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\8ccf177985274656c3b656c344a9f3d0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\8ccf177985274656c3b656c344a9f3d0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.0.0.aar\bdebdd0a8db84ea3a9f098ac8380f7c8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.0.0.aar\bdebdd0a8db84ea3a9f098ac8380f7c8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\4a9de6f2aef1c14585ac14875da992b4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\4a9de6f2aef1c14585ac14875da992b4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\93f5cafd4372a0930e52828d52d5067c\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\93f5cafd4372a0930e52828d52d5067c\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\e37f4f37ec7e590c95380cad93ea702d\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\e37f4f37ec7e590c95380cad93ea702d\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\b2321001d22630e938f9116776741257\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\b2321001d22630e938f9116776741257\AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.8.0.aar\016515419b10c515428aa20a5eaef302\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\Paweł\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.8.0.aar\016515419b10c515428aa20a5eaef302\AndroidManifest.xml:5:5-7:41
+INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml
+INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml
+		INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml
+		INJECTED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml
