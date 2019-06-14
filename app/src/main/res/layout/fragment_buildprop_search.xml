@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="?attr/colorPrimary"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/found_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:textStyle="italic" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/key_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/key"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:theme="?edittext_build_prop_style" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/value_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/value"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:theme="?edittext_build_prop_style" />
+</LinearLayout>

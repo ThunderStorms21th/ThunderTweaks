@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+
+    <string-array name="main_header_picture_items">
+        <item>@string/select_picture</item>
+        <item>@string/no_picture</item>
+    </string-array>
+
+    <!-- CPU -->
+    <string-array name="path_reader_options">
+        <item>@string/frequencies</item>
+        <item>@string/manual</item>
+    </string-array>
+    <string-array name="mc_power_saving_items">
+        <item>@string/disabled</item>
+        <item>@string/enabled</item>
+        <item>@string/aggressive</item>
+    </string-array>
+
+    <!-- CPU Hotplug -->
+    <string-array name="endurance_level_items">
+        <item>@string/disabled</item>
+        <item>@string/quad_core_mode</item>
+        <item>@string/dual_core_mode</item>
+    </string-array>
+
+    <!-- GPU -->
+    <string-array name="gpu_adreno_boost">
+        <item>@string/gpu_adreno_boost_off</item>
+        <item>@string/gpu_adreno_boost_low</item>
+        <item>@string/gpu_adreno_boost_medium</item>
+        <item>@string/gpu_adreno_boost_high</item>
+    </string-array>
+
+    <!-- Screen -->
+    <string-array name="colors">
+        <item>@string/red</item>
+        <item>@string/green</item>
+        <item>@string/blue</item>
+    </string-array>
+
+    <!-- Sound -->
+    <string-array name="eq_names">
+        <item>@string/arizona_eql1</item>
+        <item>@string/arizona_eql2</item>
+        <item>@string/arizona_eql3</item>
+        <item>@string/arizona_eql4</item>
+        <item>@string/arizona_eql5</item>
+        <item>@string/arizona_eql6</item>
+        <item>@string/arizona_eql7</item>
+        <item>@string/arizona_eql8</item>
+    </string-array>
+
+    <string-array name="eq_summary">
+        <item>@string/arizona_eql1_summary</item>
+        <item>@string/arizona_eql2_summary</item>
+        <item>@string/arizona_eql3_summary</item>
+        <item>@string/arizona_eql4_summary</item>
+        <item>@string/arizona_eql5_summary</item>
+        <item>@string/arizona_eql6_summary</item>
+        <item>@string/arizona_eql7_summary</item>
+        <item>@string/arizona_eql8_summary</item>
+    </string-array>
+
+    <!-- Low Memory Killer -->
+    <string-array name="lmk_names">
+        <item>@string/foreground_app</item>
+        <item>@string/visible_app</item>
+        <item>@string/secondary_server</item>
+        <item>@string/hidden_app</item>
+        <item>@string/content_providers</item>
+        <item>@string/empty_app</item>
+    </string-array>
+
+    <!--Wakelocks-->
+    <string-array name="b_wakelocks_oder">
+        <item>@string/wkl_name</item>
+        <item>@string/wkl_time</item>
+        <item>@string/wkl_wakeup</item>
+    </string-array>
+
+    <!-- Misc -->
+    <string-array name="powersuspend_items">
+        <item>@string/autosleep</item>
+        <item>@string/userspace</item>
+        <item>@string/lcd_panel</item>
+        <item>@string/hybrid</item>
+    </string-array>
+    <string-array name="powersuspend_items_lite">
+        <item> </item>
+        <item>@string/userspace</item>
+        <item>@string/lcd_panel</item>
+        <item> </item>
+    </string-array>
+    <string-array name="selinux_states">
+        <item>@string/selinux_permissive</item>
+        <item>@string/selinux_enforcing</item>
+    </string-array>
+
+    <!-- Custom Controls -->
+    <string-array name="custom_controls_options">
+        <item>@string/create</item>
+        <item>@string/import_item</item>
+    </string-array>
+    <string-array name="custom_controls_items">
+        <item>@string/control_switch</item>
+        <item>@string/control_seekbar</item>
+        <item>@string/control_generic</item>
+    </string-array>
+
+    <!-- Downloads -->
+    <string-array name="downloads_recovery">
+        <item>@string/cwm_recovery</item>
+        <item>@string/twrp</item>
+        <item>@string/manual_flashing</item>
+    </string-array>
+
+    <!-- Backup -->
+    <string-array name="backup_options">
+        <item>@string/backup</item>
+        <item>@string/flash</item>
+    </string-array>
+    <string-array name="backup_item_options">
+        <item>@string/restore</item>
+        <item>@string/delete</item>
+    </string-array>
+
+    <!-- Build prop Editor -->
+    <string-array name="build_prop_add_options">
+        <item>@string/add</item>
+        <item>@string/backup</item>
+    </string-array>
+    <string-array name="build_prop_item_options">
+        <item>@string/edit</item>
+        <item>@string/delete</item>
+    </string-array>
+
+    <!-- Profile -->
+    <string-array name="profile_options">
+        <item>@string/create</item>
+        <item>@string/import_item</item>
+    </string-array>
+    <string-array name="profile_modes">
+        <item>@string/new_mode</item>
+        <item>@string/current_settings</item>
+    </string-array>
+
+    <!-- Recovery -->
+    <string-array name="recovery_options">
+        <item>@string/cwm_recovery</item>
+        <item>@string/twrp</item>
+    </string-array>
+    <string-array name="recovery_reboot_options">
+        <item>@string/reboot</item>
+        <item>@string/reboot_recovery</item>
+        <item>@string/reboot_bootloader</item>
+        <item>@string/reboot_download</item>
+        <item>@string/reboot_soft</item>
+    </string-array>
+    <string-array name="recovery_reboot_values">
+        <item>reboot</item>
+        <item>reboot recovery</item>
+        <item>reboot bootloader</item>
+        <item>reboot download</item>
+        <item>pkill zygote</item>
+    </string-array>
+    <string-array name="recovery_commands">
+        <item>@string/wipe_data</item>
+        <item>@string/wipe_cache</item>
+        <item>@string/flash_zip</item>
+    </string-array>
+
+    <!-- Settings -->
+    <string-array name="apply_on_boot_delay_entries">
+        <item>@string/instant</item>
+        <item>@string/five_sec</item>
+        <item>@string/ten_sec</item>
+        <item>@string/twenty_sec</item>
+        <item>@string/fifty_sec</item>
+    </string-array>
+    <string-array name="apply_on_boot_delay_values">
+        <item>0</item>
+        <item>5</item>
+        <item>10</item>
+        <item>20</item>
+        <item>50</item>
+    </string-array>
+	
+	<!-- Grx sound Control -->
+    <string-array name="equalizerbands">
+        <item>25</item>
+        <item>100</item>
+        <item>250</item>
+        <item>500</item>
+        <item>1K</item>
+        <item>2K</item>
+        <item>4K</item>
+        <item>16K</item>
+    </string-array>
+
+    <string-array name="moro_eq_profiles_names">
+        <item>Flat</item>
+        <item>Extreme Bass</item>
+        <item>Bass-Treble Balance</item>
+        <item>Treble Gain</item>
+        <item>Classical</item>
+        <item>Pleasant</item>
+        <item>Eargasm</item>
+        <item>BeatsBass</item>
+        <item>Enhanced-Sound</item>
+        <item>DeepBass</item>
+        <item>Detonation</item>
+        <item>BeastCream</item>
+
+    </string-array>
+    <string-array name="moro_eq_profiles_values">
+        <item>0,0,0,0,0</item>
+        <item>12,8,3,-1,1</item>
+        <item>10,7,0,2,5</item>
+        <item>-5,1,0,4,3</item>
+        <item>0,0,0,-3,-5</item>
+        <item>4,3,2,2,3</item>
+        <item>12,8,4,2,3</item>
+        <item>10,8,6,5,7</item>
+        <item>9,-3,9,7,8</item>
+        <item>10,-1,8,4,8</item>
+        <item>9,4,-2,7,11</item>
+        <item>9,4,10,4,7</item>
+    </string-array>
+    <string-array name="zram_alg">
+        <item>@string/zram_lzo</item>
+        <item>@string/zram_lz4</item>
+        <item>@string/zram_deflate</item>
+    </string-array>
+
+</resources>
