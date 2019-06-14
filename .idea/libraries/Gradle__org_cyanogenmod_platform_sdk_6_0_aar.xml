@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: org.cyanogenmod:platform.sdk:6.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/jetified-platform.sdk-6.0.aar/2dfbd53bebc7548a54647ee2832cb44d/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/jetified-platform.sdk-6.0.aar/2dfbd53bebc7548a54647ee2832cb44d/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.cyanogenmod/platform.sdk/6.0/6515d908425b5627175278703d1507838d3bd4fd/platform.sdk-6.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
