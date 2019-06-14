@@ -2,8 +2,10 @@
 
 It is a fork of Corsicanu's [hKTweaks](https://github.com/corsicanu/hKtweaks) and MoroGoku's [MTweaks](https://github.com/morogoku/MTweaks-KernelAdiutorMOD), properly adaptated to exynos 7870/7880/7884/7885
 /7904/8890 devices (maybe even more).
+
 Original hKTweaks and MTweaks app is a Mod of Grarak's [KernelAdiutor](https://github.com/Grarak/KernelAdiutor) for compatibilize to Samsung Exynos.
 Thanks to Willi Ye for this great application.
+
 First version of ThunderTweaks v1.0.0 is builded from hKTweaks v1.1.5 and MTWeaks v2.14.0.
 I've added some fixes and new stuff for better work with ThundeRStormS kernel : (https://github.com/ThunderStorms21th/Galaxy-S7-Pie-kernel) and (https://github.com/ThunderStorms21th/Galaxy-S7-kernel).
 
