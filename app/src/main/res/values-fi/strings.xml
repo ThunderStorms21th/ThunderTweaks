@@ -738,7 +738,7 @@
   <string name="apply_on_boot_toast_summary">Näytä ponnahdusilmoitus kun asetus otetaan käyttöön.</string>
   <string name="confirmation_notification">Vahvistusilmoitus</string>
   <string name="script">Komentosarja</string>
-  <string name="apply_on_boot_script_summary">Käytä komentoskriptiä asetuksien käyttöönottoon. Aktivoi tämä ainoastaan jos sinulla on ongelmia \"toteuta käynnistyessä\" kanssa. Jos ongelma ei vielä tälläkään korjaannu, tarkista ettei mikään toinen ohjelma ole ristiriidassa hKtweaks kanssa.</string>
+  <string name="apply_on_boot_script_summary">Käytä komentoskriptiä asetuksien käyttöönottoon. Aktivoi tämä ainoastaan jos sinulla on ongelmia \"toteuta käynnistyessä\" kanssa. Jos ongelma ei vielä tälläkään korjaannu, tarkista ettei mikään toinen ohjelma ole ristiriidassa ThunderTweaks kanssa.</string>
   <string name="debugging">Vianetsintä</string>
   <string name="logcat">Loki</string>
   <string name="logcat_summary">Kopioi loki sijaintiin /sdcard/logcat.txt</string>
@@ -748,7 +748,7 @@
   <string name="driver_message_summary">Kopioi ajuri-ilmoitukset (dmesg) kohteeseen /sdcard/dmesg.txt</string>
   <string name="security">Turvallisuus</string>
   <string name="set_password">Määritä salasana</string>
-  <string name="set_password_summary">Voit suojata hKtweaks määrittämällä salasanan. Joka kerta kun avaat tämän sovelluksen, sinun täytyy syöttää salasana. Jos unohdat salasanasi, pyyhi tämän sovelluksen tiedot puhelimesi sovellusasetuksista. Älä hätäile, me emme jaa salasanaasi eteenpäin.</string>
+  <string name="set_password_summary">Voit suojata ThunderTweaks määrittämällä salasanan. Joka kerta kun avaat tämän sovelluksen, sinun täytyy syöttää salasana. Jos unohdat salasanasi, pyyhi tämän sovelluksen tiedot puhelimesi sovellusasetuksista. Älä hätäile, me emme jaa salasanaasi eteenpäin.</string>
   <string name="delete_password">Poista salasana</string>
   <string name="old_password">Vanha salasana</string>
   <string name="new_password">Uusi salasana</string>

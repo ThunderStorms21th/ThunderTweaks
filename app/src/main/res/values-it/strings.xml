@@ -793,7 +793,7 @@
   <string name="confirmation_notification">Notifica di conferma</string>
   <string name="apply_on_boot_confirmation_notification_summary">Dopo \"applica all\'avvio\" con notifica visibile, in seguito visualizza una notifica con la conferma che \"applica all\'avvio\" è stata completata.</string>
   <string name="script">Script</string>
-  <string name="apply_on_boot_script_summary">Utilizza uno shell script per applicare le impostazioni. Abilitalo solo se hai problemi con \"applica all\'avvio\". Se il problema persiste, assicurati che nessun altra app sia in conflitto con hKtweaks.</string>
+  <string name="apply_on_boot_script_summary">Utilizza uno shell script per applicare le impostazioni. Abilitalo solo se hai problemi con \"applica all\'avvio\". Se il problema persiste, assicurati che nessun altra app sia in conflitto con ThunderTweaks.</string>
   <string name="debugging">Debugging</string>
   <string name="logcat">Logcat</string>
   <string name="logcat_summary">Copia logcat in /sdcard/logcat.txt</string>
@@ -803,7 +803,7 @@
   <string name="driver_message_summary">Copia messaggio driver (dmesg) in /sdcard/dmesg.txt</string>
   <string name="security">Sicurezza</string>
   <string name="set_password">Imposta una password</string>
-  <string name="set_password_summary">Puoi proteggere hKtweaks impostando una password. Ogni volta che apri l\'applicazione, dovrai inserirla. Se la dimentichi, basta pulire i dati dell\'applicazione nelle impostazioni. Non ti preoccupare, io non condividerò la tua password.</string>
+  <string name="set_password_summary">Puoi proteggere ThunderTweaks impostando una password. Ogni volta che apri l\'applicazione, dovrai inserirla. Se la dimentichi, basta pulire i dati dell\'applicazione nelle impostazioni. Non ti preoccupare, io non condividerò la tua password.</string>
   <string name="delete_password">Elimina password</string>
   <string name="old_password">Vecchia password</string>
   <string name="new_password">Nuova password</string>

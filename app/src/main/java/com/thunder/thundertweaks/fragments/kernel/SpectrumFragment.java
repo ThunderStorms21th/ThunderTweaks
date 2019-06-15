@@ -17,6 +17,7 @@ import java.util.List;
 
 /**
  * Created by Morogoku on 28/07/2017.
+ * Modded by nalas on 15/06/2019 - added ThundeRStormS card
  */
 
 public class SpectrumFragment extends RecyclerViewFragment {
@@ -40,6 +41,7 @@ public class SpectrumFragment extends RecyclerViewFragment {
         final int perColor = ContextCompat.getColor(getContext(), R.color.colorPerformance);
         final int batColor = ContextCompat.getColor(getContext(), R.color.colorBattery);
         final int gamColor = ContextCompat.getColor(getContext(), R.color.colorGaming);
+		final int thunderColor = ContextCompat.getColor(getContext(), R.color.colorThundeRStormS);
 
 
         //CardView Balanced
@@ -124,6 +126,24 @@ public class SpectrumFragment extends RecyclerViewFragment {
         card3.addItem(desc3);
         items.add(card3);
 
+        //CardView ThundeRStormS
+        final CardView card4 = new CardView(getActivity());
+        card4.setTitle(getString(R.string.spec_thunder));
+        card4.setExpandable(false);
+
+        final DescriptionView desc4 = new DescriptionView();
+        desc4.setSummary(getString(R.string.spec_thunder_summary));
+        desc4.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_spectrum_thunder));
+
+        card4.setOnItemClickListener(new CardView.OnItemClickListener() {
+            @Override
+            public void onClick(RecyclerViewItem item) {
+                cardClick(card4, desc4, 4, thunderColor);
+            }
+        });
+
+        card4.addItem(desc4);
+        items.add(card4);
 
         //Detects the selected profile on launch
         int mProfile = AppSettings.getInt("spectrum_profile", 0, getActivity());
@@ -148,6 +168,11 @@ public class SpectrumFragment extends RecyclerViewFragment {
             desc3.GrxSetInitSelection(true, Color.WHITE);
             oldCard = card3;
             oldDesc = desc3;
+        } else if(mProfile == 4){
+            card4.GrxSetInitSelection(true, thunderColor);
+            desc4.GrxSetInitSelection(true, Color.WHITE);
+            oldCard = card4;
+            oldDesc = desc4;
         }
 
     }

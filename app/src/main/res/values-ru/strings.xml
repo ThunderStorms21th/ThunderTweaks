@@ -822,7 +822,7 @@
   <string name="confirmation_notification">Уведомление подтверждения</string>
   <string name="apply_on_boot_confirmation_notification_summary">После выбора Применять при загрузке, выводится уведомление об удачном применении.</string>
   <string name="script">Скрипт</string>
-  <string name="apply_on_boot_script_summary">Использовать консольный скрипт для применения настроек. Пожалуйста, включайте это только если у вас есть проблемы с применением при загрузке. Если же проблема всё ещё останется после включения этой опции, пожалуйста, проверьте, нет ли других приложений, конфликтующих с hKtweaks.</string>
+  <string name="apply_on_boot_script_summary">Использовать консольный скрипт для применения настроек. Пожалуйста, включайте это только если у вас есть проблемы с применением при загрузке. Если же проблема всё ещё останется после включения этой опции, пожалуйста, проверьте, нет ли других приложений, конфликтующих с ThunderTweaks.</string>
   <string name="debugging">Отладка</string>
   <string name="logcat">Logcat</string>
   <string name="logcat_summary">Скопировать logcat в /sdcard/logcat.txt</string>
@@ -832,7 +832,7 @@
   <string name="driver_message_summary">Скопировать сообщение драйвера (dmesg) в /sdcard/dmesg.txt</string>
   <string name="security">Безопасность</string>
   <string name="set_password">Установить пароль</string>
-  <string name="set_password_summary">Вы можете защитить hKtweaks, установив пароль. Каждый раз, когда вы откроете это приложение, вы должны ввести его. Если вы его забудете, просто сотрите данные этого приложения в настройках вашего устройства. Не волнуйтесь, я не поделюсь вашим паролем.</string>
+  <string name="set_password_summary">Вы можете защитить ThunderTweaks, установив пароль. Каждый раз, когда вы откроете это приложение, вы должны ввести его. Если вы его забудете, просто сотрите данные этого приложения в настройках вашего устройства. Не волнуйтесь, я не поделюсь вашим паролем.</string>
   <string name="delete_password">Удалить пароль</string>
   <string name="old_password">Старый пароль</string>
   <string name="new_password">Новый пароль</string>

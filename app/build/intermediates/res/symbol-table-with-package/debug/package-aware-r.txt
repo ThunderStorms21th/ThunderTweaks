@@ -793,6 +793,7 @@ color colorBalance
 color colorBattery
 color colorGaming
 color colorPerformance
+color colorThundeRStormS
 color cyanAccent
 color cyanPrimary
 color cyanPrimaryDark
@@ -1357,11 +1358,13 @@ drawable ic_spectrum_battery
 drawable ic_spectrum_game
 drawable ic_spectrum_logo
 drawable ic_spectrum_performance
+drawable ic_spectrum_thunder
 drawable ic_spectrum_tile_balanced
 drawable ic_spectrum_tile_battery
 drawable ic_spectrum_tile_game
 drawable ic_spectrum_tile_logo
 drawable ic_spectrum_tile_performance
+drawable ic_spectrum_tile_thunder
 drawable ic_stackoverflow
 drawable ic_start
 drawable ic_stat_name
@@ -3015,6 +3018,8 @@ string spec_gaming_summary
 string spec_info
 string spec_performance
 string spec_performance_summary
+string spec_thunder
+string spec_thunder_summary
 string spec_title
 string spectrum
 string speed

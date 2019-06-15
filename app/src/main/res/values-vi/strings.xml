@@ -699,7 +699,7 @@
   <string name="confirmation_notification">Thông báo xác nhận</string>
   <string name="apply_on_boot_confirmation_notification_summary">Sau khi áp dụng khởi động với thông báo được hiển thị, hiển thị một thông báo xác nhận áp dụng khởi động đã thành công.</string>
   <string name="script">Kịch bản</string>
-  <string name="apply_on_boot_script_summary">Sử dụng một kịch bản để áp dụng cài đặt. Xin vui lòng chỉ kích hoạt điều này nếu bạn có rắc rối với áp dụng khi khởi động. Nếu vấn đề vẫn còn vẫn tồn tại sau khi kích hoạt tùy chọn này, xin vui lòng chắc chắn rằng không có ứng dụng khác là xung đột với hKtweaks.</string>
+  <string name="apply_on_boot_script_summary">Sử dụng một kịch bản để áp dụng cài đặt. Xin vui lòng chỉ kích hoạt điều này nếu bạn có rắc rối với áp dụng khi khởi động. Nếu vấn đề vẫn còn vẫn tồn tại sau khi kích hoạt tùy chọn này, xin vui lòng chắc chắn rằng không có ứng dụng khác là xung đột với ThunderTweaks.</string>
   <string name="debugging">Đang gỡ lỗi</string>
   <string name="logcat">Bản ghi danh mục</string>
   <string name="logcat_summary">Sao bản ghi đến /sdcard/logcat.txt</string>
@@ -709,7 +709,7 @@
   <string name="driver_message_summary">Chép thông báo trình điều khiển (dmesg) đến /sdcard/dmesg.txt</string>
   <string name="security">Bảo mật</string>
   <string name="set_password">Đặt mật khẩu</string>
-  <string name="set_password_summary">Bạn có thể bảo vệ hKtweaks bằng cách thiết lập một mật khẩu. Mỗi khi bạn mở ứng dụng này, bạn phải nhập mật khẩu. Nếu bạn quên nó, đơn giản chỉ cần xoá sạch dữ liệu của ứng dụng này trong các cài đặt của thiết bị của bạn. Đừng lo lắng tôi sẽ không chia sẻ mật khẩu của bạn.</string>
+  <string name="set_password_summary">Bạn có thể bảo vệ ThunderTweaks bằng cách thiết lập một mật khẩu. Mỗi khi bạn mở ứng dụng này, bạn phải nhập mật khẩu. Nếu bạn quên nó, đơn giản chỉ cần xoá sạch dữ liệu của ứng dụng này trong các cài đặt của thiết bị của bạn. Đừng lo lắng tôi sẽ không chia sẻ mật khẩu của bạn.</string>
   <string name="delete_password">Xóa mật khẩu</string>
   <string name="old_password">Mật khẩu cũ</string>
   <string name="new_password">Mật khẩu mới</string>

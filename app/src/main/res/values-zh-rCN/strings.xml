@@ -823,7 +823,7 @@
   <string name="confirmation_notification">确认通知</string>
   <string name="apply_on_boot_confirmation_notification_summary">在有可见通知的启动时应用后，再显示一个确认的启动时应用成功的通知。</string>
   <string name="script">脚本</string>
-  <string name="apply_on_boot_script_summary">使用shell脚本应用设置。请只在您无法正常进行启动时设置应用时启用此选项。如果启用此选项后问题仍然存在，请确认没有其他与 hKtweaks 冲突的应用。</string>
+  <string name="apply_on_boot_script_summary">使用shell脚本应用设置。请只在您无法正常进行启动时设置应用时启用此选项。如果启用此选项后问题仍然存在，请确认没有其他与 ThunderTweaks 冲突的应用。</string>
   <string name="debugging">调试</string>
   <string name="logcat">Logcat</string>
   <string name="logcat_summary">将 logcat 复制到 /sdcard/logcat.txt</string>
@@ -833,7 +833,7 @@
   <string name="driver_message_summary">将驱动程序消息 (dmesg) 复制到 /sdcard/dmesg.txt</string>
   <string name="security">安全</string>
   <string name="set_password">设置密码</string>
-  <string name="set_password_summary">你可以通过设置密码来保护 hKtweaks。每次您打开本应用时都需要先输入密码才能进入。如果您忘记了它，只需在设置中清除此应用的数据。别担心，我不会分享您的密码。</string>
+  <string name="set_password_summary">你可以通过设置密码来保护 ThunderTweaks。每次您打开本应用时都需要先输入密码才能进入。如果您忘记了它，只需在设置中清除此应用的数据。别担心，我不会分享您的密码。</string>
   <string name="delete_password">删除密码</string>
   <string name="old_password">原密码</string>
   <string name="new_password">新密码</string>

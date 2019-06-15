@@ -813,7 +813,7 @@ sicher?</string>
   <string name="confirmation_notification">Bestätigende Benachrichtigung</string>
   <string name="apply_on_boot_confirmation_notification_summary">Zeige eine Benachrichtigung dass der Vorgang erfolgreich war, nach der sichtbaren Benachrichtigung des Anwenden beim Boot.</string>
   <string name="script">Skript</string>
-  <string name="apply_on_boot_script_summary">Benutze ein Shell Skript, um Einstellungen anzuwenden.  Bitte nur aktivieren, wenn du Probleme beim Bootvorgang hast. Sollte das Problem weiterhin bestehen,  stelle sicher das keine andere App hKtweaks behindert.</string>
+  <string name="apply_on_boot_script_summary">Benutze ein Shell Skript, um Einstellungen anzuwenden.  Bitte nur aktivieren, wenn du Probleme beim Bootvorgang hast. Sollte das Problem weiterhin bestehen,  stelle sicher das keine andere App ThunderTweaks behindert.</string>
   <string name="debugging">Debugging</string>
   <string name="logcat">Logcat</string>
   <string name="logcat_summary">Kopiere Logcat nach /sdcard/logcat.txt</string>
@@ -823,7 +823,7 @@ sicher?</string>
   <string name="driver_message_summary">Treiber-Nachricht (Dmesg) auf /sdcard/dmesg.txt speichern</string>
   <string name="security">Sicherheit</string>
   <string name="set_password">Passwort festlegen</string>
-  <string name="set_password_summary">Sie können hKtweaks durch das Festlegen eines Passworts schützen. Jedes Mal wenn Sie diese Anwendung öffnen, müssen Sie Ihr Passwort eingeben. Falls Sie es vergessen sollten, einfach die Daten dieser Anwendung in den Einstellungen Ihres Gerätes löschen. Machen Sie sich keine Sorgen, ich werde Ihr Passwort nicht missbrauchen.</string>
+  <string name="set_password_summary">Sie können ThunderTweaks durch das Festlegen eines Passworts schützen. Jedes Mal wenn Sie diese Anwendung öffnen, müssen Sie Ihr Passwort eingeben. Falls Sie es vergessen sollten, einfach die Daten dieser Anwendung in den Einstellungen Ihres Gerätes löschen. Machen Sie sich keine Sorgen, ich werde Ihr Passwort nicht missbrauchen.</string>
   <string name="delete_password">Passwort löschen</string>
   <string name="old_password">Altes Password</string>
   <string name="new_password">Neues Passwort</string>

@@ -615,7 +615,7 @@
   <string name="driver_message_summary">Copia\'l mensaxe del controlador (dmesg) a /sdcard/dmesg.txt</string>
   <string name="security">Seguranza</string>
   <string name="set_password">Afitar contraseña</string>
-  <string name="set_password_summary">Pues protexer hKtweaks afitando una contraseña. Cada vegada qu\'abras esta aplicación, habrás introducila. Si la escaeces, namái llimpia los datos d\'esta aplicación nos axustes del to preséu. Nun t\'esmolezas, nun compartiré la to contraseña.</string>
+  <string name="set_password_summary">Pues protexer ThunderTweaks afitando una contraseña. Cada vegada qu\'abras esta aplicación, habrás introducila. Si la escaeces, namái llimpia los datos d\'esta aplicación nos axustes del to preséu. Nun t\'esmolezas, nun compartiré la to contraseña.</string>
   <string name="delete_password">Desaniciar contraseña</string>
   <string name="old_password">Contraseña vieya</string>
   <string name="new_password">Contraseña nueva</string>

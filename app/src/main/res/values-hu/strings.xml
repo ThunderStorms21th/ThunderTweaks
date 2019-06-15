@@ -822,7 +822,7 @@
   <string name="confirmation_notification">Megerősítő értesítés</string>
   <string name="apply_on_boot_confirmation_notification_summary">Alkalmazás induláskor után, jelenítsen meg egy értesítést, hogy az alkalmazás induláskor sikeres volt.</string>
   <string name="script">Szkript</string>
-  <string name="apply_on_boot_script_summary">Beállítások alkalmazása egy parancsfájl segítségével. Kérlek, csak akkor használd, ha gondod van az Alkalmazás induláskor beállítással. Ha a probléma továbbra is fennáll a beállítás engedélyezése után, kérlek, győződj meg arról, hogy nem ütközik más alkalmazás a hKtweaks.</string>
+  <string name="apply_on_boot_script_summary">Beállítások alkalmazása egy parancsfájl segítségével. Kérlek, csak akkor használd, ha gondod van az Alkalmazás induláskor beállítással. Ha a probléma továbbra is fennáll a beállítás engedélyezése után, kérlek, győződj meg arról, hogy nem ütközik más alkalmazás a ThunderTweaks.</string>
   <string name="debugging">Hibakeresés</string>
   <string name="logcat">Logcat</string>
   <string name="logcat_summary">Logcat másolása ide: /sdcard/logcat.txt</string>
@@ -832,7 +832,7 @@
   <string name="driver_message_summary">Vezérlő üzenet (dmesg) másolása ide: /sdcard/dmesg.txt</string>
   <string name="security">Biztonság</string>
   <string name="set_password">Jelszó beállítása</string>
-  <string name="set_password_summary">Védje a hKtweaks alkalmazást jelszó beállításával. Minden egyes megnyitáskor meg kell adja jelszavát. Ha elfelejtené, törölje az az alkalmazás adatait a készülék beállításaiban. Ne aggódjon, jelszava nem kerül megosztásra.</string>
+  <string name="set_password_summary">Védje a ThunderTweaks alkalmazást jelszó beállításával. Minden egyes megnyitáskor meg kell adja jelszavát. Ha elfelejtené, törölje az az alkalmazás adatait a készülék beállításaiban. Ne aggódjon, jelszava nem kerül megosztásra.</string>
   <string name="delete_password">Jelszó törlése</string>
   <string name="old_password">Régi jelszó</string>
   <string name="new_password">Új jelszó</string>

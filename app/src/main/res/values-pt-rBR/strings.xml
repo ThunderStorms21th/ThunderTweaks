@@ -793,7 +793,7 @@
   <string name="confirmation_notification">Notificação de Confirmação</string>
   <string name="apply_on_boot_confirmation_notification_summary">Depois de aplicar na inicialização com uma notificação visível, posteriormente exibirá uma notificação com a confirmação de que a aplicação na inicialização foi bem sucedida.</string>
   <string name="script">Script</string>
-  <string name="apply_on_boot_script_summary">Use um script shell para aplicar as configurações. Por favor, apenas habilite isso se você tiver problemas para aplicar na inicialização. Se o problema ainda persistir depois de ativar esta opção, por favor, certifique-se de que nenhum outro aplicativo está em conflito com o hKtweaks.</string>
+  <string name="apply_on_boot_script_summary">Use um script shell para aplicar as configurações. Por favor, apenas habilite isso se você tiver problemas para aplicar na inicialização. Se o problema ainda persistir depois de ativar esta opção, por favor, certifique-se de que nenhum outro aplicativo está em conflito com o ThunderTweaks.</string>
   <string name="debugging">Depuração</string>
   <string name="logcat">Logcat</string>
   <string name="logcat_summary">Copiar o Logcat para /sdcard/logcat.txt</string>
@@ -803,7 +803,7 @@
   <string name="driver_message_summary">Copiar a mensagem do controlador (dmesg) para /sdcard/dmesg.txt</string>
   <string name="security">Segurança</string>
   <string name="set_password">Definir senha</string>
-  <string name="set_password_summary">Você pode proteger o hKtweaks definindo uma senha. Toda vez que você abrir este aplicativo, você precisará digitá-la. Se você esquecer a senha, simplesmente limpe os dados deste aplicativo nas configurações do seu dispositivo. Não se preocupe, eu não compartilharei sua senha.</string>
+  <string name="set_password_summary">Você pode proteger o ThunderTweaks definindo uma senha. Toda vez que você abrir este aplicativo, você precisará digitá-la. Se você esquecer a senha, simplesmente limpe os dados deste aplicativo nas configurações do seu dispositivo. Não se preocupe, eu não compartilharei sua senha.</string>
   <string name="delete_password">Excluir senha</string>
   <string name="old_password">Senha antiga</string>
   <string name="new_password">Nova senha</string>

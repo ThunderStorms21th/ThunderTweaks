@@ -818,7 +818,7 @@
   <string name="confirmation_notification">Powiadomienie potwierdzające</string>
   <string name="apply_on_boot_confirmation_notification_summary">Po zakończeniu aplikowania ustawień przy starcie, pokaż kolejną notyfikacje potwierdzającą, że aplikowanie ustawień przy starcie zakończyło się pomyślnie. Ps: Opcja ukryj musi być wyłączona.</string>
   <string name="script">Skrypt</string>
-  <string name="apply_on_boot_script_summary">Użyj skryptów powłoki, by aplikować ustawienia. Proszę użyj tej opcji, tylko jeżeli masz kłopoty z aplikowaniem ustawień podczas startu urządzenia. Jeżeli problem nie ustępuje po włączeniu tej opcji, sprawdź czy jakaś aplikacja nie konfliktuje z hKtweaks.</string>
+  <string name="apply_on_boot_script_summary">Użyj skryptów powłoki, by aplikować ustawienia. Proszę użyj tej opcji, tylko jeżeli masz kłopoty z aplikowaniem ustawień podczas startu urządzenia. Jeżeli problem nie ustępuje po włączeniu tej opcji, sprawdź czy jakaś aplikacja nie konfliktuje z ThunderTweaks.</string>
   <string name="debugging">Debugowanie</string>
   <string name="logcat">Logcat</string>
   <string name="logcat_summary">Skopiuj logcat do /sdcard/logcat.txt</string>
@@ -828,7 +828,7 @@
   <string name="driver_message_summary">Skopiuj komunikaty sterowników (dmesg) do /sdcard/dmesg.txt</string>
   <string name="security">Zabezpieczenia</string>
   <string name="set_password">Ustaw hasło</string>
-  <string name="set_password_summary">Możesz zabezpieczyć hKtweaks poprzez ustawienie hasła. Za każdym razem gdy uruchamiasz tą aplikacje, musisz je wpisać. Jeśli zapomniałeś hasła poprostu wykasuj dane tej aplikacji w Ustawieniach twojego urządzenia. Nie bój się, z nikim nie dziele się twoim hasłem.</string>
+  <string name="set_password_summary">Możesz zabezpieczyć ThunderTweaks poprzez ustawienie hasła. Za każdym razem gdy uruchamiasz tą aplikacje, musisz je wpisać. Jeśli zapomniałeś hasła poprostu wykasuj dane tej aplikacji w Ustawieniach twojego urządzenia. Nie bój się, z nikim nie dziele się twoim hasłem.</string>
   <string name="delete_password">Usuń hasło</string>
   <string name="old_password">Stare hasło</string>
   <string name="new_password">Nowe hasło</string>

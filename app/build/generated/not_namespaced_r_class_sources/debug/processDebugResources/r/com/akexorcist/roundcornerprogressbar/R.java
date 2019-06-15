@@ -39,9 +39,9 @@ public final class R {
     public static final class color {
         private color() {}
 
-        public static final int round_corner_progress_bar_background_default = 0x7f0600b6;
-        public static final int round_corner_progress_bar_progress_default = 0x7f0600b7;
-        public static final int round_corner_progress_bar_secondary_progress_default = 0x7f0600b8;
+        public static final int round_corner_progress_bar_background_default = 0x7f0600b7;
+        public static final int round_corner_progress_bar_progress_default = 0x7f0600b8;
+        public static final int round_corner_progress_bar_secondary_progress_default = 0x7f0600b9;
     }
     public static final class id {
         private id() {}

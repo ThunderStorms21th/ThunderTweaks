@@ -822,7 +822,7 @@
   <string name="confirmation_notification">Potvrzující oznámení</string>
   <string name="apply_on_boot_confirmation_notification_summary">Po vybrání \'Použít při spuštění\' se zapnutými sděleními zobrazí oznámení s potvrzením, zda bylo použití při spuštění úspěšné.</string>
   <string name="script">Skript</string>
-  <string name="apply_on_boot_script_summary">Použít shell skript pro aplikování nastavení. Toto povolte pouze pokud máte problémy s aplikováním při spuštění. Pokud i po povolení tohoto nastavení problém přetrvává, ujistěte se, že neběží žádná jiná aplikace nekompatibilní s hKtweaks.</string>
+  <string name="apply_on_boot_script_summary">Použít shell skript pro aplikování nastavení. Toto povolte pouze pokud máte problémy s aplikováním při spuštění. Pokud i po povolení tohoto nastavení problém přetrvává, ujistěte se, že neběží žádná jiná aplikace nekompatibilní s ThunderTweaks.</string>
   <string name="debugging">Ladění</string>
   <string name="logcat">Logcat</string>
   <string name="logcat_summary">Kopírovat protokol logcat do /sdcard/logcat.txt</string>
@@ -832,7 +832,7 @@
   <string name="driver_message_summary">Kopírovat zprávu ovladače (dmesg) do /sdcard/dmesg.txt</string>
   <string name="security">Zabezpečení</string>
   <string name="set_password">Nastavit heslo</string>
-  <string name="set_password_summary">Přístup k funkcím aplikace hKtweaks můžete chránit heslem. Při každém spuštění aplikace jej budete muset zadat. Pokud ho zapomenete, jednoduše vymažte data této aplikace v nastavení svého zařízení.</string>
+  <string name="set_password_summary">Přístup k funkcím aplikace ThunderTweaks můžete chránit heslem. Při každém spuštění aplikace jej budete muset zadat. Pokud ho zapomenete, jednoduše vymažte data této aplikace v nastavení svého zařízení.</string>
   <string name="delete_password">Odstranit heslo</string>
   <string name="old_password">Původní heslo</string>
   <string name="new_password">Nové heslo</string>

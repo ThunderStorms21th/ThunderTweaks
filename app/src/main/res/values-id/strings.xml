@@ -791,7 +791,7 @@
   <string name="confirmation_notification">Notifikasi konfirmasi</string>
   <string name="apply_on_boot_confirmation_notification_summary">Setelah menerapkan pada boot dengan pemberitahuan terlihat, menunjukkan pemberitahuan selanjutnya dengan konfirmasi yang berlaku pada boot berhasil.</string>
   <string name="script">Skrip</string>
-  <string name="apply_on_boot_script_summary">Gunakan shell script untuk menerapkan pengaturan. Harap hanya mengaktifkan ini jika Anda memiliki masalah dengan terapkan saat boot. Jika masalah tetap berlanjut setelah mengaktifkan opsi ini, pastikan tidak ada aplikasi lain bertentangan dengan hKtweaks.</string>
+  <string name="apply_on_boot_script_summary">Gunakan shell script untuk menerapkan pengaturan. Harap hanya mengaktifkan ini jika Anda memiliki masalah dengan terapkan saat boot. Jika masalah tetap berlanjut setelah mengaktifkan opsi ini, pastikan tidak ada aplikasi lain bertentangan dengan ThunderTweaks.</string>
   <string name="debugging">Debugging</string>
   <string name="logcat">Logcat</string>
   <string name="logcat_summary">Salin logcat ke /sdcard/logcat.txt</string>
@@ -801,7 +801,7 @@
   <string name="driver_message_summary">Menyalin pesan driver (dmesg) ke /sdcard/dmesg.txt</string>
   <string name="security">Keamanan</string>
   <string name="set_password">Tetapkan sandi</string>
-  <string name="set_password_summary">Anda dapat melindungi hKtweaks dengan membuat password. Setiap kali Anda membuka aplikasi ini, Anda harus memasukkannya. Jika Anda lupa, cukup hapus data dari aplikasi ini dalam pengaturan perangkat Anda. Jangan khawatir saya tidak akan membagikan password Anda.</string>
+  <string name="set_password_summary">Anda dapat melindungi ThunderTweaks dengan membuat password. Setiap kali Anda membuka aplikasi ini, Anda harus memasukkannya. Jika Anda lupa, cukup hapus data dari aplikasi ini dalam pengaturan perangkat Anda. Jangan khawatir saya tidak akan membagikan password Anda.</string>
   <string name="delete_password">Hapus Kata Sandi</string>
   <string name="old_password">Kata sandi lama</string>
   <string name="new_password">Password baru</string>

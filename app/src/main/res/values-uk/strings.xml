@@ -753,7 +753,7 @@
   <string name="confirmation_notification">Повідомлення підтвердження</string>
   <string name="apply_on_boot_confirmation_notification_summary">Після вибору Застосовувати при завантаженні, виводиться повідомлення про вдалому застосуванні.</string>
   <string name="script">Скрипт</string>
-  <string name="apply_on_boot_script_summary">Використовувати консольний скрипт для застосування налаштувань. Будь ласка, включайте це тільки якщо у вас є проблеми із застосуванням при завантаженні. Якщо ж проблема все ще залишиться після включення цієї опції, будь ласка, перевірте, чи немає інших додатків, які конфліктують з hKtweaks.</string>
+  <string name="apply_on_boot_script_summary">Використовувати консольний скрипт для застосування налаштувань. Будь ласка, включайте це тільки якщо у вас є проблеми із застосуванням при завантаженні. Якщо ж проблема все ще залишиться після включення цієї опції, будь ласка, перевірте, чи немає інших додатків, які конфліктують з ThunderTweaks.</string>
   <string name="debugging">Налагодження</string>
   <string name="logcat">Logcat</string>
   <string name="logcat_summary">Скопіювати logcat в /sdcard/logcat.txt</string>
@@ -763,7 +763,7 @@
   <string name="driver_message_summary">Скопіювати повідомлення драйвера (dmesg) в /sdcard/dmesg.txt</string>
   <string name="security">Безпека</string>
   <string name="set_password">Встановити пароль</string>
-  <string name="set_password_summary">Ви можете захистити hKtweaks, встановивши пароль. Кожен раз, коли ви відкриєте цей додаток, ви повинні ввести його. Якщо ви його забудете, просто зітріть дані цього додатка в налаштуваннях вашого пристрою. Не хвилюйтеся, я не поділюся вашим паролем.</string>
+  <string name="set_password_summary">Ви можете захистити ThunderTweaks, встановивши пароль. Кожен раз, коли ви відкриєте цей додаток, ви повинні ввести його. Якщо ви його забудете, просто зітріть дані цього додатка в налаштуваннях вашого пристрою. Не хвилюйтеся, я не поділюся вашим паролем.</string>
   <string name="delete_password">Видалити пароль</string>
   <string name="old_password">Старий пароль</string>
   <string name="new_password">Новий пароль</string>

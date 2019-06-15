@@ -1006,7 +1006,7 @@
   <string name="reset_data_dialog2_title">Reiniciar</string>
   <string name="reset_data_dialog2_message">Para evitar fallos en la configuración se recomienda reiniciar el sistema.\n\nQuieres reiniciar?\n</string>
   <string name="check_update_title">Comprobar actualización</string>
-  <string name="check_update_summary">Comprueba si existe nueva actualizacion de hKtweaks</string>
+  <string name="check_update_summary">Comprueba si existe nueva actualizacion de ThunderTweaks</string>
   <string name="fahrenheit_title">Fahrenheit</string>
   <string name="fahrenheit_summary">Usar fahrenheit para medir la temperatura.</string>
   <string name="force_english">Forzar idioma inglés</string>
@@ -1035,7 +1035,7 @@
   <string name="confirmation_notification">Notificación de la confirmación</string>
   <string name="apply_on_boot_confirmation_notification_summary">Después de aplicar en el arranque con notificación visible, se mostrara una notificación con la confirmación de que la aplicación en el arranque fue exitosa.</string>
   <string name="script">Secuencia de comandos</string>
-  <string name="apply_on_boot_script_summary">Utilizar un script de shell para aplicar la configuración. Sólo habilite esto si tienes problemas con aplicar en el arranque. Si el problema persiste después de habilitar esta opción, asegúrese de que ninguna otra aplicación esta en conflicto con hKtweaks.</string>
+  <string name="apply_on_boot_script_summary">Utilizar un script de shell para aplicar la configuración. Sólo habilite esto si tienes problemas con aplicar en el arranque. Si el problema persiste después de habilitar esta opción, asegúrese de que ninguna otra aplicación esta en conflicto con ThunderTweaks.</string>
   <string name="debugging">Depuración</string>
   <string name="logcat">Logcat</string>
   <string name="logcat_summary">Copiar Logcat a /sdcard/logcat.txt</string>
@@ -1045,7 +1045,7 @@
   <string name="driver_message_summary">Copiar mensaje del controlador (dmesg) en /sdcard/dmesg.txt</string>
   <string name="security">Seguridad</string>
   <string name="set_password">Establecer contraseña</string>
-  <string name="set_password_summary">Puede proteger hKtweaks estableciendo una contraseña. Cada vez que abra la aplicación, la tendrá que introducir. Si la olvida, simplemente elimine los datos de esta aplicación en los ajustes de su dispositivo. No se preocupe, no compartiremos su contraseña.</string>
+  <string name="set_password_summary">Puede proteger ThunderTweaks estableciendo una contraseña. Cada vez que abra la aplicación, la tendrá que introducir. Si la olvida, simplemente elimine los datos de esta aplicación en los ajustes de su dispositivo. No se preocupe, no compartiremos su contraseña.</string>
   <string name="delete_password">Eliminar contraseña</string>
   <string name="old_password">Contraseña antigua</string>
   <string name="new_password">Contraseña nueva</string>

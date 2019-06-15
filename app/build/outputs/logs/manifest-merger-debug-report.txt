@@ -307,12 +307,12 @@ receiver#com.thunder.thundertweaks.services.profile.Tile
 ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:114:9-118:20
 	android:name
 		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:114:19-81
-intent-filter#action:name:com.hades.hKtweaks.action.ACTION_TOGGLE_STATE
+intent-filter#action:name:com.hades.thunderTweaks.action.ACTION_TOGGLE_STATE
 ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:115:13-117:29
-action#com.hades.hKtweaks.action.ACTION_TOGGLE_STATE
-ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:116:17-88
+action#com.hades.thunderTweaks.action.ACTION_TOGGLE_STATE
+ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:116:17-93
 	android:name
-		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:116:25-85
+		ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:116:25-90
 service#com.thunder.thundertweaks.services.DashClock
 ADDED from D:\ANDROID\GALAXY S7\OREO\TS KERNELS\TSTweaks\TTweaks\app\src\main\AndroidManifest.xml:121:9-132:19
 	android:permission

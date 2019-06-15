@@ -10,7 +10,7 @@
     <string name="open">Open %s</string>
     <string name="disable">Disable</string>
     <string name="changelog">ThunderTweaks v%s</string>
-    <string name="changelog_message">\n* added full support for AutoSMP hotplug for Exynos 8890\n* FIRST ThundeRSTormS Kernel Manager\n</string>
+    <string name="changelog_message">\n* added full support for AutoSMP hotplug for Exynos 8890\n* Added support for Spectrum ThundeRStormS profile\n* FIRST ThundeRSTormS Kernel Manager\n</string>
     <string name="close">Close</string>
 
     <!-- Security -->
@@ -815,7 +815,7 @@
     <string name="spectrum">Spectrum</string>
     <string name="profileTile">Spectrum Profile</string>
     <string name="spec_title">SPECTRUM Profile Manager</string>
-    <string name="spec_info">Adaptation of the Spectrum Manager of frap129.\nSelect one of the 4 predefined profiles.</string>
+    <string name="spec_info">Adaptation of the Spectrum Manager of frap129.\nSelect one of the 5 predefined profiles.</string>
     <string name="spec_balanced">Balanced</string>
     <string name="spec_balanced_summary">The default kernel profile, known for its smooth performance in basic tasks while maintaining fantastic battery.</string>
     <string name="spec_performance">Performance</string>
@@ -824,6 +824,8 @@
     <string name="spec_battery_summary">Ultra-conservative profile that lets performance take a hit in order to achieve long-lasting battery life.</string>
     <string name="spec_gaming">Gaming</string>
     <string name="spec_gaming_summary">Need that extra 10 FPS? I got you. Identical to performance in most areas other than the unlocked Graphics performance.</string>
+    <string name="spec_thunder">ThundeRStormS</string>
+    <string name="spec_thunder_summary">Thunder-conservative profile that lets performance take a hit in order to achieve long-lasting battery life with balanced performance. Edited by XDA@nalas</string>
 
     <!-- LED -->
     <string name="fade">Fade</string>
@@ -1184,7 +1186,7 @@
     <string name="app_update_notif_title">Update Notification</string>
     <string name="app_update_notif_summary">Show update notifications when new version ia available</string>
     <string name="check_update_title">Check update</string>
-    <string name="check_update_summary">Check if there is a new update of hKtweaks</string>
+    <string name="check_update_summary">Check if there is a new update of ThunderTweaks</string>
     <string name="reset_data_summary">Clear data and restore the application settings</string>
     <string name="reset_data_dialog1">The data and the configuration of the entire application will be erased.\n\nAre you sure?\n</string>
     <string name="reset_data_dialog2_title">Reboot</string>
@@ -1218,7 +1220,7 @@
     <string name="confirmation_notification">Confirmation Notification</string>
     <string name="apply_on_boot_confirmation_notification_summary">After apply on boot with visible notification, show a notification afterwards with the confirmation that apply on boot was successful.</string>
     <string name="script">Script</string>
-    <string name="apply_on_boot_script_summary">Use a shell script to apply settings. Please only enable this if you have troubles with apply on boot. If the problem still persists after enabling this option, please make sure no other app is conflicting with hKtweaks.</string>
+    <string name="apply_on_boot_script_summary">Use a shell script to apply settings. Please only enable this if you have troubles with apply on boot. If the problem still persists after enabling this option, please make sure no other app is conflicting with ThunderTweaks.</string>
     <string name="debugging">Debugging</string>
     <string name="logcat">Logcat</string>
     <string name="logcat_summary">Copy logcat to /sdcard/logcat.txt</string>
@@ -1228,7 +1230,7 @@
     <string name="driver_message_summary">Copy driver message (dmesg) to /sdcard/dmesg.txt</string>
     <string name="security">Security</string>
     <string name="set_password">Set Password</string>
-    <string name="set_password_summary">You can protect hKtweaks by setting up a password. Every time you open this application, you have to enter it. If you forget it, simply wipe the data of this application in settings of your device. Don\'t worry I won\'t share your password.</string>
+    <string name="set_password_summary">You can protect ThunderTweaks by setting up a password. Every time you open this application, you have to enter it. If you forget it, simply wipe the data of this application in settings of your device. Don\'t worry I won\'t share your password.</string>
     <string name="delete_password">Delete Password</string>
     <string name="old_password">Old password</string>
     <string name="new_password">New password</string>
@@ -1245,13 +1247,13 @@
     <!--<string name="about_me">Hi, I\'m Willi Ye aka Grarak, a 19 year old student living in Vienna. I\'ve been developing on Android for quite a long time. Beside thunderstorm.ThunderTweaks I\'m also maintaining LineageOS for few devices and working on ParanoidAndroid. So please understand if I don\'t find the time to update this application.</string>-->
     <!--<string name="about_me">Hi, I\'m MoroGoku, developer of MoRoKernel of Samsung S7. This app is a mod of \"thunderstorm.ThunderTweaks\" of Willi Ye, aka Grarak. I make this mod for compatibilize thunderstorm.ThunderTweaks with Galaxy S7 smartphone, and add some new options. Thanks Willi for this great app.</string>-->
     <!--<string name="about_me">Hi, I\'m Corsicanu, developer of hadesKernel.\nThis app is a mod of \"MTweaks\" by MoroGoku, properly adaptated to exynos7870/7880/7884/7885/7904 devices (maybe even more).\n\nThanks Willi for this great app, special thanks to MoroGoku for his awesome MTweaks app.</string>-->
-    <string name="about_me">Hi, I\'m @nalas XDA, developer of ThundeRStormS Kernel.\nThis app is a mod of \"hKtweaks"\ by corsicanu and \"MTweaks\" by MoroGoku, properly adaptated to exynos7870/7880/7884/7885/7904/8890 devices (maybe even more).\n\nThanks Willi for this great app, special thanks to MoroGoku and corsicanu for their awesome hKTweaks and MTweaks apps. Thanks for graphics projects for XDA@Franz S. and XDA@phghost, XDA@matt_988 and XDA@Kyo-Ito</string>
+    <string name="about_me">Hi, I\'m @nalas XDA, developer of ThundeRStormS Kernel.\nThis app is a mod of \"thunderTweaks"\ by corsicanu and \"MTweaks\" by MoroGoku, properly adaptated to exynos7870/7880/7884/7885/7904/8890 devices (maybe even more).\n\nThanks Willi for this great app, special thanks to MoroGoku and corsicanu for their awesome thunderTweaks and MTweaks apps. Thanks for Rohan D. and graphics projects for XDA@Franz S. and XDA@phghost, @nckmml, XDA@matt_988 and XDA@Kyo-Ito</string>
     <string name="libraries_used">Libraries used</string>
 
     <!-- Donation -->
     <string name="donation_title">Donation</string>
     <string name="donation_summary_mg">Hi, ThunderTweaks is an application based on \"Kernel Adiutor\" by Willi Ye, aka Grarak.\n\nIt has several new modifications and adjustments, especially for the latest Samsung Galaxy S7.\n\nI do this because I have fun and I like to share my work, that\'s why it\'s free and does not carry advertising.\n\nAlthough if you liked the work I have done and you want to donate something and invite me to a beer, as they say, you can do it in the following Paypal link.</string>
-    <string name="donation_summary">ThunderTweaks is an app based on \"hKtweaks"\ by corsicanu and \"MTweaks\" by MoroGoku, properly adaptated to exynos7870/7880/7884/7885/7904/8890 devices (maybe even more).\nIf you appreciate my work and you want to donate to support my work and provide me more coffee, you can do it on the following Paypal link.</string>
+    <string name="donation_summary">ThunderTweaks is an app based on \"thunderTweaks"\ by corsicanu and \"MTweaks\" by MoroGoku, properly adaptated to exynos7870/7880/7884/7885/7904/8890 devices (maybe even more).\nIf you appreciate my work and you want to donate to support my work and provide me more coffee, you can do it on the following Paypal link.</string>
 
     <!-- Contributors -->
     <string name="commits">%d commits</string>
@@ -1286,5 +1288,5 @@
     <string name="appupdater_btn_dismiss">Dismiss</string>
     <string name="appupdater_download_filed">Download FAILED!</string>
     <string name="appupdater_downloading_file">Downloading</string>
-    <string name="appupdater_json">https://raw.githubusercontent.com/corsicanu/hKtweaks/master/app/update.json</string>
+    <string name="appupdater_json">https://raw.githubusercontent.com/corsicanu/thunderTweaks/master/app/update.json</string>
 </resources>

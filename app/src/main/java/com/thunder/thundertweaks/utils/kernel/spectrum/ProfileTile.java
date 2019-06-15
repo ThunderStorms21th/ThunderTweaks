@@ -12,6 +12,7 @@ import com.thunder.thundertweaks.utils.Utils;
 
 /**
  * Created by Morogoku on 01/08/2017.
+ * Modded by nalas on 15/06/2019 - added ThundeRStormS card
  */
 
 @TargetApi(Build.VERSION_CODES.N)
@@ -45,6 +46,13 @@ public class ProfileTile extends TileService {
             newState = Tile.STATE_INACTIVE;
         }else {
             if (isActive && click) {
+                newLabel = "Spectrum ThundeRStormS";
+                newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_thunder);
+                newState = Tile.STATE_ACTIVE;
+                click = true;
+                Spectrum.setProfile(4);
+                AppSettings.saveInt("spectrum_profile", 4, getApplicationContext());				
+            } else if (isActive && !click) {				
                 newLabel = "Spectrum Gaming";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_game);
                 newState = Tile.STATE_ACTIVE;
@@ -105,7 +113,12 @@ public class ProfileTile extends TileService {
             newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_logo);
             newState = Tile.STATE_INACTIVE;
         }else {
-            if (profile == 3) {
+            if (profile == 4) {
+                newLabel = "Spectrum ThundeRStormS";
+                newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_thunder);
+                newState = Tile.STATE_ACTIVE;
+                click = false;
+            } else if (profile == 3) {
                 newLabel = "Spectrum Gaming";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_game);
                 newState = Tile.STATE_ACTIVE;

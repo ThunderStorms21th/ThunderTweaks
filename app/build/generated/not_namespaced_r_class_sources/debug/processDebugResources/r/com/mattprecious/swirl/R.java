@@ -85,10 +85,10 @@ public final class R {
     public static final class color {
         private color() {}
 
-        public static final int notification_action_color_filter = 0x7f060099;
-        public static final int notification_icon_bg_color = 0x7f06009a;
-        public static final int ripple_material_light = 0x7f0600b5;
-        public static final int secondary_text_default_material_light = 0x7f0600ba;
+        public static final int notification_action_color_filter = 0x7f06009a;
+        public static final int notification_icon_bg_color = 0x7f06009b;
+        public static final int ripple_material_light = 0x7f0600b6;
+        public static final int secondary_text_default_material_light = 0x7f0600bb;
     }
     public static final class dimen {
         private dimen() {}
@@ -119,32 +119,32 @@ public final class R {
     public static final class drawable {
         private drawable() {}
 
-        public static final int notification_action_background = 0x7f0800b8;
-        public static final int notification_bg = 0x7f0800b9;
-        public static final int notification_bg_low = 0x7f0800ba;
-        public static final int notification_bg_low_normal = 0x7f0800bb;
-        public static final int notification_bg_low_pressed = 0x7f0800bc;
-        public static final int notification_bg_normal = 0x7f0800bd;
-        public static final int notification_bg_normal_pressed = 0x7f0800be;
-        public static final int notification_icon_background = 0x7f0800bf;
-        public static final int notification_template_icon_bg = 0x7f0800c0;
-        public static final int notification_template_icon_low_bg = 0x7f0800c1;
-        public static final int notification_tile_bg = 0x7f0800c2;
-        public static final int notify_panel_notification_icon_bg = 0x7f0800c3;
-        public static final int swirl_error = 0x7f0800c7;
-        public static final int swirl_error_draw_off = 0x7f0800c8;
-        public static final int swirl_error_draw_off_animation = 0x7f0800c9;
-        public static final int swirl_error_draw_on = 0x7f0800ca;
-        public static final int swirl_error_draw_on_animation = 0x7f0800cb;
-        public static final int swirl_fingerprint = 0x7f0800cc;
-        public static final int swirl_fingerprint_draw_off = 0x7f0800cd;
-        public static final int swirl_fingerprint_draw_off_animation = 0x7f0800ce;
-        public static final int swirl_fingerprint_draw_on = 0x7f0800cf;
-        public static final int swirl_fingerprint_draw_on_animation = 0x7f0800d0;
-        public static final int swirl_fingerprint_error_state_to_fp = 0x7f0800d1;
-        public static final int swirl_fingerprint_error_state_to_fp_animation = 0x7f0800d2;
-        public static final int swirl_fingerprint_fp_to_error_state = 0x7f0800d3;
-        public static final int swirl_fingerprint_fp_to_error_state_animation = 0x7f0800d4;
+        public static final int notification_action_background = 0x7f0800ba;
+        public static final int notification_bg = 0x7f0800bb;
+        public static final int notification_bg_low = 0x7f0800bc;
+        public static final int notification_bg_low_normal = 0x7f0800bd;
+        public static final int notification_bg_low_pressed = 0x7f0800be;
+        public static final int notification_bg_normal = 0x7f0800bf;
+        public static final int notification_bg_normal_pressed = 0x7f0800c0;
+        public static final int notification_icon_background = 0x7f0800c1;
+        public static final int notification_template_icon_bg = 0x7f0800c2;
+        public static final int notification_template_icon_low_bg = 0x7f0800c3;
+        public static final int notification_tile_bg = 0x7f0800c4;
+        public static final int notify_panel_notification_icon_bg = 0x7f0800c5;
+        public static final int swirl_error = 0x7f0800c9;
+        public static final int swirl_error_draw_off = 0x7f0800ca;
+        public static final int swirl_error_draw_off_animation = 0x7f0800cb;
+        public static final int swirl_error_draw_on = 0x7f0800cc;
+        public static final int swirl_error_draw_on_animation = 0x7f0800cd;
+        public static final int swirl_fingerprint = 0x7f0800ce;
+        public static final int swirl_fingerprint_draw_off = 0x7f0800cf;
+        public static final int swirl_fingerprint_draw_off_animation = 0x7f0800d0;
+        public static final int swirl_fingerprint_draw_on = 0x7f0800d1;
+        public static final int swirl_fingerprint_draw_on_animation = 0x7f0800d2;
+        public static final int swirl_fingerprint_error_state_to_fp = 0x7f0800d3;
+        public static final int swirl_fingerprint_error_state_to_fp_animation = 0x7f0800d4;
+        public static final int swirl_fingerprint_fp_to_error_state = 0x7f0800d5;
+        public static final int swirl_fingerprint_fp_to_error_state_animation = 0x7f0800d6;
     }
     public static final class id {
         private id() {}
@@ -227,7 +227,7 @@ public final class R {
     public static final class string {
         private string() {}
 
-        public static final int status_bar_notification_info_overflow = 0x7f0e042a;
+        public static final int status_bar_notification_info_overflow = 0x7f0e042c;
     }
     public static final class style {
         private style() {}

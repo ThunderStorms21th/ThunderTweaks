@@ -823,7 +823,7 @@
   <string name="confirmation_notification">Onay Bildirimi</string>
   <string name="apply_on_boot_confirmation_notification_summary">Görünür bir bildirimle cihaz açıldıktan sonra ayarların uygulandığını gösteren bir bildirim göster.</string>
   <string name="script">Komut dosyası</string>
-  <string name="apply_on_boot_script_summary">Ayarları uygulamak için bir kabuk komut dosyası kullanın. Lütfen bunu sadece açılışta uygula ile sorun yaşıyorsanız etkinleştirin. Bu seçeneği etkinleştirdikten sonra sorun hala devam ediyorsa, lütfen hKtweaks ile başka hiçbir uygulamanın çakışmadığından emin olun.</string>
+  <string name="apply_on_boot_script_summary">Ayarları uygulamak için bir kabuk komut dosyası kullanın. Lütfen bunu sadece açılışta uygula ile sorun yaşıyorsanız etkinleştirin. Bu seçeneği etkinleştirdikten sonra sorun hala devam ediyorsa, lütfen ThunderTweaks ile başka hiçbir uygulamanın çakışmadığından emin olun.</string>
   <string name="debugging">Hata ayıklama</string>
   <string name="logcat">Logcat</string>
   <string name="logcat_summary">Logcat\'i /sdcard/logcat.txt içine kopyala</string>
@@ -833,7 +833,7 @@
   <string name="driver_message_summary">Sürücü iletisini (dmesg) /sdcard/dmesg.txt içine kopyala</string>
   <string name="security">Güvenlik</string>
   <string name="set_password">Şifre Belirle</string>
-  <string name="set_password_summary">hKtweaks\'u bir şifre ayarlayarak koruyabilirsiniz. Bu uygulamayı her açtığınızda bu şifreyi girmeniz gerekir. Eğer unutursanız, cihazınızın ayarlarından bu uygulamanın verilerini silin. Korkmayın şifrenizi paylaşmayacağım.</string>
+  <string name="set_password_summary">ThunderTweaks\'u bir şifre ayarlayarak koruyabilirsiniz. Bu uygulamayı her açtığınızda bu şifreyi girmeniz gerekir. Eğer unutursanız, cihazınızın ayarlarından bu uygulamanın verilerini silin. Korkmayın şifrenizi paylaşmayacağım.</string>
   <string name="delete_password">Şifreyi Sil</string>
   <string name="old_password">Eski şifre</string>
   <string name="new_password">Yeni şifre</string>

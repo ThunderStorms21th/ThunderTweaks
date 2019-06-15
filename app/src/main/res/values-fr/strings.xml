@@ -1028,7 +1028,7 @@
     <string name="app_update_notif_title">Notification de mise à jour</string>
     <string name="app_update_notif_summary">Afficher les notifications de mise à jour lorsque la nouvelle version est disponible</string>
     <string name="check_update_title">Vérifier la mise à jour</string>
-    <string name="check_update_summary">Vérifiez s\'il y a une nouvelle mise à jour de hKtweaks</string>
+    <string name="check_update_summary">Vérifiez s\'il y a une nouvelle mise à jour de ThunderTweaks</string>
     <string name="reset_data_summary">Effacer les données et restaurer les paramètres de l\'application</string>
     <string name="reset_data_dialog1">Les données et la configuration de l\'ensemble de l\'application seront effacées.\n\nÊtes-vous sûr ?\n</string>
     <string name="reset_data_dialog2_title">Redémarrer</string>
@@ -1062,7 +1062,7 @@
     <string name="confirmation_notification">Notification de confirmation</string>
     <string name="apply_on_boot_confirmation_notification_summary">Après application au démarrage avec notification visible, affichez ensuite une notification avec la confirmation que l’application au démarrage a abouti.</string>
     <string name="script">Script</string>
-    <string name="apply_on_boot_script_summary">Utilisez un script shell pour appliquer les paramètres. Activez cette option uniquement si vous rencontrez des problèmes avec l\'application au démarrage. Si le problème persiste après l\'activation de cette option, assurez-vous qu\'aucune autre application n\'est en conflit avec hKtweaks.</string>
+    <string name="apply_on_boot_script_summary">Utilisez un script shell pour appliquer les paramètres. Activez cette option uniquement si vous rencontrez des problèmes avec l\'application au démarrage. Si le problème persiste après l\'activation de cette option, assurez-vous qu\'aucune autre application n\'est en conflit avec ThunderTweaks.</string>
     <string name="debugging">Débogage</string>
     <string name="logcat">Logcat</string>
     <string name="logcat_summary">Copier le logcat vers /sdcard/logcat.txt</string>
