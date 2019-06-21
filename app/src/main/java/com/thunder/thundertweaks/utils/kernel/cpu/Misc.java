@@ -135,7 +135,7 @@ public class Misc {
     public static boolean hasPowerSavingWq() {
         return Utils.existFile(CPU_WQ_POWER_SAVING);
     }
-/*
+
     public static void enableCpuFingerprintBoost(boolean enabled, Context context) {
 		run(Control.chmod("644", CPU_FINGERPRINT_BOOST), CPU_FINGERPRINT_BOOST + "chmod", context);
         run(Control.write(enabled ? "1" : "0", CPU_FINGERPRINT_BOOST), CPU_FINGERPRINT_BOOST, context);
@@ -148,7 +148,7 @@ public class Misc {
     public static boolean hasCpuFingerprintBoost() {
         return Utils.existFile(CPU_FINGERPRINT_BOOST);
     }
-*/
+
     public static void setMcPowerSaving(int value, Context context) {
         run(Control.write(String.valueOf(value), CPU_MC_POWER_SAVING), CPU_MC_POWER_SAVING, context);
     }

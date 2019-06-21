@@ -42,6 +42,8 @@ public class SpectrumFragment extends RecyclerViewFragment {
         final int batColor = ContextCompat.getColor(getContext(), R.color.colorBattery);
         final int gamColor = ContextCompat.getColor(getContext(), R.color.colorGaming);
 		final int thunderColor = ContextCompat.getColor(getContext(), R.color.colorThundeRStormS);
+		final int thundergColor = ContextCompat.getColor(getContext(), R.color.colorThundeRG);
+		final int thunderrColor = ContextCompat.getColor(getContext(), R.color.colorThundeRR);
 
 
         //CardView Balanced
@@ -144,6 +146,44 @@ public class SpectrumFragment extends RecyclerViewFragment {
 
         card4.addItem(desc4);
         items.add(card4);
+		
+        //CardView ThundeRStormS - Game Over
+        final CardView card5 = new CardView(getActivity());
+        card5.setTitle(getString(R.string.spec_thunderg));
+        card5.setExpandable(false);
+
+        final DescriptionView desc5 = new DescriptionView();
+        desc5.setSummary(getString(R.string.spec_thunderg_summary));
+        desc5.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_spectrum_battery));
+
+        card5.setOnItemClickListener(new CardView.OnItemClickListener() {
+            @Override
+            public void onClick(RecyclerViewItem item) {
+                cardClick(card5, desc5, 5, thundergColor);
+            }
+        });
+
+        card5.addItem(desc5);
+        items.add(card5);
+
+        //CardView ThundeRStormS - rtakak
+        final CardView card6 = new CardView(getActivity());
+        card6.setTitle(getString(R.string.spec_thunderr));
+        card6.setExpandable(false);
+
+        final DescriptionView desc6 = new DescriptionView();
+        desc6.setSummary(getString(R.string.spec_thunderr_summary));
+        desc6.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_spectrum_battery));
+
+        card6.setOnItemClickListener(new CardView.OnItemClickListener() {
+            @Override
+            public void onClick(RecyclerViewItem item) {
+                cardClick(card6, desc6, 6, thunderrColor);
+            }
+        });
+
+        card6.addItem(desc6);
+        items.add(card6);
 
         //Detects the selected profile on launch
         int mProfile = AppSettings.getInt("spectrum_profile", 0, getActivity());
@@ -173,6 +213,16 @@ public class SpectrumFragment extends RecyclerViewFragment {
             desc4.GrxSetInitSelection(true, Color.WHITE);
             oldCard = card4;
             oldDesc = desc4;
+        } else if(mProfile == 5){
+            card5.GrxSetInitSelection(true, thundergColor);
+            desc5.GrxSetInitSelection(true, Color.WHITE);
+            oldCard = card5;
+            oldDesc = desc5;
+        } else if(mProfile == 6){
+            card6.GrxSetInitSelection(true, thunderrColor);
+            desc6.GrxSetInitSelection(true, Color.WHITE);
+            oldCard = card6;
+            oldDesc = desc6;
         }
 
     }

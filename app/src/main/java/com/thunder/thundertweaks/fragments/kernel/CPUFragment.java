@@ -109,6 +109,9 @@ public class CPUFragment extends RecyclerViewFragment {
         if (Misc.hasPowerSavingWq()) {
             powerSavingWqInit(items);
         }
+        if (Misc.hasCpuFingerprintBoost()) {
+            cpuFingerprintBoostInit(items);
+        }
         if (Misc.hasCFSScheduler()) {
             cfsSchedulerInit(items);
         }
@@ -344,7 +347,7 @@ public class CPUFragment extends RecyclerViewFragment {
 
         items.add(powerSavingWq);
     }
-/*
+
 	private void cpuFingerprintBoostInit(List<RecyclerViewItem> items) {
 		SwitchView FingerprintBoost = new SwitchView();
         FingerprintBoost.setTitle(getString(R.string.fingerprint_boost));
@@ -355,7 +358,7 @@ public class CPUFragment extends RecyclerViewFragment {
 
         items.add(FingerprintBoost);
     }
-*/
+
     private void cfsSchedulerInit(List<RecyclerViewItem> items) {
         SelectView cfsScheduler = new SelectView();
         cfsScheduler.setTitle(getString(R.string.cfs_scheduler_policy));

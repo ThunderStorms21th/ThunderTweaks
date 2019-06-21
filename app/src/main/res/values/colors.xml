@@ -13,6 +13,8 @@
     <color name="colorBattery">#03a9f4</color>
     <color name="colorGaming">#ef5350</color>
 	<color name="colorThundeRStormS">#8D87A8</color>
+	<color name="colorThundeRG">#116097</color>
+	<color name="colorThundeRR">#4F7297</color>
 
     <color name="rcBackground_light">#dcdcdc</color>
     <color name="rcBackground_dark">#616161</color>
