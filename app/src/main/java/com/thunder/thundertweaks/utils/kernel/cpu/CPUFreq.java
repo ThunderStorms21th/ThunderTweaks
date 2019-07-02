@@ -678,6 +678,10 @@ public class CPUFreq {
         String board = Device.getBoard();
         return board.equalsIgnoreCase("msm8996") || board.equalsIgnoreCase("msm8996pro");
     }
+    private boolean is7885() {
+        String board = Device.getBoard();
+        return board.equalsIgnoreCase("universal7885") || board.equalsIgnoreCase("universal7884");
+    }
 
     private boolean is7885() {
         String board = Device.getBoard();
