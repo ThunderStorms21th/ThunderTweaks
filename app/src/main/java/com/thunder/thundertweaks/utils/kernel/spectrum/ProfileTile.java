@@ -12,7 +12,7 @@ import com.thunder.thundertweaks.utils.Utils;
 
 /**
  * Created by Morogoku on 01/08/2017.
- * Modded by nalas on 15/06/2019 - added ThundeRStormS card
+ * Modded by @nalas on 15/06/2019 - added ThundeRStormS card
  */
 
 @TargetApi(Build.VERSION_CODES.N)
@@ -44,14 +44,42 @@ public class ProfileTile extends TileService {
             newLabel = "No Spectrum support";
             newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_logo);
             newState = Tile.STATE_INACTIVE;
-        }else {
+        } else {
             if (isActive && click) {
+                newLabel = "Spectrum ThundeRStormS - Ankit";
+                newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
+                newState = Tile.STATE_ACTIVE;
+                click = false;
+                Spectrum.setProfile(10);
+                AppSettings.saveInt("spectrum_profile", 10, getApplicationContext());
+            } else if (isActive && click) {
+                newLabel = "Spectrum ThundeRStormS - II";
+                newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_thunder);
+                newState = Tile.STATE_ACTIVE;
+                click = false;
+                Spectrum.setProfile(9);
+                AppSettings.saveInt("spectrum_profile", 9, getApplicationContext());
+            } else if (isActive && click) {
+                newLabel = "Spectrum ThundeRStormS - Franz";
+                newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
+                newState = Tile.STATE_ACTIVE;
+                click = false;
+                Spectrum.setProfile(8);
+                AppSettings.saveInt("spectrum_profile", 8, getApplicationContext());
+            } else if (isActive && click) {
+                newLabel = "Spectrum ThundeRStormS - Shariq";
+                newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_thunder);
+                newState = Tile.STATE_ACTIVE;
+                click = false;
+                Spectrum.setProfile(7);
+                AppSettings.saveInt("spectrum_profile", 7, getApplicationContext());
+            } else if (isActive && click) {
                 newLabel = "Spectrum ThundeRStormS - rtakak";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
                 Spectrum.setProfile(6);
-                AppSettings.saveInt("spectrum_profile", 6, getApplicationContext());	
+                AppSettings.saveInt("spectrum_profile", 6, getApplicationContext());					
             } else if (isActive && click) {
                 newLabel = "Spectrum ThundeRStormS - GameOver";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
@@ -91,7 +119,7 @@ public class ProfileTile extends TileService {
                 newLabel = "Spectrum Balance";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_balanced);
                 newState = Tile.STATE_ACTIVE;
-                click = false;
+                click = true;
                 Spectrum.setProfile(0);
                 AppSettings.saveInt("spectrum_profile", 0, getApplicationContext());
             }
@@ -126,8 +154,28 @@ public class ProfileTile extends TileService {
             newLabel = "No Spectrum support";
             newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_logo);
             newState = Tile.STATE_INACTIVE;
-        }else {
-            if (profile == 6) {
+        } else {
+            if (profile == 10) {
+                newLabel = "Spectrum ThundeRStormS - Ankit";
+                newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
+                newState = Tile.STATE_ACTIVE;
+                click = false;
+            } else if (profile == 9) {
+                newLabel = "Spectrum ThundeRStormS - II";
+                newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_thunder);
+                newState = Tile.STATE_ACTIVE;
+                click = false;
+            } else if (profile == 8) {
+                newLabel = "Spectrum ThundeRStormS - Frnaz";
+                newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
+                newState = Tile.STATE_ACTIVE;
+                click = false;
+            } else if (profile == 7) {
+                newLabel = "Spectrum ThundeRStormS - Shariq";
+                newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_thunder);
+                newState = Tile.STATE_ACTIVE;
+                click = false;
+            } else if (profile == 6) {
                 newLabel = "Spectrum ThundeRStormS - rtakak";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;

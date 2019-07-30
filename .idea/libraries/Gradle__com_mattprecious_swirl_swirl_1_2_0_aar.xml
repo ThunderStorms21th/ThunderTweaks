@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.mattprecious.swirl:swirl:1.2.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/jetified-swirl-1.2.0.aar/35e781a3729be99a85fc46157ee5a0c1/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/jetified-swirl-1.2.0.aar/35e781a3729be99a85fc46157ee5a0c1/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/eb158a9ee4efe8e92141cb83b73e27c0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/eb158a9ee4efe8e92141cb83b73e27c0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

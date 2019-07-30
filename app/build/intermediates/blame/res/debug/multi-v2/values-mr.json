@@ -4,24 +4,24 @@
             "outputFile": "D:\\ANDROID\\GALAXY S7\\OREO\\TS KERNELS\\TSTweaks\\TTweaks\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mr\\values-mr.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.1.aar\\148ef8cf85057c5f87c036eb2d2c3955\\res\\values-mr\\values-mr.xml",
+                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-2\\files-2.1\\3fbdc238a3d1c40608352cf093b9e026\\res\\values-mr\\values-mr.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "105,189,358,438",
+                        "endColumns": "83,168,79,77",
+                        "endOffsets": "184,353,433,511"
                     },
                     "to": {
-                        "startLines": "31",
-                        "startColumns": "4",
-                        "startOffsets": "2971",
-                        "endColumns": "100",
-                        "endOffsets": "3067"
+                        "startLines": "29,32,33,34",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "2807,3072,3241,3321",
+                        "endColumns": "83,168,79,77",
+                        "endOffsets": "2886,3236,3316,3394"
                     }
                 },
                 {
-                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.0.2.aar\\32d91d240eee9d54a0477791df6b7c3e\\res\\values-mr\\values-mr.xml",
+                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-2\\files-2.1\\2b6c9e6a4b3a6d5192ab5c9bb06d12d6\\res\\values-mr\\values-mr.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,20 +38,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-1\\files-1.1\\preference-1.0.0.aar\\cd50eb7bdbe520a48b77afc724b2477e\\res\\values-mr\\values-mr.xml",
+                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-2\\files-2.1\\bf391334e4d4d351f9d4e62f107c80f1\\res\\values-mr\\values-mr.xml",
                     "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "105,189,358,438",
-                        "endColumns": "83,168,79,77",
-                        "endOffsets": "184,353,433,511"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "29,32,33,34",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "2807,3072,3241,3321",
-                        "endColumns": "83,168,79,77",
-                        "endOffsets": "2886,3236,3316,3394"
+                        "startLines": "31",
+                        "startColumns": "4",
+                        "startOffsets": "2971",
+                        "endColumns": "100",
+                        "endOffsets": "3067"
                     }
                 }
             ]

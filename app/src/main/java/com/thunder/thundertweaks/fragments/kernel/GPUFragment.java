@@ -837,13 +837,15 @@ public class GPUFragment extends RecyclerViewFragment {
                 text += load + "% - ";
             }
 
+//	FIX GPU usage freq graph
             int freq = mGPUFreqExynos.getCurFreq();
-            float maxFreq = mGPUFreqExynos.getAvailableFreqsSort()
-                    .get(mGPUFreqExynos.getAvailableFreqsSort().size() - 1);
+//            float maxFreq = mGPUFreqExynos.getAvailableFreqsSort()
+//                    .get(mGPUFreqExynos.getAvailableFreqsSort().size() - 1);
+            float maxFreq = mGPUFreqExynos.getMaxFreq();
             mCurFreq.setText(freq / mGPUFreqExynos.getCurFreqOffset() + getString(R.string.mhz));
-            if (mGPUFreqExynos.needRefactor){
-                maxFreq = maxFreq * 1000;
-            }
+//            if (mGPUFreqExynos.needRefactor){
+//                maxFreq = maxFreq * 1000;
+//            }
             float per = (float) freq / maxFreq * 100f;
             mCurFreq.addPercentage(load >= 0 ? load : Math.round(per > 100 ? 100 : per < 0 ? 0 : per));
         }

@@ -65,7 +65,13 @@ public class ZSwap {
     }
 
     public static void enable(boolean enable, Context context) {
+		// added fix for trun on/off VNSwap
+		run(Control.chmod("644", ZSWAP), ZSWAP + "chmod", context);
+        // run(Control.write(value, ZSWAP), ZSWAP + "chmod", context);
+        // run(Control.chmod("644", ZSWAP), ZSWAP + "chmod", context);
+		// end
         run(Control.write(enable ? "Y" : "N", ZSWAP), ZSWAP, context);
+        run(Control.chmod("444", ZSWAP), ZSWAP + "chmod", context);
     }
 
     public static boolean isEnabled() {

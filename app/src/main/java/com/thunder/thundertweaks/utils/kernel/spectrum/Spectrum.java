@@ -16,7 +16,7 @@ public class Spectrum {
 
     // Method that interprets a profile and sets it
     public static void setProfile(int profile) {
-        int numProfiles = 6;
+        int numProfiles = 10;
         if (profile > numProfiles || profile < 0) {
             setProp(0);
         } else {
@@ -25,7 +25,8 @@ public class Spectrum {
     }
 
     // Method that sets system property
-    private static void setProp(final int profile) {
+    // private static void setProp(final int profile) {
+	public static void setProp(final int profile) {
         new AsyncTask<Object, Object, Void>() {
             @Override
             protected Void doInBackground(Object... params) {

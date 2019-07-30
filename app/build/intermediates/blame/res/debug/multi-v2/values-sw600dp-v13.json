@@ -4,7 +4,7 @@
             "outputFile": "D:\\ANDROID\\GALAXY S7\\OREO\\TS KERNELS\\TSTweaks\\TTweaks\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw600dp-v13\\values-sw600dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-1\\files-1.1\\material-1.0.0.aar\\b278807cbeb936e89da153152a0cebf1\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-2\\files-2.1\\bd10cb61ad514a758dcbef71b3ed410c\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,10,11,12",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.0.2.aar\\32d91d240eee9d54a0477791df6b7c3e\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-2\\files-2.1\\2b6c9e6a4b3a6d5192ab5c9bb06d12d6\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

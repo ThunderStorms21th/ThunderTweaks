@@ -61,21 +61,29 @@ public class ZRAM {
         return null;
     }
     public static void setCompAlgorithm(String value, Context context) {
+		run(Control.chmod("644", ZRAM), ZRAM + "chmod", context);
+		run(Control.chmod("644", RESET), RESET + "chmod", context);
         run(Control.write("1", RESET), RESET, context);
         run(Control.write(String.valueOf(value), ALGORITHM), ALGORITHM, context);
+        run(Control.chmod("444", ZRAM), ZRAM + "chmod", context);
+		run(Control.chmod("444", RESET), RESET + "chmod", context);
     }
 
     public static void enable(boolean enable, Context context) {
         if(enable){
+			run(Control.chmod("644", BLOCK), BLOCK + "chmod", context);
             run("mkswap " + BLOCK + " > /dev/null 2>&1", BLOCK + "mkswap", context);
             run("swapon " + BLOCK + " > /dev/null 2>&1", BLOCK + "swapon", context);
         } else{
             run("swapoff " + BLOCK + " > /dev/null 2>&1", BLOCK + "swapoff", context);
+			run(Control.chmod("444", BLOCK), BLOCK + "chmod", context);
         }
     }
 
     public static boolean isEnabled(){
+		// run(Control.chmod("644", DISKSIZE), DISKSIZE + "chmod", context);
         return Utils.strToLong(Utils.readFile(DISKSIZE)) != 0;
+		// run(Control.chmod("444", DISKSIZE), DISKSIZE + "chmod", context);
     }
 
     public static boolean supported() {

@@ -4,7 +4,18 @@
             "outputFile": "D:\\ANDROID\\GALAXY S7\\OREO\\TS KERNELS\\TSTweaks\\TTweaks\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v17\\values-v17.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.0.2.aar\\32d91d240eee9d54a0477791df6b7c3e\\res\\values-v17\\values-v17.xml",
+                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-2\\files-2.1\\3fbdc238a3d1c40608352cf093b9e026\\res\\values-v17\\values-v17.xml",
+                    "from": {
+                        "startLines": "2,7,11",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,280,441",
+                        "endLines": "6,10,14",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "275,436,604"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-2\\files-2.1\\2b6c9e6a4b3a6d5192ab5c9bb06d12d6\\res\\values-v17\\values-v17.xml",
                     "from": {
                         "startLines": "2,5,9,12,15,18,22,25,29,33,37,40,43,46,50,53,57",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -20,17 +31,6 @@
                         "endLines": "17,21,24,27,30,34,37,41,45,49,52,55,58,62,65,69,73",
                         "endColumns": "12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12",
                         "endOffsets": "777,1005,1163,1313,1485,1710,1880,2108,2332,2574,2745,2919,3088,3361,3561,3765,4094"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-1\\files-1.1\\preference-1.0.0.aar\\cd50eb7bdbe520a48b77afc724b2477e\\res\\values-v17\\values-v17.xml",
-                    "from": {
-                        "startLines": "2,7,11",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "55,280,441",
-                        "endLines": "6,10,14",
-                        "endColumns": "12,12,12",
-                        "endOffsets": "275,436,604"
                     }
                 }
             ]
