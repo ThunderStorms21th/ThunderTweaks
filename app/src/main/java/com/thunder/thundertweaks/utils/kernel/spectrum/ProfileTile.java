@@ -1,14 +1,32 @@
 package com.thunder.thundertweaks.utils.kernel.spectrum;
 
+import android.content.Context;
+import android.util.SparseArray;
+
 import android.annotation.TargetApi;
 import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 
+import com.thunder.thundertweaks.utils.kernel.spectrum.Spectrum;
+
 import com.thunder.thundertweaks.R;
+import com.thunder.thundertweaks.fragments.ApplyOnBootFragment;
 import com.thunder.thundertweaks.utils.AppSettings;
 import com.thunder.thundertweaks.utils.Utils;
+import com.thunder.thundertweaks.utils.root.Control;
+
+// added spectrum 
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
+import java.util.List; 
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by Morogoku on 01/08/2017.
@@ -18,6 +36,8 @@ import com.thunder.thundertweaks.utils.Utils;
 @TargetApi(Build.VERSION_CODES.N)
 public class ProfileTile extends TileService {
 
+    private String ENABLE;
+ 
     private static final String SERVICE_STATUS_FLAG = "serviceStatus";
     private boolean click = false;
     private boolean mIsSupported = Spectrum.supported();
@@ -223,5 +243,10 @@ public class ProfileTile extends TileService {
         tile.setIcon(newIcon);
         tile.setState(newState);
         tile.updateTile();
+    }
+	
+	// added for Apply on Boot
+    private void run(String command, String id, Context context) {
+        Control.runSetting(command, ApplyOnBootFragment.SPECTRUM, id, context);
     }
 }

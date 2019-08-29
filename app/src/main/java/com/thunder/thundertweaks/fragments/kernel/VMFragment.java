@@ -195,6 +195,8 @@ public class VMFragment extends RecyclerViewFragment {
             @Override
             public void onStop(SeekBarView seekBarView, int position, String value) {
                 ZRAM.setDisksize(position * 32, getActivity());
+				// added
+				getHandler().postDelayed(() -> refreshBars(), 500);
             }
 
             @Override
@@ -301,8 +303,10 @@ public class VMFragment extends RecyclerViewFragment {
         }, 250);
     }
 
-    protected void refresh() {
-        super.refresh();
+ //   protected void refresh() {
+ //       super.refresh();
+
+    protected void refreshBars() {
 
         if (swap != null) {
             long total = mMemInfo.getItemMb("SwapTotal");

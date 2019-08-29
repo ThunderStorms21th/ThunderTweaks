@@ -43,7 +43,7 @@ public class CPUVoltageCl0Fragment extends RecyclerViewFragment {
     private List<SeekBarView> mVoltages = new ArrayList<>();
     private SeekBarView mSeekbarProf = new SeekBarView();
 
-    private static float mVoltMinValue = -100000f;
+    private static float mVoltMinValue = -200000f; // was -100000f
     private static float mVoltMaxValue = 25000f;
     private static int mVoltStep = 6250;
     public static int mDefZeroPosition = (Math.round(mVoltMaxValue - mVoltMinValue) / mVoltStep) - (Math.round(mVoltMaxValue) / mVoltStep);
@@ -148,7 +148,7 @@ public class CPUVoltageCl0Fragment extends RecyclerViewFragment {
                     VoltageCl0.setVoltage(freq, volt, getActivity());
                     AppSettings.saveInt("CpuCl0_seekbarPref_value", position, getActivity());
                 }
-                getHandler().postDelayed(CPUVoltageCl0Fragment.this::reload, 200);
+                getHandler().postDelayed(CPUVoltageCl0Fragment.this::reload, 100); // was 200
             }
             @Override
             public void onMove(SeekBarView seekBarView, int position, String value) {
@@ -192,7 +192,7 @@ public class CPUVoltageCl0Fragment extends RecyclerViewFragment {
             @Override
             public void onStop(SeekBarView seekBarView, int position, String value) {
                 VoltageCl0.setVoltage(freq, value, getActivity());
-                getHandler().postDelayed(() -> reload(), 200);
+                getHandler().postDelayed(() -> reload(), 100); // was 200
             }
 
             @Override

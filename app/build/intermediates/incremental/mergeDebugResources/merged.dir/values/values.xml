@@ -960,7 +960,7 @@
     <string name="cfs_scheduler_policy">CFS Scheduler Policy</string>
     <string name="cfs_scheduler_policy_summary">Policy decides the CFS scheduler how to balance tasks onto different CPU unit.</string>
     <string name="changelog">ThunderTweaks v%s</string>
-    <string name="changelog_message">\n* Added full support for AlucardPlug, BluHotplug,ThunderPlug and ClusterPlug.\n* Fixed GPU utylisation diagram.\n* Rearanged Spectrum Profiles. \n* ZSwap turn on/off fix.\n* Updated Gradle Project to 5.1.0.\n</string>
+    <string name="changelog_message">\n* Added support undervoltage to -200mV for big.LITTLE clusters\n* Added support for step at 6.25mV (before was 12.5mV)\n</string>
     <string name="char_source">Charge Source</string>
     <string name="char_type">Charge Type</string>
     <string name="character_counter_content_description">Character limit exceeded %1$d of %2$d</string>

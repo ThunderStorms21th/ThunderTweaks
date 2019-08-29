@@ -3,30 +3,40 @@ package com.thunder.thundertweaks.fragments.kernel;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import androidx.core.content.ContextCompat;
+import android.content.Context;
+import android.util.SparseArray;
 
 import com.thunder.thundertweaks.R;
-// import com.thunder.thundertweaks.fragments.ApplyOnBootFragment;
+import com.thunder.thundertweaks.fragments.ApplyOnBootFragment;
+import com.thunder.thundertweaks.fragments.tools.OnBootFragment;
 import com.thunder.thundertweaks.fragments.DescriptionFragment;
 import com.thunder.thundertweaks.fragments.recyclerview.RecyclerViewFragment;
+import com.thunder.thundertweaks.utils.Utils;
 import com.thunder.thundertweaks.utils.AppSettings;
 import com.thunder.thundertweaks.utils.kernel.spectrum.ProfileTile;
 import com.thunder.thundertweaks.utils.kernel.spectrum.Spectrum;
 import com.thunder.thundertweaks.views.recyclerview.CardView;
 import com.thunder.thundertweaks.views.recyclerview.DescriptionView;
 import com.thunder.thundertweaks.views.recyclerview.RecyclerViewItem;
-// import com.thunder.thundertweaks.views.recyclerview.SeekBarView;
-// import com.thunder.thundertweaks.views.recyclerview.SelectView;
-// import com.thunder.thundertweaks.views.recyclerview.SwitchView;
+import com.thunder.thundertweaks.utils.root.Control;
+import com.thunder.thundertweaks.views.recyclerview.SeekBarView;
+import com.thunder.thundertweaks.views.recyclerview.SelectView;
+import com.thunder.thundertweaks.views.recyclerview.SwitchView;
 
 import java.util.List;
 import java.util.Objects; 
 
 // added spectrum 
-/** 
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Objects; 
-*/
+
+import java.util.LinkedHashMap;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 /**
  * Created by Morogoku on 28/07/2017.
@@ -35,12 +45,14 @@ import java.util.Objects;
 
 public class SpectrumFragment extends RecyclerViewFragment {
 	
+	int profile;
+	
     @Override
     protected void init() {
         super.init();
 
 		addViewPagerFragment(DescriptionFragment.newInstance(getString(R.string.spec_title), getString(R.string.spec_info)));
-        // addViewPagerFragment(ApplyOnBootFragment.newInstance(this));
+        addViewPagerFragment(ApplyOnBootFragment.newInstance(this));
 		// Spectrum.setProfile(profile);
 		// Spectrum.setProfile(prof);
 			
@@ -280,10 +292,14 @@ public class SpectrumFragment extends RecyclerViewFragment {
         card10.addItem(desc10);
         items.add(card10);
 
+		// Initialice profile Sharedpreference
+        int prof = Utils.strToInt(Spectrum.getProfile());
+        AppSettings.saveInt("spectrum_profile", prof, getActivity());
+
         //Detects the selected profile on launch
         int mProfile = AppSettings.getInt("spectrum_profile", 0, getActivity());
-        // int mProfile = AppSettings.getInt("spectrum_profile", profile, getActivity());
-
+        // int mProfile = AppSettings.getInt("spectrum_profile", 0, getActivity());
+	
         if(mProfile == 0){
             card0.GrxSetInitSelection(true, balColor);
             desc0.GrxSetInitSelection(true, Color.WHITE);
@@ -358,4 +374,10 @@ public class SpectrumFragment extends RecyclerViewFragment {
             AppSettings.saveInt("spectrum_profile", prof, getActivity());
         }
     }
+
+	// added for Apply on Boot
+    private void run(String command, String id, Context context) {
+        Control.runSetting(command, ApplyOnBootFragment.SPECTRUM, id, context);
+    }	
+
 }

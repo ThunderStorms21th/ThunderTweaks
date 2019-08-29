@@ -10,7 +10,7 @@
     <string name="open">Open %s</string>
     <string name="disable">Disable</string>
     <string name="changelog">ThunderTweaks v%s</string>
-    <string name="changelog_message">\n* Added full support for AlucardPlug, BluHotplug,ThunderPlug and ClusterPlug.\n* Fixed GPU utylisation diagram.\n* Rearanged Spectrum Profiles. \n* ZSwap turn on/off fix.\n* Updated Gradle Project to 5.1.0.\n</string>
+    <string name="changelog_message">\n* Added support undervoltage to -200mV for big.LITTLE clusters\n* Added support for step at 6.25mV (before was 12.5mV)\n</string>
     <string name="close">Close</string>
 
     <!-- Security -->

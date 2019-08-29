@@ -599,7 +599,7 @@ public class GPUFragment extends RecyclerViewFragment {
                     mGPUFreqExynos.setVoltage(freq, volt, getActivity());
                     AppSettings.saveInt("gpu_seekbarPref_value", position, getActivity());
                 }
-                getHandler().postDelayed(() -> reload(), 200);
+                getHandler().postDelayed(() -> reload(), 100); // was 200
             }
             @Override
             public void onMove(SeekBarView seekBarView, int position, String value) {
@@ -643,7 +643,7 @@ public class GPUFragment extends RecyclerViewFragment {
             @Override
             public void onStop(SeekBarView seekBarView, int position, String value) {
                 mGPUFreqExynos.setVoltage(freq, value, getActivity());
-            getHandler().postDelayed(() -> reload(), 200);
+            getHandler().postDelayed(() -> reload(), 100); // was 200
             }
 
             @Override

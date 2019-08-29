@@ -28,6 +28,14 @@ import androidx.core.content.ContextCompat;
 import android.view.View;
 import android.widget.TextView;
 
+// added
+import android.content.ComponentName;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import com.thunder.thundertweaks.utils.Log;
+import com.thunder.thundertweaks.database.tools.profiles.Profiles;
+
 import com.thunder.thundertweaks.R;
 import com.thunder.thundertweaks.database.tools.profiles.Profiles;
 import com.thunder.thundertweaks.fragments.kernel.BusCamFragment;
@@ -361,6 +369,8 @@ public class MainActivity extends BaseActivity {
             QcomBcl.supported();
             Screen.supported();
             Sound.getInstance();
+			// added spectrum
+			Spectrum.supported();
             Temperature.getInstance(activity);
             Thermal.supported();
             Tile.publishProfileTile(new Profiles(activity).getAllProfiles(), activity);
