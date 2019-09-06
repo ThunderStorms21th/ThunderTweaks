@@ -110,7 +110,7 @@ public class ApplyOnBootFragment extends BaseFragment {
         sAssignments.put(HmpFragment.class, HMP);
         sAssignments.put(ThermalFragment.class, THERMAL);
         sAssignments.put(GPUFragment.class, GPU);
-        sAssignments.put(SpectrumFragment.class, SPECTRUM); // added spectrum
+        sAssignments.put(SpectrumFragment.class, SPECTRUM);
         sAssignments.put(DvfsFragment.class, DVFS);
         sAssignments.put(ScreenFragment.class, SCREEN);
         sAssignments.put(WakeFragment.class, WAKE);
