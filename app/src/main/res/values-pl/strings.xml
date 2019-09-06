@@ -808,6 +808,10 @@
   <string name="ten_sec">10 sekund</string>
   <string name="twenty_sec">20 sekund</string>
   <string name="fifty_sec">50 sekund</string>
+  <string name="sixty_sec">60 sekund</string>
+  <string name="ninty_sec">90 sekund</string>
+  <string name="onetwenty_sec">120 sekund</string>
+  <string name="onefifty_sec">150 sekund</string>
   <string name="apply_on_boot_test_summary">Przetestuj ustawienia stosowane przy starcie urządzenia, wliczając w to wszystkie rzeczy, które będą ustawione przy rozruchu.</string>
   <string name="apply_on_boot_running">Usługa aplikowania ustawień przy starcie, została już uruchomiona. Proszę czekać na jej zakończenie.</string>
   <string name="nothing_apply">Nie znaleziono nic do zastosowania!</string>
