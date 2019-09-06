@@ -94,6 +94,7 @@ public class Battery {
     }
 
     private static String FORCE_FAST_CHARGE = "/sys/kernel/fast_charge/force_fast_charge";
+	private static String ADAPTIVE_FAST_CHARGE = "/sys/class/sec/switch/afc_disable";
     private static String BLX = "/sys/devices/virtual/misc/batterylifeextender/charging_limit";
     private static String CHARGE_RATE = "/sys/kernel/thundercharge_control";
     private static String CHARGE_RATE_ENABLE = CHARGE_RATE + "/enabled";
@@ -277,6 +278,19 @@ public class Battery {
     public boolean hasForceFastCharge() {
         return Utils.existFile(FORCE_FAST_CHARGE);
     }
+
+    public void enableAdaptiveFastCharge(boolean enable, Context context) {
+        run(Control.write(!enable ? "1" : "0", ADAPTIVE_FAST_CHARGE), ADAPTIVE_FAST_CHARGE, context);
+    }
+
+    public boolean isAdaptiveFastChargeEnabled() {
+        return !(Utils.readFile(ADAPTIVE_FAST_CHARGE).equals("1"));
+    }
+
+    public boolean hasAdaptiveFastCharge() {
+        return Utils.existFile(ADAPTIVE_FAST_CHARGE);
+    }
+
 
     public int getCapacity() {
         return mCapacity;
