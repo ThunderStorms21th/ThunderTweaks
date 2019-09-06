@@ -1,0 +1,11 @@
+*.iml
+.gradle
+*.properties
+.DS_Store
+/build
+/captures
+.idea
+
+translation_verifyer
+theme_generator
+/themes
