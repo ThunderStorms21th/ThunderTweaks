@@ -177,6 +177,10 @@
         <item>@string/ten_sec</item>
         <item>@string/twenty_sec</item>
         <item>@string/fifty_sec</item>
+        <item>@string/sixty_sec</item>
+        <item>@string/ninty_sec</item>
+        <item>@string/onetwenty_sec</item>
+		<item>@string/onefifty_sec</item>
     </string-array>
     <string-array name="apply_on_boot_delay_values">
         <item>0</item>
@@ -184,6 +188,10 @@
         <item>10</item>
         <item>20</item>
         <item>50</item>
+        <item>60</item>
+        <item>90</item>
+        <item>120</item>
+        <item>150</item>
     </string-array>
 	
 	<!-- Grx sound Control -->
