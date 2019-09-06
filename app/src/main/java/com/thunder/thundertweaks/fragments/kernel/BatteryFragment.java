@@ -258,6 +258,17 @@ public class BatteryFragment extends RecyclerViewFragment {
         acMains.setTitle(getString(R.string.ac_mains));
         acMains.setFullSpan(true);
 
+        if (mBattery.hasAdaptiveFastCharge()) {
+            SwitchView adaptiveFastCharge = new SwitchView();
+            adaptiveFastCharge.setTitle(getString(R.string.adaptive_fast_charge));
+            adaptiveFastCharge.setSummary(getString(R.string.adaptive_fast_charge_summary));
+            adaptiveFastCharge.setChecked(mBattery.isAdaptiveFastChargeEnabled());
+            adaptiveFastCharge.addOnSwitchListener((switchView, isChecked)
+                    -> mBattery.enableAdaptiveFastCharge(isChecked, getActivity()));
+
+            acMains.addItem(adaptiveFastCharge);
+        }
+
         if (mBattery.hasAcInput()) {
             SeekBarView ac_input = new SeekBarView();
             ac_input.setTitle(getString(R.string.ac_input));
