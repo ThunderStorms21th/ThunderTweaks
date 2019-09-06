@@ -40,7 +40,7 @@ import org.json.JSONObject;
 
 /**
  * Created by Morogoku on 28/07/2017.
- * Modded by nalas on 15/06/2019 - added ThundeRStormS card
+ * Modded by nalas on 15/06/2019 - added ThundeRStormS cards
  */
 
 public class SpectrumFragment extends RecyclerViewFragment {
@@ -159,7 +159,7 @@ public class SpectrumFragment extends RecyclerViewFragment {
         card3.addItem(desc3);
         items.add(card3);
 
-        //CardView ThundeRStormS
+        //CardView ThundeRStormS - I
         final CardView card4 = new CardView(getActivity());
         card4.setTitle(getString(R.string.spec_thunder));
         card4.setExpandable(false);
@@ -235,7 +235,7 @@ public class SpectrumFragment extends RecyclerViewFragment {
         card7.addItem(desc7);
         items.add(card7);
 
-		//CardView - Franz
+		//CardView ThundeRStormS - Franz
         final CardView card8 = new CardView(getActivity());
         card8.setTitle(getString(R.string.spec_thunderf));
         card8.setExpandable(false);
@@ -254,7 +254,7 @@ public class SpectrumFragment extends RecyclerViewFragment {
         card8.addItem(desc8);
         items.add(card8);
 		
-		//CardView ThundeRStormS-II
+		//CardView ThundeRStormS - II
         final CardView card9 = new CardView(getActivity());
         card9.setTitle(getString(R.string.spec_thunder2));
         card9.setExpandable(false);
@@ -273,7 +273,7 @@ public class SpectrumFragment extends RecyclerViewFragment {
         card9.addItem(desc9);
         items.add(card9);
 
-		//CardView Ankit
+		//CardView ThundeRStormS - Ankit
         final CardView card10 = new CardView(getActivity());
         card10.setTitle(getString(R.string.spec_thundera));
         card10.setExpandable(false);

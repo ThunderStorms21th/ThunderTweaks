@@ -66,49 +66,49 @@ public class ProfileTile extends TileService {
             newState = Tile.STATE_INACTIVE;
         } else {
             if (isActive && click) {
-                newLabel = "Spectrum ThundeRStormS - Ankit";
+                newLabel = "Spectrum TS - Ankit";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
                 Spectrum.setProfile(10);
                 AppSettings.saveInt("spectrum_profile", 10, getApplicationContext());
             } else if (isActive && click) {
-                newLabel = "Spectrum ThundeRStormS - II";
+                newLabel = "Spectrum TS - II";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_thunder);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
                 Spectrum.setProfile(9);
                 AppSettings.saveInt("spectrum_profile", 9, getApplicationContext());
             } else if (isActive && click) {
-                newLabel = "Spectrum ThundeRStormS - Franz";
+                newLabel = "Spectrum TS - Franz";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
                 Spectrum.setProfile(8);
                 AppSettings.saveInt("spectrum_profile", 8, getApplicationContext());
             } else if (isActive && click) {
-                newLabel = "Spectrum ThundeRStormS - Shariq";
+                newLabel = "Spectrum TS - Shariq";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_thunder);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
                 Spectrum.setProfile(7);
                 AppSettings.saveInt("spectrum_profile", 7, getApplicationContext());
             } else if (isActive && click) {
-                newLabel = "Spectrum ThundeRStormS - rtakak";
+                newLabel = "Spectrum TS - rtakak";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
                 Spectrum.setProfile(6);
                 AppSettings.saveInt("spectrum_profile", 6, getApplicationContext());					
             } else if (isActive && click) {
-                newLabel = "Spectrum ThundeRStormS - GameOver";
+                newLabel = "Spectrum TS - GameOver";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
                 Spectrum.setProfile(5);
                 AppSettings.saveInt("spectrum_profile", 5, getApplicationContext());	
             } else if (isActive && click) {
-                newLabel = "Spectrum ThundeRStormS";
+                newLabel = "Spectrum TS - I";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_thunder);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
@@ -167,7 +167,8 @@ public class ProfileTile extends TileService {
         Tile tile = this.getQsTile();
         Icon newIcon;
         String newLabel;
-        int newState;
+//      int newState;
+		int newState = Tile.STATE_ACTIVE;
 
         // Update tile
         if (!mIsSupported){
@@ -176,37 +177,37 @@ public class ProfileTile extends TileService {
             newState = Tile.STATE_INACTIVE;
         } else {
             if (profile == 10) {
-                newLabel = "Spectrum ThundeRStormS - Ankit";
+                newLabel = "Spectrum TS - Ankit";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
             } else if (profile == 9) {
-                newLabel = "Spectrum ThundeRStormS - II";
+                newLabel = "Spectrum TS - II";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_thunder);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
             } else if (profile == 8) {
-                newLabel = "Spectrum ThundeRStormS - Frnaz";
+                newLabel = "Spectrum TS - Frnaz";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
             } else if (profile == 7) {
-                newLabel = "Spectrum ThundeRStormS - Shariq";
+                newLabel = "Spectrum TS - Shariq";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_thunder);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
             } else if (profile == 6) {
-                newLabel = "Spectrum ThundeRStormS - rtakak";
+                newLabel = "Spectrum TS - rtakak";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
             } else if (profile == 5) {
-                newLabel = "Spectrum ThundeRStormS - Game Over";
+                newLabel = "Spectrum TS - Game Over";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
             } else if (profile == 4) {
-                newLabel = "Spectrum ThundeRStormS";
+                newLabel = "Spectrum TS - I";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_thunder);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
