@@ -2014,6 +2014,8 @@ string ac_input_screen
 string ac_mains
 string accent_color
 string ad_here
+string adaptive_fast_charge
+string adaptive_fast_charge_summary
 string adb_secure_off
 string adb_secure_on
 string add
@@ -2823,6 +2825,7 @@ string network
 string new_mode
 string new_password
 string next
+string ninty_sec
 string no_busybox
 string no_changes
 string no_internet
@@ -2851,6 +2854,8 @@ string old_password_wrong
 string on
 string on_boot
 string on_boot_welcome_summary
+string onefifty_sec
+string onetwenty_sec
 string online_delay
 string online_delay_summary
 string open
@@ -3050,6 +3055,7 @@ string show_all
 string shutdown_temp
 string simple_gpu_algorithm
 string simple_gpu_algorithm_summary
+string sixty_sec
 string sleep_milliseconds
 string slide_down
 string slide_left

@@ -1,1 +1,1 @@
-[{"outputType":{"type":"MERGED_MANIFESTS"},"apkData":{"type":"MAIN","splits":[],"versionCode":1032,"versionName":"1.0.3.2","enabled":true,"outputFile":"app-debug-androidTest.apk","fullName":"debugAndroidTest","baseName":"debug-androidTest"},"path":"AndroidManifest.xml","properties":{}}]
+[{"outputType":{"type":"MERGED_MANIFESTS"},"apkData":{"type":"MAIN","splits":[],"versionCode":1033,"versionName":"1.0.3.3","enabled":true,"outputFile":"app-debug-androidTest.apk","fullName":"debugAndroidTest","baseName":"debug-androidTest"},"path":"AndroidManifest.xml","properties":{}}]

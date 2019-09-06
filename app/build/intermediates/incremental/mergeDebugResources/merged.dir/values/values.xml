@@ -6,6 +6,10 @@
         <item>@string/ten_sec</item>
         <item>@string/twenty_sec</item>
         <item>@string/fifty_sec</item>
+        <item>@string/sixty_sec</item>
+        <item>@string/ninty_sec</item>
+        <item>@string/onetwenty_sec</item>
+		<item>@string/onefifty_sec</item>
     </string-array>
     <string-array name="apply_on_boot_delay_values">
         <item>0</item>
@@ -13,6 +17,10 @@
         <item>10</item>
         <item>20</item>
         <item>50</item>
+        <item>60</item>
+        <item>90</item>
+        <item>120</item>
+        <item>150</item>
     </string-array>
     <string-array name="b_wakelocks_oder">
         <item>@string/wkl_name</item>
@@ -293,7 +301,7 @@
     <color name="colorThundeRD">#00cdcf</color>
     <color name="colorThundeRF">#158518</color>
     <color name="colorThundeRG">#116097</color>
-    <color name="colorThundeRR">#c0ffb8</color>
+    <color name="colorThundeRR">#2d63be</color>
     <color name="colorThundeRS">#ff9a1d</color>
     <color name="colorThundeRST">#8d87a8</color>
     <color name="cyanAccent">#18FFFF</color>
@@ -771,7 +779,7 @@
     <string name="abc_shareactionprovider_share_with_application">Share with <ns1:g example="Mail" id="application_name">%s</ns1:g></string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="about">About</string>
-    <string name="about_me">Hi, I\'m @nalas XDA, developer of ThundeRStormS Kernel.\nThis app is a mod of \"thunderTweaks"\ by corsicanu and \"MTweaks\" by MoroGoku, properly adaptated to exynos7870/7880/7884/7885/7904/8890 devices (maybe even more).\n\nThanks Willi for this great app, special thanks to MoroGoku and corsicanu for their awesome thunderTweaks and MTweaks apps. Thanks for Rohan D. and graphics projects for XDA@Franz S. and XDA@phghost, @nckmml, XDA@VHFG22, @Game Over, XDA@matt_988 and XDA@Kyo-Ito</string>
+    <string name="about_me">Hi, I\'m @nalas XDA, developer of ThundeRStormS Kernel.\nThis app is a mod of \"hKtweaks"\ by corsicanu and \"MTweaks\" by MoroGoku, properly adaptated to exynos7870/7880/7884/7885/7904/8890 devices (maybe even more).\n\nThanks Willi for this great app, special thanks to MoroGoku and corsicanu for their awesome thunderTweaks and MTweaks apps. Thanks for Rohan D. and graphics projects for XDA@Franz S. and XDA@phghost, @nckmml, XDA@VHFG22, @Game Over, XDA@matt_988 and XDA@Kyo-Ito</string>
     <string name="ac_charge">AC/Mains Charge Current</string>
     <string name="ac_charge_screen">AC/Mains Charge Current (screen-on)</string>
     <string name="ac_input">AC/Mains Input Current</string>
@@ -779,6 +787,8 @@
     <string name="ac_mains">AC/Mains</string>
     <string name="accent_color">Accent Color</string>
     <string name="ad_here">Your advertisement could be here</string>
+    <string name="adaptive_fast_charge">Adaptive Fast Charge</string>
+    <string name="adaptive_fast_charge_summary">Device will charge faster when this option is enabled. Replug your charger when changing this option.</string>
     <string name="adb_secure_off">Insecure ADB</string>
     <string name="adb_secure_on">Secure ADB</string>
     <string name="add">Add</string>
@@ -960,7 +970,7 @@
     <string name="cfs_scheduler_policy">CFS Scheduler Policy</string>
     <string name="cfs_scheduler_policy_summary">Policy decides the CFS scheduler how to balance tasks onto different CPU unit.</string>
     <string name="changelog">ThunderTweaks v%s</string>
-    <string name="changelog_message">\n* Added support undervoltage to -200mV for big.LITTLE clusters\n* Added support for step at 6.25mV (before was 12.5mV)\n</string>
+    <string name="changelog_message">\n* Added support for Adaptative Fast Charge\n* Fixed load Spectrum Profiles for some devices\n* Updated Gradle to 5.4.1\n</string>
     <string name="char_source">Charge Source</string>
     <string name="char_type">Charge Type</string>
     <string name="character_counter_content_description">Character limit exceeded %1$d of %2$d</string>
@@ -1154,7 +1164,7 @@
     <string name="donate_nope">I won\'t fall for this scam!</string>
     <string name="donate_summary">This feature is only available when the donation app is installed! Don\'t worry though. Because this app is open source you can easily build it yourself and remove this check. But I hope you support developers anyway. Thanks for using Kernel Adiutor! Once you bought the donation app you have to restart Kernel Adiutor in order to enable all features.</string>
     <string name="donate_yes">I love this app. Must donate!</string>
-    <string name="donation_summary">ThunderTweaks is an app based on \"thunderTweaks"\ by corsicanu and \"MTweaks\" by MoroGoku, properly adaptated to exynos7870/7880/7884/7885/7904/8890 devices (maybe even more).\nIf you appreciate my work and you want to donate to support my work and provide me more coffee, you can do it on the following Paypal link.</string>
+    <string name="donation_summary">ThunderTweaks is an app based on \"hKtweaks"\ by corsicanu and \"MTweaks\" by MoroGoku, properly adaptated to exynos7870/7880/7884/7885/7904/8890 devices (maybe even more).\nIf you appreciate my work and you want to donate to support my work and provide me more coffee, you can do it on the following Paypal link.</string>
     <string name="donation_summary_mg">Hi, ThunderTweaks is an application based on \"Kernel Adiutor\" by Willi Ye, aka Grarak.\n\nIt has several new modifications and adjustments, especially for the latest Samsung Galaxy S7.\n\nI do this because I have fun and I like to share my work, that\'s why it\'s free and does not carry advertising.\n\nAlthough if you liked the work I have done and you want to donate something and invite me to a beer, as they say, you can do it in the following Paypal link.</string>
     <string name="donation_title">Donation</string>
     <string name="down">Down</string>
@@ -1588,6 +1598,7 @@
     <string name="new_mode">New</string>
     <string name="new_password">New password</string>
     <string name="next">Next</string>
+    <string name="ninty_sec">90 seconds</string>
     <string name="no_busybox">No busybox</string>
     <string name="no_changes">No changes made!</string>
     <string name="no_internet">Please check your internet connection!</string>
@@ -1616,6 +1627,8 @@
     <string name="on">On</string>
     <string name="on_boot">On Boot</string>
     <string name="on_boot_welcome_summary">This section shows you what things will happen when your device boots up. If it\'s blank, then nothing will happen after boot.</string>
+    <string name="onefifty_sec">150 seconds</string>
+    <string name="onetwenty_sec">120 seconds</string>
     <string name="online_delay">Online Delay</string>
     <string name="online_delay_summary">Time before turning on a CPU.</string>
     <string name="open">Open %s</string>
@@ -1815,6 +1828,7 @@
     <string name="shutdown_temp">Shutdown Temperature</string>
     <string name="simple_gpu_algorithm">Simple GPU Algorithm</string>
     <string name="simple_gpu_algorithm_summary">An add-on for MSM Adreno TZ GPU Governor. Developed by faux123.</string>
+    <string name="sixty_sec">60 seconds</string>
     <string name="sleep_milliseconds">Sleep between scans</string>
     <string name="slide_down">Slide down</string>
     <string name="slide_left">Slide left</string>
@@ -1836,16 +1850,16 @@
     <string name="spec_performance_summary">Tuned for top tier performance in standard tasks with many less regressions than Balanced, but maintains battery by limiting graphics.</string>
     <string name="spec_thunder">ThundeRStormS</string>
     <string name="spec_thunder2">ThundeRStormS - II</string>
-    <string name="spec_thunder2_summary">Thunder II - more conservative profile that lets performance take a hit in order to achieve long-lasting battery life with balanced performance. Edited by XDA@nalas.</string>
-    <string name="spec_thunder_summary">Thunder-conservative profile that lets performance take a hit in order to achieve long-lasting battery life with balanced performance. Edited by XDA@nalas.</string>
+    <string name="spec_thunder2_summary">Thunder II - more conservative profile uses Samsung Plug that lets performance take a hit in order to achieve long-lasting battery life with balanced performance. Edited by XDA@nalas.</string>
+    <string name="spec_thunder_summary">Thunder - balanced profile uses AutoSMP hotplug that lets performance take a hit in order to achieve long-lasting battery life with balanced performance. Edited by XDA@nalas.</string>
     <string name="spec_thundera">ThundeRStormS - Ankit</string>
-    <string name="spec_thundera_summary">Ankit - more conservative profile in order to achieve long-lasting battery life with balanced performance. Edited by XDA@nalas and Ankit.</string>
+    <string name="spec_thundera_summary">Ankit - more conservative profile uses Samsung Plug in order to achieve long-lasting battery life with balanced performance. Edited by XDA@nalas and Ankit.</string>
     <string name="spec_thunderf">ThundeRStormS - Franz</string>
-    <string name="spec_thunderf_summary">Tuned Profile by Franz that lets you achieve the long battery life with balanced Performance. Edited by XDA@nalas and Franz.</string>
+    <string name="spec_thunderf_summary">Tuned Profile by Franz that lets you achieve the long battery life with balanced Performance uses Samsung Plug and lower max CPUs frequencies. Edited by XDA@nalas and Franz.</string>
     <string name="spec_thunderg">ThundeRStormS - Game Over</string>
-    <string name="spec_thunderg_summary">Thunder-conservative profile made by Game Over that lets to achieve long-lasting battery life with balanced performance. Edited by XDA@nalas and Game Over.</string>
-    <string name="spec_thunderr">ThundeRStormS - rtakak</string>
-    <string name="spec_thunderr_summary">Thunder-conservative profile made by rtakak that lets achieve long-lasting battery life with balanced game performance. You can play non heavy games with this profile. Edited by XDA@nalas and rtakak.</string>
+    <string name="spec_thunderg_summary">Thunder - conservative profile made by Game Over that lets to achieve long-lasting battery life with balanced performance. Edited by XDA@nalas and Game Over.</string>
+    <string name="spec_thunderr">ThundeRStormS - rtakak with AutoSMP</string>
+    <string name="spec_thunderr_summary">Tuned Profile by rtakak for better better battery life with good game performance. Profile uses rtakak profile base and AutoSMP Plug for this purpose. rtakak profile edited by rtakak and XDA@nalas.</string>
     <string name="spec_thunders">ThundeRStormS - Shariq</string>
     <string name="spec_thunders_summary">Smooth Tuned Profile by Shariq that lets you achieve the long battery life with enhanced Performance. Edited by XDA@nalas and Shariq.</string>
     <string name="spec_title">SPECTRUM Profile Manager</string>
