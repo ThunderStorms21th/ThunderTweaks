@@ -62,12 +62,12 @@ public class DvfsFragment extends RecyclerViewFragment {
         seekBar.setTitle(getString(R.string.dvfs_thermal_control));
         seekBar.setSummary(getString(R.string.dvfs_thermal_control_summary));
         seekBar.setMax(90);
-        seekBar.setMin(40);
-        seekBar.setProgress(Utils.strToInt(Dvfs.getThermalControl()) - 40);
+        seekBar.setMin(30);
+        seekBar.setProgress(Utils.strToInt(Dvfs.getThermalControl()) - 30);
         seekBar.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
             @Override
             public void onStop(SeekBarView seekBarView, int position, String value) {
-                Dvfs.setThermalControl(String.valueOf(position + 40), getActivity());
+                Dvfs.setThermalControl(String.valueOf(position + 30), getActivity());
             }
 
             @Override

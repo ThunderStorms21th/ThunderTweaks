@@ -103,15 +103,11 @@ public class CPUFragment extends RecyclerViewFragment {
         if (mCPUBoost.supported()) {
             cpuBoostInit(items);
         }
-        if (Misc.hasMcPowerSaving()) {
-            mcPowerSavingInit(items);
+
+        if (mCPUBoost.supported()) {
+            cpuBoostCpuInit(items);
         }
-        if (Misc.hasPowerSavingWq()) {
-            powerSavingWqInit(items);
-        }
-        if (Misc.hasCpuFingerprintBoost()) {
-            cpuFingerprintBoostInit(items);
-        }
+
         if (Misc.hasCFSScheduler()) {
             cfsSchedulerInit(items);
         }
@@ -120,6 +116,20 @@ public class CPUFragment extends RecyclerViewFragment {
         }
         if (Misc.hasCpuTouchBoost()) {
             cpuTouchBoostInit(items);
+        }
+        if (Misc.hasDevFreqBoostFreq()) {
+            cpuDevFreqBoostInit(items);
+        }
+		
+        if (Misc.hasCpuFingerprintBoost()) {
+            cpuFingerprintBoostInit(items);
+        }
+		
+        if (Misc.hasMcPowerSaving()) {
+            mcPowerSavingInit(items);
+        }
+        if (Misc.hasPowerSavingWq()) {
+            powerSavingWqInit(items);
         }
     }
 
@@ -326,37 +336,34 @@ public class CPUFragment extends RecyclerViewFragment {
         }
     }
 
-    private void mcPowerSavingInit(List<RecyclerViewItem> items) {
-        SelectView mcPowerSaving = new SelectView();
-        mcPowerSaving.setTitle(getString(R.string.mc_power_saving));
-        mcPowerSaving.setSummary(getString(R.string.mc_power_saving_summary));
-        mcPowerSaving.setItems(Arrays.asList(getResources().getStringArray(R.array.mc_power_saving_items)));
-        mcPowerSaving.setItem(Misc.getCurMcPowerSaving());
-        mcPowerSaving.setOnItemSelected((selectView, position, item)
-                -> Misc.setMcPowerSaving(position, getActivity()));
-
-        items.add(mcPowerSaving);
-    }
-
-    private void powerSavingWqInit(List<RecyclerViewItem> items) {
-        SwitchView powerSavingWq = new SwitchView();
-        powerSavingWq.setSummary(getString(R.string.power_saving_wq));
-        powerSavingWq.setChecked(Misc.isPowerSavingWqEnabled());
-        powerSavingWq.addOnSwitchListener((switchView, isChecked)
-                -> Misc.enablePowerSavingWq(isChecked, getActivity()));
-
-        items.add(powerSavingWq);
-    }
-
 	private void cpuFingerprintBoostInit(List<RecyclerViewItem> items) {
-		SwitchView FingerprintBoost = new SwitchView();
+		
+		/* SwitchView FingerprintBoost = new SwitchView();
         FingerprintBoost.setTitle(getString(R.string.fingerprint_boost));
         FingerprintBoost.setSummary(getString(R.string.fingerprint_boost_summary));
         FingerprintBoost.setChecked(Misc.isCpuFingerprintBoostEnabled());
         FingerprintBoost.addOnSwitchListener((switchView, isChecked)
                 -> Misc.enableCpuFingerprintBoost(isChecked, getActivity()));
 
-        items.add(FingerprintBoost);
+        items.add(FingerprintBoost); */
+		
+        CardView fpbCard= new CardView(getActivity());
+        fpbCard.setTitle(getString(R.string.fingerprint_boost));
+
+        DescriptionView fpbDesc = new DescriptionView();
+        fpbDesc.setSummary(getString(R.string.fingerprint_boost_summary));
+        fpbCard.addItem(fpbDesc);
+
+        SwitchView fp = new SwitchView();
+        fp.setTitle(getString(R.string.fingerprint_boost));
+        fp.setSummaryOn(getString(R.string.enabled));
+        fp.setSummaryOff(getString(R.string.disabled));
+        fp.setChecked(Misc.isCpuFingerprintBoostEnabled());
+        fp.addOnSwitchListener((switchView, isChecked)
+                -> Misc.enableCpuFingerprintBoost(isChecked, getActivity()));
+
+        fpbCard.addItem(fp);
+        items.add(fpbCard);		
     }
 
     private void cfsSchedulerInit(List<RecyclerViewItem> items) {
@@ -412,7 +419,7 @@ public class CPUFragment extends RecyclerViewFragment {
     private void cpuBoostInit(List<RecyclerViewItem> items) {
         CardView cpuBoostCard = new CardView(getActivity());
         cpuBoostCard.setTitle(getString(R.string.ib_enabled));
-
+		
         if (mCPUBoost.hasEnable()) {
             SwitchView enable = new SwitchView();
             enable.setTitle(getString(R.string.ib_enabled));
@@ -607,6 +614,131 @@ public class CPUFragment extends RecyclerViewFragment {
         }
     }
 
+    private void cpuBoostCpuInit(List<RecyclerViewItem> items) {
+        CardView cpuInputBoostCard = new CardView(getActivity());
+        cpuInputBoostCard.setTitle(getString(R.string.iib_enabled));
+
+        if (mCPUBoost.hasCpuBoostInput()) {
+            SwitchView enableib = new SwitchView();
+            enableib.setTitle(getString(R.string.ib_enabled));
+            enableib.setSummaryOn(getString(R.string.cpu_boost_summary_on));
+            enableib.setSummaryOff(getString(R.string.cpu_boost_summary_off));
+            enableib.setChecked(mCPUBoost.isEnabled());
+            enableib.addOnSwitchListener((switchView, isChecked)
+                    -> mCPUBoost.enableCpuBoostInput(isChecked, getActivity()));
+
+            cpuInputBoostCard.addItem(enableib);
+        }
+
+        if (mCPUBoost.hasCpuBoostDurationMs()) {
+            GenericSelectView2 dms = new GenericSelectView2();
+            dms.setTitle(getString(R.string.iib_duration_ms));
+            dms.setValue(mCPUBoost.getCpuBoostDurationMs() + " ms");
+            dms.setValueRaw(dms.getValue().replace(" ms", ""));
+            dms.setInputType(InputType.TYPE_CLASS_NUMBER);
+            dms.setOnGenericValueListener(new GenericSelectView2.OnGenericValueListener() {
+                @Override
+                public void onGenericValueSelected(GenericSelectView2 genericSelectView, String value) {
+                    mCPUBoost.setCpuBoostDurationMs(Utils.strToInt(value), getActivity());
+                    genericSelectView.setValue(value + " ms");
+                }
+            });
+
+            cpuInputBoostCard.addItem(dms);
+        }
+
+		if (mCPUBoost.hasCpuBoostFreqHp() && mCPUFreq.getFreqs() != null) {
+            SelectView bighp = new SelectView();
+            bighp.setTitle("Boost Freq BIG Cluster");
+            // bighp.setSummary(getString(R.string.iib_freq_hp));
+            bighp.setItems(mCPUFreq.getAdjustedFreq(getActivity()));
+            bighp.setItem((mCPUBoost.getCpuBoostFreqHp() / 1000)
+                    + getString(R.string.mhz));
+            bighp.setOnItemSelected((selectView, position, item)
+                    -> mCPUBoost.setCpuBoostFreqHp(
+                    mCPUFreq.getFreqs().get(position), getActivity()));
+
+            cpuInputBoostCard.addItem(bighp);
+        }
+
+		if (mCPUBoost.hasCpuBoostFreqLp() && mCPUFreq.getFreqs(mCPUFreq.getLITTLECpu()) != null) {
+            SelectView littlelp = new SelectView();
+            littlelp.setTitle("Boost Freq LITTLE Cluster");
+            // littlelp.setSummary(getString(R.string.iib_freq_lp));
+            littlelp.setItems(mCPUFreq.getAdjustedFreq(mCPUFreq.getLITTLECpu(),getActivity()));
+            littlelp.setItem((mCPUBoost.getCpuBoostFreqLp() / 1000)
+                    + getString(R.string.mhz));
+            littlelp.setOnItemSelected((selectView, position, item)
+                    -> mCPUBoost.setCpuBoostFreqLp(
+                    mCPUFreq.getFreqs(mCPUFreq.getLITTLECpu()).get(position), getActivity()));
+
+            cpuInputBoostCard.addItem(littlelp);
+        }
+
+		if (mCPUBoost.hasCpuBoostMaxLp() && mCPUFreq.getFreqs(mCPUFreq.getLITTLECpu()) != null) {
+            SelectView littleml = new SelectView();
+            // littleml.setTitle("Boost Max Freq LITTLE Cluster");
+            littleml.setSummary(getString(R.string.iib_freq_ml));
+            littleml.setItems(mCPUFreq.getAdjustedFreq(mCPUFreq.getLITTLECpu(),getActivity()));
+            littleml.setItem((mCPUBoost.getCpuBoostMaxLp() / 1000)
+                    + getString(R.string.mhz));
+            littleml.setOnItemSelected((selectView, position, item)
+                    -> mCPUBoost.setCpuBoostMaxLp(
+                    mCPUFreq.getFreqs(mCPUFreq.getLITTLECpu()).get(position), getActivity()));
+					
+            cpuInputBoostCard.addItem(littleml);
+        }
+
+ 		if (mCPUBoost.hasCpuBoostMaxPerf() && mCPUFreq.getFreqs() != null) {
+            SelectView bigmp = new SelectView();
+            // bigmp.setTitle("Boost Max Freq BIG Cluster");
+            bigmp.setSummary(getString(R.string.iib_freq_mp));
+            bigmp.setItems(mCPUFreq.getAdjustedFreq(getActivity()));
+            bigmp.setItem((mCPUBoost.getCpuBoostMaxPerf() / 1000)
+                    + getString(R.string.mhz));
+            bigmp.setOnItemSelected((selectView, position, item)
+                    -> mCPUBoost.setCpuBoostMaxPerf(
+                    mCPUFreq.getFreqs().get(position), getActivity()));
+
+            cpuInputBoostCard.addItem(bigmp);
+        }
+
+        if (cpuInputBoostCard.size() > 0) {
+            items.add(cpuInputBoostCard);
+        }
+    }
+
+    private void cpuDevFreqBoostInit(List<RecyclerViewItem> items) {
+        CardView cpuDevFreqBoostCard = new CardView(getActivity());
+        cpuDevFreqBoostCard.setTitle(getString(R.string.iid_enabled));
+  
+        if (Misc.hasDevFreqBoostDur()) {
+            SeekBarView dfms = new SeekBarView();
+            dfms.setTitle(getString(R.string.iid_duration_ms));
+            dfms.setSummary(getString(R.string.iid_duration_ms_sumamry));
+            dfms.setUnit(getString(R.string.ms));
+            dfms.setMax(1000);
+            dfms.setOffset(10);
+            dfms.setProgress(Misc.getDevFreqBoostDur() / 10);
+            dfms.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+                @Override
+                public void onMove(SeekBarView seekBarView, int position, String value) {
+                }
+
+                @Override
+                public void onStop(SeekBarView seekBarView, int position, String value) {
+                    Misc.setDevFreqBoostDur(position * 10, getActivity());
+                }
+            });
+
+            cpuDevFreqBoostCard.addItem(dfms);
+        }
+		
+        if (cpuDevFreqBoostCard.size() > 0) {
+            items.add(cpuDevFreqBoostCard);
+        }
+	}
+
     private void cpuTouchBoostInit(List<RecyclerViewItem> items) {
         SwitchView touchBoost = new SwitchView();
         touchBoost.setTitle(getString(R.string.touch_boost));
@@ -616,6 +748,28 @@ public class CPUFragment extends RecyclerViewFragment {
                 -> Misc.enableCpuTouchBoost(isChecked, getActivity()));
 
         items.add(touchBoost);
+    }
+
+    private void mcPowerSavingInit(List<RecyclerViewItem> items) {
+        SelectView mcPowerSaving = new SelectView();
+        mcPowerSaving.setTitle(getString(R.string.mc_power_saving));
+        mcPowerSaving.setSummary(getString(R.string.mc_power_saving_summary));
+        mcPowerSaving.setItems(Arrays.asList(getResources().getStringArray(R.array.mc_power_saving_items)));
+        mcPowerSaving.setItem(Misc.getCurMcPowerSaving());
+        mcPowerSaving.setOnItemSelected((selectView, position, item)
+                -> Misc.setMcPowerSaving(position, getActivity()));
+
+        items.add(mcPowerSaving);
+    }
+
+    private void powerSavingWqInit(List<RecyclerViewItem> items) {
+        SwitchView powerSavingWq = new SwitchView();
+        powerSavingWq.setSummary(getString(R.string.power_saving_wq));
+        powerSavingWq.setChecked(Misc.isPowerSavingWqEnabled());
+        powerSavingWq.addOnSwitchListener((switchView, isChecked)
+                -> Misc.enablePowerSavingWq(isChecked, getActivity()));
+
+        items.add(powerSavingWq);
     }
 
     private float[] mCPUUsages;

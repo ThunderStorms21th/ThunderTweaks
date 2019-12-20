@@ -47,6 +47,9 @@ public class Misc {
     private static final String CPU_QUIET_CURRENT_GOVERNOR = CPU_QUIET + "/current_governor";
 
     private static final String CPU_TOUCH_BOOST = "/sys/module/msm_performance/parameters/touchboost";
+	
+    private static final String CPU_DEVFREQ_BOOST_DURATION = "/sys/module/devfreq_boost/parameters/devfreq_boost_dur";
+    private static final String CPU_DEVFREQ_BOOST_FREQ = "/sys/module/devfreq_boost/parameters/devfreq_boost_freq";
 
     private static String[] sAvailableCFSSchedulers;
     private static String[] sCpuQuietAvailableGovernors;
@@ -160,7 +163,31 @@ public class Misc {
     public static boolean hasMcPowerSaving() {
         return Utils.existFile(CPU_MC_POWER_SAVING);
     }
+	
+    public static void setDevFreqBoostDur(int value, Context context) {
+        run(Control.write(String.valueOf(value), CPU_DEVFREQ_BOOST_DURATION), CPU_DEVFREQ_BOOST_DURATION, context);
+    }
 
+    public static int getDevFreqBoostDur() {
+        return Utils.strToInt(Utils.readFile(CPU_DEVFREQ_BOOST_DURATION));
+    }
+
+    public static boolean hasDevFreqBoostDur() {
+        return Utils.existFile(CPU_DEVFREQ_BOOST_DURATION);
+    }
+	
+    public static void setDevFreqBoostFreq(int value, Context context) {
+        run(Control.write(String.valueOf(value), CPU_DEVFREQ_BOOST_FREQ), CPU_DEVFREQ_BOOST_FREQ, context);
+    }
+
+    public static int getDevFreqBoostFreq() {
+        return Utils.strToInt(Utils.readFile(CPU_DEVFREQ_BOOST_FREQ));
+    }
+
+    public static boolean hasDevFreqBoostFreq() {
+        return Utils.existFile(CPU_DEVFREQ_BOOST_FREQ);
+    }
+	
     private static void run(String command, String id, Context context) {
         Control.runSetting(command, ApplyOnBootFragment.CPU, id, context);
     }
