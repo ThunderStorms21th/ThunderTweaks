@@ -195,6 +195,79 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
 
         samsungPlug.addItem(min);
 /* older */
+
+        SeekBarView DualChangeMs = new SeekBarView();
+        DualChangeMs.setTitle(getString(R.string.samsungPlug_DualChangeMs));
+        DualChangeMs.setMax(500);
+        DualChangeMs.setMin(1);
+        DualChangeMs.setProgress(Utils.strToInt(SamsungPlug.getDualChangeMs()) - 1);
+        DualChangeMs.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+            @Override
+            public void onStop(SeekBarView seekBarView, int position, String value) {
+                SamsungPlug.setDualChangeMs((position + 1), getActivity());
+            }
+
+            @Override
+            public void onMove(SeekBarView seekBarView, int position, String value) {
+            }
+        });
+
+        samsungPlug.addItem(DualChangeMs);
+
+        SeekBarView LitMultRatio = new SeekBarView();
+        LitMultRatio.setTitle(getString(R.string.samsungPlug_LitMultRatio));
+        LitMultRatio.setMax(200);
+        LitMultRatio.setMin(1);
+        LitMultRatio.setProgress(Utils.strToInt(SamsungPlug.getLitMultRatio()) - 1);
+        LitMultRatio.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+            @Override
+            public void onStop(SeekBarView seekBarView, int position, String value) {
+                SamsungPlug.setLitMultRatio((position + 1), getActivity());
+            }
+
+            @Override
+            public void onMove(SeekBarView seekBarView, int position, String value) {
+            }
+        });
+
+        samsungPlug.addItem(LitMultRatio);
+
+        SeekBarView ToDualRatio = new SeekBarView();
+        ToDualRatio.setTitle(getString(R.string.samsungPlug_ToDualRatio));
+        ToDualRatio.setMax(100);
+        ToDualRatio.setMin(1);
+        ToDualRatio.setProgress(Utils.strToInt(SamsungPlug.getToDualRatio()) - 1);
+        ToDualRatio.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+            @Override
+            public void onStop(SeekBarView seekBarView, int position, String value) {
+                SamsungPlug.setToDualRatio((position + 1), getActivity());
+            }
+
+            @Override
+            public void onMove(SeekBarView seekBarView, int position, String value) {
+            }
+        });
+
+        samsungPlug.addItem(ToDualRatio);
+
+        SeekBarView ToQuadRatio = new SeekBarView();
+        ToQuadRatio.setTitle(getString(R.string.samsungPlug_ToQuadRatio));
+        ToQuadRatio.setMax(100);
+        ToQuadRatio.setMin(1);
+        ToQuadRatio.setProgress(Utils.strToInt(SamsungPlug.getToQuadRatio()) - 1);
+        ToQuadRatio.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+            @Override
+            public void onStop(SeekBarView seekBarView, int position, String value) {
+                SamsungPlug.setToQuadRatio((position + 1), getActivity());
+            }
+
+            @Override
+            public void onMove(SeekBarView seekBarView, int position, String value) {
+            }
+        });
+
+        samsungPlug.addItem(ToQuadRatio);
+
         if (samsungPlug.size() > 0) {
             items.add(samsungPlug);
         }
