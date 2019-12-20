@@ -291,7 +291,7 @@ public class MiscFragment extends RecyclerViewFragment {
             SelectView mode = new SelectView();
             mode.setTitle(getString(R.string.power_suspend_mode));
             mode.setSummary(getString(R.string.power_suspend_mode_summary));
-            if (v.contains("1.5") || v.contains("1.8")) {
+            if (v.contains("1.5") || v.contains("1.8") || v.contains("1.9")) {
                 mode.setItems(Arrays.asList(getResources().getStringArray(R.array.powersuspend_items)));
             } else {
                 mode.setItems(Arrays.asList(getResources().getStringArray(R.array.powersuspend_items_lite)));
