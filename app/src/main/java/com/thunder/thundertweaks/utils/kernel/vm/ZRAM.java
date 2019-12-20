@@ -37,6 +37,10 @@ public class ZRAM {
     private static final String ALGORITHM = "/sys/block/zram0/comp_algorithm";
     private static final String MAX_COMP_STREAMS = "/sys/block/zram0/max_comp_streams";
 	
+	private static final String VNSWAP = "/sys/block/vnswap0";
+	private static final String BLOCK_VNSWAP = "/dev/block/vnswap0";
+    private static final String DISKSIZE_VNSWAP = "/sys/block/vnswap0/disksize";
+	
     public static void setDisksize(final long value, final Context context) {
 		    
 			String maxCompStrems = null;
@@ -73,8 +77,8 @@ public class ZRAM {
 		run(Control.chmod("644", RESET), RESET + "chmod", context);
         run(Control.write("1", RESET), RESET, context);
         run(Control.write(String.valueOf(value), ALGORITHM), ALGORITHM, context);
-        run(Control.chmod("444", ZRAM), ZRAM + "chmod", context);
-		run(Control.chmod("444", RESET), RESET + "chmod", context);
+        // run(Control.chmod("444", ZRAM), ZRAM + "chmod", context);
+		// run(Control.chmod("444", RESET), RESET + "chmod", context);
     }
 
 /*
@@ -98,11 +102,16 @@ public class ZRAM {
    public static void enable(boolean enable, Context context) {
         if(enable){
 			run(Control.chmod("644", BLOCK), BLOCK + "chmod", context);
+			// run(Control.chmod("644", BLOCK_VNSWAP), BLOCK_VNSWAP + "chmod", context);
+			// run("swapoff " + BLOCK_VNSWAP + " > /dev/null 2>&1", BLOCK_VNSWAP + "swapoff", context);
             run("mkswap " + BLOCK + " > /dev/null 2>&1", BLOCK + "mkswap", context);
             run("swapon " + BLOCK + " > /dev/null 2>&1", BLOCK + "swapon", context);
         } else{
+			run(Control.chmod("644", BLOCK), BLOCK + "chmod", context);
+			// run(Control.chmod("644", BLOCK_VNSWAP), BLOCK_VNSWAP + "chmod", context);
+			// run("swapon " + BLOCK_VNSWAP + " > /dev/null 2>&1", BLOCK_VNSWAP + "swapon", context);
             run("swapoff " + BLOCK + " > /dev/null 2>&1", BLOCK + "swapoff", context);
-			run(Control.chmod("444", BLOCK), BLOCK + "chmod", context);
+			// run(Control.chmod("444", BLOCK), BLOCK + "chmod", context);
         }
     }
 

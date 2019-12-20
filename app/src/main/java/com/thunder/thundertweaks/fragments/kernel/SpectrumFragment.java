@@ -18,24 +18,9 @@ import com.thunder.thundertweaks.utils.kernel.spectrum.Spectrum;
 import com.thunder.thundertweaks.views.recyclerview.CardView;
 import com.thunder.thundertweaks.views.recyclerview.DescriptionView;
 import com.thunder.thundertweaks.views.recyclerview.RecyclerViewItem;
-import com.thunder.thundertweaks.utils.root.Control;
-import com.thunder.thundertweaks.views.recyclerview.SeekBarView;
-import com.thunder.thundertweaks.views.recyclerview.SelectView;
-import com.thunder.thundertweaks.views.recyclerview.SwitchView;
 
 import java.util.List;
 import java.util.Objects; 
-
-// added spectrum 
-
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import java.util.LinkedHashMap;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 
 /**
@@ -52,7 +37,7 @@ public class SpectrumFragment extends RecyclerViewFragment {
         super.init();
 
 		addViewPagerFragment(DescriptionFragment.newInstance(getString(R.string.spec_title), getString(R.string.spec_info)));
-        addViewPagerFragment(ApplyOnBootFragment.newInstance(this));
+        // addViewPagerFragment(ApplyOnBootFragment.newInstance(this));
 		// Spectrum.setProfile(profile);
 		// Spectrum.setProfile(prof);
 			
@@ -293,12 +278,11 @@ public class SpectrumFragment extends RecyclerViewFragment {
         items.add(card10);
 
 		// Initialice profile Sharedpreference
-        int prof = Utils.strToInt(Spectrum.getProfile());
-        AppSettings.saveInt("spectrum_profile", prof, getActivity());
+        // int prof = Utils.strToInt(Spectrum.getProfile());
+        // AppSettings.saveInt("spectrum_profile", prof, getActivity());
 
         //Detects the selected profile on launch
         int mProfile = AppSettings.getInt("spectrum_profile", 0, getActivity());
-        // int mProfile = AppSettings.getInt("spectrum_profile", 0, getActivity());
 	
         if(mProfile == 0){
             card0.GrxSetInitSelection(true, balColor);
@@ -376,8 +360,8 @@ public class SpectrumFragment extends RecyclerViewFragment {
     }
 
 	// added for Apply on Boot
-    private void run(String command, String id, Context context) {
-        Control.runSetting(command, ApplyOnBootFragment.SPECTRUM, id, context);
-    }	
+    // private void run(String command, String id, Context context) {
+    //     Control.runSetting(command, ApplyOnBootFragment.SPECTRUM, id, context);
+    // }	
 
 }

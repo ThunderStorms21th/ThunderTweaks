@@ -44,6 +44,7 @@ public class CPUBoost {
 
     private static final String CPU_BOOST = "/sys/module/cpu_boost/parameters";
     private static final String CPU_BOOST_EXYNOS = "/sys/kernel/cpu_input_boost";
+	private static final String CPU_BOOST_EXYNOS8890 = "/sys/module/cpu_input_boost_8890/parameters";
 
     private static final List<String> sEnable = new ArrayList<>();
 
@@ -52,6 +53,7 @@ public class CPUBoost {
         sEnable.add(CPU_BOOST + "/cpuboost_enable");
         sEnable.add(CPU_BOOST + "/input_boost_enabled");
         sEnable.add(CPU_BOOST_EXYNOS + "/enabled");
+    //    sEnable.add(CPU_BOOST_EXYNOS8890 + "/input_boost_enabled");
     }
 
     private static final String CPU_BOOST_DEBUG_MASK = CPU_BOOST + "/debug_mask";
@@ -61,8 +63,14 @@ public class CPUBoost {
     private static final String CPU_BOOST_INPUT_BOOST_FREQ = CPU_BOOST + "/input_boost_freq";
     private static final String CPU_BOOST_WAKEUP = CPU_BOOST + "/wakeup_boost";
     private static final String CPU_BOOST_HOTPLUG = CPU_BOOST + "/hotplug_boost";
+	private static final String CPU_BOOST_EXYNOS8890_ENABLE = CPU_BOOST_EXYNOS8890 + "/input_boost_enabled";
     private static final String CPU_BOOST_EXYNOS_INPUT_MS = CPU_BOOST_EXYNOS + "/ib_duration_ms";
     private static final String CPU_BOOST_EXYNOS_BOOST_FREQ = CPU_BOOST_EXYNOS + "/ib_freqs";
+    private static final String CPU_BOOST_EXYNOS8890_DURATION = CPU_BOOST_EXYNOS8890 + "/input_boost_duration";
+    private static final String CPU_BOOST_EXYNOS8890_FREQ_HP = CPU_BOOST_EXYNOS8890 + "/input_boost_freq_hp";
+    private static final String CPU_BOOST_EXYNOS8890_FREQ_LP = CPU_BOOST_EXYNOS8890 + "/input_boost_freq_lp";
+    private static final String CPU_BOOST_EXYNOS8890_FREQ_PERF = CPU_BOOST_EXYNOS8890 + "/input_boost_freq_perf";
+	private static final String CPU_BOOST_EXYNOS8890_MAX_LP = CPU_BOOST_EXYNOS8890 + "/input_boost_max_lp";
 
     private String ENABLE;
 
@@ -74,7 +82,7 @@ public class CPUBoost {
             }
         }
     }
-
+	
     public void setCpuBoostExynosInputFreq(String value1, String value2, Context context) {
         String value = value1 + " " + value2;
         run(Control.write(String.valueOf(value), CPU_BOOST_EXYNOS_BOOST_FREQ), CPU_BOOST_EXYNOS_BOOST_FREQ, context);
@@ -129,6 +137,18 @@ public class CPUBoost {
         return Utils.existFile(CPU_BOOST_HOTPLUG);
     }
 
+	public void enableCpuBoostInput(boolean enable, Context context) {
+        run(Control.write(enable ? "Y" : "N", CPU_BOOST_EXYNOS8890_ENABLE), CPU_BOOST_EXYNOS8890_ENABLE, context);
+    }
+
+    public boolean isCpuBoostInputEnabled() {
+        return Utils.readFile(CPU_BOOST_EXYNOS8890_ENABLE).equals("Y");
+    }
+
+    public boolean hasCpuBoostInput() {
+        return Utils.existFile(CPU_BOOST_EXYNOS8890_ENABLE);
+    }
+
     public void setCpuBoostInputMs(int value, Context context) {
         run(Control.write(String.valueOf(value), CPU_BOOST_INPUT_MS), CPU_BOOST_INPUT_MS, context);
     }
@@ -173,6 +193,70 @@ public class CPUBoost {
 
     public boolean hasCpuBoostInputFreq() {
         return Utils.existFile(CPU_BOOST_INPUT_BOOST_FREQ);
+    }
+
+    public void setCpuBoostDurationMs(int value, Context context) {
+        run(Control.write(String.valueOf(value), CPU_BOOST_EXYNOS8890_DURATION), CPU_BOOST_EXYNOS8890_DURATION, context);
+    }
+
+    public int getCpuBoostDurationMs() {
+        return Utils.strToInt(Utils.readFile(CPU_BOOST_EXYNOS8890_DURATION));
+    }
+
+    public boolean hasCpuBoostDurationMs() {
+        return Utils.existFile(CPU_BOOST_EXYNOS8890_DURATION);
+    }
+
+	public void setCpuBoostFreqHp(int value, Context context) {
+        run(Control.write(String.valueOf(value), CPU_BOOST_EXYNOS8890_FREQ_HP),
+                CPU_BOOST_EXYNOS8890_FREQ_HP, context);
+    }
+
+    public static int getCpuBoostFreqHp() {
+        return Utils.strToInt(Utils.readFile(CPU_BOOST_EXYNOS8890_FREQ_HP));
+    }
+
+    public static boolean hasCpuBoostFreqHp() {
+        return Utils.existFile(CPU_BOOST_EXYNOS8890_FREQ_HP);
+    }
+
+	public void setCpuBoostFreqLp(int value, Context context) {
+        run(Control.write(String.valueOf(value), CPU_BOOST_EXYNOS8890_FREQ_LP),
+                CPU_BOOST_EXYNOS8890_FREQ_LP, context);
+    }
+
+    public static int getCpuBoostFreqLp() {
+        return Utils.strToInt(Utils.readFile(CPU_BOOST_EXYNOS8890_FREQ_LP));
+    }
+
+    public static boolean hasCpuBoostFreqLp() {
+        return Utils.existFile(CPU_BOOST_EXYNOS8890_FREQ_LP);
+    }
+
+	public void setCpuBoostMaxLp(int value, Context context) {
+        run(Control.write(String.valueOf(value), CPU_BOOST_EXYNOS8890_MAX_LP),
+                CPU_BOOST_EXYNOS8890_MAX_LP, context);
+    }
+
+    public static int getCpuBoostMaxLp() {
+        return Utils.strToInt(Utils.readFile(CPU_BOOST_EXYNOS8890_MAX_LP));
+    }
+
+    public static boolean hasCpuBoostMaxLp() {
+        return Utils.existFile(CPU_BOOST_EXYNOS8890_MAX_LP);
+    }
+
+	public void setCpuBoostMaxPerf(int value, Context context) {
+        run(Control.write(String.valueOf(value), CPU_BOOST_EXYNOS8890_FREQ_PERF),
+                CPU_BOOST_EXYNOS8890_FREQ_PERF, context);
+    }
+
+    public static int getCpuBoostMaxPerf() {
+        return Utils.strToInt(Utils.readFile(CPU_BOOST_EXYNOS8890_FREQ_PERF));
+    }
+
+    public static boolean hasCpuBoostMaxPerf() {
+        return Utils.existFile(CPU_BOOST_EXYNOS8890_FREQ_PERF);
     }
 
     public void setCpuBoostSyncThreshold(int value, Context context) {
@@ -229,10 +313,12 @@ public class CPUBoost {
     public boolean supported() {
         return hasEnable() || hasCpuBoostDebugMask() || hasCpuBoostMs() || hasCpuBoostSyncThreshold()
                 || hasCpuBoostInputFreq() || hasCpuBoostInputMs() || hasCpuBoostHotplug() || hasCpuBoostWakeup()
-                || hasCpuBoostExynosInputFreq() || hasCpuBoostExynosInputMs();
+                || hasCpuBoostExynosInputFreq() || hasCpuBoostExynosInputMs() || hasCpuBoostInput()
+				|| hasCpuBoostDurationMs() || hasCpuBoostFreqHp() || hasCpuBoostFreqLp() || hasCpuBoostMaxLp()
+				|| hasCpuBoostMaxPerf();
     }
 
-    private void run(String command, String id, Context context) {
+    private static void run(String command, String id, Context context) {
         Control.runSetting(command, ApplyOnBootFragment.CPU, id, context);
     }
 

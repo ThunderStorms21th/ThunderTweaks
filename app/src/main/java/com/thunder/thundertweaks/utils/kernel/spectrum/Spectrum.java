@@ -6,21 +6,22 @@ import android.util.SparseArray;
 
 import com.thunder.thundertweaks.utils.root.RootUtils;
 import com.thunder.thundertweaks.R;
-import com.thunder.thundertweaks.fragments.ApplyOnBootFragment;
 import com.thunder.thundertweaks.utils.AppSettings;
 import com.thunder.thundertweaks.utils.root.Control;
-import com.thunder.thundertweaks.utils.kernel.spectrum.Spectrum;
 
 // added spectrum 
-
+/*
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects; 
 import java.util.List;
+*/
 
+/*
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+*/
 
 /**
  * Created by Morogoku on 28/07/2017.
@@ -46,7 +47,7 @@ public class Spectrum {
 
     // Method that interprets a profile and sets it
     public static void setProfile(int profile) {
-        int numProfiles = 10;
+        int numProfiles = 11;
         if (profile > numProfiles || profile < 0) {
             setProp(0);
         } else {

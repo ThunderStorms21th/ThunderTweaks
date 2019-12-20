@@ -9,24 +9,9 @@ import android.os.Build;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 
-import com.thunder.thundertweaks.utils.kernel.spectrum.Spectrum;
-
 import com.thunder.thundertweaks.R;
-import com.thunder.thundertweaks.fragments.ApplyOnBootFragment;
 import com.thunder.thundertweaks.utils.AppSettings;
 import com.thunder.thundertweaks.utils.Utils;
-import com.thunder.thundertweaks.utils.root.Control;
-
-// added spectrum 
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.List; 
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 /**
  * Created by Morogoku on 01/08/2017.
@@ -54,7 +39,8 @@ public class ProfileTile extends TileService {
 
     private void updateTile() {
         Tile tile = this.getQsTile();
-        boolean isActive = getServiceStatus();
+        // boolean isActive = getServiceStatus();
+		boolean isActive = false; // only Balanced and no change
         Icon newIcon;
         String newLabel;
         int newState;
@@ -65,50 +51,50 @@ public class ProfileTile extends TileService {
             newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_logo);
             newState = Tile.STATE_INACTIVE;
         } else {
-            if (isActive && click) {
-                newLabel = "Spectrum TS - Ankit";
+            if (isActive && !click) {
+                newLabel = "Spectrum TS Ankit";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
                 Spectrum.setProfile(10);
                 AppSettings.saveInt("spectrum_profile", 10, getApplicationContext());
-            } else if (isActive && click) {
-                newLabel = "Spectrum TS - II";
+            } else if (isActive && !click) {
+                newLabel = "Spectrum TS II";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_thunder);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
                 Spectrum.setProfile(9);
                 AppSettings.saveInt("spectrum_profile", 9, getApplicationContext());
-            } else if (isActive && click) {
-                newLabel = "Spectrum TS - Franz";
+            } else if (isActive && !click) {
+                newLabel = "Spectrum TS Franz";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
                 Spectrum.setProfile(8);
                 AppSettings.saveInt("spectrum_profile", 8, getApplicationContext());
-            } else if (isActive && click) {
-                newLabel = "Spectrum TS - Shariq";
+            } else if (isActive && !click) {
+                newLabel = "Spectrum TS Shariq";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_thunder);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
                 Spectrum.setProfile(7);
                 AppSettings.saveInt("spectrum_profile", 7, getApplicationContext());
-            } else if (isActive && click) {
-                newLabel = "Spectrum TS - rtakak";
+            } else if (isActive && !click) {
+                newLabel = "Spectrum TS rtakak";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
                 Spectrum.setProfile(6);
                 AppSettings.saveInt("spectrum_profile", 6, getApplicationContext());					
-            } else if (isActive && click) {
-                newLabel = "Spectrum TS - GameOver";
+            } else if (isActive && !click) {
+                newLabel = "Spectrum TS GameOver";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
                 Spectrum.setProfile(5);
                 AppSettings.saveInt("spectrum_profile", 5, getApplicationContext());	
-            } else if (isActive && click) {
-                newLabel = "Spectrum TS - I";
+            } else if (isActive && !click) {
+                newLabel = "Spectrum TS I";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_thunder);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
@@ -121,7 +107,7 @@ public class ProfileTile extends TileService {
                 click = false;
                 Spectrum.setProfile(3);
                 AppSettings.saveInt("spectrum_profile", 3, getApplicationContext());
-            } else if (!isActive && click) {
+            } else if (isActive && !click) {
                 newLabel = "Spectrum Battery";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;
@@ -139,7 +125,7 @@ public class ProfileTile extends TileService {
                 newLabel = "Spectrum Balance";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_balanced);
                 newState = Tile.STATE_ACTIVE;
-                click = true;
+                click = false;
                 Spectrum.setProfile(0);
                 AppSettings.saveInt("spectrum_profile", 0, getApplicationContext());
             }
@@ -154,7 +140,7 @@ public class ProfileTile extends TileService {
 
     private boolean getServiceStatus() {
 
-        boolean isActive = AppSettings.getBoolean(SERVICE_STATUS_FLAG, false, getApplicationContext());
+		boolean isActive = AppSettings.getBoolean(SERVICE_STATUS_FLAG, false, getApplicationContext());
         isActive = !isActive;
 
         AppSettings.saveBoolean(SERVICE_STATUS_FLAG, isActive, getApplicationContext());
@@ -167,8 +153,7 @@ public class ProfileTile extends TileService {
         Tile tile = this.getQsTile();
         Icon newIcon;
         String newLabel;
-//      int newState;
-		int newState = Tile.STATE_ACTIVE;
+		int newState;
 
         // Update tile
         if (!mIsSupported){
@@ -177,37 +162,37 @@ public class ProfileTile extends TileService {
             newState = Tile.STATE_INACTIVE;
         } else {
             if (profile == 10) {
-                newLabel = "Spectrum TS - Ankit";
+                newLabel = "Spectrum TS Ankit";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
             } else if (profile == 9) {
-                newLabel = "Spectrum TS - II";
+                newLabel = "Spectrum TS II";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_thunder);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
             } else if (profile == 8) {
-                newLabel = "Spectrum TS - Frnaz";
+                newLabel = "Spectrum TS Franz";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
             } else if (profile == 7) {
-                newLabel = "Spectrum TS - Shariq";
+                newLabel = "Spectrum TS Shariq";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_thunder);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
             } else if (profile == 6) {
-                newLabel = "Spectrum TS - rtakak";
+                newLabel = "Spectrum TS rtakak";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
             } else if (profile == 5) {
-                newLabel = "Spectrum TS - Game Over";
+                newLabel = "Spectrum TS Game Over";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
             } else if (profile == 4) {
-                newLabel = "Spectrum TS - I";
+                newLabel = "Spectrum TS I";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_thunder);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
@@ -247,7 +232,7 @@ public class ProfileTile extends TileService {
     }
 	
 	// added for Apply on Boot
-    private void run(String command, String id, Context context) {
-        Control.runSetting(command, ApplyOnBootFragment.SPECTRUM, id, context);
-    }
+    // private void run(String command, String id, Context context) {
+    //    Control.runSetting(command, ApplyOnBootFragment.SPECTRUM, id, context);
+    //}
 }

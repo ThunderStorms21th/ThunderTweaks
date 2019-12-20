@@ -30,6 +30,7 @@ import com.thunder.thundertweaks.utils.Device;
 import com.thunder.thundertweaks.utils.kernel.vm.VM;
 import com.thunder.thundertweaks.utils.kernel.vm.ZRAM;
 import com.thunder.thundertweaks.utils.kernel.vm.ZSwap;
+// import com.thunder.thundertweaks.utils.kernel.vm.VNSwap;
 import com.thunder.thundertweaks.views.recyclerview.CardView;
 import com.thunder.thundertweaks.views.recyclerview.DescriptionView;
 import com.thunder.thundertweaks.views.recyclerview.GenericSelectView2;
@@ -69,6 +70,7 @@ public class VMFragment extends RecyclerViewFragment {
         if (ZRAM.supported()) {
             zramInit(items);
         }
+        // vnswapInit(items);
         zswapInit(items);
         vmTunablesInit(items);
     }
@@ -210,6 +212,25 @@ public class VMFragment extends RecyclerViewFragment {
             items.add(zramCard);
         }
     }
+/*
+    private void vnswapInit(List<RecyclerViewItem> items) {
+        CardView vnswapCard = new CardView(getActivity());
+        vnswapCard.setTitle(getString(R.string.vnswap));
+
+        if (VNSwap.hasEnable()) {
+            SwitchView vnswap = new SwitchView();
+            vnswap.setTitle(getString(R.string.vnswapd));
+            vnswap.setSummary(getString(R.string.vnswap_summary));
+            vnswap.setChecked(VNSwap.isEnabled());
+            vnswap.addOnSwitchListener((switchView, isChecked)
+                    -> VNSwap.enable(isChecked, getActivity()));
+
+            vnswapCard.addItem(vnswap);
+			if (vnswapCard.size() > 0) {
+				items.add(vnswapCard);
+			}
+        }
+	} */
 
     private void zswapInit(List<RecyclerViewItem> items) {
         CardView zswapCard = new CardView(getActivity());
