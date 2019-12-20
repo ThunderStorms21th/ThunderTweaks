@@ -5,6 +5,7 @@ import com.thunder.thundertweaks.fragments.ApplyOnBootFragment;
 import com.thunder.thundertweaks.fragments.recyclerview.RecyclerViewFragment;
 import com.thunder.thundertweaks.utils.Utils;
 import com.thunder.thundertweaks.utils.kernel.hmp.Hmp;
+import com.thunder.thundertweaks.utils.kernel.cpu.CPUFreq;
 import com.thunder.thundertweaks.views.recyclerview.CardView;
 import com.thunder.thundertweaks.views.recyclerview.DescriptionView;
 import com.thunder.thundertweaks.views.recyclerview.RecyclerViewItem;
@@ -25,6 +26,10 @@ public class HmpFragment  extends RecyclerViewFragment {
     private final LinkedHashMap<Integer, String> sProfiles = new LinkedHashMap<>();
     private SeekBarView mUpThreshold;
     private SeekBarView mDownThreshold;
+	private SeekBarView mDownCompThreshold;
+	private SeekBarView mDownCompTimeout;
+	private SeekBarView mSbUpThreshold;
+    private SeekBarView mSbDownThreshold;
 
     @Override
     protected void init() {
@@ -32,7 +37,9 @@ public class HmpFragment  extends RecyclerViewFragment {
 
         sProfiles.clear();
         sProfiles.put(R.string.stock, "524 214");
-        sProfiles.put(R.string.battery, "700 256");
+        sProfiles.put(R.string.balanced, "700 256");
+		sProfiles.put(R.string.battery, "800 300");
+		sProfiles.put(R.string.battery2, "900 340");
         sProfiles.put(R.string.performance, "430 150");
 
         addViewPagerFragment(ApplyOnBootFragment.newInstance(this));
@@ -89,6 +96,90 @@ public class HmpFragment  extends RecyclerViewFragment {
             });
 
             card.addItem(mDownThreshold);
+        }
+
+        if(mHmp.hasDownCompThreshold()) {
+            mDownCompThreshold = new SeekBarView();
+            mDownCompThreshold.setTitle(getString(R.string.hmp_down_comp_threshold));
+            // mDownCompThreshold.setSummary(getString(R.string.hmp_down_comp_threshold_summary));
+            mDownCompThreshold.setMax(213);
+            mDownCompThreshold.setMin(1);
+            mDownCompThreshold.setProgress(Utils.strToInt(mHmp.getDownCompThreshold()) -1);
+            mDownCompThreshold.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+                @Override
+                public void onStop(SeekBarView seekBarView, int position, String value) {
+                    mHmp.setDownCompThreshold((position + 1), getActivity());
+                }
+
+                @Override
+                public void onMove(SeekBarView seekBarView, int position, String value) {
+                }
+            });
+
+            card.addItem(mDownCompThreshold);
+        }
+
+        if(mHmp.hasDownCompTimeout()) {
+            mDownCompTimeout = new SeekBarView();
+            mDownCompTimeout.setTitle(getString(R.string.hmp_down_comp_timeout));
+            // mDownCompTimeout.setSummary(getString(R.string.hmp_down_comp_timeout_summary));
+            mDownCompTimeout.setMax(500);
+            mDownCompTimeout.setMin(1);
+            mDownCompTimeout.setProgress(Utils.strToInt(mHmp.getDownCompTimeout()) -1);
+            mDownCompTimeout.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+                @Override
+                public void onStop(SeekBarView seekBarView, int position, String value) {
+                    mHmp.setDownCompTimeout((position + 1), getActivity());
+                }
+
+                @Override
+                public void onMove(SeekBarView seekBarView, int position, String value) {
+                }
+            });
+
+            card.addItem(mDownCompTimeout);
+        }
+
+        if(mHmp.hasSbUpThreshold()) {
+            mSbUpThreshold = new SeekBarView();
+            mSbUpThreshold.setTitle(getString(R.string.hmp_sb_up_threshold));
+            // mSbUpThreshold.setSummary(getString(R.string.hmp_sb_up_threshold_summary));
+            mSbUpThreshold.setMax(1024);
+            mSbUpThreshold.setMin(1);
+            mSbUpThreshold.setProgress(Utils.strToInt(mHmp.getSbUpThreshold()) -1);
+            mSbUpThreshold.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+                @Override
+                public void onStop(SeekBarView seekBarView, int position, String value) {
+                    mHmp.setSbUpThreshold((position + 1), getActivity());
+                }
+
+                @Override
+                public void onMove(SeekBarView seekBarView, int position, String value) {
+                }
+            });
+
+            card.addItem(mSbUpThreshold);
+        }
+
+        if(mHmp.hasSbDownThreshold()) {
+            mSbDownThreshold = new SeekBarView();
+            mSbDownThreshold.setTitle(getString(R.string.hmp_sb_down_threshold));
+            // mSbDownThreshold.setSummary(getString(R.string.hmp_sb_down_threshold_summary));
+            mSbDownThreshold.setMax(1024);
+            mSbDownThreshold.setMin(1);
+            mSbDownThreshold.setProgress(Utils.strToInt(mHmp.getSbDownThreshold()) -1);
+            mSbDownThreshold.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+                @Override
+                public void onStop(SeekBarView seekBarView, int position, String value) {
+                    mHmp.setSbDownThreshold((position + 1), getActivity());
+                }
+
+                @Override
+                public void onMove(SeekBarView seekBarView, int position, String value) {
+                }
+            });
+
+            card.addItem(mSbDownThreshold);
         }
 
         if (card.size() > 0) {
