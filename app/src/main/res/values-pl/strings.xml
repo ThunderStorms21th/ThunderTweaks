@@ -76,6 +76,8 @@
   <string name="wake">Wybudzanie</string>
   <string name="sound">Dźwięk</string>
   <string name="battery">Bateria</string>
+  <string name="battery2">Bateria 2</string>
+  <string name="battery3">Bateria 3</string>
   <string name="led">Dioda</string>
   <string name="io_scheduler">Zarządca I/O</string>
   <string name="ksm">Łączenie stron kernela</string>
@@ -180,6 +182,8 @@
   <string name="touch_boost_summary">Ta opcja zwiększy minimalne taktowanie CPU jeżeli dotkniesz ekranu lub naciśniesz przycisk.</string>
   <string name="fingerprint_boost">Boost podczas dotyku przycisku do odczytu lini papilarnych</string>
   <string name="fingerprint_boost_summary">Ta opcja zwiększy minimalne taktowanie CPU jeżeli naciśniesz przycisk skanowania lini papilarnych (HOME).</string>
+  <string name="iid_duration_ms">Dev Freq Boost czas trwania wzmocnienia ms</string>
+  <string name="iid_duration_ms_sumamry">Czas trwania wzmocnienia dla Devfreq w ms</string>
   <!-- CPU Voltage -->
   <string name="global_offset">Zmiany Globalne</string>
   <string name="override_vmin">Nadpisz minimalne napięcie</string>
@@ -623,6 +627,9 @@
   <string name="memory_pool_summary">Pula pamięci jest to procent pamięci ram który może zostać użyty do kompresowania stron cache.</string>
   <string name="maximum_compression_ratio">Maksymalny współczynnik kompresji</string>
   <string name="maximum_compression_ratio_summary">Maksymalny współczynnik kompresji, wartość procentowa, określająca akceptowalny współczynnik kompresji strony. Każda strona która nie kompresuje się do co najmniej tego poziomu zostanie odrzucona.</string>
+  <string name="vnswap">VNSWAP</string>
+  <string name="vnswapd">Zamiennik Samsunga dla ZRAM. Kompresuje 50% pamięci RAM, aby zapewnić płynniejszą pracę wielozadaniową kosztem nieznacznie obniżonej wydajności energetycznej. Jest on domyślnie włączony w najnowszych urządzeniach Samsung i nie zaleca się jego wyłączania.</string>  
+  <string name="vnswap_summary">Enable or disable VNSWAP</string>  
   <!-- Entropy -->
   <string name="available">Dostępna entropia</string>
   <string name="poolsize">Max rozmiar entropii</string>

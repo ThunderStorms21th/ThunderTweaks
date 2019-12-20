@@ -10,7 +10,7 @@
     <string name="open">Open %s</string>
     <string name="disable">Disable</string>
     <string name="changelog">ThunderTweaks v%s</string>
-    <string name="changelog_message">\n* Added support for Adaptative Fast Charge\n* Fixed load Spectrum Profiles for some devices\n* Updated Gradle to 5.4.1\n</string>
+    <string name="changelog_message">\n* Added new features to HMP and Samsung Hotplug section\n \n* Added New CPU Input Boost in CPU\n \n* Added DevFreq section in CPU Misc.\n \* Added support for PowerSuspend v1.9.\n</string>
     <string name="close">Close</string>
 
     <!-- Security -->
@@ -101,7 +101,9 @@
     <string name="screen">Screen</string>
     <string name="wake">Wake</string>
     <string name="sound">Sound</string>
-    <string name="battery">Battery</string>
+	<string name="battery">Battery</string>
+	<string name="battery2">Battery 2</string>
+    <string name="battery3">Battery 3</string>
     <string name="led">LED</string>
     <string name="io_scheduler">I/O Scheduler</string>
     <string name="ksm">Kernel Samepage Merging</string>
@@ -230,7 +232,16 @@
 	<string name="fingerprint_boost">Fingerprint Boost</string>
     <string name="fingerprint_boost_summary">This will boost your minimum CPU speed if you touch the fingerprint (HOME) button.</string>
     <string name="big_cores_max_title">Allow 4 Cores to máx freq.</string>
-    <string name="big_cores_max_summary">Allows the 4 BIG Cores to go to the maximum frequency, increases the performance, but will consume more battery</string>
+    <string name="big_cores_max_summary">Allows the 4 BIG Cores to go to the maximum frequency, increases the performance, but will consume more battery.</string>
+    <string name="iib_enabled">CPU Input Boost</string>
+    <string name="iib_duration_ms">CPU Input Boost Duration ms</string>
+    <string name="iib_freq_hp">Boost Freq. big Cluster</string>
+    <string name="iib_freq_lp">Boost Freq. LITTLE Cluster</string>
+    <string name="iib_freq_ml">Boost Max Freq. LITTLE Cluster</string>
+    <string name="iib_freq_mp">Boost Max Freq. big Cluster</string>
+    <string name="iid_enabled">Dev Freq Boost</string>
+    <string name="iid_duration_ms">Dev Freq Boost Duration ms</string>
+    <string name="iid_duration_ms_sumamry">Duration Boost of Devfreq in ms.</string>
 
     <!-- CPU Voltage -->
     <string name="global_offset">Global Offset</string>
@@ -403,6 +414,10 @@
     <string name="samsungPlug_summary">An in-kernel Samsung Stock Hotplugging</string>
     <string name="samsungPlug_max_cpu">Maximum turned On cores</string>
 	<string name="samsungPlug_min_cpu">Minimum turned On cores</string>
+	<string name="samsungPlug_DualChangeMs">Dual Change in Ms</string>
+	<string name="samsungPlug_LitMultRatio">Lit Multi Ratio</string>
+	<string name="samsungPlug_ToDualRatio">To Dual Ratio</string>
+	<string name="samsungPlug_ToQuadRatio">To Quad Ratio</string>
     <string name="thunderplug">ThunderPlug</string>
     <string name="thunderplug_summary">An in-kernel replacement for Qualcomm\'s hotplugging. Developed by varunchitre15.</string>
     <string name="min_cpu_online_screen_off">Minimum CPU Screen Off</string>
@@ -475,6 +490,13 @@
     <string name="hmp_down_threshold">Down Threshold</string>
     <string name="hmp_down_threshold_summary">Max load allowed for tasks migrating to the slower little cores.</string>
     <string name="hmp_profile_summary">Select your profile for HMP thresholds.</string>
+	<string name="hmp_sb_up_threshold">Sb Up Threshold</string>
+	<string name="hmp_sb_down_threshold">Sb Down Threshold</string>
+	<string name="hmp_down_comp_threshold">Down Compensation Threshold</string>
+	<string name="hmp_down_comp_timeout">Down Compensation Timeout</string>
+	<string name="hmp_down_comp_hight_freq">Down Compensation High Frequency</string>
+	<string name="hmp_down_comp_mid_freq">Down Compensation Mid Frequency</string>
+	<string name="hmp_down_comp_low_freq">Down Compensation Low Frequency</string>
 
     <!--Thermal-->
     <string name="thermal_info">Use only one thermal driver from the following options, using more at the same time may cause unexpected behavior.</string>
@@ -873,7 +895,7 @@
     <string name="spec_battery_summary">Ultra-conservative profile that lets performance take a hit in order to achieve long-lasting battery life.</string>
     <string name="spec_gaming">Gaming</string>
     <string name="spec_gaming_summary">Need that extra 10 FPS? I got you. Identical to performance in most areas other than the unlocked Graphics performance.</string>
-    <string name="spec_thunder">ThundeRStormS</string>
+    <string name="spec_thunder">ThundeRStormS - I</string>
     <string name="spec_thunder_summary">Thunder - balanced profile uses AutoSMP hotplug that lets performance take a hit in order to achieve long-lasting battery life with balanced performance. Edited by XDA@nalas.</string>
     <string name="spec_thunderg">ThundeRStormS - Game Over</string>
     <string name="spec_thunderg_summary">Thunder - conservative profile made by Game Over that lets to achieve long-lasting battery life with balanced performance. Edited by XDA@nalas and Game Over.</string>
@@ -1033,6 +1055,9 @@
     <string name="zram_lz4">lz4</string>
     <string name="zram_deflate">deflate</string>
     <string name="zram_none">Unknown compression algorithm or zram not supported!</string>
+    <string name="vnswap">VNSWAP</string>
+	<string name="vnswapd">VNSWAP - Samsung\'s replacement for ZRAM. It compresses 50% of your RAM in order to provide a smoother multitasking experience at a cost of slightly reduced power efficiency. It comes enabled by default in recent Samsung devices and it is not recommended to be disabled. </string>
+    <string name="vnswap_summary">Enable or disable VNSWAP</string>
 
     <!-- Entropy -->
     <string name="available">Available</string>
