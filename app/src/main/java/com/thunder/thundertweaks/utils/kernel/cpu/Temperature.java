@@ -25,6 +25,7 @@ import com.thunder.thundertweaks.utils.Log;
 import com.thunder.thundertweaks.R;
 import com.thunder.thundertweaks.utils.Device;
 import com.thunder.thundertweaks.utils.Utils;
+import android.os.Build;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -152,9 +153,15 @@ public class Temperature {
         private TempJson(Context context) {
             try {
                 JSONArray tempArray = new JSONArray(Utils.readAssetFile(context, "temp.json"));
+                String board = Build.BOARD.toLowerCase();
+                if (board.startsWith("samsungexynos")) {
+                    board = (board.replace("samsungexynos", "universal"));
+                } else if (board.startsWith("exynos")) {
+                    board = (board.replace("exynos", "universal"));
+                }
                 for (int i = 0; i < tempArray.length(); i++) {
                     JSONObject device = tempArray.getJSONObject(i);
-                    if (Device.getBoard().equalsIgnoreCase(device.getString("board"))) {
+                    if (board.equalsIgnoreCase(device.getString("board"))) {
                         mDeviceJson = device;
                         break;
                     }
