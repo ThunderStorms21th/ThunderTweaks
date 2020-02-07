@@ -144,9 +144,8 @@ public class Battery {
         float cap = Utils.strToInt(getRemainingCapaticy());
         if (cap != 0) {
             float value = ((cap * 2) / getCapacity()) * 100;
-            if (value > 100) {
-                value = value / 2;
-            }
+            value = (value > 100) ? (value / 2) : value;
+            value = (value > 100) ? 100 : value;
             return String.format("%.2f", value);
         } else {
             return null;
