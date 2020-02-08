@@ -79,7 +79,6 @@ public class Temperature {
                         if (Utils.readFile(node + i + type).contains("gpu")) {
                             EXYNOS_NODE = node + i + "/temp";
                             EXYNOS_OFFSET = (int) Math.pow(10, (double) (Utils.readFile(EXYNOS_NODE).length() - (Utils.readFile(EXYNOS_NODE).length() - 3)));
-                            isExynos = true;
                             break;
                         }
                     } catch (Exception e) {
@@ -185,8 +184,8 @@ public class Temperature {
             try {
                 JSONArray tempArray = new JSONArray(Utils.readAssetFile(context, "temp.json"));
                 String board = Build.BOARD.toLowerCase();
-                if (board.startsWith("samsungexynos") || board.startsWith("exynos") || board.startsWith("universal")){
-                    board = (board.toLowerCase()).replaceAll("samsungexynos|exynos", "universal");
+                if (board.contains("exynos") || board.contains("universal")){
+                    isExynos = true;
                     getExyNodes();
                 }
                 for (int i = 0; i < tempArray.length(); i++) {
