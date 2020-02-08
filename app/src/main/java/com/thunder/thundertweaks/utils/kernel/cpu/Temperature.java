@@ -67,28 +67,25 @@ public class Temperature {
     private static String EXYNOS_NODE;
     private static int EXYNOS_OFFSET;
     private static String type = "/cdev0/type";
-    public static void getNodes() {
+    public static boolean isExynos = false;
+    public static void getExyNodes() {
         for (String node : new String[] {
-                /*
-                 Add on this list needed values for gpu temp nodes.
-                 */
-                "/sys/class/thermal/thermal_zone1",
-                "/sys/class/thermal/thermal_zone2",
-                "/sys/class/thermal/thermal_zone3",
-                "/sys/class/thermal/thermal_zone4",
-                "/sys/class/thermal/thermal_zone5",
-                "/sys/class/thermal/thermal_zone6"}
+                // Add on this list needed values for temp zones.
+                "/sys/class/thermal/thermal_zone"}
         ) {
-            if (Utils.existFile(node)) {
-                try {
-                    if (Utils.readFile(node + type).contains("gpu")) {
-                        EXYNOS_NODE = node + "/temp";
-                        EXYNOS_OFFSET = (int) Math.pow(10, (double) (Utils.readFile(EXYNOS_NODE).length() - (Utils.readFile(EXYNOS_NODE).length() - 3)));
+            for (int i = 0; i < 30; i++) {
+                if (Utils.existFile(node + i)) {
+                    try {
+                        if (Utils.readFile(node + i + type).contains("gpu")) {
+                            EXYNOS_NODE = node + i + "/temp";
+                            EXYNOS_OFFSET = (int) Math.pow(10, (double) (Utils.readFile(EXYNOS_NODE).length() - (Utils.readFile(EXYNOS_NODE).length() - 3)));
+                            isExynos = true;
+                            break;
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
                         break;
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    break;
                 }
             }
         }
@@ -114,7 +111,7 @@ public class Temperature {
     }
 
     public boolean hasGPU() {
-        if (EXYNOS_NODE != null) {
+        if ((isExynos) && EXYNOS_NODE != null) {
             GPU_NODE = EXYNOS_NODE;
             GPU_OFFSET = EXYNOS_OFFSET;
             return true;
@@ -186,15 +183,11 @@ public class Temperature {
 
         private TempJson(Context context) {
             try {
-                if (EXYNOS_NODE == null) {
-                    getNodes();
-                }
                 JSONArray tempArray = new JSONArray(Utils.readAssetFile(context, "temp.json"));
                 String board = Build.BOARD.toLowerCase();
-                if (board.startsWith("samsungexynos")) {
-                    board = (board.replace("samsungexynos", "universal"));
-                } else if (board.startsWith("exynos")) {
-                    board = (board.replace("exynos", "universal"));
+                if (board.startsWith("samsungexynos") || board.startsWith("exynos") || board.startsWith("universal")){
+                    board = (board.toLowerCase()).replaceAll("samsungexynos|exynos", "universal");
+                    getExyNodes();
                 }
                 for (int i = 0; i < tempArray.length(); i++) {
                     JSONObject device = tempArray.getJSONObject(i);
