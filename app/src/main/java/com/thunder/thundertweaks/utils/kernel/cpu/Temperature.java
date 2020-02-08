@@ -64,6 +64,36 @@ public class Temperature {
     private String GPU_NODE;
     private int GPU_OFFSET;
 
+    private static String EXYNOS_NODE;
+    private static int EXYNOS_OFFSET;
+    private static String type = "/cdev0/type";
+    public static void getNodes() {
+        for (String node : new String[] {
+                /*
+                 Add on this list needed values for gpu temp nodes.
+                 */
+                "/sys/class/thermal/thermal_zone1",
+                "/sys/class/thermal/thermal_zone2",
+                "/sys/class/thermal/thermal_zone3",
+                "/sys/class/thermal/thermal_zone4",
+                "/sys/class/thermal/thermal_zone5",
+                "/sys/class/thermal/thermal_zone6"}
+        ) {
+            if (Utils.existFile(node)) {
+                try {
+                    if (Utils.readFile(node + type).contains("gpu")) {
+                        EXYNOS_NODE = node + "/temp";
+                        EXYNOS_OFFSET = (int) Math.pow(10, (double) (Utils.readFile(EXYNOS_NODE).length() - (Utils.readFile(EXYNOS_NODE).length() - 3)));
+                        break;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    break;
+                }
+            }
+        }
+    }
+
     private Temperature(Context context) {
         TEMP_JSON = new TempJson(context);
         if (!TEMP_JSON.supported()) {
@@ -84,7 +114,11 @@ public class Temperature {
     }
 
     public boolean hasGPU() {
-        if (TEMP_JSON != null && TEMP_JSON.getGPU() != null) {
+        if (EXYNOS_NODE != null) {
+            GPU_NODE = EXYNOS_NODE;
+            GPU_OFFSET = EXYNOS_OFFSET;
+            return true;
+        } else if (TEMP_JSON != null && TEMP_JSON.getGPU() != null) {
             GPU_NODE = TEMP_JSON.getGPU();
             if (Utils.existFile(GPU_NODE)) {
                 GPU_OFFSET = TEMP_JSON.getGPUOffset();
@@ -152,6 +186,9 @@ public class Temperature {
 
         private TempJson(Context context) {
             try {
+                if (EXYNOS_NODE == null) {
+                    getNodes();
+                }
                 JSONArray tempArray = new JSONArray(Utils.readAssetFile(context, "temp.json"));
                 String board = Build.BOARD.toLowerCase();
                 if (board.startsWith("samsungexynos")) {
