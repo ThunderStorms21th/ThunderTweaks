@@ -163,13 +163,13 @@ public class SpectrumFragment extends RecyclerViewFragment {
         card4.addItem(desc4);
         items.add(card4);
 		
-        //CardView ThundeRStormS - Game Over
+        //CardView ThundeRStormS - Kevin
         final CardView card5 = new CardView(getActivity());
-        card5.setTitle(getString(R.string.spec_thunderg));
+        card5.setTitle(getString(R.string.spec_thunderk));
         card5.setExpandable(false);
 
         final DescriptionView desc5 = new DescriptionView();
-        desc5.setSummary(getString(R.string.spec_thunderg_summary));
+        desc5.setSummary(getString(R.string.spec_thunderk_summary));
         desc5.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_spectrum_battery));
 
         card5.setOnItemClickListener(new CardView.OnItemClickListener() {

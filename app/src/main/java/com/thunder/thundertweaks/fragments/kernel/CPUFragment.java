@@ -337,17 +337,7 @@ public class CPUFragment extends RecyclerViewFragment {
     }
 
 	private void cpuFingerprintBoostInit(List<RecyclerViewItem> items) {
-		
-		/* SwitchView FingerprintBoost = new SwitchView();
-        FingerprintBoost.setTitle(getString(R.string.fingerprint_boost));
-        FingerprintBoost.setSummary(getString(R.string.fingerprint_boost_summary));
-        FingerprintBoost.setChecked(Misc.isCpuFingerprintBoostEnabled());
-        FingerprintBoost.addOnSwitchListener((switchView, isChecked)
-                -> Misc.enableCpuFingerprintBoost(isChecked, getActivity()));
-
-        items.add(FingerprintBoost); */
-		
-        CardView fpbCard= new CardView(getActivity());
+        CardView fpbCard = new CardView(getActivity());
         fpbCard.setTitle(getString(R.string.fingerprint_boost));
 
         DescriptionView fpbDesc = new DescriptionView();
@@ -355,7 +345,6 @@ public class CPUFragment extends RecyclerViewFragment {
         fpbCard.addItem(fpbDesc);
 
         SwitchView fp = new SwitchView();
-        fp.setTitle(getString(R.string.fingerprint_boost));
         fp.setSummaryOn(getString(R.string.enabled));
         fp.setSummaryOff(getString(R.string.disabled));
         fp.setChecked(Misc.isCpuFingerprintBoostEnabled());
@@ -715,7 +704,7 @@ public class CPUFragment extends RecyclerViewFragment {
         if (Misc.hasDevFreqBoostDur()) {
             SeekBarView dfms = new SeekBarView();
             dfms.setTitle(getString(R.string.iid_duration_ms));
-            dfms.setSummary(getString(R.string.iid_duration_ms_sumamry));
+            dfms.setSummary(getString(R.string.iid_duration_ms_summary));
             dfms.setUnit(getString(R.string.ms));
             dfms.setMax(1000);
             dfms.setOffset(10);
@@ -734,20 +723,47 @@ public class CPUFragment extends RecyclerViewFragment {
             cpuDevFreqBoostCard.addItem(dfms);
         }
 		
+        if (Misc.hasDevFreqBoostFreq()) {
+            GenericSelectView2 dffq = new GenericSelectView2();
+			dffq.setTitle(getString(R.string.iid_duration_freq));
+			// dffq.setTitle(getString(R.string.iid_duration_freq_summary));
+            dffq.setValue(Misc.getDevFreqBoostFreq() + " Hz");
+            dffq.setValueRaw(dffq.getValue().replace(" Hz", ""));
+            dffq.setInputType(InputType.TYPE_CLASS_NUMBER);
+            dffq.setOnGenericValueListener(new GenericSelectView2.OnGenericValueListener() {
+                @Override
+                public void onGenericValueSelected(GenericSelectView2 genericSelectView, String value) {
+                    Misc.setDevFreqBoostFreq(Utils.strToInt(value), getActivity());
+                    genericSelectView.setValue(value + " Hz");
+                }
+            });
+
+            cpuDevFreqBoostCard.addItem(dffq);
+        }
+		
         if (cpuDevFreqBoostCard.size() > 0) {
             items.add(cpuDevFreqBoostCard);
         }
+		
 	}
 
     private void cpuTouchBoostInit(List<RecyclerViewItem> items) {
+        CardView tbiCard = new CardView(getActivity());
+        tbiCard.setTitle(getString(R.string.touch_boost));
+
+        DescriptionView tbiDesc = new DescriptionView();
+        tbiDesc.setSummary(getString(R.string.touch_boost_summary));
+        tbiCard.addItem(tbiDesc);
+	
         SwitchView touchBoost = new SwitchView();
-        touchBoost.setTitle(getString(R.string.touch_boost));
-        touchBoost.setSummary(getString(R.string.touch_boost_summary));
+		touchBoost.setSummaryOn(getString(R.string.enabled));
+        touchBoost.setSummaryOff(getString(R.string.disabled));
         touchBoost.setChecked(Misc.isCpuTouchBoostEnabled());
         touchBoost.addOnSwitchListener((switchView, isChecked)
                 -> Misc.enableCpuTouchBoost(isChecked, getActivity()));
 
-        items.add(touchBoost);
+		tbiCard.addItem(touchBoost);
+		items.add(tbiCard);
     }
 
     private void mcPowerSavingInit(List<RecyclerViewItem> items) {
@@ -763,13 +779,18 @@ public class CPUFragment extends RecyclerViewFragment {
     }
 
     private void powerSavingWqInit(List<RecyclerViewItem> items) {
+        CardView pwqCard = new CardView(getActivity());
+        pwqCard.setTitle(getString(R.string.power_saving_wq));
+
         SwitchView powerSavingWq = new SwitchView();
-        powerSavingWq.setSummary(getString(R.string.power_saving_wq));
+		powerSavingWq.setSummaryOn(getString(R.string.enabled));
+        powerSavingWq.setSummaryOff(getString(R.string.disabled));
         powerSavingWq.setChecked(Misc.isPowerSavingWqEnabled());
         powerSavingWq.addOnSwitchListener((switchView, isChecked)
                 -> Misc.enablePowerSavingWq(isChecked, getActivity()));
 
-        items.add(powerSavingWq);
+		pwqCard.addItem(powerSavingWq);
+        items.add(pwqCard);
     }
 
     private float[] mCPUUsages;

@@ -87,7 +87,7 @@ public class ProfileTile extends TileService {
                 Spectrum.setProfile(6);
                 AppSettings.saveInt("spectrum_profile", 6, getApplicationContext());					
             } else if (isActive && !click) {
-                newLabel = "Spectrum TS GameOver";
+                newLabel = "Spectrum TS Kevin";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;
                 click = false;
@@ -187,7 +187,7 @@ public class ProfileTile extends TileService {
                 newState = Tile.STATE_ACTIVE;
                 click = false;
             } else if (profile == 5) {
-                newLabel = "Spectrum TS Game Over";
+                newLabel = "Spectrum TS Kevin";
                 newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_tile_battery);
                 newState = Tile.STATE_ACTIVE;
                 click = false;

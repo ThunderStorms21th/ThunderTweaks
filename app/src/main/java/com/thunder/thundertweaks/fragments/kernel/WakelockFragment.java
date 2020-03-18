@@ -71,6 +71,17 @@ public class WakelockFragment extends RecyclerViewFragment {
             wake.addItem(gps);
         }
 
+        if(Wakelock.hasMMC0()) {
+            SwitchView mmc0 = new SwitchView();
+            mmc0.setTitle(getString(R.string.wkl_mmc0));
+            mmc0.setSummary(getString(R.string.wkl_mmc0_summary));
+            mmc0.setChecked(Wakelock.isMMC0Enabled());
+            mmc0.addOnSwitchListener((switchView, isChecked)
+                    -> Wakelock.enableMMC0(isChecked, getActivity()));
+
+            wake.addItem(mmc0);
+        }
+
         if(Wakelock.hasWireless()) {
             SwitchView wifi = new SwitchView();
             wifi.setTitle(getString(R.string.wkl_wireless));
@@ -80,6 +91,39 @@ public class WakelockFragment extends RecyclerViewFragment {
                     -> Wakelock.enableWireless(isChecked, getActivity()));
 
             wake.addItem(wifi);
+        }
+
+        if(Wakelock.hasWireless1()) {
+            SwitchView wifi1 = new SwitchView();
+            wifi1.setTitle(getString(R.string.wkl_wireless1));
+            wifi1.setSummary(getString(R.string.wkl_wireless1_summary));
+            wifi1.setChecked(Wakelock.isWireless1Enabled());
+            wifi1.addOnSwitchListener((switchView, isChecked)
+                    -> Wakelock.enableWireless1(isChecked, getActivity()));
+
+            wake.addItem(wifi1);
+        }
+
+        if(Wakelock.hasWireless2()) {
+            SwitchView wifi2 = new SwitchView();
+            wifi2.setTitle(getString(R.string.wkl_wireless2));
+            wifi2.setSummary(getString(R.string.wkl_wireless2_summary));
+            wifi2.setChecked(Wakelock.isWireless2Enabled());
+            wifi2.addOnSwitchListener((switchView, isChecked)
+                    -> Wakelock.enableWireless2(isChecked, getActivity()));
+
+            wake.addItem(wifi2);
+        }
+
+        if(Wakelock.hasWireless3()) {
+            SwitchView wifi3 = new SwitchView();
+            wifi3.setTitle(getString(R.string.wkl_wireless3));
+            wifi3.setSummary(getString(R.string.wkl_wireless3_summary));
+            wifi3.setChecked(Wakelock.isWireless3Enabled());
+            wifi3.addOnSwitchListener((switchView, isChecked)
+                    -> Wakelock.enableWireless3(isChecked, getActivity()));
+
+            wake.addItem(wifi3);
         }
 
         if(Wakelock.hasBluetooth()) {

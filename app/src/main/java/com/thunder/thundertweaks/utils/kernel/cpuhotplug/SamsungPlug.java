@@ -20,6 +20,8 @@ public class SamsungPlug {
 	private static final String HOTPLUG_SAMSUNG_LIT_MULT_RATIO = "/sys/power/cpuhotplug/governor/lit_mult_ratio";
 	private static final String HOTPLUG_SAMSUNG_TO_DUAL_RATIO = "/sys/power/cpuhotplug/governor/to_dual_ratio";
 	private static final String HOTPLUG_SAMSUNG_TO_QUAD_RATIO = "/sys/power/cpuhotplug/governor/to_quad_ratio";
+	private static final String HOTPLUG_SAMSUNG_BIG_MODE_DUAL = "/sys/power/cpuhotplug/governor/big_mode_dual";
+	private static final String HOTPLUG_SAMSUNG_BIG_MODE_NORMAL = "/sys/power/cpuhotplug/governor/big_mode_normal";
 
     public static void enableSamsungPlug(boolean enable, Context context) {
         run(Control.write(enable ? "1" : "0", HOTPLUG_SAMSUNG_ENABLE), HOTPLUG_SAMSUNG_ENABLE, context);
@@ -99,6 +101,30 @@ public class SamsungPlug {
 
     public static boolean hasToQuadRatio() {
         return Utils.existFile(HOTPLUG_SAMSUNG_TO_QUAD_RATIO);
+    }
+
+    public static String getBigModeDual(){
+        return Utils.readFile(HOTPLUG_SAMSUNG_BIG_MODE_DUAL);
+    }
+
+    public static void setBigModeDual(int value, Context context){
+        run(Control.write(String.valueOf(value), HOTPLUG_SAMSUNG_BIG_MODE_DUAL), HOTPLUG_SAMSUNG_BIG_MODE_DUAL, context);
+    }
+
+    public static boolean hasBigModeDual() {
+        return Utils.existFile(HOTPLUG_SAMSUNG_BIG_MODE_DUAL);
+    }
+
+    public static String getBigModeNormal(){
+		return Utils.readFile(HOTPLUG_SAMSUNG_BIG_MODE_NORMAL);
+    }
+
+    public static void setBigModeNormal(int value, Context context){
+        run(Control.write(String.valueOf(value), HOTPLUG_SAMSUNG_BIG_MODE_NORMAL), HOTPLUG_SAMSUNG_BIG_MODE_NORMAL, context);
+    }
+
+    public static boolean hasBigModeNormal() {
+        return Utils.existFile(HOTPLUG_SAMSUNG_BIG_MODE_NORMAL);
     }
 
     public static boolean supported() {

@@ -25,6 +25,9 @@ import com.thunder.thundertweaks.fragments.ApplyOnBootFragment;
 import com.thunder.thundertweaks.utils.Utils;
 import com.thunder.thundertweaks.utils.root.Control;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by willi on 03.08.16.
  */
@@ -60,65 +63,42 @@ public class ZRAM {
         return (int) value;
     }
 
-    public static String getCompAlgorithm() {
-        String value = Utils.readFile(ALGORITHM);
-        switch (value){
-            case "[lzo] lz4 deflate" :
-                return "lzo";
-            case "lzo [lz4] deflate" :
-                return "lz4";
-            case "lzo lz4 [deflate]" :
-                return "deflate";
-        }
-        return null;
-    }
     public static void setCompAlgorithm(String value, Context context) {
-		run(Control.chmod("644", ZRAM), ZRAM + "chmod", context);
-		run(Control.chmod("644", RESET), RESET + "chmod", context);
-        run(Control.write("1", RESET), RESET, context);
-        run(Control.write(String.valueOf(value), ALGORITHM), ALGORITHM, context);
-        // run(Control.chmod("444", ZRAM), ZRAM + "chmod", context);
-		// run(Control.chmod("444", RESET), RESET + "chmod", context);
+        run(Control.write(value, ALGORITHM), ALGORITHM, context);
     }
 
-/*
-    public static void enable(boolean enable, Context context) {
-        if(enable){
-            run("mkswap " + BLOCK + " > /dev/null 2>&1", BLOCK + "mkswap", context);
-            run("swapon " + BLOCK + " > /dev/null 2>&1", BLOCK + "swapon", context);
-        } else{
-            String maxCompStrems = null;
-            if (Utils.existFile(MAX_COMP_STREAMS)) {
-                maxCompStrems = Utils.readFile(MAX_COMP_STREAMS);
-            }
-            run("swapoff " + BLOCK + " > /dev/null 2>&1", BLOCK + "swapoff", context);
-            if (maxCompStrems != null) {
-                run(Control.write(maxCompStrems, MAX_COMP_STREAMS), MAX_COMP_STREAMS, context);
+    public static String getCompAlgorithm() {
+        String[] algorithms = Utils.readFile(ALGORITHM).split(" ");
+        for (String algorithm : algorithms) {
+            if (algorithm.startsWith("[") && algorithm.endsWith("]")) {
+                return algorithm.replace("[", "").replace("]", "");
             }
         }
+        return "";
     }
-*/
+
+    public static List<String> getCompAlgorithms() {
+        String[] algorithms = Utils.readFile(ALGORITHM).split(" ");
+        List<String> list = new ArrayList<>();
+        for (String algorithm : algorithms) {
+            list.add(algorithm.replace("[", "").replace("]", ""));
+        }
+        return list;
+    }
 
    public static void enable(boolean enable, Context context) {
         if(enable){
 			run(Control.chmod("644", BLOCK), BLOCK + "chmod", context);
-			// run(Control.chmod("644", BLOCK_VNSWAP), BLOCK_VNSWAP + "chmod", context);
-			// run("swapoff " + BLOCK_VNSWAP + " > /dev/null 2>&1", BLOCK_VNSWAP + "swapoff", context);
             run("mkswap " + BLOCK + " > /dev/null 2>&1", BLOCK + "mkswap", context);
             run("swapon " + BLOCK + " > /dev/null 2>&1", BLOCK + "swapon", context);
         } else{
 			run(Control.chmod("644", BLOCK), BLOCK + "chmod", context);
-			// run(Control.chmod("644", BLOCK_VNSWAP), BLOCK_VNSWAP + "chmod", context);
-			// run("swapon " + BLOCK_VNSWAP + " > /dev/null 2>&1", BLOCK_VNSWAP + "swapon", context);
             run("swapoff " + BLOCK + " > /dev/null 2>&1", BLOCK + "swapoff", context);
-			// run(Control.chmod("444", BLOCK), BLOCK + "chmod", context);
         }
     }
 
     public static boolean isEnabled(){
-		// run(Control.chmod("644", DISKSIZE), DISKSIZE + "chmod", context);
         return Utils.strToLong(Utils.readFile(DISKSIZE)) != 0;
-		// run(Control.chmod("444", DISKSIZE), DISKSIZE + "chmod", context);
     }
 
     public static boolean supported() {

@@ -268,6 +268,42 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
 
         samsungPlug.addItem(ToQuadRatio);
 
+        SeekBarView BigModeDual = new SeekBarView();
+        BigModeDual.setTitle(getString(R.string.samsungPlug_BigModeDual));
+        // BigModeDual.setMax(7);
+        // BigModeDual.setMin(6);
+        BigModeDual.setProgress(Utils.strToInt(SamsungPlug.getBigModeDual()));
+        BigModeDual.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+			@Override
+            public void onStop(SeekBarView seekBarView, int position, String value) {
+                SamsungPlug.setBigModeDual(position, getActivity());
+            }
+
+            @Override
+            public void onMove(SeekBarView seekBarView, int position, String value) {
+            } 
+        });
+
+        samsungPlug.addItem(BigModeDual);
+
+        SeekBarView BigModeNormal = new SeekBarView();
+        BigModeNormal.setTitle(getString(R.string.samsungPlug_BigModeNormal));
+        // BigModeNormal.setMax(6);
+        // BigModeNormal.setMin(5);
+        BigModeNormal.setProgress(Utils.strToInt(SamsungPlug.getBigModeNormal()));
+        BigModeNormal.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+            @Override
+            public void onStop(SeekBarView seekBarView, int position, String value) {
+                SamsungPlug.setBigModeNormal(position, getActivity());
+            }
+
+            @Override
+            public void onMove(SeekBarView seekBarView, int position, String value) {
+            }
+        });
+
+        samsungPlug.addItem(BigModeNormal);
+		
         if (samsungPlug.size() > 0) {
             items.add(samsungPlug);
         }
@@ -2724,9 +2760,10 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
     }
 
     private void zenDecisionInit(List<RecyclerViewItem> items) {
-        List<RecyclerViewItem> zenDecision = new ArrayList<>();
-        TitleView title = new TitleView();
-        title.setText(getString(R.string.zen_decision));
+		CardView zenDecision = new CardView(getActivity());
+        // List<RecyclerViewItem> zenDecision = new ArrayList<>();
+        // TitleView title = new TitleView();
+        zenDecision.setTitle(getString(R.string.zen_decision));
 
         if (ZenDecision.hasZenDecisionEnable()) {
             SwitchView enable = new SwitchView();
@@ -2736,7 +2773,7 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
             enable.addOnSwitchListener((switchView, isChecked)
                     -> ZenDecision.enableZenDecision(isChecked, getActivity()));
 
-            zenDecision.add(enable);
+            zenDecision.addItem(enable);
             mEnableViews.add(enable);
         }
 
@@ -2759,7 +2796,7 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
                 }
             });
 
-            zenDecision.add(wakeWaitTime);
+            zenDecision.addItem(wakeWaitTime);
         }
 
         if (ZenDecision.hasZenDecisionBatThresholdIgnore()) {
@@ -2780,19 +2817,19 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
                 }
             });
 
-            zenDecision.add(batThresholdIgnore);
+            zenDecision.addItem(batThresholdIgnore);
         }
 
         if (zenDecision.size() > 0) {
-            items.add(title);
-            items.addAll(zenDecision);
+            items.add(zenDecision);
         }
     }
 
     private void autoSmpInit(List<RecyclerViewItem> items) {
-        List<RecyclerViewItem> autoSmp = new ArrayList<>();
-        TitleView title = new TitleView();
-        title.setText(getString(R.string.autosmp));
+		CardView autoSmp = new CardView(getActivity());
+        // List<RecyclerViewItem> autoSmp = new ArrayList<>();
+        // TitleView title = new TitleView();
+        autoSmp.setTitle(getString(R.string.autosmp));
 
         if (AutoSmp.hasAutoSmpEnable()) {
             SwitchView enable = new SwitchView();
@@ -2802,7 +2839,7 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
             enable.addOnSwitchListener((switchView, isChecked)
                     -> AutoSmp.enableAutoSmp(isChecked, getActivity()));
 
-            autoSmp.add(enable);
+            autoSmp.addItem(enable);
             mEnableViews.add(enable);
         }
 
@@ -2822,7 +2859,7 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
                 }
             });
 
-            autoSmp.add(cpuFreqDown);
+            autoSmp.addItem(cpuFreqDown);
         }
 
         if (AutoSmp.hasAutoSmpCpufreqUp()) {
@@ -2841,7 +2878,7 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
                 }
             });
 
-            autoSmp.add(cpuFreqUp);
+            autoSmp.addItem(cpuFreqUp);
         }
 
         if (AutoSmp.hasAutoSmpCpufreqDown_bc()) {
@@ -2860,7 +2897,7 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
                 }
             });
 
-            autoSmp.add(cpuFreqDown_bc);
+            autoSmp.addItem(cpuFreqDown_bc);
         }
 
         if (AutoSmp.hasAutoSmpCpufreqDown_lc()) {
@@ -2879,7 +2916,7 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
                 }
             });
 
-            autoSmp.add(cpuFreqDown_lc);
+            autoSmp.addItem(cpuFreqDown_lc);
         }
 
         if (AutoSmp.hasAutoSmpCpufreqUp_bc()) {
@@ -2898,7 +2935,7 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
                 }
             });
 
-            autoSmp.add(cpuFreqUp_bc);
+            autoSmp.addItem(cpuFreqUp_bc);
         }
 
         if (AutoSmp.hasAutoSmpCpufreqUp_lc()) {
@@ -2917,7 +2954,7 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
                 }
             });
 
-            autoSmp.add(cpuFreqUp_lc);
+            autoSmp.addItem(cpuFreqUp_lc);
         }
 
         if (AutoSmp.hasAutoSmpCycleDown()) {
@@ -2937,7 +2974,7 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
                 }
             });
 
-            autoSmp.add(cycleDown);
+            autoSmp.addItem(cycleDown);
         }
 
         if (AutoSmp.hasAutoSmpCycleUp()) {
@@ -2957,7 +2994,7 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
                 }
             });
 
-            autoSmp.add(cycleUp);
+            autoSmp.addItem(cycleUp);
         }
 
         if (AutoSmp.hasAutoSmpDelay()) {
@@ -2978,7 +3015,7 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
                 }
             });
 
-            autoSmp.add(delay);
+            autoSmp.addItem(delay);
         }
 
         if (AutoSmp.hasAutoSmpMaxCpus()) {
@@ -2999,7 +3036,7 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
                 }
             });
 
-            autoSmp.add(maxCpus);
+            autoSmp.addItem(maxCpus);
         }
 
         if (AutoSmp.hasAutoSmpMinCpus()) {
@@ -3020,14 +3057,14 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
                 }
             });
 
-            autoSmp.add(minCpus);
+            autoSmp.addItem(minCpus);
         }
 
         if (AutoSmp.hasAutoSmpMaxCpus_bc()) {
             SeekBarView maxCpus_bc = new SeekBarView();
             maxCpus_bc.setTitle(getString(R.string.max_cpu_online_bc));
             maxCpus_bc.setSummary(getString(R.string.max_cpu_online_bc_summary));
-            maxCpus_bc.setMax(mCPUFreq.getCpuCount());
+            maxCpus_bc.setMax(4);
             maxCpus_bc.setMin(1);
             maxCpus_bc.setProgress(AutoSmp.getAutoSmpMaxCpus_bc() - 1);
             maxCpus_bc.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
@@ -3041,14 +3078,14 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
                 }
             });
 
-            autoSmp.add(maxCpus_bc);
+            autoSmp.addItem(maxCpus_bc);
         }
 
         if (AutoSmp.hasAutoSmpMaxCpus_lc()) {
             SeekBarView maxCpus_lc = new SeekBarView();
             maxCpus_lc.setTitle(getString(R.string.max_cpu_online_lc));
             maxCpus_lc.setSummary(getString(R.string.max_cpu_online_lc_summary));
-            maxCpus_lc.setMax(mCPUFreq.getCpuCount());
+            maxCpus_lc.setMax(4);
             maxCpus_lc.setMin(1);
             maxCpus_lc.setProgress(AutoSmp.getAutoSmpMaxCpus_lc() - 1);
             maxCpus_lc.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
@@ -3062,14 +3099,14 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
                 }
             });
 
-            autoSmp.add(maxCpus_lc);
+            autoSmp.addItem(maxCpus_lc);
         }
 
         if (AutoSmp.hasAutoSmpMinCpus_bc()) {
             SeekBarView minCpus_bc = new SeekBarView();
             minCpus_bc.setTitle(getString(R.string.min_cpu_online_bc));
             minCpus_bc.setSummary(getString(R.string.min_cpu_online_bc_summary));
-            minCpus_bc.setMax(mCPUFreq.getCpuCount());
+            minCpus_bc.setMax(4);
             minCpus_bc.setMin(1);
             minCpus_bc.setProgress(AutoSmp.getAutoSmpMinCpus_bc() - 1);
             minCpus_bc.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
@@ -3083,14 +3120,14 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
                 }
             });
 
-            autoSmp.add(minCpus_bc);
+            autoSmp.addItem(minCpus_bc);
         }
 
         if (AutoSmp.hasAutoSmpMinCpus_lc()) {
             SeekBarView minCpus_lc = new SeekBarView();
             minCpus_lc.setTitle(getString(R.string.min_cpu_online_lc));
             minCpus_lc.setSummary(getString(R.string.min_cpu_online_lc_summary));
-            minCpus_lc.setMax(mCPUFreq.getCpuCount());
+            minCpus_lc.setMax(4);
             minCpus_lc.setMin(1);
             minCpus_lc.setProgress(AutoSmp.getAutoSmpMinCpus_lc() - 1);
             minCpus_lc.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
@@ -3104,7 +3141,7 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
                 }
             });
 
-            autoSmp.add(minCpus_lc);
+            autoSmp.addItem(minCpus_lc);
         }
 
         if (AutoSmp.hasAutoSmpScroffSingleCore()) {
@@ -3115,12 +3152,11 @@ public class CPUHotplugFragment extends RecyclerViewFragment {
             scroffSingleCore.addOnSwitchListener((switchView, isChecked)
                     -> AutoSmp.enableAutoSmpScroffSingleCoreActive(isChecked, getActivity()));
 
-            autoSmp.add(scroffSingleCore);
+            autoSmp.addItem(scroffSingleCore);
         }
 
         if (autoSmp.size() > 0) {
-            items.add(title);
-            items.addAll(autoSmp);
+            items.add(autoSmp);
         }
     }
 
