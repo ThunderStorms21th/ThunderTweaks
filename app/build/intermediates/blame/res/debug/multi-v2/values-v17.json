@@ -4,7 +4,7 @@
             "outputFile": "D:\\ANDROID\\GALAXY S7\\OREO\\TS KERNELS\\TSTweaks\\TTweaks\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v17\\values-v17.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-2\\files-2.1\\ad83ac99f9e863d2882a92653b32cec1\\preference-1.0.0\\res\\values-v17\\values-v17.xml",
+                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-2\\files-2.1\\db247816455a5da7cd6ca75fe28080fa\\preference-1.0.0\\res\\values-v17\\values-v17.xml",
                     "from": {
                         "startLines": "2,7,11",
                         "startColumns": "4,4,4",
@@ -15,7 +15,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-2\\files-2.1\\906744c4ddcbc384c5a8d2d69414f8fa\\appcompat-1.0.2\\res\\values-v17\\values-v17.xml",
+                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-2\\files-2.1\\697f71c0c12135256cbfe98df498a7e4\\appcompat-1.0.2\\res\\values-v17\\values-v17.xml",
                     "from": {
                         "startLines": "2,5,9,12,15,18,22,25,29,33,37,40,43,46,50,53,57",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

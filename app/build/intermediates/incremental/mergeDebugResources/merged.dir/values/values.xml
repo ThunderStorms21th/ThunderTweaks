@@ -972,7 +972,7 @@
     <string name="cfs_scheduler_policy">CFS Scheduler Policy</string>
     <string name="cfs_scheduler_policy_summary">Policy decides the CFS scheduler how to balance tasks onto different CPU unit.</string>
     <string name="changelog">ThunderTweaks v%s</string>
-    <string name="changelog_message">\n* Added new features to HMP and Samsung Hotplug section\n \n* Added New CPU Input Boost in CPU\n \n* Added DevFreq section in CPU Misc.\n \* Added support for PowerSuspend v1.9.\n</string>
+    <string name="changelog_message">\n* Added new features to HMP and Samsung Hotplug section\n \n* Added New CPU Input Boost in CPU\n \n* Added DevFreq section in CPU Misc\n \n* Added support for PowerSuspend v1.9 and 2.0\n \n* Rearanged CPU Fragment look\n \n* Rearanged Spectrum Profiles - added Kevin, removed GameOver\n \n* Added new WakeLocks (mmc0 and wifi)\n</string>
     <string name="char_source">Charge Source</string>
     <string name="char_type">Charge Type</string>
     <string name="character_counter_content_description">Character limit exceeded %1$d of %2$d</string>
@@ -1435,8 +1435,10 @@
     <string name="iib_freq_lp">Boost Freq. LITTLE Cluster</string>
     <string name="iib_freq_ml">Boost Max Freq. LITTLE Cluster</string>
     <string name="iib_freq_mp">Boost Max Freq. big Cluster</string>
+    <string name="iid_duration_freq">Dev Freq Boost Frequency - available freq\'s\: 208000, 286000, 421000, 546000, 676000, 845000, 1014000, 1144000, 1352000, 1539000, 1716000, 1794000.</string>
+    <string name="iid_duration_freq_summary">Available Frequencies: 208000, 286000, 421000, 546000, 676000, 845000, 1014000, 1144000, 1352000, 1539000, 1716000, 1794000.</string>
     <string name="iid_duration_ms">Dev Freq Boost Duration ms</string>
-    <string name="iid_duration_ms_sumamry">Duration Boost of Devfreq in ms.</string>
+    <string name="iid_duration_ms_summary">Duration Boost of Devfreq in ms.</string>
     <string name="iid_enabled">Dev Freq Boost</string>
     <string name="immediately_limit_stop">Immediately Limit Stop</string>
     <string name="import_item">Import</string>
@@ -1792,6 +1794,8 @@
     <string name="s2w_up">Sweep2Wake Up</string>
     <string name="sampling_rate">Sampling Rate</string>
     <string name="samsungPlug">SamsungPlug</string>
+    <string name="samsungPlug_BigModeDual">Big Mode DUAL - CPU works in DUAL big cluster mode. Values 6 to 7.</string>
+    <string name="samsungPlug_BigModeNormal">Big Mode Normal - CPU works in Normal big cluster mode. Values 5 to 6.</string>
     <string name="samsungPlug_DualChangeMs">Dual Change in Ms</string>
     <string name="samsungPlug_LitMultRatio">Lit Multi Ratio</string>
     <string name="samsungPlug_ToDualRatio">To Dual Ratio</string>
@@ -1870,7 +1874,7 @@
     <string name="spec_info">Adaptation of the Spectrum Manager of frap129.\nSelect one of some predefined profiles.</string>
     <string name="spec_performance">Performance</string>
     <string name="spec_performance_summary">Tuned for top tier performance in standard tasks with many less regressions than Balanced, but maintains battery by limiting graphics.</string>
-    <string name="spec_thunder">ThundeRStormS - I</string>
+    <string name="spec_thunder">ThundeRStormS - I with AutoSMP</string>
     <string name="spec_thunder2">ThundeRStormS - II</string>
     <string name="spec_thunder2_summary">Thunder II - more conservative profile uses Samsung Plug that lets performance take a hit in order to achieve long-lasting battery life with balanced performance. Edited by XDA@nalas.</string>
     <string name="spec_thunder_summary">Thunder - balanced profile uses AutoSMP hotplug that lets performance take a hit in order to achieve long-lasting battery life with balanced performance. Edited by XDA@nalas.</string>
@@ -1880,6 +1884,8 @@
     <string name="spec_thunderf_summary">Tuned Profile by Franz that lets you achieve the long battery life with balanced Performance uses Samsung Plug and lower max CPUs frequencies. Edited by XDA@nalas and Franz.</string>
     <string name="spec_thunderg">ThundeRStormS - Game Over</string>
     <string name="spec_thunderg_summary">Thunder - conservative profile made by Game Over that lets to achieve long-lasting battery life with balanced performance. Edited by XDA@nalas and Game Over.</string>
+    <string name="spec_thunderk">ThundeRStormS - Kevin with AutoSMP</string>
+    <string name="spec_thunderk_summary">Thunder - conservative profile made by Kevin that lets to achieve long-lasting battery life with balanced performance. Edited by XDA@nalas and Kevin.</string>
     <string name="spec_thunderr">ThundeRStormS - rtakak with AutoSMP</string>
     <string name="spec_thunderr_summary">Tuned Profile by rtakak for better better battery life with good game performance. Profile uses rtakak profile base and AutoSMP Plug for this purpose. rtakak profile edited by rtakak and XDA@nalas.</string>
     <string name="spec_thunders">ThundeRStormS - Shariq</string>
@@ -2043,6 +2049,8 @@
     <string name="wkl_control">Wakelock Control</string>
     <string name="wkl_gps">GPS</string>
     <string name="wkl_gps_summary">The bcm4359 Wakelock (GPS chip) is one of the biggest wake sources after Sensorhub &amp; SSP. Disable for better deep sleep and less awake time. Enable for stock behavior.</string>
+    <string name="wkl_mmc0">SD Card Detect - MMC0</string>
+    <string name="wkl_mmc0_summary">The MMC0 Wakelock (SD Card) Disable for better deep sleep and less awake time. Enable for stock behavior.\n Keep this turned ON - if is OFF some bugs may be. </string>
     <string name="wkl_name">Name</string>
     <string name="wkl_nfc">NFC</string>
     <string name="wkl_nfc_summary">Default = 2 (Lower = lower wake time)</string>
@@ -2057,6 +2065,12 @@
     <string name="wkl_wakep_count">Wakeups</string>
     <string name="wkl_wakeup">Wakeups</string>
     <string name="wkl_wireless">Wireless</string>
+    <string name="wkl_wireless1">Wireless Control</string>
+    <string name="wkl_wireless1_summary">Wireless Control Wakelock. Disable for better deep sleep and less awake time. Enable for stock behavior.</string>
+    <string name="wkl_wireless2">Wireless RX</string>
+    <string name="wkl_wireless2_summary">Wireless RX Wakelock. Disable for better deep sleep and less awake time. Enable for stock behavior.</string>
+    <string name="wkl_wireless3">Wireless WD</string>
+    <string name="wkl_wireless3_summary">Wireless WD Wakelock. Disable for better deep sleep and less awake time. Enable for stock behavior.</string>
     <string name="wkl_wireless_summary">Wireless Wakelock. Disable for better deep sleep and less awake time. Enable for stock behavior.</string>
     <string name="wlan_ctrl_wakelock">wlan_ctrl Wakelock</string>
     <string name="wlan_ctrl_wakelock_divider">wlan_ctrl Wakelock Divider</string>
@@ -2076,6 +2090,7 @@
     <string name="zram_comp_algorithm">ZRAM compression algorithm</string>
     <string name="zram_comp_algorithm_summary">First disable ZRAM to be able to adjust this setting.</string>
     <string name="zram_deflate">deflate</string>
+    <string name="zram_dialog">If the swap is very full it will take several minutes to empty and disable and it will block the app, for this reason the application will be closed.\n\nDo you want to disable the Swap and close the app?</string>
     <string name="zram_lz4">lz4</string>
     <string name="zram_lzo">lzo</string>
     <string name="zram_none">Unknown compression algorithm or zram not supported!</string>

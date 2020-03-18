@@ -4,7 +4,7 @@
             "outputFile": "D:\\ANDROID\\GALAXY S7\\OREO\\TS KERNELS\\TSTweaks\\TTweaks\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lv\\values-lv.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-2\\files-2.1\\906744c4ddcbc384c5a8d2d69414f8fa\\appcompat-1.0.2\\res\\values-lv\\values-lv.xml",
+                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-2\\files-2.1\\697f71c0c12135256cbfe98df498a7e4\\appcompat-1.0.2\\res\\values-lv\\values-lv.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-2\\files-2.1\\c0a39027978b83a483a047f5c31d0c4e\\core-1.0.1\\res\\values-lv\\values-lv.xml",
+                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-2\\files-2.1\\8f8ab13dc8f4e84e14a8bb3d9ac92bc4\\core-1.0.1\\res\\values-lv\\values-lv.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-2\\files-2.1\\ad83ac99f9e863d2882a92653b32cec1\\preference-1.0.0\\res\\values-lv\\values-lv.xml",
+                    "source": "C:\\Users\\Paweł\\.gradle\\caches\\transforms-2\\files-2.1\\db247816455a5da7cd6ca75fe28080fa\\preference-1.0.0\\res\\values-lv\\values-lv.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

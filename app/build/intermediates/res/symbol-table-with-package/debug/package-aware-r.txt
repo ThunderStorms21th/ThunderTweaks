@@ -2662,8 +2662,10 @@ string iib_freq_hp
 string iib_freq_lp
 string iib_freq_ml
 string iib_freq_mp
+string iid_duration_freq
+string iid_duration_freq_summary
 string iid_duration_ms
-string iid_duration_ms_sumamry
+string iid_duration_ms_summary
 string iid_enabled
 string immediately_limit_stop
 string import_item
@@ -3019,6 +3021,8 @@ string s2w_summary
 string s2w_up
 string sampling_rate
 string samsungPlug
+string samsungPlug_BigModeDual
+string samsungPlug_BigModeNormal
 string samsungPlug_DualChangeMs
 string samsungPlug_LitMultRatio
 string samsungPlug_ToDualRatio
@@ -3107,6 +3111,8 @@ string spec_thunderf
 string spec_thunderf_summary
 string spec_thunderg
 string spec_thunderg_summary
+string spec_thunderk
+string spec_thunderk_summary
 string spec_thunderr
 string spec_thunderr_summary
 string spec_thunders
@@ -3270,6 +3276,8 @@ string wkl_bluetooth_summary
 string wkl_control
 string wkl_gps
 string wkl_gps_summary
+string wkl_mmc0
+string wkl_mmc0_summary
 string wkl_name
 string wkl_nfc
 string wkl_nfc_summary
@@ -3284,6 +3292,12 @@ string wkl_total_time
 string wkl_wakep_count
 string wkl_wakeup
 string wkl_wireless
+string wkl_wireless1
+string wkl_wireless1_summary
+string wkl_wireless2
+string wkl_wireless2_summary
+string wkl_wireless3
+string wkl_wireless3_summary
 string wkl_wireless_summary
 string wlan_ctrl_wakelock
 string wlan_ctrl_wakelock_divider
@@ -3303,6 +3317,7 @@ string zram
 string zram_comp_algorithm
 string zram_comp_algorithm_summary
 string zram_deflate
+string zram_dialog
 string zram_lz4
 string zram_lzo
 string zram_none
