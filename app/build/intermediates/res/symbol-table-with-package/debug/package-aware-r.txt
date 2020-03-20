@@ -2559,6 +2559,8 @@ string gpu_adreno_boost_medium
 string gpu_adreno_boost_off
 string gpu_adreno_boost_summary
 string gpu_adreno_boost_title
+string gpu_driver_info
+string gpu_driver_info_summary
 string gpu_freq
 string gpu_governor
 string gpu_governor_summary

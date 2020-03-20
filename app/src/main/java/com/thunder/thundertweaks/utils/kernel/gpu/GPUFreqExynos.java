@@ -121,7 +121,6 @@ public class GPUFreqExynos {
     private static final String POWER_POLICY_S10 = "/sys/devices/platform/18500000.mali/power_policy";
     private static final String USAGE_S10 = "/sys/devices/platform/18500000.mali/utilization";
 
-
     private final HashMap<String, Integer> mAvailableVolts = new HashMap<>();
     private final HashMap<String, Integer> mCurrentFreqs = new HashMap<>();
     private final List<String> mMaxFreqs = new ArrayList<>();

@@ -972,7 +972,7 @@
     <string name="cfs_scheduler_policy">CFS Scheduler Policy</string>
     <string name="cfs_scheduler_policy_summary">Policy decides the CFS scheduler how to balance tasks onto different CPU unit.</string>
     <string name="changelog">ThunderTweaks v%s</string>
-    <string name="changelog_message">\n* Added new features to HMP and Samsung Hotplug section\n \n* Added New CPU Input Boost in CPU\n \n* Added DevFreq section in CPU Misc\n \n* Added support for PowerSuspend v1.9 and 2.0\n \n* Rearanged CPU Fragment look\n \n* Rearanged Spectrum Profiles - added Kevin, removed GameOver\n \n* Added new WakeLocks (mmc0 and wifi)\n</string>
+    <string name="changelog_message">\n* Added new features to HMP and Samsung Hotplug section\n \n* Added New CPU Input Boost in CPU\n \n* Added DevFreq section in CPU Misc\n \n* Added support for PowerSuspend v1.9 and 2.0\n \n* Rearanged CPU Fragment look\n \n* Rearanged Spectrum Profiles - added Kevin, removed GameOver\n \n* Added new WakeLocks (mmc0 and wifi)\n \n* Added GPU Kernel Driver Info in DEVICE section\n</string>
     <string name="char_source">Charge Source</string>
     <string name="char_type">Charge Type</string>
     <string name="character_counter_content_description">Character limit exceeded %1$d of %2$d</string>
@@ -1332,6 +1332,8 @@
     <string name="gpu_adreno_boost_off">0 Off</string>
     <string name="gpu_adreno_boost_summary">Set the value for Adreno Boost</string>
     <string name="gpu_adreno_boost_title">Adreno Boost</string>
+    <string name="gpu_driver_info">GPU Kernel Driver Info</string>
+    <string name="gpu_driver_info_summary">RP15 - Nougat, RP22 - Oreo, RP28 - PIE, RP29 - Q.</string>
     <string name="gpu_freq">GPU Frequency</string>
     <string name="gpu_governor">GPU Governor</string>
     <string name="gpu_governor_summary">Set the governor of the GPU.</string>

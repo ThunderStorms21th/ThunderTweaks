@@ -64,6 +64,8 @@ public class DeviceFragment extends RecyclerViewFragment {
                 {getString(R.string.android_version), Device.getVersion()},
                 {getString(R.string.android_api_level), String.valueOf(Device.getSDK())},
                 {getString(R.string.android_codename), Device.getCodename()},
+                {getString(R.string.gpu_driver_info), Device.getGPUDriverInfo()},
+				/* {getString(R.string.gpu_driver_info_summary)}, */
                 {getString(R.string.fingerprint), Device.getFingerprint()},
                 {getString(R.string.build_display_id), Device.getBuildDisplayId()},
                 {getString(R.string.baseband), Device.getBaseBand()},

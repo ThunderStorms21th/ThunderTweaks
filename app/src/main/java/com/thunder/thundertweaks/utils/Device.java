@@ -385,6 +385,10 @@ public class Device {
         return Utils.readFile("/sys/kernel/debug/asv_summary");
     }
 
+    public static String getGPUDriverInfo() {
+        return Utils.readFile("/sys/kernel/gpu/gpu_driver_version");
+    }	
+
     public static String getCodename() {
         String codeName = "";
         Field[] fields = Build.VERSION_CODES.class.getFields();

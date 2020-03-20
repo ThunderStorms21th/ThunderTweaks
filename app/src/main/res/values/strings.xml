@@ -10,7 +10,7 @@
     <string name="open">Open %s</string>
     <string name="disable">Disable</string>
     <string name="changelog">ThunderTweaks v%s</string>
-    <string name="changelog_message">\n* Added new features to HMP and Samsung Hotplug section\n \n* Added New CPU Input Boost in CPU\n \n* Added DevFreq section in CPU Misc\n \n* Added support for PowerSuspend v1.9 and 2.0\n \n* Rearanged CPU Fragment look\n \n* Rearanged Spectrum Profiles - added Kevin, removed GameOver\n \n* Added new WakeLocks (mmc0 and wifi)\n</string>
+    <string name="changelog_message">\n* Added new features to HMP and Samsung Hotplug section\n \n* Added New CPU Input Boost in CPU\n \n* Added DevFreq section in CPU Misc\n \n* Added support for PowerSuspend v1.9 and 2.0\n \n* Rearanged CPU Fragment look\n \n* Rearanged Spectrum Profiles - added Kevin, removed GameOver\n \n* Added new WakeLocks (mmc0 and wifi)\n \n* Added GPU Kernel Driver Info in DEVICE section\n</string>
     <string name="close">Close</string>
 
     <!-- Security -->
@@ -164,6 +164,8 @@
     <string name="hardware">Hardware</string>
     <string name="architecture">Architecture</string>
     <string name="asv">ASV</string>
+	<string name="gpu_driver_info">GPU Kernel Driver Info</string>
+	<string name="gpu_driver_info_summary">RP15 - Nougat, RP22 - Oreo, RP28 - PIE, RP29 - Q.</string>
 
     <!-- Inputs -->
     <string name="bus">Bus</string>

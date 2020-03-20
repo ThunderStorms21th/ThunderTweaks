@@ -40,6 +40,7 @@ public class DeviceInfo {
     private String mVendor;
     private String mCpuInfo;
     private String mFingerprint;
+	private String mGpuDriver;
     private List<String> mCommands;
     private long mAverageSOT;
     private long mCpu;
@@ -57,6 +58,7 @@ public class DeviceInfo {
             mVendor = json.getString("vendor");
             mCpuInfo = json.getString("cpuinfo");
             mFingerprint = json.getString("fingerprint");
+            mGpuDriver = json.getString("gpu_driver_info");
 
             JSONArray commands = json.getJSONArray("commands");
             mCommands = new ArrayList<>();
@@ -109,6 +111,10 @@ public class DeviceInfo {
 
     public String getFingerprint() {
         return mFingerprint;
+    }
+
+    public String getGPUDriverInfo() {
+        return mGpuDriver;
     }
 
     public List<String> getCommands() {

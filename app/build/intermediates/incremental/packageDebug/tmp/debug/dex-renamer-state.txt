@@ -1,4 +1,4 @@
-#Sat Feb 22 16:33:06 CET 2020
+#Fri Mar 20 13:38:23 CET 2020
 base.0=D\:\\ANDROID\\GALAXY S7\\OREO\\TS KERNELS\\TSTweaks\\TTweaks\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
