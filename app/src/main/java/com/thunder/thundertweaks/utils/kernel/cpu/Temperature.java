@@ -64,11 +64,12 @@ public class Temperature {
     private String GPU_NODE;
     private int GPU_OFFSET;
 
-    private static String EXYNOS_NODE;
-    private static int EXYNOS_OFFSET;
-    private static String type = "/cdev0/type";
-    public static boolean isExynos = false;
-    public static void getExyNodes() {
+    private static String EXYNOS_CPU_NODE;
+    private static String EXYNOS_GPU_NODE;
+    private static int EXYNOS_CPU_OFFSET;
+    private static int EXYNOS_GPU_OFFSET;
+    private static boolean isExynos = false;
+    private static void getExyNodes() {
         for (String node : new String[] {
                 // Add on this list needed values for temp zones.
                 "/sys/class/thermal/thermal_zone"}
@@ -76,10 +77,13 @@ public class Temperature {
             for (int i = 0; i < 30; i++) {
                 if (Utils.existFile(node + i)) {
                     try {
+                        String type = "/cdev0/type";
                         if (Utils.readFile(node + i + type).contains("gpu")) {
-                            EXYNOS_NODE = node + i + "/temp";
-                            EXYNOS_OFFSET = (int) Math.pow(10, (double) (Utils.readFile(EXYNOS_NODE).length() - (Utils.readFile(EXYNOS_NODE).length() - 3)));
-                            break;
+                            EXYNOS_GPU_NODE = node + i + "/temp";
+                            EXYNOS_GPU_OFFSET = (int) Math.pow(10, (double) (Utils.readFile(EXYNOS_GPU_NODE).length() - (Utils.readFile(EXYNOS_GPU_NODE).length() - 3)));
+                        } else if (Utils.readFile(node + i + type).contains("cpufreq-0")) {
+                            EXYNOS_CPU_NODE = node + i + "/temp";
+                            EXYNOS_CPU_OFFSET = (int) Math.pow(10, (double) (Utils.readFile(EXYNOS_CPU_NODE).length() - (Utils.readFile(EXYNOS_CPU_NODE).length() - 3)));
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -110,9 +114,9 @@ public class Temperature {
     }
 
     public boolean hasGPU() {
-        if ((isExynos) && EXYNOS_NODE != null) {
-            GPU_NODE = EXYNOS_NODE;
-            GPU_OFFSET = EXYNOS_OFFSET;
+        if ((isExynos) && EXYNOS_GPU_NODE != null) {
+            GPU_NODE = EXYNOS_GPU_NODE;
+            GPU_OFFSET = EXYNOS_GPU_OFFSET;
             return true;
         } else if (TEMP_JSON != null && TEMP_JSON.getGPU() != null) {
             GPU_NODE = TEMP_JSON.getGPU();
@@ -141,7 +145,11 @@ public class Temperature {
     }
 
     public boolean hasCPU() {
-        if (TEMP_JSON != null && TEMP_JSON.getCPU() != null) {
+        if ((isExynos) && EXYNOS_CPU_NODE != null) {
+            CPU_NODE = EXYNOS_CPU_NODE;
+            CPU_OFFSET = EXYNOS_CPU_OFFSET;
+            return true;
+        } else if (TEMP_JSON != null && TEMP_JSON.getCPU() != null) {
             CPU_NODE = TEMP_JSON.getCPU();
             if (Utils.existFile(CPU_NODE)) {
                 CPU_OFFSET = TEMP_JSON.getCPUOffset();
@@ -174,7 +182,7 @@ public class Temperature {
         return hasCPU() || hasGPU();
     }
 
-    private class TempJson {
+    private static class TempJson {
 
         private final String TAG = TempJson.class.getSimpleName();
 
