@@ -167,14 +167,11 @@ public class MainActivity extends BaseActivity {
                 BoefflaWakelock.CopyWakelockBlockerDefault();
             }
 
-            // If setting is applied on boot, mAppliedOnBoot = 1
-            int mAppliedOnboot = Utils.strToInt(RootUtils.getProp("thundertweaks.applied_onboot"));
-
             // If voltages are saved on Service.java, mVoltageSaved = 1
             int mVoltageSaved = Utils.strToInt(RootUtils.getProp("thundertweaks.voltage_saved"));
 
             // Check if system is rebooted
-            Boolean mIsBooted = AppSettings.getBoolean("is_booted", true, mRefActivity.get());
+            boolean mIsBooted = AppSettings.getBoolean("is_booted", true, mRefActivity.get());
             if (mIsBooted) {
                 // reset the Global voltages seekbar
                 if (!AppSettings.getBoolean("cpucl1voltage_onboot", false, mRefActivity.get())) {
@@ -324,11 +321,8 @@ public class MainActivity extends BaseActivity {
             }
 			
             // Save GPU libs version
-            if (!AppSettings.getBoolean("gpu_lib_version_saved", false, mRefActivity.get())){
-                AppSettings.saveString("gpu_lib_version",
+            AppSettings.saveString("gpu_lib_version",
                         RootUtils.runCommand("dumpsys SurfaceFlinger | grep GLES | head -n 1 | cut -f 3,4,5 -d ','"), mRefActivity.get());
-                AppSettings.saveBoolean("gpu_lib_version_saved", true, mRefActivity.get());
-            }
         }
 
         @Override
