@@ -504,6 +504,8 @@
 	<string name="hmp_down_comp_hight_freq">Down Compensation High Frequency</string>
 	<string name="hmp_down_comp_mid_freq">Down Compensation Mid Frequency</string>
 	<string name="hmp_down_comp_low_freq">Down Compensation Low Frequency</string>
+	<string name="hmp_boost">Boost HMP - turn off/on 2 Big cores</string>
+	<string name="hmp_comp_enable">Enable/Disable Compensation for LITTLE cores</string>
 
     <!--Thermal-->
     <string name="thermal_info">Use only one thermal driver from the following options, using more at the same time may cause unexpected behavior.</string>
@@ -607,6 +609,9 @@
     <string name="gpu_adreno_boost_low">1 Low</string>
     <string name="gpu_adreno_boost_medium">2 Medium</string>
     <string name="gpu_adreno_boost_high">3 High</string>
+    <string name="gpu_driver_version">Kernel Driver</string>
+    <string name="gpu_lib_version">System Libs</string>
+    <string name="gpu_driver_title">GPU Driver Info</string>
 
     <!-- Screen -->
     <string name="screen_color">Screen Color</string>
@@ -1355,13 +1360,13 @@
     <!--<string name="about_me">Hi, I\'m Willi Ye aka Grarak, a 19 year old student living in Vienna. I\'ve been developing on Android for quite a long time. Beside thunderstorm.ThunderTweaks I\'m also maintaining LineageOS for few devices and working on ParanoidAndroid. So please understand if I don\'t find the time to update this application.</string>-->
     <!--<string name="about_me">Hi, I\'m MoroGoku, developer of MoRoKernel of Samsung S7. This app is a mod of \"thunderstorm.ThunderTweaks\" of Willi Ye, aka Grarak. I make this mod for compatibilize thunderstorm.ThunderTweaks with Galaxy S7 smartphone, and add some new options. Thanks Willi for this great app.</string>-->
     <!--<string name="about_me">Hi, I\'m Corsicanu, developer of hadesKernel.\nThis app is a mod of \"MTweaks\" by MoroGoku, properly adaptated to exynos7870/7880/7884/7885/7904 devices (maybe even more).\n\nThanks Willi for this great app, special thanks to MoroGoku for his awesome MTweaks app.</string>-->
-    <string name="about_me">Hi, I\'m @nalas XDA, developer of ThundeRStormS Kernel.\nThis app is a mod of \"hKtweaks"\ by corsicanu and \"MTweaks\" by MoroGoku, properly adaptated to exynos7870/7880/7884/7885/7904/8890 devices (maybe even more).\n\nThanks Willi for this great app, special thanks to MoroGoku and corsicanu for their awesome thunderTweaks and MTweaks apps. Thanks for Rohan D. and graphics projects for XDA@Franz S. and XDA@phghost, @nckmml, XDA@VHFG22, @Game Over, XDA@matt_988 and XDA@Kyo-Ito</string>
+    <string name="about_me">Hi, I\'m @nalas XDA, developer of ThundeRStormS Kernel.\nThis app is a mod of \"hKtweaks"\ by corsicanu and \"MTweaks\" by MoroGoku, properly adaptated to exynos7870/7880/7884/7885/7904/8890/8895/9810/9820 devices (maybe even more).\n\nThanks Willi for this great app, special thanks to MoroGoku and corsicanu for their awesome thunderTweaks and MTweaks apps. Thanks for Rohan D. and graphics projects for XDA@Franz S. and XDA@phghost, @nckmml, XDA@VHFG22, @Game Over, XDA@matt_988 and XDA@Kyo-Ito</string>
     <string name="libraries_used">Libraries used</string>
 
     <!-- Donation -->
     <string name="donation_title">Donation</string>
     <string name="donation_summary_mg">Hi, ThunderTweaks is an application based on \"Kernel Adiutor\" by Willi Ye, aka Grarak.\n\nIt has several new modifications and adjustments, especially for the latest Samsung Galaxy S7.\n\nI do this because I have fun and I like to share my work, that\'s why it\'s free and does not carry advertising.\n\nAlthough if you liked the work I have done and you want to donate something and invite me to a beer, as they say, you can do it in the following Paypal link.</string>
-    <string name="donation_summary">ThunderTweaks is an app based on \"hKtweaks"\ by corsicanu and \"MTweaks\" by MoroGoku, properly adaptated to exynos7870/7880/7884/7885/7904/8890 devices (maybe even more).\nIf you appreciate my work and you want to donate to support my work and provide me more coffee, you can do it on the following Paypal link.</string>
+    <string name="donation_summary">ThunderTweaks is an app based on \"hKtweaks"\ by corsicanu and \"MTweaks\" by MoroGoku, properly adaptated to exynos7870/7880/7884/7885/7904/8890/8895/9810/9820 devices (maybe even more).\nIf you appreciate my work and you want to donate to support my work and provide me more coffee, you can do it on the following Paypal link.</string>
 
     <!-- Contributors -->
     <string name="commits">%d commits</string>
