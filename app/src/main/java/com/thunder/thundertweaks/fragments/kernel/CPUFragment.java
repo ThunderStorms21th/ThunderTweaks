@@ -21,6 +21,7 @@ package com.thunder.thundertweaks.fragments.kernel;
 
 import android.text.InputType;
 import android.util.SparseArray;
+import androidx.appcompat.app.AlertDialog;
 
 import com.thunder.thundertweaks.R;
 import com.thunder.thundertweaks.fragments.ApplyOnBootFragment;
@@ -42,10 +43,12 @@ import com.thunder.thundertweaks.views.recyclerview.SeekBarView;
 import com.thunder.thundertweaks.views.recyclerview.SelectView;
 import com.thunder.thundertweaks.views.recyclerview.SwitchView;
 import com.thunder.thundertweaks.views.recyclerview.XYGraphView;
+import com.thunder.thundertweaks.views.recyclerview.TitleView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by willi on 01.05.16.
@@ -451,6 +454,7 @@ public class CPUFragment extends RecyclerViewFragment {
     }
 
     private void cpuQuietInit(List<RecyclerViewItem> items) {
+		
         List<RecyclerViewItem> views = new ArrayList<>();
         CardView cpuQuietCard = new CardView(getActivity());
         cpuQuietCard.setTitle(getString(R.string.cpu_quiet));
@@ -485,7 +489,7 @@ public class CPUFragment extends RecyclerViewFragment {
                 cpuQuietCard.addItem(item);
             }
             items.add(cpuQuietCard);
-        }
+		}
     }
 
     private void cpuBoostInit(List<RecyclerViewItem> items) {

@@ -56,8 +56,8 @@ public class IO {
 
     public enum Storage {
         Internal,
-        External
-    }
+        External,
+	}
 
     private String INTERNAL;
     private String EXTERNAL;
@@ -78,7 +78,7 @@ public class IO {
         EXTERNAL = exists(sExternal);
         if (EXTERNAL != null && EXTERNAL.equals(INTERNAL)) {
             EXTERNAL = null;
-        }
+        }	
     }
 
     public boolean hasExternal() {

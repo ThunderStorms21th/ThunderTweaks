@@ -31,7 +31,8 @@ public class Hmp {
 	private static final String DOWN_COMP_TIMEOUT = "/sys/kernel/hmp/down_compensation_timeout";
 	private static final String SB_UP_THRESHOLD = "/sys/kernel/hmp/sb_up_threshold";
 	private static final String SB_DOWN_THRESHOLD = "/sys/kernel/hmp/sb_down_threshold";
-
+	private static final String HMP_BOOST = "/sys/kernel/hmp/boost";
+	private static final String DOWN_COMP_ENABLED = "/sys/kernel/hmp/down_compensation_enabled";
 
     public void setHmpProfile(String value, Context context){
         String hmp[] = value.split(" ");
@@ -39,6 +40,30 @@ public class Hmp {
         int down = Utils.strToInt(hmp[1]);
         setUpThreshold(up, context);
         setDownThreshold(down, context);
+    }
+
+    public boolean hasHMPBoost(){
+        return (Utils.existFile(HMP_BOOST));
+    }
+
+    public boolean isHMPBoostEnabled(){
+        return Utils.readFile(HMP_BOOST).equals("0");
+    }
+
+    public void enableHMPBoost(boolean enable, Context context){
+        run(Control.write(enable ? "0" : "1", HMP_BOOST), HMP_BOOST, context);
+    }
+
+    public boolean hasDownCompEnable(){
+        return (Utils.existFile(DOWN_COMP_ENABLED));
+    }
+
+    public boolean isDownCompEnableEnabled(){
+        return Utils.readFile(DOWN_COMP_ENABLED).equals("1");
+    }
+
+    public void enableDownCompEnable(boolean enable, Context context){
+        run(Control.write(enable ? "1" : "0", DOWN_COMP_ENABLED), DOWN_COMP_ENABLED, context);
     }
 
     public String getUpThreshold(){

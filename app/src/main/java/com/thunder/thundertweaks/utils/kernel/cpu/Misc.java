@@ -25,6 +25,7 @@ import com.thunder.thundertweaks.fragments.ApplyOnBootFragment;
 import com.thunder.thundertweaks.utils.Utils;
 import com.thunder.thundertweaks.utils.root.Control;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -34,6 +35,7 @@ import java.util.List;
  */
 public class Misc {
 
+    private static final String CPUQ_PATH = "/sys/devices/system/cpu/cpuquiet";
     private static final String CPU_MC_POWER_SAVING = "/sys/devices/system/cpu/sched_mc_power_savings";
     private static final String CPU_WQ_POWER_SAVING = "/sys/module/workqueue/parameters/power_efficient";
 	private static final String CPU_FINGERPRINT_BOOST = "/sys/kernel/fp_boost/enabled";

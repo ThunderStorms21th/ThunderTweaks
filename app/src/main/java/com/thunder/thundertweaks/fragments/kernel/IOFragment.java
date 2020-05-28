@@ -73,21 +73,22 @@ public class IOFragment extends RecyclerViewFragment {
         if (mIO.hasScheduler(storage)) {
             SelectView scheduler = new SelectView();
             scheduler.setTitle(getString(R.string.scheduler));
-            scheduler.setSummary(getString(R.string.scheduler_summary));
-            scheduler.setItems(mIO.getSchedulers(storage));
-            scheduler.setItem(mIO.getScheduler(storage));
-            scheduler.setOnItemSelected((selectView, position, item)
-                    -> mIO.setScheduler(storage, item, getActivity()));
+			scheduler.setSummary(getString(R.string.scheduler_summary));
+			scheduler.setItems(mIO.getSchedulers(storage));
+			scheduler.setItem(mIO.getScheduler(storage));
+
+			scheduler.setOnItemSelected((selectView, position, item)
+				-> mIO.setScheduler(storage, item, getActivity()));
 
             io.addItem(scheduler);
 
             DescriptionView tunable = new DescriptionView();
             tunable.setTitle(getString(R.string.scheduler_tunable));
             tunable.setSummary(getString(R.string.scheduler_tunable_summary));
-            tunable.setOnItemClickListener(item
-                    -> showTunables(mIO.getScheduler(storage), mIO.getIOSched(storage)));
-
-            io.addItem(tunable);
+            tunable.setOnItemClickListener( item
+                    -> showTunables(mIO.getScheduler(storage), mIO.getScheduler(storage)));
+	
+            io.addItem(tunable);			
         }
 
         if (mIO.hasReadahead(storage)) {
@@ -211,5 +212,5 @@ public class IOFragment extends RecyclerViewFragment {
         mIOTunableFragment.setPath(path, ApplyOnBootFragment.IO);
         showForeground();
     }
-
+	
 }

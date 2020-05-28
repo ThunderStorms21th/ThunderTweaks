@@ -11,6 +11,7 @@ import com.thunder.thundertweaks.views.recyclerview.DescriptionView;
 import com.thunder.thundertweaks.views.recyclerview.RecyclerViewItem;
 import com.thunder.thundertweaks.views.recyclerview.SeekBarView;
 import com.thunder.thundertweaks.views.recyclerview.TitleView;
+import com.thunder.thundertweaks.views.recyclerview.SwitchView;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -97,6 +98,26 @@ public class HmpFragment  extends RecyclerViewFragment {
 
             card.addItem(mDownThreshold);
         }
+
+        if (mHmp.hasHMPBoost()){
+            SwitchView sHMPboost = new SwitchView();
+            sHMPboost.setTitle(getString(R.string.hmp_boost));
+            sHMPboost.setChecked(mHmp.isHMPBoostEnabled());
+            sHMPboost.addOnSwitchListener((switchView, isChecked)
+                    -> mHmp.enableHMPBoost(isChecked, getActivity()));
+
+            card.addItem(sHMPboost);
+		}
+
+        if (mHmp.hasDownCompEnable()){
+            SwitchView sHMPcompE = new SwitchView();
+            sHMPcompE.setTitle(getString(R.string.hmp_comp_enable));
+            sHMPcompE.setChecked(mHmp.isDownCompEnableEnabled());
+            sHMPcompE.addOnSwitchListener((switchView, isChecked)
+                    -> mHmp.enableDownCompEnable(isChecked, getActivity()));
+
+            card.addItem(sHMPcompE);
+		}
 
         if(mHmp.hasDownCompThreshold()) {
             mDownCompThreshold = new SeekBarView();
