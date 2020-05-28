@@ -291,6 +291,25 @@ public class GPUFragment extends RecyclerViewFragment {
     }
 
     private void freqInit(List<RecyclerViewItem> items) {
+        CardView driverCard = new CardView(getActivity());
+        driverCard.setTitle(getString(R.string.gpu_driver_title));
+
+        if (mGPUFreqExynos.hasDriverVersion()) {
+            DescriptionView driver = new DescriptionView();
+            driver.setTitle(getString(R.string.gpu_driver_version));
+            driver.setSummary(mGPUFreqExynos.getDriverVersion());
+            driverCard.addItem(driver);
+        }
+
+        DescriptionView lib = new DescriptionView();
+        lib.setTitle(getString(R.string.gpu_lib_version));
+        lib.setSummary(AppSettings.getString("gpu_lib_version", "", getActivity()));
+        driverCard.addItem(lib);
+
+        if (driverCard.size() > 0) {
+            items.add(driverCard);
+        }
+
         CardView freqCard = new CardView(getActivity());
         freqCard.setTitle(getString(R.string.frequencies));
 

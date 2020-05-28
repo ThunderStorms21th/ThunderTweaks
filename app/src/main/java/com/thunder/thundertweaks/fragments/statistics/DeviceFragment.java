@@ -22,10 +22,13 @@ package com.thunder.thundertweaks.fragments.statistics;
 import com.thunder.thundertweaks.R;
 import com.thunder.thundertweaks.fragments.DescriptionFragment;
 import com.thunder.thundertweaks.fragments.recyclerview.RecyclerViewFragment;
+import com.thunder.thundertweaks.utils.AppSettings;
 import com.thunder.thundertweaks.utils.Device;
 import com.thunder.thundertweaks.views.recyclerview.CardView;
 import com.thunder.thundertweaks.views.recyclerview.DescriptionView;
 import com.thunder.thundertweaks.views.recyclerview.RecyclerViewItem;
+import com.thunder.thundertweaks.utils.kernel.gpu.GPUFreqExynos;
+import com.thunder.thundertweaks.views.recyclerview.CardView;
 
 import java.util.List;
 
@@ -64,8 +67,9 @@ public class DeviceFragment extends RecyclerViewFragment {
                 {getString(R.string.android_version), Device.getVersion()},
                 {getString(R.string.android_api_level), String.valueOf(Device.getSDK())},
                 {getString(R.string.android_codename), Device.getCodename()},
-                {getString(R.string.gpu_driver_info), Device.getGPUDriverInfo()},
-				/* {getString(R.string.gpu_driver_info_summary)}, */
+                /* {getString(R.string.gpu_driver_info), Device.getGPUDriverInfo()}, */
+                {"GPU " + getString(R.string.gpu_driver_version), GPUFreqExynos.getInstance().getDriverVersion()},
+                {"GPU " + getString(R.string.gpu_lib_version), AppSettings.getString("gpu_lib_version", "", getActivity())},
                 {getString(R.string.fingerprint), Device.getFingerprint()},
                 {getString(R.string.build_display_id), Device.getBuildDisplayId()},
                 {getString(R.string.baseband), Device.getBaseBand()},

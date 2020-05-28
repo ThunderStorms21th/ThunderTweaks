@@ -322,6 +322,13 @@ public class MainActivity extends BaseActivity {
                 if (pool < 100) AppSettings.saveBoolean("memory_pool_percent", true, mRefActivity.get());
                 AppSettings.saveBoolean("memory_pool_percent_saved", true, mRefActivity.get());
             }
+			
+            // Save GPU libs version
+            if (!AppSettings.getBoolean("gpu_lib_version_saved", false, mRefActivity.get())){
+                AppSettings.saveString("gpu_lib_version",
+                        RootUtils.runCommand("dumpsys SurfaceFlinger | grep GLES | head -n 1 | cut -f 3,4,5 -d ','"), mRefActivity.get());
+                AppSettings.saveBoolean("gpu_lib_version_saved", true, mRefActivity.get());
+            }
         }
 
         @Override
