@@ -56,7 +56,7 @@ public class IO {
 
     public enum Storage {
         Internal,
-        External,
+        External
 	}
 
     private String INTERNAL;

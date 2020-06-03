@@ -76,7 +76,6 @@ public class IOFragment extends RecyclerViewFragment {
 			scheduler.setSummary(getString(R.string.scheduler_summary));
 			scheduler.setItems(mIO.getSchedulers(storage));
 			scheduler.setItem(mIO.getScheduler(storage));
-
 			scheduler.setOnItemSelected((selectView, position, item)
 				-> mIO.setScheduler(storage, item, getActivity()));
 
@@ -85,8 +84,8 @@ public class IOFragment extends RecyclerViewFragment {
             DescriptionView tunable = new DescriptionView();
             tunable.setTitle(getString(R.string.scheduler_tunable));
             tunable.setSummary(getString(R.string.scheduler_tunable_summary));
-            tunable.setOnItemClickListener( item
-                    -> showTunables(mIO.getScheduler(storage), mIO.getScheduler(storage)));
+            tunable.setOnItemClickListener(item
+                    -> showTunables(mIO.getScheduler(storage), mIO.getIOSched(storage)));
 	
             io.addItem(tunable);			
         }
