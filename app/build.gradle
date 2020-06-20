@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
+    compileSdkVersion 30
+    buildToolsVersion '30.0.0'
     defaultConfig {
         applicationId 'com.thunder.thundertweaks'
         minSdkVersion 23
-        targetSdkVersion 28
-        versionCode 106
-        versionName "1.0.6.0"
+        targetSdkVersion 30
+        versionCode 107
+        versionName "1.0.7.0"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
