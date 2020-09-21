@@ -21,7 +21,6 @@ package com.thunder.thundertweaks.fragments.kernel;
 
 import android.text.InputType;
 import android.util.SparseArray;
-import androidx.appcompat.app.AlertDialog;
 
 import com.thunder.thundertweaks.R;
 import com.thunder.thundertweaks.fragments.ApplyOnBootFragment;
@@ -43,12 +42,10 @@ import com.thunder.thundertweaks.views.recyclerview.SeekBarView;
 import com.thunder.thundertweaks.views.recyclerview.SelectView;
 import com.thunder.thundertweaks.views.recyclerview.SwitchView;
 import com.thunder.thundertweaks.views.recyclerview.XYGraphView;
-import com.thunder.thundertweaks.views.recyclerview.TitleView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by willi on 01.05.16.
