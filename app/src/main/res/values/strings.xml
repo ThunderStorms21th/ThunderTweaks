@@ -10,7 +10,7 @@
     <string name="open">Open %s</string>
     <string name="disable">Disable</string>
     <string name="changelog">ThunderTweaks v%s</string>
-    <string name="changelog_message">\n* Fix GPU temperature show for some devices\n</string>
+    <string name="changelog_message">\n* Added Battery settings for S10/N10 devices\n</string>
     <string name="close">Close</string>
 
     <!-- Security -->
@@ -849,6 +849,9 @@
     <string name="wireless_power">Wireless Power</string>
     <string name="wc_input">Wireless Input Current</string>
     <string name="wc_charge">Wireless Charge Current</string>
+    <string name="power_sharing">Power Share System</string>
+    <string name="ps_input">Power Share Input Current</string>
+    <string name="ps_charge">Power Share Charge Current</string>
     <string name="car_dock">Car Dock</string>
     <string name="car_input">Car Dock Input Curent</string>
     <string name="car_charge">Car Dock Charge Current</string>
@@ -865,6 +868,7 @@
     <string name="cs_wireless">Wireless Charging</string>
     <string name="cs_hv_wireless">HV Wireless Charging</string>
     <string name="cs_pma_wireless">PMA Wireless Charging</string>
+    <string name="cs_power_share">Power Share Charging</string>
     <string name="cs_car">Car Dock Charging</string>
     <string name="cs_uart_off">UART Off Charging</string>
     <string name="cs_otg">OTG Charging</string>

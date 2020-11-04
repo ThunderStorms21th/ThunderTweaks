@@ -416,6 +416,52 @@ public class BatteryFragment extends RecyclerViewFragment {
             usbCard.addItem(usb_charge);
         }
 
+        if(mBattery.hasUsbInput2()) {
+            SeekBarView usb_input2 = new SeekBarView();
+            usb_input2.setTitle(getString(R.string.usb_input));
+            usb_input2.setSummary(getString(R.string.def) + ": " + AppSettings.getString("bat_usb_input2", "", getActivity()) + getString(R.string.ma));
+            usb_input2.setMax(2000);
+            usb_input2.setMin(100);
+            usb_input2.setUnit(getString(R.string.ma));
+            usb_input2.setOffset(25);
+            usb_input2.setProgress(Utils.strToInt(mBattery.getUsbInput2()) / 25 - 4);
+            usb_input2.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+                @Override
+                public void onStop(SeekBarView seekBarView, int position, String value) {
+                    mBattery.setUsbInput2((position + 4) * 25, getActivity());
+                }
+
+                @Override
+                public void onMove(SeekBarView seekBarView, int position, String value) {
+                }
+            });
+
+            usbCard.addItem(usb_input2);
+        }
+
+        if(mBattery.hasUsbCharge2()) {
+            SeekBarView usb_charge2 = new SeekBarView();
+            usb_charge2.setTitle(getString(R.string.usb_charge));
+            usb_charge2.setSummary(getString(R.string.def) + ": " + AppSettings.getString("bat_usb_charge2", "", getActivity()) + getString(R.string.ma));
+            usb_charge2.setMax(2500);
+            usb_charge2.setMin(100);
+            usb_charge2.setUnit(getString(R.string.ma));
+            usb_charge2.setOffset(25);
+            usb_charge2.setProgress(Utils.strToInt(mBattery.getUsbCharge2()) / 25 - 4);
+            usb_charge2.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+                @Override
+                public void onStop(SeekBarView seekBarView, int position, String value) {
+                    mBattery.setUsbCharge2((position + 4) * 25, getActivity());
+                }
+
+                @Override
+                public void onMove(SeekBarView seekBarView, int position, String value) {
+                }
+            });
+
+            usbCard.addItem(usb_charge2);
+        }
+
         if (usbCard.size() > 0) {
             items.add(usbCard);
         }
@@ -484,7 +530,7 @@ public class BatteryFragment extends RecyclerViewFragment {
             SeekBarView wc_input = new SeekBarView();
             wc_input.setTitle(getString(R.string.wc_input));
             wc_input.setSummary(getString(R.string.def) + ": " + AppSettings.getString("bat_wc_input", "", getActivity()) + getString(R.string.ma));
-            wc_input.setMax(1500);
+            wc_input.setMax(2000);
             wc_input.setMin(800);
             wc_input.setUnit(getString(R.string.ma));
             wc_input.setOffset(25);
@@ -507,7 +553,7 @@ public class BatteryFragment extends RecyclerViewFragment {
             SeekBarView wc_charge = new SeekBarView();
             wc_charge.setTitle(getString(R.string.wc_charge));
             wc_charge.setSummary(getString(R.string.def) + ": " + AppSettings.getString("bat_wc_charge", "", getActivity()) + getString(R.string.ma));
-            wc_charge.setMax(2300);
+            wc_charge.setMax(2500);
             wc_charge.setMin(800);
             wc_charge.setUnit(getString(R.string.ma));
             wc_charge.setOffset(25);
@@ -529,7 +575,62 @@ public class BatteryFragment extends RecyclerViewFragment {
         if (wcCard.size() > 0) {
             items.add(wcCard);
         }
-    }
+   
+
+        CardView psCard = new CardView(getActivity());
+        psCard.setTitle(getString(R.string.power_sharing));
+        psCard.setFullSpan(true);
+
+        if(mBattery.hasPsInput()) {
+            SeekBarView ps_input = new SeekBarView();
+            ps_input.setTitle(getString(R.string.ps_input));
+            ps_input.setSummary(getString(R.string.def) + ": " + AppSettings.getString("bat_ps_input", "", getActivity()) + getString(R.string.ma));
+            ps_input.setMax(2000);
+            ps_input.setMin(800);
+            ps_input.setUnit(getString(R.string.ma));
+            ps_input.setOffset(25);
+            ps_input.setProgress(Utils.strToInt(mBattery.getPsInput()) / 25 - 32);
+            ps_input.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+                @Override
+                public void onStop(SeekBarView seekBarView, int position, String value) {
+                    mBattery.setPsInput((position + 32) * 25, getActivity());
+                }
+
+                @Override
+                public void onMove(SeekBarView seekBarView, int position, String value) {
+                }
+            });
+
+            psCard.addItem(ps_input);
+        }
+
+        if(mBattery.hasPsCharge()) {
+            SeekBarView ps_charge = new SeekBarView();
+            ps_charge.setTitle(getString(R.string.ps_charge));
+            ps_charge.setSummary(getString(R.string.def) + ": " + AppSettings.getString("bat_ps_charge", "", getActivity()) + getString(R.string.ma));
+            ps_charge.setMax(2300);
+            ps_charge.setMin(800);
+            ps_charge.setUnit(getString(R.string.ma));
+            ps_charge.setOffset(25);
+            ps_charge.setProgress(Utils.strToInt(mBattery.getPsCharge()) / 25 - 32);
+            ps_charge.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+                @Override
+                public void onStop(SeekBarView seekBarView, int position, String value) {
+                    mBattery.setPsCharge((position + 32) * 25, getActivity());
+                }
+
+                @Override
+                public void onMove(SeekBarView seekBarView, int position, String value) {
+                }
+            });
+
+            psCard.addItem(ps_charge);
+        }
+
+        if (psCard.size() > 0) {
+            items.add(psCard);
+        }
+	}
 
     private void levelInit(List<RecyclerViewItem> items) {
         mLevel = new StatsView();

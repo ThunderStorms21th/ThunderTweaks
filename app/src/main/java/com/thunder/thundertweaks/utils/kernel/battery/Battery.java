@@ -56,8 +56,12 @@ public class Battery {
     private static String AC_CHARGE_SCREEN;
     private static String USB_INPUT;
     private static String USB_CHARGE;
+    private static String USB_INPUT2;
+    private static String USB_CHARGE2;
     private static String WC_INPUT;
     private static String WC_CHARGE;
+    private static String PS_INPUT;
+    private static String PS_CHARGE;
     private static String CAR_INPUT;
     private static String CAR_CHARGE;
     private static String CHARGE_SOURCE;
@@ -82,8 +86,12 @@ public class Battery {
                 AC_CHARGE_SCREEN = BATTERY_NODE + "/so_limit_charge";
                 USB_INPUT = BATTERY_NODE + "/sdp_input";
                 USB_CHARGE = BATTERY_NODE + "/sdp_charge";
+				USB_INPUT2 = BATTERY_NODE + "/usb_input";
+                USB_CHARGE2 = BATTERY_NODE + "/usb_charge";
                 WC_INPUT = BATTERY_NODE + "/wc_input";
                 WC_CHARGE = BATTERY_NODE + "/wc_charge";
+                PS_INPUT = BATTERY_NODE + "/ps_input";
+                PS_CHARGE = BATTERY_NODE + "/ps_charge";
                 CAR_INPUT = BATTERY_NODE + "/car_input";
                 CAR_CHARGE = BATTERY_NODE + "/car_charge";
                 CHARGE_SOURCE = BATTERY_NODE + "/power_supply/battery/batt_charging_source";
@@ -176,6 +184,16 @@ public class Battery {
         } else {
             AppSettings.remove("bat_usb_charge", context);
         }
+        if (hasUsbInput2()) {
+            AppSettings.saveString("bat_usb_input2", getUsbInput2(), context);
+        } else {
+            AppSettings.remove("bat_usb_input2", context);
+        }
+        if (hasUsbCharge2()) {
+            AppSettings.saveString("bat_usb_charge2", getUsbCharge2(), context);
+        } else {
+            AppSettings.remove("bat_usb_charge2", context);
+        }
         if (hasWcInput()) {
             AppSettings.saveString("bat_wc_input", getWcInput(), context);
         } else {
@@ -185,6 +203,16 @@ public class Battery {
             AppSettings.saveString("bat_wc_charge", getWcCharge(), context);
         } else {
             AppSettings.remove("bat_wc_charge", context);
+        }
+        if (hasPsInput()) {
+            AppSettings.saveString("bat_ps_input", getPsInput(), context);
+        } else {
+            AppSettings.remove("bat_ps_input", context);
+        }
+        if (hasPsCharge()) {
+            AppSettings.saveString("bat_ps_charge", getPsCharge(), context);
+        } else {
+            AppSettings.remove("bat_ps_charge", context);
         }
         if (hasCarInput()) {
             AppSettings.saveString("bat_car_input", getCarInput(), context);
@@ -406,6 +434,30 @@ public class Battery {
         return Utils.readFile(USB_CHARGE);
     }
 
+    public boolean hasUsbInput2() {
+        return Utils.existFile(USB_INPUT2);
+    }
+
+    public void setUsbInput2(int value, Context context) {
+        run(Control.write(String.valueOf(value), USB_INPUT2), USB_INPUT2, context);
+    }
+
+    public String getUsbInput2() {
+        return Utils.readFile(USB_INPUT2);
+    }
+
+    public boolean hasUsbCharge2() {
+        return Utils.existFile(USB_CHARGE2);
+    }
+
+    public void setUsbCharge2(int value, Context context) {
+        run(Control.write(String.valueOf(value), USB_CHARGE2), USB_CHARGE2, context);
+    }
+
+    public String getUsbCharge2() {
+        return Utils.readFile(USB_CHARGE2);
+    }
+
     public boolean hasWcInput() {
         return Utils.existFile(WC_INPUT);
     }
@@ -428,6 +480,30 @@ public class Battery {
 
     public String getWcCharge() {
         return Utils.readFile(WC_CHARGE);
+    }
+
+    public boolean hasPsInput() {
+        return Utils.existFile(PS_INPUT);
+    }
+
+    public void setPsInput(int value, Context context) {
+        run(Control.write(String.valueOf(value), PS_INPUT), PS_INPUT, context);
+    }
+
+    public String getPsInput() {
+        return Utils.readFile(PS_INPUT);
+    }
+
+    public boolean hasPsCharge() {
+        return Utils.existFile(PS_CHARGE);
+    }
+
+    public void setPsCharge(int value, Context context) {
+        run(Control.write(String.valueOf(value), PS_CHARGE), PS_CHARGE, context);
+    }
+
+    public String getPsCharge() {
+        return Utils.readFile(PS_CHARGE);
     }
 
     public boolean hasCarCharge() {
@@ -545,6 +621,8 @@ public class Battery {
                 return context.getResources().getString(R.string.cs_qc20);
             case "41" :
                 return context.getResources().getString(R.string.cs_qc30);
+            case "42" :
+                return context.getResources().getString(R.string.cs_power_sharing);
         }
         return "Unknown source";
     }
