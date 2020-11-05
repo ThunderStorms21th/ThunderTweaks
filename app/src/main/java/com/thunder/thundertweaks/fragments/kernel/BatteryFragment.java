@@ -198,6 +198,66 @@ public class BatteryFragment extends RecyclerViewFragment {
             items.add(storeCard);
         }
 
+        CardView storeCard2 = new CardView(getActivity());
+        storeCard2.setTitle(getString(R.string.store_mode));
+        storeCard2.setFullSpan(true);
+
+        if (mBattery.hasStoreMode2()){
+            SwitchView sMode2 = new SwitchView();
+            sMode2.setTitle(getString(R.string.store_mode));
+            sMode2.setSummary(getString(R.string.store_mode_summary));
+            sMode2.setChecked(mBattery.isStoreModeEnabled2());
+            sMode2.addOnSwitchListener((switchView, isChecked)
+                    -> mBattery.enableStoreMode2(isChecked, getActivity()));
+
+            storeCard2.addItem(sMode2);
+
+
+            SeekBarView smMax = new SeekBarView();
+            smMax.setTitle(getString(R.string.store_mode_max));
+            smMax.setSummary(getString(R.string.store_mode_max_summary));
+            smMax.setMax(100);
+            smMax.setMin(1);
+            smMax.setUnit(getString(R.string.percent));
+            smMax.setProgress(Utils.strToInt(mBattery.getStoreModeMax()) -1 );
+            smMax.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+                @Override
+                public void onStop(SeekBarView seekBarView, int position, String value) {
+                    mBattery.setStoreModeMax(position +1, getActivity());
+                }
+
+                @Override
+                public void onMove(SeekBarView seekBarView, int position, String value) {
+                }
+            });
+
+            storeCard2.addItem(smMax);
+
+
+            SeekBarView smMin = new SeekBarView();
+            smMin.setTitle(getString(R.string.store_mode_min));
+            smMin.setSummary(getString(R.string.store_mode_min_summary));
+            smMin.setMax(100);
+            smMin.setMin(1);
+            smMin.setUnit(getString(R.string.percent));
+            smMin.setProgress(Utils.strToInt(mBattery.getStoreModeMin()) -1 );
+            smMin.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+                @Override
+                public void onStop(SeekBarView seekBarView, int position, String value) {
+                    mBattery.setStoreModeMin(position +1, getActivity());
+                }
+
+                @Override
+                public void onMove(SeekBarView seekBarView, int position, String value) {
+                }
+            });
+
+            storeCard2.addItem(smMin);
+        }
+
+        if (storeCard2.size() > 0) {
+            items.add(storeCard2);
+        }
 
         CardView hvPower = new CardView(getActivity());
         hvPower.setTitle(getString(R.string.hv_power_supply));

@@ -108,6 +108,7 @@ public class Battery {
     private static String CHARGE_RATE_ENABLE = CHARGE_RATE + "/enabled";
     private static String CUSTOM_CURRENT = CHARGE_RATE + "/custom_current";
     private static String STORE_MODE = "/sys/devices/battery/power_supply/battery/store_mode";
+	private static String STORE_MODE2 = "/sys/devices/platform/battery/power_supply/battery/store_mode";
     private static String STORE_MODE_MAX = "/sys/module/sec_battery/parameters/store_mode_max";
     private static String STORE_MODE_MIN = "/sys/module/sec_battery/parameters/store_mode_min";
 
@@ -240,6 +241,19 @@ public class Battery {
 
     public void enableStoreMode(boolean enable, Context context){
         run(Control.write(enable ? "1" : "0", STORE_MODE), STORE_MODE, context);
+    }
+
+    public boolean hasStoreMode2(){
+        return (Utils.existFile(STORE_MODE2) && Utils.existFile(STORE_MODE_MAX)
+                && Utils.existFile(STORE_MODE_MIN));
+    }
+
+    public boolean isStoreModeEnabled2(){
+        return Utils.readFile(STORE_MODE2).equals("1");
+    }
+
+    public void enableStoreMode2(boolean enable, Context context){
+        run(Control.write(enable ? "1" : "0", STORE_MODE2), STORE_MODE2, context);
     }
 
     public String getStoreModeMax(){
