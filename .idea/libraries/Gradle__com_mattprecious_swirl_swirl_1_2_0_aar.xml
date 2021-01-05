@@ -1,8 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.mattprecious.swirl:swirl:1.2.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e92d4b2a0773117518d9527907fd3529/jetified-swirl-1.2.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e92d4b2a0773117518d9527907fd3529/jetified-swirl-1.2.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/014582880ec6771ff718db630dc791c7/jetified-swirl-1.2.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/014582880ec6771ff718db630dc791c7/jetified-swirl-1.2.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/014582880ec6771ff718db630dc791c7/jetified-swirl-1.2.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dce354ab20e8ff3aa2caad4a4149bf26/jetified-swirl-1.2.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dce354ab20e8ff3aa2caad4a4149bf26/jetified-swirl-1.2.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dce354ab20e8ff3aa2caad4a4149bf26/jetified-swirl-1.2.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mattprecious.swirl/swirl/1.2.0/e7f44afb7d264ca7bac3a5199cddbd65b5e82374/swirl-1.2.0-javadoc.jar!/" />
