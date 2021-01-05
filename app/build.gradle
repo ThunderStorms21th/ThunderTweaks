@@ -7,8 +7,8 @@ android {
         applicationId 'com.thunder.thundertweaks'
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 1072
-        versionName "1.0.7.2"
+        versionCode 1073
+        versionName "1.0.7.3"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
