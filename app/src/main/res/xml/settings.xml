@@ -70,7 +70,7 @@
 
     <PreferenceCategory android:title="@string/apply_on_boot">
         <ListPreference
-            android:defaultValue="10"
+            android:defaultValue="20"
             android:entries="@array/apply_on_boot_delay_entries"
             android:entryValues="@array/apply_on_boot_delay_values"
             android:key="applyonbootdelay"

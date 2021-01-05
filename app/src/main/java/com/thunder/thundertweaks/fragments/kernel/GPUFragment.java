@@ -90,6 +90,9 @@ public class GPUFragment extends RecyclerViewFragment {
         if (mGPUFreqExynos.hasPowerPolicy()){
             powerPolicyInit(items);
         }
+        if (mGPUFreqExynos.hasDvfs()){
+            dvfsInit(items);
+        }
         if (mGPUFreqExynos.hasGovernor()){
             governorInit(items);
         }
@@ -129,18 +132,19 @@ public class GPUFragment extends RecyclerViewFragment {
             thrott.addItem(tmu);
         }
 
-
         int value1 = 0;
         int value2 = 0;
         int value3 = 0;
         int value4 = 0;
         int value5 = 0;
+        int value6 = 0;
         List<String> freqs = mGPUFreqExynos.getFreqs();
         List<Integer> list = mGPUFreqExynos.getAvailableFreqsSort();
         int th1Val = mGPUFreqTmu.getThrottling1();
         int th2Val = mGPUFreqTmu.getThrottling2();
         int th3Val = mGPUFreqTmu.getThrottling3();
         int th4Val = mGPUFreqTmu.getThrottling4();
+        int th5Val = mGPUFreqTmu.getThrottling5();
         int tripVal = mGPUFreqTmu.getTripping();
 
         for (int i = 0; i < list.size(); i++) {
@@ -156,8 +160,11 @@ public class GPUFragment extends RecyclerViewFragment {
             if (list.get(i) == th4Val) {
                 value4 = i;
             }
-            if (list.get(i) == tripVal) {
+            if (list.get(i) == th5Val) {
                 value5 = i;
+            }			
+            if (list.get(i) == tripVal) {
+                value6 = i;
             }
         }
 
@@ -243,6 +250,27 @@ public class GPUFragment extends RecyclerViewFragment {
             });
 
             thrott.addItem(th4);
+        }
+
+        if(mGPUFreqTmu.hasThrottling5()) {
+            SeekBarView th5 = new SeekBarView();
+            th5.setTitle(getString(R.string.gpu_throttling5));
+            th5.setSummary(getString(R.string.gpu_throttling5_summary));
+            th5.setUnit(getString(R.string.mhz));
+            th5.setItems(freqs);
+            th5.setProgress(value5);
+            th5.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+                @Override
+                public void onStop(SeekBarView seekBarView, int position, String value) {
+                    mGPUFreqTmu.setThrottling5(value, getActivity());
+                }
+
+                @Override
+                public void onMove(SeekBarView seekBarView, int position, String value) {
+                }
+            });
+
+            thrott.addItem(th5);
         }
 
         if(mGPUFreqTmu.hasTripping()) {
@@ -388,6 +416,29 @@ public class GPUFragment extends RecyclerViewFragment {
 
         if (powCard.size() > 0) {
             items.add(powCard);
+        }
+    }
+
+    private void dvfsInit (List<RecyclerViewItem> items){
+        CardView dvfsCard = new CardView(getActivity());
+        dvfsCard.setTitle(getString(R.string.gpu_dvfs));
+
+        DescriptionView dvfsdesc = new DescriptionView();
+        dvfsdesc.setSummary(getString(R.string.gpu_dvfs_summary));
+        dvfsCard.addItem(dvfsdesc);
+
+        if(mGPUFreqExynos.hasDvfs()) {
+            SwitchView dvfs_gpu = new SwitchView();
+            dvfs_gpu.setTitle(getString(R.string.gpu_dvfs));
+            dvfs_gpu.setSummary(getString(R.string.gpu_dvfs_summary));
+            dvfs_gpu.setChecked(mGPUFreqExynos.isDvfsEnabled());
+            dvfs_gpu.addOnSwitchListener((switchView, isChecked)
+                    -> mGPUFreqExynos.enableDvfs(isChecked, getActivity()));
+
+            dvfsCard.addItem(dvfs_gpu);
+        }
+		if (dvfsCard.size() > 0) {
+            items.add(dvfsCard);
         }
     }
 

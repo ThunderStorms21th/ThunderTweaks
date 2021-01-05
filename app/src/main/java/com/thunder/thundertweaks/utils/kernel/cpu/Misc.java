@@ -51,9 +51,24 @@ public class Misc {
 	
     private static final String CPU_DEVFREQ_BOOST_DURATION = "/sys/module/devfreq_boost/parameters/devfreq_boost_dur";
     private static final String CPU_DEVFREQ_BOOST_FREQ = "/sys/module/devfreq_boost/parameters/devfreq_boost_freq";
+	
+	private static final String CPU_ENABLE_FREQ_SUSP = "/sys/module/exynos_acme/parameters/enable_suspend_freqs";
 
     private static String[] sAvailableCFSSchedulers;
     private static String[] sCpuQuietAvailableGovernors;
+
+
+    public static void enableFreqSuspend(boolean enabled, Context context) {
+        run(Control.write(enabled ? "Y" : "N", CPU_ENABLE_FREQ_SUSP), CPU_ENABLE_FREQ_SUSP, context);
+    }
+
+    public static boolean isFreqSuspendEnabled() {
+        return Utils.readFile(CPU_ENABLE_FREQ_SUSP).equals("Y");
+    }
+
+    public static boolean hasFreqSuspend() {
+        return Utils.existFile(CPU_ENABLE_FREQ_SUSP);
+    }
 
     public static void enableCpuTouchBoost(boolean enabled, Context context) {
         run(Control.write(enabled ? "1" : "0", CPU_TOUCH_BOOST), CPU_TOUCH_BOOST, context);

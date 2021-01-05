@@ -21,11 +21,11 @@ package com.thunder.thundertweaks.utils.kernel.cpu;
 
 import android.content.Context;
 import com.thunder.thundertweaks.utils.Log;
+import android.os.Build;
 
 import com.thunder.thundertweaks.R;
 import com.thunder.thundertweaks.utils.Device;
 import com.thunder.thundertweaks.utils.Utils;
-import android.os.Build;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -201,7 +201,7 @@ public class Temperature {
                     if (board.equalsIgnoreCase(device.getString("board"))) {
                         mDeviceJson = device;
                         break;
-                    }
+					}
                 }
             } catch (JSONException ignored) {
                 Log.e("Can't read temp.json");

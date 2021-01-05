@@ -58,18 +58,24 @@ public class CPUFragment extends RecyclerViewFragment {
     private XYGraphView mCPUUsageBig;
     private SelectView mCPUMaxBig;
     private SelectView mCPUMinBig;
+    private SelectView mCPUMaxSuspBig;
+    private SelectView mCPUMinSuspBig;
     private SelectView mCPUMaxScreenOffBig;
     private SelectView mCPUGovernorBig;
 
     private XYGraphView mCPUUsageMid;
     private SelectView mCPUMaxMid;
     private SelectView mCPUMinMid;
+    private SelectView mCPUMaxSuspMid;
+    private SelectView mCPUMinSuspMid;
     private SelectView mCPUMaxScreenOffMid;
     private SelectView mCPUGovernorMid;
 
     private XYGraphView mCPUUsageLITTLE;
     private SelectView mCPUMaxLITTLE;
     private SelectView mCPUMinLITTLE;
+    private SelectView mCPUMaxSuspLITTLE;
+    private SelectView mCPUMinSuspLITTLE;
     private SelectView mCPUMaxScreenOffLITTLE;
     private SelectView mCPUGovernorLITTLE;
 
@@ -108,19 +114,21 @@ public class CPUFragment extends RecyclerViewFragment {
 
         freqInit(items);
         if (mCPUBoost.supported()) {
-            cpuBoostInit(items);
-        }
-
-        if (mCPUBoost.supported()) {
             cpuBoostCpuInit(items);
         }
-
+		
         if (Misc.hasCFSScheduler()) {
             cfsSchedulerInit(items);
         }
+		
         if (Misc.hasCpuQuiet()) {
             cpuQuietInit(items);
         }
+		
+        if (Misc.hasFreqSuspend()) {
+            cpuFreqSuspInit(items);
+        }
+		
         if (Misc.hasCpuTouchBoost()) {
             cpuTouchBoostInit(items);
         }
@@ -204,7 +212,6 @@ public class CPUFragment extends RecyclerViewFragment {
             bigFrequenciesCard.addItem(bigAll);
         }
 
-
         if (mCPUFreq.hasMaxScreenOffFreq()) {
             mCPUMaxScreenOffBig = new SelectView();
             mCPUMaxScreenOffBig.setTitle(getString(R.string.cpu_max_screen_off_freq));
@@ -214,6 +221,28 @@ public class CPUFragment extends RecyclerViewFragment {
                     -> mCPUFreq.setMaxScreenOffFreq(mCPUFreq.getFreqs().get(position), bigCores.get(0),
                     bigCores.get(bigCores.size() - 1), getActivity()));
             bigFrequenciesCard.addItem(mCPUMaxScreenOffBig);
+        }
+
+        if (mCPUFreq.hasMaxSuspFreq()) {
+            mCPUMaxSuspBig = new SelectView();
+            mCPUMaxSuspBig.setTitle(getString(R.string.cpu_max_suspend_freq));
+            mCPUMaxSuspBig.setSummary(getString(R.string.cpu_max_suspend_freq_summary));
+            mCPUMaxSuspBig.setItems(mCPUFreq.getAdjustedFreq(getActivity()));
+            mCPUMaxSuspBig.setOnItemSelected((selectView, position, item)
+                    -> mCPUFreq.setMaxSuspFreq(mCPUFreq.getFreqs().get(position), bigCores.get(0),
+                    bigCores.get(bigCores.size() - 1), getActivity()));
+            bigFrequenciesCard.addItem(mCPUMaxSuspBig);
+        }
+		
+        if (mCPUFreq.hasMinSuspFreq()) {
+            mCPUMinSuspBig = new SelectView();
+            mCPUMinSuspBig.setTitle(getString(R.string.cpu_min_suspend_freq));
+            mCPUMinSuspBig.setSummary(getString(R.string.cpu_min_suspend_freq_summary));
+            mCPUMinSuspBig.setItems(mCPUFreq.getAdjustedFreq(getActivity()));
+            mCPUMinSuspBig.setOnItemSelected((selectView, position, item)
+                    -> mCPUFreq.setMinSuspFreq(mCPUFreq.getFreqs().get(position), bigCores.get(0),
+                    bigCores.get(bigCores.size() - 1), getActivity()));
+            bigFrequenciesCard.addItem(mCPUMinSuspBig);
         }
 
         CardView bigGovernorsCard = new CardView(getActivity());
@@ -293,6 +322,28 @@ public class CPUFragment extends RecyclerViewFragment {
                             MidCores.get(0), MidCores.get(MidCores.size() - 1), getActivity()));
                     MidFrequenciesCard.addItem(mCPUMaxScreenOffMid);
                 }
+				
+                if (mCPUFreq.hasMaxSuspFreq(mCPUFreq.getMidCpu())) {
+                    mCPUMaxSuspMid = new SelectView();
+                    mCPUMaxSuspMid.setTitle(getString(R.string.cpu_max_suspend_freq));
+                    mCPUMaxSuspMid.setSummary(getString(R.string.cpu_max_suspend_freq_summary));
+                    mCPUMaxSuspMid.setItems(mCPUFreq.getAdjustedFreq(mCPUFreq.getMidCpu(), getActivity()));
+                    mCPUMaxSuspMid.setOnItemSelected((selectView, position, item)
+                            -> mCPUFreq.setMaxSuspFreq(mCPUFreq.getFreqs(mCPUFreq.getMidCpu()).get(position),
+                            MidCores.get(0), MidCores.get(MidCores.size() - 1), getActivity()));
+                    MidFrequenciesCard.addItem(mCPUMaxSuspMid);
+                }
+
+                if (mCPUFreq.hasMinSuspFreq(mCPUFreq.getMidCpu())) {
+                    mCPUMinSuspMid = new SelectView();
+                    mCPUMinSuspMid.setTitle(getString(R.string.cpu_min_suspend_freq));
+                    mCPUMinSuspMid.setSummary(getString(R.string.cpu_min_suspend_freq_summary));
+                    mCPUMinSuspMid.setItems(mCPUFreq.getAdjustedFreq(mCPUFreq.getMidCpu(), getActivity()));
+                    mCPUMinSuspMid.setOnItemSelected((selectView, position, item)
+                            -> mCPUFreq.setMinSuspFreq(mCPUFreq.getFreqs(mCPUFreq.getMidCpu()).get(position),
+                            MidCores.get(0), MidCores.get(MidCores.size() - 1), getActivity()));
+                    MidFrequenciesCard.addItem(mCPUMinSuspMid);
+                }				
 
                 CardView MidGovernorsCard = new CardView(getActivity());
                 MidGovernorsCard.setTitle(getString(R.string.governors_string, getString(R.string.cluster_middle)));
@@ -368,6 +419,28 @@ public class CPUFragment extends RecyclerViewFragment {
                         LITTLECores.get(0), LITTLECores.get(LITTLECores.size() - 1), getActivity()));
                 LITTLEFrequenciesCard.addItem(mCPUMaxScreenOffLITTLE);
             }
+			
+            if (mCPUFreq.hasMaxSuspFreq(mCPUFreq.getLITTLECpu())) {
+                mCPUMaxSuspLITTLE = new SelectView();
+                mCPUMaxSuspLITTLE.setTitle(getString(R.string.cpu_max_suspend_freq));
+                mCPUMaxSuspLITTLE.setSummary(getString(R.string.cpu_max_suspend_freq_summary));
+                mCPUMaxSuspLITTLE.setItems(mCPUFreq.getAdjustedFreq(mCPUFreq.getLITTLECpu(), getActivity()));
+                mCPUMaxSuspLITTLE.setOnItemSelected((selectView, position, item)
+                        -> mCPUFreq.setMaxSuspFreq(mCPUFreq.getFreqs(mCPUFreq.getLITTLECpu()).get(position),
+                        LITTLECores.get(0), LITTLECores.get(LITTLECores.size() - 1), getActivity()));
+                LITTLEFrequenciesCard.addItem(mCPUMaxSuspLITTLE);
+            }
+
+            if (mCPUFreq.hasMinSuspFreq(mCPUFreq.getLITTLECpu())) {
+                mCPUMinSuspLITTLE = new SelectView();
+                mCPUMinSuspLITTLE.setTitle(getString(R.string.cpu_min_suspend_freq));
+                mCPUMinSuspLITTLE.setSummary(getString(R.string.cpu_min_suspend_freq_summary));
+                mCPUMinSuspLITTLE.setItems(mCPUFreq.getAdjustedFreq(mCPUFreq.getLITTLECpu(), getActivity()));
+                mCPUMinSuspLITTLE.setOnItemSelected((selectView, position, item)
+                        -> mCPUFreq.setMinSuspFreq(mCPUFreq.getFreqs(mCPUFreq.getLITTLECpu()).get(position),
+                        LITTLECores.get(0), LITTLECores.get(LITTLECores.size() - 1), getActivity()));
+                LITTLEFrequenciesCard.addItem(mCPUMinSuspLITTLE);
+            }			
 
             CardView LITTLEGovernorsCard = new CardView(getActivity());
             LITTLEGovernorsCard.setTitle(getString(R.string.governors_string, getString(R.string.cluster_little)));
@@ -417,6 +490,25 @@ public class CPUFragment extends RecyclerViewFragment {
         if (offline) {
             mCPUFreq.onlineCpu(min, false, false, null);
         }
+    }
+
+	private void cpuFreqSuspInit(List<RecyclerViewItem> items) {
+        CardView fsiCard = new CardView(getActivity());
+        fsiCard.setTitle(getString(R.string.freq_susp_enable));
+
+        DescriptionView fsiDesc = new DescriptionView();
+        fsiDesc.setSummary(getString(R.string.freq_susp_enable_summary));
+        fsiCard.addItem(fsiDesc);
+
+        SwitchView fsi = new SwitchView();
+        fsi.setSummaryOn(getString(R.string.enabled));
+        fsi.setSummaryOff(getString(R.string.disabled));
+        fsi.setChecked(Misc.isFreqSuspendEnabled());
+        fsi.addOnSwitchListener((switchView, isChecked)
+                -> Misc.enableFreqSuspend(isChecked, getActivity()));
+
+        fsiCard.addItem(fsi);
+        items.add(fsiCard);		
     }
 
 	private void cpuFingerprintBoostInit(List<RecyclerViewItem> items) {
@@ -874,14 +966,20 @@ public class CPUFragment extends RecyclerViewFragment {
     private int mCPUMaxFreqBig;
     private int mCPUMinFreqBig;
     private int mCPUMaxScreenOffFreqBig;
+    private int mCPUMaxSuspFreqBig;
+    private int mCPUMinSuspFreqBig;
     private String mCPUGovernorStrBig;
     private int mCPUMaxFreqMid;
     private int mCPUMinFreqMid;
     private int mCPUMaxScreenOffFreqMid;
+    private int mCPUMaxSuspFreqMid;
+    private int mCPUMinSuspFreqMid;
     private String mCPUGovernorStrMid;
     private int mCPUMaxFreqLITTLE;
     private int mCPUMinFreqLITTLE;
     private int mCPUMaxScreenOffFreqLITTLE;
+    private int mCPUMaxSuspFreqLITTLE;
+    private int mCPUMinSuspFreqLITTLE;
     private String mCPUGovernorStrLITTLE;
 
     @Override
@@ -914,6 +1012,14 @@ public class CPUFragment extends RecyclerViewFragment {
         if (mCPUMaxScreenOffBig != null) {
             mCPUMaxScreenOffFreqBig = mCPUFreq.getMaxScreenOffFreq(mCPUMaxScreenOffFreqBig == 0);
         }
+        if (mCPUMaxSuspBig != null) {
+            mCPUMaxSuspFreqBig = mCPUFreq.getMaxSuspFreq(mCPUFreq.getBigCpu(),
+                    mCPUMaxSuspFreqBig == 0);
+        }
+        if (mCPUMinSuspBig != null) {
+            mCPUMinSuspFreqBig = mCPUFreq.getMinSuspFreq(mCPUFreq.getBigCpu(),
+                    mCPUMinSuspFreqBig == 0);
+        }		
         if (mCPUGovernorBig != null) {
             mCPUGovernorStrBig = mCPUFreq.getGovernor(mCPUGovernorStrBig == null);
         }
@@ -926,6 +1032,14 @@ public class CPUFragment extends RecyclerViewFragment {
         if (mCPUMaxScreenOffMid != null) {
             mCPUMaxScreenOffFreqMid = mCPUFreq.getMaxScreenOffFreq(mCPUFreq.getMidCpu(),
                     mCPUMaxScreenOffFreqMid == 0);
+        }
+        if (mCPUMaxSuspMid != null) {
+            mCPUMaxSuspFreqMid = mCPUFreq.getMaxSuspFreq(mCPUFreq.getMidCpu(),
+                    mCPUMaxSuspFreqMid == 0);
+        }
+        if (mCPUMinSuspMid != null) {
+            mCPUMinSuspFreqMid = mCPUFreq.getMinSuspFreq(mCPUFreq.getMidCpu(),
+                    mCPUMinSuspFreqMid == 0);
         }
         if (mCPUGovernorMid != null) {
             mCPUGovernorStrMid = mCPUFreq.getGovernor(mCPUFreq.getMidCpu(),
@@ -940,6 +1054,14 @@ public class CPUFragment extends RecyclerViewFragment {
         if (mCPUMaxScreenOffLITTLE != null) {
             mCPUMaxScreenOffFreqLITTLE = mCPUFreq.getMaxScreenOffFreq(mCPUFreq.getLITTLECpu(),
                     mCPUMaxScreenOffFreqLITTLE == 0);
+        }
+        if (mCPUMaxSuspLITTLE != null) {
+            mCPUMaxSuspFreqLITTLE = mCPUFreq.getMaxSuspFreq(mCPUFreq.getLITTLECpu(),
+                    mCPUMaxSuspFreqLITTLE == 0);
+        }
+        if (mCPUMinSuspLITTLE != null) {
+            mCPUMinSuspFreqLITTLE = mCPUFreq.getMinSuspFreq(mCPUFreq.getLITTLECpu(),
+                    mCPUMinSuspFreqLITTLE == 0);
         }
         if (mCPUGovernorLITTLE != null) {
             mCPUGovernorStrLITTLE = mCPUFreq.getGovernor(mCPUFreq.getLITTLECpu(),
@@ -970,6 +1092,12 @@ public class CPUFragment extends RecyclerViewFragment {
         if (mCPUMaxScreenOffBig != null && mCPUMaxScreenOffFreqBig != 0) {
             mCPUMaxScreenOffBig.setItem((mCPUMaxScreenOffFreqBig / 1000) + getString(R.string.mhz));
         }
+        if (mCPUMaxSuspBig != null && mCPUMaxSuspFreqBig != 0) {
+            mCPUMaxSuspBig.setItem((mCPUMaxSuspFreqBig / 1000) + getString(R.string.mhz));
+        }
+        if (mCPUMinSuspBig != null && mCPUMinSuspFreqBig != 0) {
+            mCPUMinSuspBig.setItem((mCPUMinSuspFreqBig / 1000) + getString(R.string.mhz));
+        }
         if (mCPUGovernorBig != null && mCPUGovernorStrBig != null && !mCPUGovernorStrBig.isEmpty()) {
             mCPUGovernorBig.setItem(mCPUGovernorStrBig);
         }
@@ -982,6 +1110,12 @@ public class CPUFragment extends RecyclerViewFragment {
         if (mCPUMaxScreenOffMid != null && mCPUMaxScreenOffFreqMid != 0) {
             mCPUMaxScreenOffMid.setItem((mCPUMaxScreenOffFreqMid / 1000) + getString(R.string.mhz));
         }
+        if (mCPUMaxSuspMid != null && mCPUMaxSuspFreqMid != 0) {
+            mCPUMaxSuspMid.setItem((mCPUMaxSuspFreqMid / 1000) + getString(R.string.mhz));
+        }
+        if (mCPUMinSuspMid != null && mCPUMinSuspFreqMid != 0) {
+            mCPUMinSuspMid.setItem((mCPUMinSuspFreqMid / 1000) + getString(R.string.mhz));
+        }
         if (mCPUGovernorMid != null && mCPUGovernorStrMid != null && !mCPUGovernorStrMid.isEmpty()) {
             mCPUGovernorMid.setItem(mCPUGovernorStrMid);
         }
@@ -993,6 +1127,12 @@ public class CPUFragment extends RecyclerViewFragment {
         }
         if (mCPUMaxScreenOffLITTLE != null && mCPUMaxScreenOffFreqLITTLE != 0) {
             mCPUMaxScreenOffLITTLE.setItem((mCPUMaxScreenOffFreqLITTLE / 1000) + getString(R.string.mhz));
+        }
+        if (mCPUMaxSuspLITTLE != null && mCPUMaxSuspFreqLITTLE != 0) {
+            mCPUMaxSuspLITTLE.setItem((mCPUMaxSuspFreqLITTLE / 1000) + getString(R.string.mhz));
+        }
+        if (mCPUMinSuspLITTLE != null && mCPUMinSuspFreqLITTLE != 0) {
+            mCPUMinSuspLITTLE.setItem((mCPUMinSuspFreqLITTLE / 1000) + getString(R.string.mhz));
         }
         if (mCPUGovernorLITTLE != null && mCPUGovernorStrLITTLE != null && !mCPUGovernorStrLITTLE.isEmpty()) {
             mCPUGovernorLITTLE.setItem(mCPUGovernorStrLITTLE);

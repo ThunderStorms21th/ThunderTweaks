@@ -81,6 +81,8 @@ public class CPUFreq {
     private static final String CPU_GOVERNOR_TUNABLES = "/sys/devices/system/cpu/cpufreq/%s";
     private static final String CPU_GOVERNOR_TUNABLES_CORE = "/sys/devices/system/cpu/cpu%d/cpufreq/%s";
     private static final String CPU_BIG_ALL_CORES_FULL = "/sys/devices/system/cpu/cpufreq/mp-cpufreq/cluster1_all_cores_max_freq";
+    private static final String CPU_MIN_FREQ_SUSP = "/sys/module/exynos_acme/parameters/cpu%d_suspend_min_freq";
+    private static final String CPU_MAX_FREQ_SUSP = "/sys/module/exynos_acme/parameters/cpu%d_suspend_max_freq";
 
     private int mCpuCount;
     private int mBigCpu = -1;
@@ -425,6 +427,46 @@ public class CPUFreq {
 
     public boolean hasMaxScreenOffFreq(int cpu) {
         return Utils.existFile(Utils.strFormat(CPU_MAX_SCREEN_OFF_FREQ, cpu));
+    }
+
+    public void setMinSuspFreq(int freq, int min, int max, Context context) {
+        applyCpu(CPU_MIN_FREQ_SUSP, String.valueOf(freq), min, max, context);
+    }
+
+    public int getMinSuspFreq(boolean forceRead) {
+        return getMinSuspFreq(getBigCpu(), forceRead);
+    }
+
+    public int getMinSuspFreq(int cpu, boolean forceRead) {
+        return getFreq(cpu, CPU_MIN_FREQ_SUSP, forceRead);
+    }
+
+    public boolean hasMinSuspFreq() {
+        return hasMinSuspFreq(getBigCpu());
+    }
+
+    public boolean hasMinSuspFreq(int cpu) {
+        return Utils.existFile(Utils.strFormat(CPU_MIN_FREQ_SUSP, cpu));
+    }
+
+    public void setMaxSuspFreq(int freq, int min, int max, Context context) {
+        applyCpu(CPU_MAX_FREQ_SUSP, String.valueOf(freq), min, max, context);
+    }
+
+    public int getMaxSuspFreq(boolean forceRead) {
+        return getMaxSuspFreq(getBigCpu(), forceRead);
+    }
+
+    public int getMaxSuspFreq(int cpu, boolean forceRead) {
+        return getFreq(cpu, CPU_MAX_FREQ_SUSP, forceRead);
+    }
+
+    public boolean hasMaxSuspFreq() {
+        return hasMaxSuspFreq(getBigCpu());
+    }
+
+    public boolean hasMaxSuspFreq(int cpu) {
+        return Utils.existFile(Utils.strFormat(CPU_MAX_FREQ_SUSP, cpu));
     }
 
     public void setMinFreq(int freq, int min, int max, Context context) {
