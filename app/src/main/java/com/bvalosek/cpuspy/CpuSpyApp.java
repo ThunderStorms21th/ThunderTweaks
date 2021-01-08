@@ -20,6 +20,7 @@ import com.thunder.thundertweaks.utils.Utils;
 public class CpuSpyApp {
 
     private final int mCore;
+    private final String mGpu;
     private final Context mContext;
 
     /**
@@ -27,10 +28,15 @@ public class CpuSpyApp {
      */
     private final CpuStateMonitor mMonitor;
 
-    public CpuSpyApp(int core, Context context) {
-        mCore = core;
+    public CpuSpyApp(int core, Context context, String gpu) {
         mContext = context;
-        mMonitor = new CpuStateMonitor(core);
+        mCore = core;
+        mGpu = gpu;
+        if(mGpu != null || mCore == -1){
+            mMonitor = new CpuStateMonitor(-1, mGpu);
+        } else {
+            mMonitor = new CpuStateMonitor(core, null);
+        }
         loadOffsets();
     }
 
@@ -46,18 +52,32 @@ public class CpuSpyApp {
      * state monitor
      */
     private void loadOffsets() {
-        String prefs = AppSettings.getCpuSpyOffsets(mCore, mContext);
+        if(mGpu != null || mCore == -1){
+            String prefs = AppSettings.getCpuSpyOffsets(-1, mContext);
+            if (prefs.isEmpty()) return;
+            // split the string by peroids and then the info by commas and load
+            SparseArray<Long> offsets = new SparseArray<>();
+            String[] sOffsets = prefs.split(",");
+            for (String offset : sOffsets) {
+                String[] parts = offset.split(" ");
+                offsets.put(Utils.strToInt(parts[0]), Utils.strToLong(parts[1]));
+            }
 
-        if (prefs.isEmpty()) return;
-        // split the string by peroids and then the info by commas and load
-        SparseArray<Long> offsets = new SparseArray<>();
-        String[] sOffsets = prefs.split(",");
-        for (String offset : sOffsets) {
-            String[] parts = offset.split(" ");
-            offsets.put(Utils.strToInt(parts[0]), Utils.strToLong(parts[1]));
+            mMonitor.setOffsets(offsets);
         }
+        else {
+            String prefs = AppSettings.getCpuSpyOffsets(mCore, mContext);
+            if (prefs.isEmpty()) return;
+            // split the string by peroids and then the info by commas and load
+            SparseArray<Long> offsets = new SparseArray<>();
+            String[] sOffsets = prefs.split(",");
+            for (String offset : sOffsets) {
+                String[] parts = offset.split(" ");
+                offsets.put(Utils.strToInt(parts[0]), Utils.strToLong(parts[1]));
+            }
 
-        mMonitor.setOffsets(offsets);
+            mMonitor.setOffsets(offsets);
+        }
     }
 
     /**
@@ -72,6 +92,10 @@ public class CpuSpyApp {
             str.append(offsets.keyAt(i)).append(" ").append(offsets.valueAt(i)).append(",");
         }
 
-        AppSettings.saveCpuSpyOffsets(str.toString(), mCore, mContext);
+        if(mGpu != null || mCore == -1){
+            AppSettings.saveCpuSpyOffsets(str.toString(), -1, mContext);
+        }
+        else {
+            AppSettings.saveCpuSpyOffsets(str.toString(), mCore, mContext);}
     }
 }

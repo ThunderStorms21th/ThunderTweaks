@@ -49,6 +49,7 @@ import com.thunder.thundertweaks.utils.Log;
 import com.thunder.thundertweaks.utils.Utils;
 import com.thunder.thundertweaks.utils.kernel.cpu.CPUFreq;
 import com.thunder.thundertweaks.utils.kernel.gpu.GPUFreq;
+import com.thunder.thundertweaks.utils.kernel.gpu.GPUFreqExynos;
 import com.thunder.thundertweaks.views.XYGraph;
 import com.thunder.thundertweaks.views.recyclerview.CardView;
 import com.thunder.thundertweaks.views.recyclerview.DescriptionView;
@@ -68,7 +69,7 @@ import java.util.Objects;
 public class OverallFragment extends RecyclerViewFragment {
 
     private CPUFreq mCPUFreq;
-    private GPUFreq mGPUFreq;
+    private GPUFreqExynos mGPUFreq;
 
     private StatsView mGPUFreqStatsView;
     private TemperatureView mTemperature;
@@ -76,9 +77,11 @@ public class OverallFragment extends RecyclerViewFragment {
     private CardView mFreqBig;
     private CardView mFreqMid;
     private CardView mFreqLITTLE;
+    private CardView mFreqGPU;
     private CpuSpyApp mCpuSpyBig;
     private CpuSpyApp mCpuSpyMid;
     private CpuSpyApp mCpuSpyLITTLE;
+    private CpuSpyApp mCpuSpyGPU;
 
     private double mBatteryRaw;
 
@@ -89,7 +92,7 @@ public class OverallFragment extends RecyclerViewFragment {
         super.init();
 
         mCPUFreq = CPUFreq.getInstance();
-        mGPUFreq = GPUFreq.getInstance();
+        mGPUFreq = GPUFreqExynos.getInstance();
 
         addViewPagerFragment(new CPUUsageFragment());
         //setViewPagerBackgroundColor(0);
@@ -130,11 +133,15 @@ public class OverallFragment extends RecyclerViewFragment {
             CpuStateMonitor cpuStateMonitor = mCpuSpyBig.getCpuStateMonitor();
             CpuStateMonitor cpuStateMonitorLITTLE = null;
             CpuStateMonitor cpuStateMonitorMid = null;
+            CpuStateMonitor cpuStateMonitorGPU = null;
             if (mCpuSpyLITTLE != null) {
                 cpuStateMonitorLITTLE = mCpuSpyLITTLE.getCpuStateMonitor();
                 if (mCpuSpyMid != null){
                     cpuStateMonitorMid = mCpuSpyMid.getCpuStateMonitor();
                 }
+            }
+            if (mCpuSpyGPU != null) {
+                cpuStateMonitorGPU = mCpuSpyGPU.getCpuStateMonitor();
             }
             try {
                 cpuStateMonitor.setOffsets();
@@ -143,6 +150,9 @@ public class OverallFragment extends RecyclerViewFragment {
                     if (cpuStateMonitorMid != null){
                         cpuStateMonitorMid.setOffsets();
                     }
+                }
+                if (cpuStateMonitorGPU != null) {
+                    cpuStateMonitorGPU.setOffsets();
                 }
             } catch (CpuStateMonitor.CpuStateMonitorException ignored) {
             }
@@ -153,6 +163,9 @@ public class OverallFragment extends RecyclerViewFragment {
                     mCpuSpyMid.saveOffsets();
                 }
             }
+            if (mCpuSpyLITTLE != null) {
+                mCpuSpyGPU.saveOffsets();
+            }
             updateView(cpuStateMonitor, mFreqBig);
             if (cpuStateMonitorLITTLE != null) {
                 updateView(cpuStateMonitorLITTLE, mFreqLITTLE);
@@ -160,17 +173,24 @@ public class OverallFragment extends RecyclerViewFragment {
                     updateView(cpuStateMonitorMid, mFreqMid);
                 }
             }
+            if (cpuStateMonitorGPU != null) {
+                updateView(cpuStateMonitorGPU, mFreqGPU);
+            }
             adjustScrollPosition();
         });
         frequencyButtonView.setRestoreListener(v -> {
             CpuStateMonitor cpuStateMonitor = mCpuSpyBig.getCpuStateMonitor();
             CpuStateMonitor cpuStateMonitorLITTLE = null;
             CpuStateMonitor cpuStateMonitorMid = null;
+            CpuStateMonitor cpuStateMonitorGPU = null;
             if (mCpuSpyLITTLE != null) {
                 cpuStateMonitorLITTLE = mCpuSpyLITTLE.getCpuStateMonitor();
                 if (mCpuSpyMid != null) {
                     cpuStateMonitorMid = mCpuSpyMid.getCpuStateMonitor();
                 }
+            }
+            if (mCpuSpyGPU != null) {
+                cpuStateMonitorGPU = mCpuSpyGPU.getCpuStateMonitor();
             }
             cpuStateMonitor.removeOffsets();
             if (cpuStateMonitorLITTLE != null) {
@@ -179,6 +199,9 @@ public class OverallFragment extends RecyclerViewFragment {
                     cpuStateMonitorMid.removeOffsets();
                 }
             }
+            if (cpuStateMonitorGPU != null) {
+                cpuStateMonitorGPU.removeOffsets();
+            }
             mCpuSpyBig.saveOffsets();
             if (mCpuSpyLITTLE != null) {
                 mCpuSpyLITTLE.saveOffsets();
@@ -186,12 +209,18 @@ public class OverallFragment extends RecyclerViewFragment {
                     mCpuSpyMid.saveOffsets();
                 }
             }
+            if (mCpuSpyGPU != null) {
+                mCpuSpyGPU.saveOffsets();
+            }
             updateView(cpuStateMonitor, mFreqBig);
             if (mCpuSpyLITTLE != null) {
                 updateView(cpuStateMonitorLITTLE, mFreqLITTLE);
                 if (mCpuSpyMid != null) {
                     updateView(cpuStateMonitorMid, mFreqMid);
                 }
+            }
+            if (mCpuSpyGPU != null) {
+                updateView(cpuStateMonitorGPU, mFreqGPU);
             }
             adjustScrollPosition();
         });
@@ -217,12 +246,21 @@ public class OverallFragment extends RecyclerViewFragment {
             items.add(mFreqLITTLE);
         }
 
-        mCpuSpyBig = new CpuSpyApp(mCPUFreq.getBigCpu(), getActivity());
+        if (mGPUFreq.hasTimeState()) {
+            mFreqGPU = new CardView(getActivity());
+            mFreqGPU.setTitle(getString(R.string.gpu));
+            items.add(mFreqGPU);
+        }
+
+        mCpuSpyBig = new CpuSpyApp(mCPUFreq.getBigCpu(), getActivity(),null);
         if (mCPUFreq.isBigLITTLE()) {
-            mCpuSpyLITTLE = new CpuSpyApp(mCPUFreq.getLITTLECpu(), getActivity());
+            mCpuSpyLITTLE = new CpuSpyApp(mCPUFreq.getLITTLECpu(), getActivity(),null);
             if (mCPUFreq.hasMidCpu()) {
-                mCpuSpyMid = new CpuSpyApp(mCPUFreq.getMidCpu(), getActivity());
+                mCpuSpyMid = new CpuSpyApp(mCPUFreq.getMidCpu(), getActivity(), null);
             }
+        }
+        if (mGPUFreq.hasTimeState()) {
+            mCpuSpyGPU = new CpuSpyApp(-1, getActivity(), mGPUFreq.getTimeStatesLocation());
         }
 
         updateFrequency();
@@ -240,6 +278,7 @@ public class OverallFragment extends RecyclerViewFragment {
         private CpuStateMonitor mBigMonitor;
         private CpuStateMonitor mMidMonitor;
         private CpuStateMonitor mLITTLEMonitor;
+        private CpuStateMonitor mGPUMonitor;
 
         @Override
         protected OverallFragment doInBackground(OverallFragment... overallFragments) {
@@ -251,10 +290,16 @@ public class OverallFragment extends RecyclerViewFragment {
                     mMidMonitor = fragment.mCpuSpyMid.getCpuStateMonitor();
                 }
             }
+            if (fragment.mGPUFreq.hasTimeState()) {
+                mGPUMonitor = fragment.mCpuSpyGPU.getCpuStateMonitor();
+            }
             try {
                 mBigMonitor.updateStates();
+                if (fragment.mGPUFreq.hasTimeState()) {
+                    mGPUMonitor.updateStates();
+                }
             } catch (CpuStateMonitor.CpuStateMonitorException ignored) {
-                Log.e("Problem getting CPU states");
+                Log.e("Problem getting GPU states");
             }
             if (fragment.mCPUFreq.isBigLITTLE()) {
                 try {
@@ -278,6 +323,9 @@ public class OverallFragment extends RecyclerViewFragment {
                 if (fragment.mCPUFreq.hasMidCpu()) {
                     fragment.updateView(mMidMonitor, fragment.mFreqMid);
                 }
+            }
+            if (fragment.mGPUFreq.hasTimeState()) {
+                fragment.updateView(mGPUMonitor, fragment.mFreqGPU);
             }
             fragment.adjustScrollPosition();
             fragment.mFrequencyTask = null;

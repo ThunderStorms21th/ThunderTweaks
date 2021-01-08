@@ -12,8 +12,13 @@ import android.os.SystemClock;
 import androidx.annotation.NonNull;
 import android.util.SparseArray;
 
+import com.thunder.thundertweaks.fragments.ApplyOnBootFragment;
+import com.thunder.thundertweaks.utils.Log;
 import com.thunder.thundertweaks.utils.Utils;
 import com.thunder.thundertweaks.utils.kernel.cpu.CPUFreq;
+import com.thunder.thundertweaks.utils.kernel.gpu.GPUFreq;
+import com.thunder.thundertweaks.utils.kernel.gpu.GPUFreqExynos;
+import com.thunder.thundertweaks.utils.kernel.gpu.GPUFreqTmu;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,11 +32,13 @@ import java.util.List;
 public class CpuStateMonitor {
 
     private final int mCore;
+    private final String mGpu;
 
     private final List<CpuState> mStates = new ArrayList<>();
     private final SparseArray<Long> mOffsets = new SparseArray<>();
 
-    CpuStateMonitor(int core) {
+    CpuStateMonitor(int core, String gpu) {
+        mGpu = gpu;
         mCore = core;
     }
 
@@ -89,6 +96,8 @@ public class CpuStateMonitor {
          */
         for (CpuState state : mStates) {
             long duration = state.getDuration();
+            if(mGpu != null || mCore == -1)
+                duration = duration/4;
             if (mOffsets.indexOfKey(state.getFreq()) >= 0) {
                 long offset = mOffsets.get(state.getFreq());
                 if (offset <= duration) {
@@ -119,6 +128,9 @@ public class CpuStateMonitor {
         for (CpuState state : mStates) {
             sum += state.getDuration();
         }
+
+        if(mGpu != null || mCore == -1)
+            sum = sum/4;
 
         return sum;
     }
@@ -170,23 +182,31 @@ public class CpuStateMonitor {
         mStates.clear();
         try {
             String file;
-            if (Utils.existFile(Utils.strFormat(CPUFreq.TIME_STATE, mCore))) {
-                file = Utils.strFormat(CPUFreq.TIME_STATE, mCore);
+            if(mGpu != null || mCore == -1){
+                String states = Utils.readFile(mGpu);
+                if (states.isEmpty()) {
+                    throw new CpuStateMonitorException("Problem opening time-in-states file");
+                }
+                readInStates(states.split("\\r?\\n"));
             } else {
-                file = Utils.strFormat(CPUFreq.TIME_STATE_2, mCore);
+                if (Utils.existFile(Utils.strFormat(CPUFreq.TIME_STATE, mCore))) {
+                    file = Utils.strFormat(CPUFreq.TIME_STATE, mCore);
+                } else {
+                    file = Utils.strFormat(CPUFreq.TIME_STATE_2, mCore);
+                }
+                boolean offline = cpuFreq.isOffline(mCore);
+                if (offline) {
+                    cpuFreq.onlineCpu(mCore, true, false, null);
+                }
+                String states = Utils.readFile(file);
+                if (offline) {
+                    cpuFreq.onlineCpu(mCore, false, false, null);
+                }
+                if (states.isEmpty()) {
+                    throw new CpuStateMonitorException("Problem opening time-in-states file");
+                }
+                readInStates(states.split("\\r?\\n"));
             }
-            boolean offline = cpuFreq.isOffline(mCore);
-            if (offline) {
-                cpuFreq.onlineCpu(mCore, true, false, null);
-            }
-            String states = Utils.readFile(file);
-            if (offline) {
-                cpuFreq.onlineCpu(mCore, false, false, null);
-            }
-            if (states.isEmpty()) {
-                throw new CpuStateMonitorException("Problem opening time-in-states file");
-            }
-            readInStates(states.split("\\r?\\n"));
         } catch (Exception e) {
             throw new CpuStateMonitorException("Problem opening time-in-states file");
         }

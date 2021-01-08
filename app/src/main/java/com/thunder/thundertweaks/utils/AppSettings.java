@@ -19,6 +19,7 @@
  */
 package com.thunder.thundertweaks.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.fragment.app.Fragment;
 
@@ -125,11 +126,13 @@ public class AppSettings {
                 fragmentClass.getSimpleName()), true, context);
     }
 
+    @SuppressLint("DefaultLocale")
     public static String getCpuSpyOffsets(int core, Context context) {
         return Prefs.getString(String.format(CPUSPY_OFFSETS_PREFIX, core),
                 "", context);
     }
 
+    @SuppressLint("DefaultLocale")
     public static void saveCpuSpyOffsets(String offsets, int core, Context context) {
         Prefs.saveString(String.format(CPUSPY_OFFSETS_PREFIX, core), offsets, context);
     }

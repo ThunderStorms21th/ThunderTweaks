@@ -90,6 +90,7 @@ public class GPUFreqExynos {
     private static final String TUNABLE_HIGHSPEED_S7_DELAY = "/sys/devices/14ac0000.mali/highspeed_delay";
     private static final String POWER_POLICY_S7 = "/sys/devices/14ac0000.mali/power_policy";
     private static final String USAGE_S7 = "/sys/devices/14ac0000.mali/utilization";
+    private static final String TIMESTATES_S7 = "/sys/devices/14ac0000.mali/time_in_state";
 
     private static final String MAX_S8_FREQ = "/sys/devices/platform/13900000.mali/max_clock";
     private static final String MIN_S8_FREQ = "/sys/devices/platform/13900000.mali/min_clock";
@@ -102,6 +103,7 @@ public class GPUFreqExynos {
     private static final String TUNABLE_HIGHSPEED_S8_DELAY = "/sys/devices/platform/13900000.mali/highspeed_delay";
     private static final String POWER_POLICY_S8 = "/sys/devices/platform/13900000.mali/power_policy";
     private static final String USAGE_S8 = "/sys/devices/platform/13900000.mali/utilization";
+    private static final String TIMESTATES_S8 = "/sys/devices/platform/13900000.mali/time_in_state";
 
     private static final String MAX_S9_FREQ = "/sys/devices/platform/17500000.mali/max_clock";
     private static final String MIN_S9_FREQ = "/sys/devices/platform/17500000.mali/min_clock";
@@ -114,6 +116,7 @@ public class GPUFreqExynos {
     private static final String TUNABLE_HIGHSPEED_S9_DELAY = "/sys/devices/platform/17500000.mali/highspeed_delay";
     private static final String POWER_POLICY_S9 = "/sys/devices/platform/17500000.mali/power_policy";
     private static final String USAGE_S9 = "/sys/devices/platform/17500000.mali/utilization";
+    private static final String TIMESTATES_S9 = "/sys/devices/platform/17500000.mali/time_in_state";
 
     private static final String MAX_S10_FREQ = "/sys/devices/platform/18500000.mali/max_clock";
     private static final String MIN_S10_FREQ = "/sys/devices/platform/18500000.mali/min_clock";
@@ -126,6 +129,7 @@ public class GPUFreqExynos {
     private static final String TUNABLE_HIGHSPEED_S10_DELAY = "/sys/devices/platform/18500000.mali/highspeed_delay";
     private static final String POWER_POLICY_S10 = "/sys/devices/platform/18500000.mali/power_policy";
     private static final String USAGE_S10 = "/sys/devices/platform/18500000.mali/utilization";
+    private static final String TIMESTATES_S10 = "/sys/devices/platform/18500000.mali/time_in_state";
 
     private final HashMap<String, Integer> mAvailableVolts = new HashMap<>();
     private final HashMap<String, Integer> mCurrentFreqs = new HashMap<>();
@@ -134,6 +138,7 @@ public class GPUFreqExynos {
     private final List<String> mAvailableFreqs = new ArrayList<>();
     private final List<String> mScalingGovernors = new ArrayList<>();
     private final List<String> mDvfs = new ArrayList<>();
+    private final List<String> mTimeStates = new ArrayList<>();
     private final HashMap<String, Integer> mTunableHighspeedClocks = new HashMap<>();
     private final HashMap<String, Integer> mTunableHighspeedLoads = new HashMap<>();
     private final HashMap<String, Integer> mTunableHighspeedDelays = new HashMap<>();
@@ -186,6 +191,11 @@ public class GPUFreqExynos {
         mDvfs.add(TUNABLE_DVFS_S8_FREQ);
         mDvfs.add(TUNABLE_DVFS_S9_FREQ);
         mDvfs.add(TUNABLE_DVFS_S10_FREQ);
+
+        mTimeStates.add(TIMESTATES_S7);
+        mTimeStates.add(TIMESTATES_S8);
+        mTimeStates.add(TIMESTATES_S9);
+        mTimeStates.add(TIMESTATES_S10);
 
         mScalingGovernors.add(AVAILABLE_7885_GOVERNORS);
         mScalingGovernors.add(AVAILABLE_78x0_GOVERNORS);
@@ -240,6 +250,7 @@ public class GPUFreqExynos {
     private String MIN_FREQ;
     private String GOVERNOR;
     private String TUNABLE_DVFS;	
+    private String TIMESTATES;
     private String TUNABLE_HIGHSPEED_CLOCK;
     private String TUNABLE_HIGHSPEED_LOAD;
     private String TUNABLE_HIGHSPEED_DELAY;
@@ -255,6 +266,14 @@ public class GPUFreqExynos {
             if (Utils.existFile(file)) {
                 AVAILABLE_VOLTS = file;
                 AVAILABLE_VOLTS_OFFSET = mAvailableVolts.get(file);
+                break;
+            }
+        }
+
+
+        for (String file : mTimeStates) {
+            if (Utils.existFile(file)) {
+                TIMESTATES = file;
                 break;
             }
         }
@@ -416,6 +435,14 @@ public class GPUFreqExynos {
 
     public boolean hasGovernor() {
         return GOVERNOR != null;
+    }
+
+    public boolean hasTimeState() {
+        return TIMESTATES != null;
+    }
+
+    public String getTimeStatesLocation() {
+        return TIMESTATES;
     }
 
     public void setMinFreq(int value, Context context) {
