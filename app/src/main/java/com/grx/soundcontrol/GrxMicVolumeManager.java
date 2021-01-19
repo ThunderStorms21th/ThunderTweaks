@@ -15,11 +15,11 @@ import android.widget.LinearLayout;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.SwitchCompat;
 
-import com.moro.mtweaks.R;
-import com.moro.mtweaks.database.Settings;
-import com.moro.mtweaks.utils.AppSettings;
-import com.moro.mtweaks.utils.kernel.sound.MoroSound;
-import com.moro.mtweaks.views.recyclerview.RecyclerViewItem;
+import com.thunder.thundertweaks.R;
+import com.thunder.thundertweaks.database.Settings;
+import com.thunder.thundertweaks.utils.AppSettings;
+import com.thunder.thundertweaks.utils.kernel.sound.MoroSound;
+import com.thunder.thundertweaks.views.recyclerview.RecyclerViewItem;
 
 import java.util.HashMap;
 
