@@ -279,7 +279,7 @@ public class GPUFragment extends RecyclerViewFragment {
             trip.setSummary(getString(R.string.gpu_tripping_summary));
             trip.setUnit(getString(R.string.mhz));
             trip.setItems(freqs);
-            trip.setProgress(value5);
+            trip.setProgress(value6);
             trip.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
                 @Override
                 public void onStop(SeekBarView seekBarView, int position, String value) {
