@@ -27,6 +27,7 @@ import com.thunder.thundertweaks.fragments.ApplyOnBootFragment;
 import com.thunder.thundertweaks.fragments.BaseFragment;
 import com.thunder.thundertweaks.fragments.DescriptionFragment;
 import com.thunder.thundertweaks.fragments.recyclerview.RecyclerViewFragment;
+import com.thunder.thundertweaks.utils.AppSettings;
 import com.thunder.thundertweaks.utils.Device;
 import com.thunder.thundertweaks.utils.Utils;
 import com.thunder.thundertweaks.utils.ViewUtils;
@@ -42,6 +43,7 @@ import com.thunder.thundertweaks.views.recyclerview.SeekBarView;
 import com.thunder.thundertweaks.views.recyclerview.SelectView;
 import com.thunder.thundertweaks.views.recyclerview.SwitchView;
 import com.thunder.thundertweaks.views.recyclerview.XYGraphView;
+import com.thunder.thundertweaks.views.recyclerview.TitleView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -87,6 +89,8 @@ public class CPUFragment extends RecyclerViewFragment {
     private Dialog mGovernorTunableErrorDialog;
 
     private List<GenericSelectView2> mInput = new ArrayList<>();
+    private List<GenericSelectView2> mKERNEL = new ArrayList<>();
+    private boolean mCompleteList;
 
     @Override
     protected BaseFragment getForegroundFragment() {
@@ -146,6 +150,7 @@ public class CPUFragment extends RecyclerViewFragment {
         if (Misc.hasPowerSavingWq()) {
             powerSavingWqInit(items);
         }
+        kernelTunablesInit(items);
     }
 
     private void freqInit(List<RecyclerViewItem> items) {
@@ -958,6 +963,74 @@ public class CPUFragment extends RecyclerViewFragment {
 
 		pwqCard.addItem(powerSavingWq);
         items.add(pwqCard);
+    }
+
+    private void refreshKERNEL() {
+        getHandler().postDelayed(() -> {
+            for (int i = 0; i < mKERNEL.size(); i++) {
+                mKERNEL.get(i).setValue(Misc.getValue(i, mCompleteList));
+                mKERNEL.get(i).setValueRaw(mKERNEL.get(i).getValue());
+            }
+        }, 250);
+    }
+
+    private void kernelTunablesInit (List<RecyclerViewItem> items){
+        final CardView Cardkernel = new CardView(getActivity());
+        Cardkernel.setTitle(getString(R.string.kernel_tunables));
+
+        CardKernelTunablesInit(Cardkernel);
+
+        if (Cardkernel.size() > 0) {
+            items.add(Cardkernel);
+        }
+    }
+
+    private void CardKernelTunablesInit(final CardView card) {
+        card.clearItems();
+        mKERNEL.clear();
+
+        mCompleteList = AppSettings.getBoolean("kernel_show_complete_list", false, getActivity());
+
+        SwitchView kv = new SwitchView();
+        kv.setTitle(getString(R.string.kernel_tun_switch_title));
+        kv.setSummary(getString(R.string.kernel_tun_switch_summary));
+        kv.setChecked(mCompleteList);
+        kv.addOnSwitchListener((switchView, isChecked) -> {
+            mCompleteList = isChecked;
+            AppSettings.saveBoolean("kernel_show_complete_list", mCompleteList, getActivity());
+            getHandler().postDelayed(() -> CardKernelTunablesInit(card), 250);
+        });
+
+        card.addItem(kv);
+
+
+        TitleView titk = new TitleView();
+        if (mCompleteList) {
+            titk.setText(getString(R.string.kernel_tun_tit_all));
+        }
+        else {
+            titk.setText(getString(R.string.kernel_tun_tit_common));
+        }
+
+        card.addItem(titk);
+
+        for (int i = 0; i < Misc.size(mCompleteList); i++) {
+            GenericSelectView2 kernel = new GenericSelectView2();
+            kernel.setTitle(Misc.getName(i, mCompleteList));
+            kernel.setValue(Misc.getValue(i, mCompleteList));
+            kernel.setValueRaw(kernel.getValue());
+            kernel.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+            final int position = i;
+            kernel.setOnGenericValueListener((genericSelectView, value) -> {
+                Misc.setValue(value, position, getActivity(), mCompleteList);
+                genericSelectView.setValue(value);
+                refreshKERNEL();
+            });
+
+            card.addItem(kernel);
+            mKERNEL.add(kernel);
+        }
     }
 
     private float[] mCPUUsages;

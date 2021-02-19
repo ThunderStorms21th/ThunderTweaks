@@ -25,8 +25,10 @@ import com.thunder.thundertweaks.fragments.ApplyOnBootFragment;
 import com.thunder.thundertweaks.utils.Utils;
 import com.thunder.thundertweaks.utils.root.Control;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -34,6 +36,13 @@ import java.util.List;
  */
 public class Misc {
 
+    private static List<String> list;
+    private static final String KERNEL_PATH = "/proc/sys/kernel";
+    private static final List<String> COMMON_KERNEL = Arrays.asList("sched_child_runs_first", "sched_cstate_aware", "sched_latency_ns",
+            "sched_min_granularity_ns", "sched_wakeup_granularity_ns", "sched_migration_cost_ns", "sched_sync_hint_enable", "sched_time_avg_ms", "sched_tunable_scaling");
+    private static final List<String> REMOVED_KERNEL = Collections.singletonList("sched_child_runs_first");
+    private static final List<String> ALL_KERNEL = getAllSupportedKernel();
+	
     private static final String CPUQ_PATH = "/sys/devices/system/cpu/cpuquiet";
     private static final String CPU_MC_POWER_SAVING = "/sys/devices/system/cpu/sched_mc_power_savings";
     private static final String CPU_WQ_POWER_SAVING = "/sys/module/workqueue/parameters/power_efficient";
@@ -57,6 +66,62 @@ public class Misc {
     private static String[] sAvailableCFSSchedulers;
     private static String[] sCpuQuietAvailableGovernors;
 
+    private static List<String> getAllSupportedKernel() {
+        List<String> listKernel = new ArrayList<>();
+        listKernel.add("sched_child_runs_first");
+
+        File f = new File(KERNEL_PATH);
+        if (f.exists()){
+            File[] ficheros = f.listFiles();
+            for (File fichero : ficheros) {
+                boolean blocked = false;
+                for (String kernel : REMOVED_KERNEL) {
+                    if (fichero.getName().contentEquals(kernel)) {
+                        blocked = true;
+                        break;
+                    }
+                }
+                if (!blocked) listKernel.add(fichero.getName());
+            }
+        }
+        return listKernel;
+    }
+
+    public static void setValue(String value, int position, Context context, boolean completeList) {
+        if (completeList) list = ALL_KERNEL;
+        else list = COMMON_KERNEL;
+
+        run(Control.write(value, KERNEL_PATH + "/" + list.get(position)), KERNEL_PATH + "/" +
+                list.get(position), context);
+    }
+
+    public static String getValue(int position, boolean completeList) {
+        if (completeList) list = ALL_KERNEL;
+        else list = COMMON_KERNEL;
+
+        return Utils.readFile(KERNEL_PATH + "/" + list.get(position));
+    }
+
+    public static String getName(int position, boolean completeList) {
+        if (completeList) list = ALL_KERNEL;
+        else list = COMMON_KERNEL;
+
+        return list.get(position);
+    }
+
+    public static boolean exists(int position, boolean completeList) {
+        if (completeList) list = ALL_KERNEL;
+        else list = COMMON_KERNEL;
+
+        return Utils.existFile(KERNEL_PATH + "/" + list.get(position));
+    }
+
+    public static int size(boolean completeList) {
+        if (completeList) list = ALL_KERNEL;
+        else list = COMMON_KERNEL;
+
+        return list.size();
+    }
 
     public static void enableFreqSuspend(boolean enabled, Context context) {
         run(Control.write(enabled ? "Y" : "N", CPU_ENABLE_FREQ_SUSP), CPU_ENABLE_FREQ_SUSP, context);

@@ -10,7 +10,7 @@
     <string name="open">Open %s</string>
     <string name="disable">Disable</string>
     <string name="changelog">ThunderTweaks v%s</string>
-    <string name="changelog_message">\n* Added dedection System-as-root\n</string>
+    <string name="changelog_message">\n* Added dedection System-as-root\n \n* Added Kernel variables settings\n</string>
     <string name="close">Close</string>
 
     <!-- Security -->
@@ -254,6 +254,12 @@
     <string name="iid_duration_freq_summary">Available Frequencies: 208000, 286000, 421000, 546000, 676000, 845000, 1014000, 1144000, 1352000, 1539000, 1716000, 1794000.</string>
     <string name="freq_susp_enable">CPU min/max Suspend Frequency</string>
     <string name="freq_susp_enable_summary">CPU Suspend Frequency - enable or disable min/max screen off for each CPU.</string>
+    <string name="kernel_tun_switch_title">List of KERNEL tunables</string>
+    <string name="kernel_tun_switch_summary">Choose between displaying list with the most common settings, or all available settings (for advanced users).</string>
+    <string name="kernel_tun_tit_all">All settings</string>
+    <string name="kernel_tun_tit_common">Common settings</string>
+    <string name="kernel_tunnables">KERNEL Tunnables</string>
+    <string name="kernel_tunables">KERNEL Tunables</string>
 
     <!-- CPU Voltage -->
     <string name="global_offset">Global Offset</string>
