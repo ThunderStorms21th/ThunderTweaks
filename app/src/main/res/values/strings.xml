@@ -10,7 +10,7 @@
     <string name="open">Open %s</string>
     <string name="disable">Disable</string>
     <string name="changelog">ThunderTweaks v%s</string>
-    <string name="changelog_message">\n* Fixed Tripping GPU values\n \n* Added GPU freq time in state</string>
+    <string name="changelog_message">\n* Added dedection System-as-root\n</string>
     <string name="close">Close</string>
 
     <!-- Security -->
@@ -149,6 +149,7 @@
 	<string name="gpu_utilization">GPU Utilization</string>
 
     <!-- Device -->
+    <string name="sar">System as root</string>
     <string name="processor">Processor</string>
     <string name="vendor">Vendor</string>
     <string name="features">Features</string>
@@ -1315,6 +1316,10 @@
     <string name="disable_question">Disable %s?</string>
 
     <!-- Settings -->
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="not_supported">Not supported</string>
+    <string name="not_available">Not available</string>
     <string name="open_settings">Open Settings</string>
     <string name="general">General</string>
     <string name="reset_data_title">Restore application</string>

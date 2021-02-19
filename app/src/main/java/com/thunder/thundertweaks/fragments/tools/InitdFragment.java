@@ -48,6 +48,15 @@ import java.util.List;
  */
 public class InitdFragment extends RecyclerViewFragment {
 
+    private static String sysblock;
+
+    static {
+        try {
+            sysblock = RootUtils.isSAR() ? "/" : "/system";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     private Dialog mExecuteDialog;
     private Dialog mResultDialog;
     private Dialog mDeleteDialog;
@@ -245,6 +254,6 @@ public class InitdFragment extends RecyclerViewFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        RootUtils.mount(false, "/system");
+        RootUtils.mount(false, sysblock);
     }
 }

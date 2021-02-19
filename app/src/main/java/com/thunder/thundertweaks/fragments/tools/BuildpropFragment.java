@@ -56,6 +56,16 @@ import java.util.List;
  */
 public class BuildpropFragment extends RecyclerViewFragment {
 
+    private static String sysblock;
+
+    static {
+        try {
+            sysblock = RootUtils.isSAR() ? "/" : "/system";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private LinkedHashMap<String, String> mProps;
     private String mKeyText;
     private String mValueText;
@@ -266,7 +276,7 @@ public class BuildpropFragment extends RecyclerViewFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        RootUtils.mount(false, "/system");
+        RootUtils.mount(false, sysblock);
         mKeyText = null;
         mValueText = null;
     }

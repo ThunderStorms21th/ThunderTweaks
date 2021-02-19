@@ -29,22 +29,31 @@ import java.util.List;
  * Created by willi on 16.07.16.
  */
 public class Initd {
+    private static String sysblock;
+
+    static {
+        try {
+            sysblock = RootUtils.isSAR() ? "/" : "/system";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     private static final String INITD = "/system/etc/init.d";
 
     public static void write(String file, String text) {
-        RootUtils.mount(true, "/system");
+        RootUtils.mount(true, sysblock);
         RootFile f = new RootFile(INITD + "/" + file);
         f.write(text, false);
         RootUtils.chmod(INITD + "/" + file, "755");
-        RootUtils.mount(false, "/system");
+        RootUtils.mount(false, sysblock);
     }
 
     public static void delete(String file) {
-        RootUtils.mount(true, "/system");
+        RootUtils.mount(true, sysblock);
         RootFile f = new RootFile(INITD + "/" + file);
         f.delete();
-        RootUtils.mount(false, "/system");
+        RootUtils.mount(false, sysblock);
     }
 
     public static String execute(String file) {
@@ -59,9 +68,9 @@ public class Initd {
     public static List<String> list() {
         RootFile file = new RootFile(INITD);
         if (!file.exists()) {
-            RootUtils.mount(true, "/system");
+            RootUtils.mount(true, sysblock);
             file.mkdir();
-            RootUtils.mount(false, "/system");
+            RootUtils.mount(false, sysblock);
         }
         return file.list();
     }

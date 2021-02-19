@@ -80,7 +80,7 @@ public class ApplyOnBootFragment extends BaseFragment {
     public static final String HMP = "hmp_onboot";
     public static final String THERMAL = "thermal_onboot";
     public static final String GPU = "gpu_onboot";
-//    public static final String SPECTRUM = "spectrum_onboot";
+    // public static final String SPECTRUM = "spectrum_onboot";
     public static final String DVFS = "dvfs_onboot";
     public static final String SCREEN = "screen_onboot";
     public static final String WAKE = "wake_onboot";
@@ -110,7 +110,7 @@ public class ApplyOnBootFragment extends BaseFragment {
         sAssignments.put(HmpFragment.class, HMP);
         sAssignments.put(ThermalFragment.class, THERMAL);
         sAssignments.put(GPUFragment.class, GPU);
-//        sAssignments.put(SpectrumFragment.class, SPECTRUM);
+    //  sAssignments.put(SpectrumFragment.class, SPECTRUM);
         sAssignments.put(DvfsFragment.class, DVFS);
         sAssignments.put(ScreenFragment.class, SCREEN);
         sAssignments.put(WakeFragment.class, WAKE);

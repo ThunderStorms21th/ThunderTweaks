@@ -32,6 +32,15 @@ import java.util.LinkedHashMap;
  * Created by willi on 10.07.16.
  */
 public class Buildprop {
+    private static String sysblock;
+
+    static {
+        try {
+            sysblock = RootUtils.isSAR() ? "/" : "/system";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public static final String BUILD_PROP = "/system/build.prop";
 
@@ -45,13 +54,13 @@ public class Buildprop {
     }
 
     public static void overwrite(String oldKey, String oldValue, String newKey, String newValue) {
-        RootUtils.mount(true, "/system");
+        RootUtils.mount(true, sysblock);
         RootUtils.runCommand("sed 's|" + oldKey + "=" + oldValue + "|" + newKey + "=" + newValue
                 + "|g' -i /system/build.prop");
     }
 
     public static void addKey(String key, String value) {
-        RootUtils.mount(true, "/system");
+        RootUtils.mount(true, sysblock);
         RootUtils.runCommand("echo " + key + "=" + value + " >> " + BUILD_PROP);
     }
 

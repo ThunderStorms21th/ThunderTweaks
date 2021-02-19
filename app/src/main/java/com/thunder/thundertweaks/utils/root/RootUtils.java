@@ -19,14 +19,21 @@
  */
 package com.thunder.thundertweaks.utils.root;
 
+import android.os.Build;
+
 import com.thunder.thundertweaks.utils.Log;
 import com.thunder.thundertweaks.utils.Utils;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -35,6 +42,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class RootUtils {
 
     private static SU sInstance;
+    private static final String MOUNTS_PATH = "/proc/mounts";
 
     public static boolean rootAccess() {
         SU su = getSU();
@@ -230,6 +238,51 @@ public class RootUtils {
             }
         }
 
+    }
+
+    public static boolean isSAR() throws Exception {
+        BufferedReader mountsStream;
+        mountsStream = new BufferedReader(new FileReader(MOUNTS_PATH));
+        List<Mount> lines = new ArrayList<>();
+
+        String line = mountsStream.readLine();
+        while (line != null){
+            lines.add(parseLine(line));
+            line = mountsStream.readLine();
+        }
+
+        for (Mount mount : lines) {
+            if ((mount.device.equals("/dev/root") && mount.mountpoint.equals("/")) ||
+                    (mount.mountpoint.equals("/system") && !mount.type.equals("tmpfs") && !mount.device.equals("none")) ||
+                    (mount.mountpoint.equals("/system_root") && !mount.type.equals("tmpfs"))) {
+                return true;
+            }
+        }
+    return false;
+    }
+
+    private static Mount parseLine(String line)throws Exception{
+        String[] fields = line.split(" ");
+        if (fields.length != 6){
+            throw new Exception("Incorrect /proc/mounts format");
+        }
+
+        return new Mount(fields[0], fields[1], fields[2], fields[3], fields[4], fields[5]);
+    }
+
+    private static class Mount{
+        String device, mountpoint, type;
+        List<String> flags;
+        int dummy0, dummy1;
+
+         Mount(String device, String mountpoint, String type, String flags, String dummy0, String dummy1) {
+            this.device = device;
+            this.mountpoint = mountpoint;
+            this.type = type;
+            this.flags = new ArrayList<>(Arrays.asList(flags.split(",")));
+            this.dummy0 = Integer.parseInt(dummy0);
+            this.dummy1 = Integer.parseInt(dummy1);
+        }
     }
 
 }
