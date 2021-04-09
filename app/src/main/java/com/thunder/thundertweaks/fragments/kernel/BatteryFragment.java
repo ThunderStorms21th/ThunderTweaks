@@ -66,6 +66,7 @@ public class BatteryFragment extends RecyclerViewFragment {
     private double mBatteryTemp;
     private String mBatteryStatus;
     private String mBatteryHealth;
+    private String mBatteryRemainingCapaticy;
     private String mBatteryHealthValue;
 
     public int getSpanCount() {
@@ -842,6 +843,7 @@ public class BatteryFragment extends RecyclerViewFragment {
             mBatteryTemp = intent.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, 0) / 10D;
             mBatteryStatus = Utils.readFile(Battery.BATTERY_NODE + "/power_supply/battery/status");
             mBatteryHealth = Utils.readFile(Battery.BATTERY_NODE + "/power_supply/battery/health");
+            mBatteryRemainingCapaticy = mBattery.getRemainingCapaticy();
             mBatteryHealthValue = mBattery.getHealthValue();
         }
     };
@@ -871,8 +873,8 @@ public class BatteryFragment extends RecyclerViewFragment {
             mStatus.setStat(mBatteryStatus);
         }
         if (mHealth != null) {
-            if (mBatteryHealthValue != null) {
-                mHealth.setStat(mBatteryHealth + " / " + mBatteryHealthValue + getString(R.string.percent));
+            if (mBatteryHealthValue != null && mBatteryRemainingCapaticy != null) {
+                mHealth.setStat(mBatteryHealth + " / " + mBatteryHealthValue + getString(R.string.percent) + "(" + mBatteryRemainingCapaticy + getString(R.string.mah) + ")");
             } else {
                 mHealth.setStat(mBatteryHealth);
             }
