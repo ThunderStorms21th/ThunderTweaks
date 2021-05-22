@@ -39,7 +39,16 @@ public class Initd {
         }
     }
 
-    private static final String INITD = "/system/etc/init.d";
+	private static String INITD;
+	static {
+		try{
+            INITD = RootUtils.isSAR() ? "/vendor/etc/init.d" : "/system/etc/init.d";
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+	}
+
+//    private static final String INITD = "/system/etc/init.d";
 
     public static void write(String file, String text) {
         RootUtils.mount(true, sysblock);
