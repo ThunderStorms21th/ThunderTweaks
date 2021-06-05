@@ -384,7 +384,7 @@ public class Device {
 
     public static String getAsv() {
         String asv = Utils.readFile("/sys/kernel/debug/asv_summary");
-        if (asv == null) {
+        if (asv.length() == 0) { // asv returns empty rather than null
             String[] values = {"HW_REV", "ASV_MIF", "ASV_BIG", "ASV_MID", "ASV_LIT", "ASV_G3D", "IDS_BIG", "IDS_MID", "IDS_LIT", "IDS_G3D"};
             StringBuilder asvbuilder = new StringBuilder();
             try {
@@ -395,7 +395,7 @@ public class Device {
                 asv = "{" + asv + "}";
                 JSONObject obj = new JSONObject(asv);
                 for (String value : values) {
-                    if (obj.has(value) && !obj.getString(value).equals("undefined")) {
+                    if (obj.has(value) && !obj.getString(value).equals("undefined") && !obj.getString(value).equals("")) {
                         asvbuilder.append(value).append(": ").append(obj.getString(value)).append("\n");
                     }
                 }
