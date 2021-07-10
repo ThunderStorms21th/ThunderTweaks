@@ -10,7 +10,7 @@
     <string name="open">Open %s</string>
     <string name="disable">Disable</string>
     <string name="changelog">ThunderTweaks v%s</string>
-    <string name="changelog_message">\n* Added dedection System-as-root and System for support Init.d\n \n SAR = vendor/etc/init.d\n System = system/etc/init.d\n</string>
+    <string name="changelog_message">\n* Added battery capacity\n \n* Added GPU voltage show\n</string>
     <string name="close">Close</string>
 
     <!-- Security -->
