@@ -597,7 +597,6 @@
     <string name="tun_highspeed_delay">GPU Highspeed Delay</string>
     <string name="tun_highspeed_delay_summary">Jump the minimum frequency level to highspeed_clock when the GPU utilization over highspeed_load and over this delayed value.</string>
     <string name="gov_tunables">Governor Tunables</string>
-    <string name="gpu_volt">GPU Voltage</string>
     <string name="gpu_voltage">GPU Voltage Control</string>
     <string name="gpu_volts">GPU Voltages</string>
     <string name="gpu_throttling">GPU Thermal Control</string>

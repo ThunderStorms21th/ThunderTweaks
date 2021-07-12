@@ -56,7 +56,6 @@ public class GPUFragment extends RecyclerViewFragment {
 
     private XYGraphView m2dCurFreq;
     private XYGraphView mCurFreq;
-    private XYGraphView mCurVolt;
     private XYGraphView mUsage;
     private List<SeekBarView> mVoltages = new ArrayList<>();
     private SeekBarView mSeekbarProf = new SeekBarView();
@@ -352,12 +351,6 @@ public class GPUFragment extends RecyclerViewFragment {
             mCurFreq = new XYGraphView();
             mCurFreq.setTitle(getString(R.string.gpu_freq));
             freqCard.addItem(mCurFreq);
-        }
-
-        if (mGPUFreqExynos.hasCurVolt()) {
-            mCurVolt = new XYGraphView();
-            mCurVolt.setTitle(getString(R.string.gpu_volt));
-            freqCard.addItem(mCurVolt);
         }
 
         if (mGPUFreqExynos.hasUsage()) {
@@ -933,15 +926,6 @@ public class GPUFragment extends RecyclerViewFragment {
             mUsage.setText(val + getString(R.string.percent));
             float per = (float) val / maxVal * 100f;
             mUsage.addPercentage(Math.round(per > 100 ? 100 : per < 0 ? 0 : per));
-        }
-
-
-        if (mCurVolt != null) {
-            int volt = mGPUFreqExynos.getCurVolt();
-            float maxVolt = Utils.strToFloat(mGPUFreqExynos.getStockVoltages().get(0));
-            mCurVolt.setText(volt / mGPUFreqExynos.getCurVoltOffset() + getString(R.string.mv));
-            float per = (float) volt / maxVolt * 100f;
-            mCurVolt.addPercentage(Math.round(per > 100 ? 100 : per < 0 ? 0 : per));
         }
     }
 }

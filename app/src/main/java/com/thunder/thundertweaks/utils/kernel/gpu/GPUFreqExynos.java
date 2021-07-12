@@ -60,7 +60,6 @@ public class GPUFreqExynos {
     private static final String MAX_7885_FREQ = "/sys/devices/platform/11500000.mali/max_clock";
     private static final String MIN_7885_FREQ = "/sys/devices/platform/11500000.mali/min_clock";
     private static final String CUR_7885_FREQ = "/sys/devices/platform/11500000.mali/clock";
-    private static final String CUR_7885_VOLT = "/sys/devices/platform/11500000.mali/vol";
     private static final String AVAILABLE_7885_FREQS = "/sys/devices/platform/11500000.mali/volt_table";
     private static final String AVAILABLE_7885_GOVERNORS = "/sys/devices/platform/11500000.mali/dvfs_governor";
     private static final String TUNABLE_HIGHSPEED_7885_CLOCK = "/sys/devices/platform/11500000.mali/highspeed_clock";
@@ -72,7 +71,6 @@ public class GPUFreqExynos {
     private static final String MAX_78x0_FREQ = "/sys/devices/11400000.mali/max_clock";
     private static final String MIN_78x0_FREQ = "/sys/devices/11400000.mali/min_clock";
     private static final String CUR_78x0_FREQ = "/sys/devices/11400000.mali/clock";
-    private static final String CUR_78x0_VOLT = "/sys/devices/11400000.mali/vol";
     private static final String AVAILABLE_78x0_FREQS = "/sys/devices/11400000.mali/volt_table";
     private static final String AVAILABLE_78x0_GOVERNORS = "/sys/devices/11400000.mali/dvfs_governor";
     private static final String TUNABLE_HIGHSPEED_78x0_CLOCK = "/sys/devices/11400000.mali/highspeed_clock";
@@ -84,7 +82,6 @@ public class GPUFreqExynos {
     private static final String MAX_S7_FREQ = "/sys/devices/14ac0000.mali/max_clock";
     private static final String MIN_S7_FREQ = "/sys/devices/14ac0000.mali/min_clock";
     private static final String CUR_S7_FREQ = "/sys/devices/14ac0000.mali/clock";
-    private static final String CUR_S7_VOLT = "/sys/devices/14ac0000.mali/vol";
     private static final String TUNABLE_DVFS_S7_FREQ = "/sys/devices/14ac0000.mali/dvfs";
     private static final String AVAILABLE_S7_FREQS = "/sys/devices/14ac0000.mali/volt_table";
     private static final String AVAILABLE_S7_GOVERNORS = "/sys/devices/14ac0000.mali/dvfs_governor";
@@ -98,7 +95,6 @@ public class GPUFreqExynos {
     private static final String MAX_S8_FREQ = "/sys/devices/platform/13900000.mali/max_clock";
     private static final String MIN_S8_FREQ = "/sys/devices/platform/13900000.mali/min_clock";
     private static final String CUR_S8_FREQ = "/sys/devices/platform/13900000.mali/clock";
-    private static final String CUR_S8_VOLT = "/sys/devices/platform/13900000.mali/vol";
     private static final String TUNABLE_DVFS_S8_FREQ = "/sys/devices/platform/13900000.mali/dvfs";
     private static final String AVAILABLE_S8_FREQS = "/sys/devices/platform/13900000.mali/volt_table";
     private static final String AVAILABLE_S8_GOVERNORS = "/sys/devices/platform/13900000.mali/dvfs_governor";
@@ -112,7 +108,6 @@ public class GPUFreqExynos {
     private static final String MAX_S9_FREQ = "/sys/devices/platform/17500000.mali/max_clock";
     private static final String MIN_S9_FREQ = "/sys/devices/platform/17500000.mali/min_clock";
     private static final String CUR_S9_FREQ = "/sys/devices/platform/17500000.mali/clock";
-    private static final String CUR_S9_VOLT = "/sys/devices/platform/17500000.mali/vol";
     private static final String TUNABLE_DVFS_S9_FREQ = "/sys/devices/platform/17500000.mali/dvfs";
     private static final String AVAILABLE_S9_FREQS = "/sys/devices/platform/17500000.mali/volt_table";
     private static final String AVAILABLE_S9_GOVERNORS = "/sys/devices/platform/17500000.mali/dvfs_governor";
@@ -126,7 +121,6 @@ public class GPUFreqExynos {
     private static final String MAX_S10_FREQ = "/sys/devices/platform/18500000.mali/max_clock";
     private static final String MIN_S10_FREQ = "/sys/devices/platform/18500000.mali/min_clock";
     private static final String CUR_S10_FREQ = "/sys/devices/platform/18500000.mali/clock";
-    private static final String CUR_S10_VOLT = "/sys/devices/platform/18500000.mali/vol";
     private static final String TUNABLE_DVFS_S10_FREQ = "/sys/devices/platform/18500000.mali/dvfs";
     private static final String AVAILABLE_S10_FREQS = "/sys/devices/platform/18500000.mali/volt_table";
     private static final String AVAILABLE_S10_GOVERNORS = "/sys/devices/platform/18500000.mali/dvfs_governor";
@@ -139,7 +133,6 @@ public class GPUFreqExynos {
 
     private final HashMap<String, Integer> mAvailableVolts = new HashMap<>();
     private final HashMap<String, Integer> mCurrentFreqs = new HashMap<>();
-    private final HashMap<String, Integer> mCurrentVolts = new HashMap<>();
     private final List<String> mMaxFreqs = new ArrayList<>();
     private final List<String> mMinFreqs = new ArrayList<>();
     private final List<String> mAvailableFreqs = new ArrayList<>();
@@ -171,14 +164,6 @@ public class GPUFreqExynos {
         mMaxFreqs.add(MAX_78x0_FREQ);
         mMaxFreqs.add(MAX_S7_FREQ);
         mMaxFreqs.add(MAX_S8_FREQ);
-
-        mCurrentVolts.put(CUR_7885_VOLT, 1);
-        mCurrentVolts.put(CUR_78x0_VOLT, 1);
-        mCurrentVolts.put(CUR_S7_VOLT, 1);
-        mCurrentVolts.put(CUR_S8_VOLT, 1);
-        mCurrentVolts.put(CUR_S9_VOLT, 1);
-        mCurrentVolts.put(CUR_S10_VOLT, 1);
-
         mMaxFreqs.add(MAX_S9_FREQ);
         mMaxFreqs.add(MAX_S10_FREQ);
         mMaxFreqs.add(MAX_S7_FREQ_STOCK);
@@ -259,8 +244,6 @@ public class GPUFreqExynos {
     private int AVAILABLE_VOLTS_OFFSET;
     private String CUR_FREQ;
     private Integer CUR_FREQ_OFFSET;
-    private String CUR_VOLT;
-    private Integer CUR_VOLT_OFFSET;
     private List<Integer> AVAILABLE_FREQS;
     private List<Integer> AVAILABLE_FREQS_SORT;
     private String MAX_FREQ;
@@ -299,14 +282,6 @@ public class GPUFreqExynos {
             if (Utils.existFile(file)) {
                 CUR_FREQ = file;
                 CUR_FREQ_OFFSET = mCurrentFreqs.get(file);
-                break;
-            }
-        }
-
-        for (String file : mCurrentVolts.keySet()) {
-            if (Utils.existFile(file)) {
-                CUR_VOLT = file;
-                CUR_VOLT_OFFSET = mCurrentVolts.get(file);
                 break;
             }
         }
@@ -537,18 +512,6 @@ public class GPUFreqExynos {
         return CUR_FREQ != null;
     }
 
-    public int getCurVoltOffset() {
-        return CUR_VOLT_OFFSET;
-    }
-
-    public int getCurVolt() {
-        return Utils.strToInt(refactor(Utils.readFile(CUR_VOLT)));
-    }
-
-    public boolean hasCurVolt() {
-        return CUR_VOLT != null;
-    }
-
     public int getHighspeedClock() {
         return Utils.strToInt(Utils.readFile(TUNABLE_HIGHSPEED_CLOCK));
     }
@@ -688,7 +651,7 @@ public class GPUFreqExynos {
     }
 
     public boolean supported() {
-        return hasCurFreq() || hasCurVolt() || hasVoltage()
+        return hasCurFreq() || hasVoltage()
                 || (hasMaxFreq() && getAvailableFreqs() != null)
                 || (hasMinFreq() && getAvailableFreqs() != null)
                 || hasGovernor()
