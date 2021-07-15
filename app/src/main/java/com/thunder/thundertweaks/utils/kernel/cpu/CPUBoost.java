@@ -47,6 +47,7 @@ public class CPUBoost {
 	private static final String CPU_BOOST_EXYNOS8890 = "/sys/module/cpu_input_boost_8890/parameters";
     private static final String CPU_WQ_AFFINITY = "/sys/bus/workqueue/devices/writeback/cpumask";
     private static final String CPU_IRQ_AFFINITY = "/proc/irq/default_smp_affinity";
+    private static final String CPU_IDLE_EXYNOS = "/sys/module/exynos_acme/parameters";
 
     private static final List<String> sEnable = new ArrayList<>();
 
@@ -73,6 +74,11 @@ public class CPUBoost {
     private static final String CPU_BOOST_EXYNOS8890_FREQ_LP = CPU_BOOST_EXYNOS8890 + "/input_boost_freq_lp";
     private static final String CPU_BOOST_EXYNOS8890_FREQ_PERF = CPU_BOOST_EXYNOS8890 + "/input_boost_freq_perf";
 	private static final String CPU_BOOST_EXYNOS8890_MAX_LP = CPU_BOOST_EXYNOS8890 + "/input_boost_max_lp";
+    private static final String CPU_IDLE_EXYNOS_ENABLE = CPU_IDLE_EXYNOS + "/enable_suspend_freqs";
+    private static final String CPU_IDLE_EXYNOS_SCREEN_OFF_MIN_LP = CPU_IDLE_EXYNOS + "/cpu0_suspend_min_freq";
+    private static final String CPU_IDLE_EXYNOS_SCREEN_OFF_MIN_HP = CPU_IDLE_EXYNOS + "/cpu4_suspend_min_freq";
+    private static final String CPU_IDLE_EXYNOS_SCREEN_OFF_MAX_LP = CPU_IDLE_EXYNOS + "/cpu0_suspend_max_freq";
+    private static final String CPU_IDLE_EXYNOS_SCREEN_OFF_MAX_HP = CPU_IDLE_EXYNOS + "/cpu4_suspend_max_freq";
 
     private String ENABLE;
 
@@ -321,6 +327,70 @@ public class CPUBoost {
         return Utils.existFile(CPU_IRQ_AFFINITY);
     }
 
+    public void enableCpuIdle(boolean enable, Context context) {
+        run(Control.write(enable ? "Y" : "N", CPU_IDLE_EXYNOS_ENABLE), CPU_IDLE_EXYNOS_ENABLE, context);
+    }
+
+    public boolean isCpuIdleEnabled() {
+        return Utils.readFile(CPU_IDLE_EXYNOS_ENABLE).equals("Y");
+    }
+
+    public void setCpuIdleMaxLp(int value, Context context) {
+        run(Control.write(String.valueOf(value), CPU_IDLE_EXYNOS_SCREEN_OFF_MAX_LP),
+                CPU_IDLE_EXYNOS_SCREEN_OFF_MAX_LP, context);
+    }
+
+    public static int getCpuIdleMaxLp() {
+        return Utils.strToInt(Utils.readFile(CPU_IDLE_EXYNOS_SCREEN_OFF_MAX_LP));
+    }
+
+    public static boolean hasCpuIdleMaxLp() {
+        return Utils.existFile(CPU_IDLE_EXYNOS_SCREEN_OFF_MAX_LP);
+    }
+
+    public void setCpuIdleMaxPerf(int value, Context context) {
+        run(Control.write(String.valueOf(value), CPU_IDLE_EXYNOS_SCREEN_OFF_MAX_HP),
+                CPU_IDLE_EXYNOS_SCREEN_OFF_MAX_HP, context);
+    }
+
+    public static int getCpuIdleMaxPerf() {
+        return Utils.strToInt(Utils.readFile(CPU_IDLE_EXYNOS_SCREEN_OFF_MAX_HP));
+    }
+
+    public static boolean hasCpuIdleMaxPerf() {
+        return Utils.existFile(CPU_IDLE_EXYNOS_SCREEN_OFF_MAX_HP);
+    }
+
+    public void setCpuIdleScreenOffMinPerf(int value, Context context) {
+        run(Control.write(String.valueOf(value), CPU_IDLE_EXYNOS_SCREEN_OFF_MIN_HP),
+                CPU_IDLE_EXYNOS_SCREEN_OFF_MIN_HP, context);
+    }
+
+    public static int getCpuIdleScreenOffMinPerf() {
+        return Utils.strToInt(Utils.readFile(CPU_IDLE_EXYNOS_SCREEN_OFF_MIN_HP));
+    }
+
+    public static boolean hasCpuIdleScreenOffMinPerf() {
+        return Utils.existFile(CPU_IDLE_EXYNOS_SCREEN_OFF_MIN_HP);
+    }
+
+    public void setCpuIdleScreenOffMinLp(int value, Context context) {
+        run(Control.write(String.valueOf(value), CPU_IDLE_EXYNOS_SCREEN_OFF_MIN_LP),
+                CPU_IDLE_EXYNOS_SCREEN_OFF_MIN_LP, context);
+    }
+
+    public static int getCpuIdleScreenOffMinLp() {
+        return Utils.strToInt(Utils.readFile(CPU_IDLE_EXYNOS_SCREEN_OFF_MIN_LP));
+    }
+
+    public static boolean hasCpuIdleScreenOffMinLp() {
+        return Utils.existFile(CPU_IDLE_EXYNOS_SCREEN_OFF_MIN_LP);
+    }
+
+    public boolean hasCpuIdle() {
+        return Utils.existFile(CPU_IDLE_EXYNOS_ENABLE);
+    }
+
     public void enableCpuBoost(boolean enable, Context context) {
         run(Control.write(
                 ENABLE.endsWith("cpuboost_enable") ? (enable ? "Y" : "N") : (enable ? "1" : "0"), ENABLE),
@@ -341,7 +411,7 @@ public class CPUBoost {
                 || hasCpuBoostInputFreq() || hasCpuBoostInputMs() || hasCpuBoostHotplug() || hasCpuBoostWakeup()
                 || hasCpuBoostExynosInputFreq() || hasCpuBoostExynosInputMs() || hasCpuBoostInput()
 				|| hasCpuBoostDurationMs() || hasCpuBoostFreqHp() || hasCpuBoostFreqLp() || hasCpuBoostMaxLp()
-				|| hasCpuBoostMaxPerf() || haswqAffinity() || hasirqAffinity();
+				|| hasCpuBoostMaxPerf() || haswqAffinity() || hasirqAffinity() || hasCpuIdle();
     }
 
     private static void run(String command, String id, Context context) {

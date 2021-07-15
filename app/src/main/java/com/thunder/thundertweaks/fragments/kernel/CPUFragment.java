@@ -139,7 +139,10 @@ public class CPUFragment extends RecyclerViewFragment {
         if (Misc.hasDevFreqBoostFreq()) {
             cpuDevFreqBoostInit(items);
         }
-		
+        if (mCPUBoost.supported()) {
+            cpuIdleCpuInit(items);
+        }
+
         if (Misc.hasCpuFingerprintBoost()) {
             cpuFingerprintBoostInit(items);
         }
@@ -872,6 +875,83 @@ public class CPUFragment extends RecyclerViewFragment {
 
         if (cpuInputBoostCard.size() > 0) {
             items.add(cpuInputBoostCard);
+        }
+    }
+
+    private void cpuIdleCpuInit(List<RecyclerViewItem> items) {
+        CardView cpuIdleCard = new CardView(getActivity());
+        cpuIdleCard.setTitle("CPU Idle Settings");
+
+        if (mCPUBoost.hasCpuIdle()) {
+            SwitchView enableidle = new SwitchView();
+            enableidle.setTitle("CPU Idle Settings");
+            enableidle.setSummaryOn(getString(R.string.cpu_boost_summary_on));
+            enableidle.setSummaryOff(getString(R.string.cpu_boost_summary_off));
+            enableidle.setChecked(mCPUBoost.isEnabled());
+            enableidle.addOnSwitchListener((switchView, isChecked)
+                    -> mCPUBoost.enableCpuIdle(isChecked, getActivity()));
+
+            cpuIdleCard.addItem(enableidle);
+        }
+
+        if (mCPUBoost.hasCpuIdleMaxLp() && mCPUFreq.getFreqs(mCPUFreq.getLITTLECpu()) != null) {
+            SelectView idlelittleml = new SelectView();
+            // idlelittleml.setTitle("Max Idle Freq LITTLE Cluster");
+            idlelittleml.setSummary("Max Idle Freq LITTLE Cluster");
+            idlelittleml.setItems(mCPUFreq.getAdjustedFreq(mCPUFreq.getLITTLECpu(),getActivity()));
+            idlelittleml.setItem((mCPUBoost.getCpuIdleMaxLp() / 1000)
+                    + getString(R.string.mhz));
+            idlelittleml.setOnItemSelected((selectView, position, item)
+                    -> mCPUBoost.setCpuIdleMaxLp(
+                    mCPUFreq.getFreqs(mCPUFreq.getLITTLECpu()).get(position), getActivity()));
+
+            cpuIdleCard.addItem(idlelittleml);
+        }
+
+        if (mCPUBoost.hasCpuIdleMaxPerf() && mCPUFreq.getFreqs() != null) {
+            SelectView idlebigmp = new SelectView();
+            // idlebigmp.setTitle("Max Idle Freq BIG Cluster");
+            idlebigmp.setSummary("Max Idle Freq BIG Cluster");
+            idlebigmp.setItems(mCPUFreq.getAdjustedFreq(getActivity()));
+            idlebigmp.setItem((mCPUBoost.getCpuIdleMaxPerf() / 1000)
+                    + getString(R.string.mhz));
+            idlebigmp.setOnItemSelected((selectView, position, item)
+                    -> mCPUBoost.setCpuIdleMaxPerf(
+                    mCPUFreq.getFreqs().get(position), getActivity()));
+
+            cpuIdleCard.addItem(idlebigmp);
+        }
+
+        if (mCPUBoost.hasCpuIdleScreenOffMinLp() && mCPUFreq.getFreqs(mCPUFreq.getLITTLECpu()) != null) {
+            SelectView idlelittleml = new SelectView();
+            // idlelittleml.setTitle("Min Freq. LITTLE Cluster While Screen Off");
+            idlelittleml.setSummary("Min Freq. LITTLE Cluster While Screen Off");
+            idlelittleml.setItems(mCPUFreq.getAdjustedFreq(mCPUFreq.getLITTLECpu(),getActivity()));
+            idlelittleml.setItem((mCPUBoost.getCpuIdleScreenOffMinLp() / 1000)
+                    + getString(R.string.mhz));
+            idlelittleml.setOnItemSelected((selectView, position, item)
+                    -> mCPUBoost.setCpuIdleScreenOffMinLp(
+                    mCPUFreq.getFreqs(mCPUFreq.getLITTLECpu()).get(position), getActivity()));
+
+            cpuIdleCard.addItem(idlelittleml);
+        }
+
+        if (mCPUBoost.hasCpuIdleScreenOffMinPerf() && mCPUFreq.getFreqs() != null) {
+            SelectView idlebigmp = new SelectView();
+            // idlebigmp.setTitle("Min Freq. BIG Cluster While Screen Off");
+            idlebigmp.setSummary("Min Freq. BIG Cluster While Screen Off");
+            idlebigmp.setItems(mCPUFreq.getAdjustedFreq(getActivity()));
+            idlebigmp.setItem((mCPUBoost.getCpuIdleScreenOffMinPerf() / 1000)
+                    + getString(R.string.mhz));
+            idlebigmp.setOnItemSelected((selectView, position, item)
+                    -> mCPUBoost.setCpuIdleScreenOffMinPerf(
+                    mCPUFreq.getFreqs().get(position), getActivity()));
+
+            cpuIdleCard.addItem(idlebigmp);
+        }
+
+        if (cpuIdleCard.size() > 0) {
+            items.add(cpuIdleCard);
         }
     }
 
