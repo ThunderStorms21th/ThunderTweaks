@@ -66,6 +66,9 @@ public class MiscFragment extends RecyclerViewFragment {
 
     @Override
     protected void addItems(List<RecyclerViewItem> items) {
+        if (mMisc.hasBatterySaver()) {
+            batterysaverInit(items);
+        }
         if (mVibration.supported()) {
             vibrationInit(items);
         }
@@ -96,6 +99,17 @@ public class MiscFragment extends RecyclerViewFragment {
         }
         networkInit(items);
         wakelockInit(items);
+    }
+
+    private void batterysaverInit(List<RecyclerViewItem> items) {
+        SwitchView batterysaver = new SwitchView();
+        batterysaver.setTitle(getString(R.string.battery_saver));
+        batterysaver.setSummary(getString(R.string.battery_saver_summary));
+        batterysaver.setChecked(mMisc.isBatterySaverEnabled());
+        batterysaver.addOnSwitchListener((switchView, isChecked)
+                -> mMisc.enableBatterySaver(isChecked, getActivity()));
+
+        items.add(batterysaver);
     }
 
     private void secureKernel(List<RecyclerViewItem> items){

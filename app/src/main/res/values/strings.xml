@@ -104,6 +104,8 @@
 	<string name="battery">Battery</string>
 	<string name="battery2">Battery 2</string>
     <string name="battery3">Battery 3</string>
+    <string name="battery_saver">Kernel Side Battery Saver</string>
+    <string name="battery_saver_summary">This disables all soc boosts and chooses low cpu freqs</string>
     <string name="led">LED</string>
     <string name="io_scheduler">I/O Scheduler</string>
     <string name="ksm">Kernel Samepage Merging</string>

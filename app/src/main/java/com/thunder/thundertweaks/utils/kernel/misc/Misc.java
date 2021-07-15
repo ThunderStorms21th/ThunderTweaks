@@ -55,6 +55,7 @@ public class Misc {
     private final List<String> mCrcs = new ArrayList<>();
     private final List<String> mFsyncs = new ArrayList<>();
     private final List<String> mMagisks = new ArrayList<>();
+    private final List<String> mBatterySavers = new ArrayList<>();
 
     {
         mLoggers.add("/sys/kernel/logger_mode/logger_mode");
@@ -69,6 +70,11 @@ public class Misc {
 
         mMagisks.add("/res/magisk");
         mMagisks.add("/sbin/magisk");
+
+        mBatterySavers.add("/sys/kernel/battery_saver/parameters/enabled");
+        mBatterySavers.add("/sys/kernel/battery/parameters/battery_saver");
+        mBatterySavers.add("/sys/module/battery_saver/parameters/enabled");
+        mBatterySavers.add("/sys/module/battery/parameters/battery_saver");
     }
 
     private String LOGGER_FILE;
@@ -78,6 +84,8 @@ public class Misc {
     private Boolean FSYNC_USE_INTEGER;
     private String MAGISK_BIN;
     private String RESETPROP;
+    private String BATTERY_SAVER;
+    private Boolean BATTERY_SAVER_INTEGER;
 
     private Misc() {
         for (String file : mLoggers) {
@@ -107,6 +115,14 @@ public class Misc {
             if (Utils.existFile(file)) {
                 MAGISK_BIN = file;
                 RESETPROP = MAGISK_BIN + " resetprop -v -n ";
+                break;
+            }
+        }
+
+        for (String file : mBatterySavers) {
+            if (Utils.existFile(file)) {
+                BATTERY_SAVER = file;
+                BATTERY_SAVER_INTEGER = Character.isDigit(Utils.readFile(BATTERY_SAVER).toCharArray()[0]);
                 break;
             }
         }
@@ -182,6 +198,19 @@ public class Misc {
 
     public boolean hasDynamicFsync() {
         return Utils.existFile(DYNAMIC_FSYNC);
+    }
+
+    public void enableBatterySaver(boolean enable, Context context) {
+        run(Control.write(BATTERY_SAVER_INTEGER ? enable ? "1" : "0" : enable ? "Y" : "N", BATTERY_SAVER),
+                BATTERY_SAVER, context);
+    }
+
+    public boolean isBatterySaverEnabled() {
+        return Utils.readFile(BATTERY_SAVER).equals(BATTERY_SAVER_INTEGER ? "1" : "Y");
+    }
+
+    public boolean hasBatterySaver() {
+        return Utils.existFile(BATTERY_SAVER);
     }
 
     public void enableFsync(boolean enable, Context context) {
