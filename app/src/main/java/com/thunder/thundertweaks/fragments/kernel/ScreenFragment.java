@@ -97,6 +97,9 @@ public class ScreenFragment extends RecyclerViewFragment {
 
     @Override
     protected void addItems(List<RecyclerViewItem> items) {
+        if (mMisc.hasMdnie()) {
+            mdnieInit(items);
+        }
         screenColorInit(items);
         List<RecyclerViewItem> gammas = new ArrayList<>();
         if (Gamma.hasKGamma()) {
@@ -124,6 +127,18 @@ public class ScreenFragment extends RecyclerViewFragment {
             gloveModeInit(items);
         }
     }
+
+    private void mdnieInit(List<RecyclerViewItem> items) {
+        SwitchView mdnie = new SwitchView();
+        mdnie.setTitle(getString(R.string.mdnie_global_controls));
+        mdnie.setSummary(getString(R.string.mdnie));
+        mdnie.setChecked(mMisc.isMdnieEnabled());
+        mdnie.addOnSwitchListener((switchView, isChecked)
+                -> mMisc.enableMdnie(isChecked, getActivity()));
+
+        items.add(mdnie);
+    }
+
 
     private void screenColorInit(List<RecyclerViewItem> items) {
         if (mCalibration.hasColors()) {

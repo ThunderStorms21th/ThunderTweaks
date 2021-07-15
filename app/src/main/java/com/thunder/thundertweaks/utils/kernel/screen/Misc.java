@@ -64,6 +64,7 @@ public class Misc {
     private final List<String> mBackLightDimmer = new ArrayList<>();
     private final HashMap<String, Integer> mMinBrightnessFiles = new HashMap<>();
     private final HashMap<String, Switch> mGloveMode = new HashMap<>();
+    private final List<String> mMdnies = new ArrayList<>();
 
     {
         mBackLightDimmer.add(LM3630_BACKLIGHT_DIMMER);
@@ -73,6 +74,11 @@ public class Misc {
         mMinBrightnessFiles.put(MSM_BACKLIGHT_DIMMER, 100);
         mMinBrightnessFiles.put(PSB_BL_MIN_BRIGHTNESS, 13);
 
+        mMdnies.add("/sys/class/blacklight/panel/device/lcd/panel/mdnie/bypass");
+        mMdnies.add("/sys/devices/platform/panel_drv@001/blacklight/panel/device/lcd/panel/mdnie/bypass");
+        mMdnies.add("/sys/class/mdnie/mdnie/bypass");
+        mMdnies.add("/sys/class/mdnie/bypass");
+
         mGloveMode.put("/sys/devices/virtual/touchscreen/touchscreen_dev/mode", new Switch("glove", "normal"));
         mGloveMode.put("/sys/lenovo_tp_gestures/tpd_glove_status", new Switch("1", "0"));
     }
@@ -80,6 +86,8 @@ public class Misc {
     private String BACKLIGHT_DIMMER;
     private String MIN_BRIGHTNESS;
     private String GLOVE_MODE;
+    private String MDNIE_FILE;
+    private Boolean MDNIE_USE_INTEGER;
 
     private Misc() {
         for (String file : mBackLightDimmer) {
@@ -99,6 +107,14 @@ public class Misc {
         for (String file : mGloveMode.keySet()) {
             if (Utils.existFile(file)) {
                 GLOVE_MODE = file;
+                break;
+            }
+        }
+
+        for (String file : mMdnies) {
+            if (Utils.existFile(file)) {
+                MDNIE_FILE = file;
+                MDNIE_USE_INTEGER = Character.isDigit(Utils.readFile(MDNIE_FILE).toCharArray()[0]);
                 break;
             }
         }
@@ -244,11 +260,24 @@ public class Misc {
         return Utils.existFile(LM3530_BRIGTHNESS_MODE);
     }
 
+    public void enableMdnie(boolean enable, Context context) {
+        run(Control.write(MDNIE_USE_INTEGER ? enable ? "1" : "0" : enable ? "Y" : "N", MDNIE_FILE),
+                MDNIE_FILE, context);
+    }
+
+    public boolean hasMdnie() {
+        return MDNIE_FILE != null;
+    }
+
+    public boolean isMdnieEnabled() {
+        return Utils.readFile(MDNIE_FILE).equals(MDNIE_USE_INTEGER ? "1" : "Y");
+    }
+
     public boolean supported() {
         return hasBrightnessMode() || hasLcdMinBrightness() || hasLcdMaxBrightness()
                 || hasBackLightDimmerEnable() || hasMinBrightness() || hasBackLightDimmerThreshold()
                 || hasBackLightDimmerOffset() || hasNegativeToggle() || hasRegisterHook()
-                || hasMasterSequence() || hasGloveMode();
+                || hasMasterSequence() || hasGloveMode() || hasMdnie();
     }
 
     private void run(String command, String id, Context context) {

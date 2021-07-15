@@ -61,6 +61,11 @@ public class Calibration {
     private static final String COLOR_CONTROL_MUILTIPLIER = COLOR_CONTROL + "/multiplier";
     private static final String COLOR_CONTROL_CTRL = COLOR_CONTROL + "/safety_enabled";
 
+    private static final String MDNIE_MUILTIPLIER = "/sys/class/blacklight/panel/device/lcd/panel/mdnie/rgb";
+    private static final String MDNIE_MUILTIPLIER2 = "/sys/devices/platform/panel_drv@001/blacklight/panel/device/lcd/panel/mdnie/rgb";
+    private static final String MDNIE_MUILTIPLIER3 = "/sys/class/mdnie/mdnie/rgb";
+    private static final String MDNIE_MUILTIPLIER4 = "/sys/class/mdnie/rgb";
+
     private static final String SAMOLED_COLOR = "/sys/class/misc/samoled_color";
     private static final String SAMOLED_COLOR_RED = SAMOLED_COLOR + "/red_multiplier";
     private static final String SAMOLED_COLOR_GREEN = SAMOLED_COLOR + "/green_multiplier";
@@ -87,6 +92,11 @@ public class Calibration {
         mColors.add(SAMOLED_COLOR);
         mColors.add(FB0_RGB);
         mColors.add(FB_KCAL);
+
+        mColors.add(MDNIE_MUILTIPLIER);
+        mColors.add(MDNIE_MUILTIPLIER2);
+        mColors.add(MDNIE_MUILTIPLIER3);
+        mColors.add(MDNIE_MUILTIPLIER4);
 
         mColorEnables.add(KCAL_CTRL_CTRL);
         mColorEnables.add(KCAL_CTRL_ENABLE);
@@ -266,6 +276,17 @@ public class Calibration {
                         SAMOLED_COLOR_RED), SAMOLED_COLOR_BLUE, context);
                 break;
             }
+            case MDNIE_MUILTIPLIER:
+            case MDNIE_MUILTIPLIER2:
+            case MDNIE_MUILTIPLIER3:
+            case MDNIE_MUILTIPLIER4:
+                String[] colors = values.split(" ");
+                String red = String.valueOf(Utils.strToLong(colors[0]));
+                String green = String.valueOf(Utils.strToLong(colors[1]));
+                String blue = String.valueOf(Utils.strToLong(colors[2]));
+                run(Control.write(red + " " + green + " " + blue, COLOR),
+                        COLOR, context);
+                break;
             default:
                 run(Control.write(values, COLOR), COLOR, context);
                 break;
@@ -335,6 +356,15 @@ public class Calibration {
                 if (Utils.existFile(SAMOLED_COLOR_BLUE)) {
                     long color = Utils.strToLong(Utils.readFile(SAMOLED_COLOR_BLUE)) / 10000000L;
                     list.add(String.valueOf(color));
+                }
+                break;
+            case MDNIE_MUILTIPLIER:
+            case MDNIE_MUILTIPLIER2:
+            case MDNIE_MUILTIPLIER3:
+            case MDNIE_MUILTIPLIER4:
+                String[] colorss = Utils.readFile(COLOR).split(" ");
+                for (String color : colorss) {
+                    list.add(String.valueOf(Utils.strToLong(color)));
                 }
                 break;
             default:
