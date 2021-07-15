@@ -45,6 +45,8 @@ public class CPUBoost {
     private static final String CPU_BOOST = "/sys/module/cpu_boost/parameters";
     private static final String CPU_BOOST_EXYNOS = "/sys/kernel/cpu_input_boost";
 	private static final String CPU_BOOST_EXYNOS8890 = "/sys/module/cpu_input_boost_8890/parameters";
+    private static final String CPU_WQ_AFFINITY = "/sys/bus/workqueue/devices/writeback/cpumask";
+    private static final String CPU_IRQ_AFFINITY = "/proc/irq/default_smp_affinity";
 
     private static final List<String> sEnable = new ArrayList<>();
 
@@ -295,6 +297,30 @@ public class CPUBoost {
         return Utils.existFile(CPU_BOOST_DEBUG_MASK);
     }
 
+    public void setwqAffinity(String value, Context context) {
+        run(Control.write(String.valueOf(value), CPU_WQ_AFFINITY), CPU_WQ_AFFINITY, context);
+    }
+
+    public String getwqAffinity() {
+        return Utils.readFile(CPU_WQ_AFFINITY);
+    }
+
+    public boolean haswqAffinity() {
+        return Utils.existFile(CPU_WQ_AFFINITY);
+    }
+
+    public void setirqAffinity(String value, Context context) {
+        run(Control.write(String.valueOf(value), CPU_IRQ_AFFINITY), CPU_IRQ_AFFINITY, context);
+    }
+
+    public String getirqAffinity() {
+        return Utils.readFile(CPU_IRQ_AFFINITY);
+    }
+
+    public boolean hasirqAffinity() {
+        return Utils.existFile(CPU_IRQ_AFFINITY);
+    }
+
     public void enableCpuBoost(boolean enable, Context context) {
         run(Control.write(
                 ENABLE.endsWith("cpuboost_enable") ? (enable ? "Y" : "N") : (enable ? "1" : "0"), ENABLE),
@@ -315,7 +341,7 @@ public class CPUBoost {
                 || hasCpuBoostInputFreq() || hasCpuBoostInputMs() || hasCpuBoostHotplug() || hasCpuBoostWakeup()
                 || hasCpuBoostExynosInputFreq() || hasCpuBoostExynosInputMs() || hasCpuBoostInput()
 				|| hasCpuBoostDurationMs() || hasCpuBoostFreqHp() || hasCpuBoostFreqLp() || hasCpuBoostMaxLp()
-				|| hasCpuBoostMaxPerf();
+				|| hasCpuBoostMaxPerf() || haswqAffinity() || hasirqAffinity();
     }
 
     private static void run(String command, String id, Context context) {
