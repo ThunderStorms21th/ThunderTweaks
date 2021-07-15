@@ -50,12 +50,11 @@ public class Misc {
     private static final String TCP_AVAILABLE_CONGESTIONS = "/proc/sys/net/ipv4/tcp_available_congestion_control";
     private static final String HOSTNAME_KEY = "net.hostname";
     private static final String WIREGUARD = "/sys/module/wireguard/version";
-    private static final String MAGISK_BIN = "/res/magisk";
-    private static final String RESETPROP = MAGISK_BIN + " resetprop -v -n ";
 
     private final List<String> mLoggers = new ArrayList<>();
     private final List<String> mCrcs = new ArrayList<>();
     private final List<String> mFsyncs = new ArrayList<>();
+    private final List<String> mMagisks = new ArrayList<>();
 
     {
         mLoggers.add("/sys/kernel/logger_mode/logger_mode");
@@ -67,6 +66,9 @@ public class Misc {
 
         mFsyncs.add("/sys/devices/virtual/misc/fsynccontrol/fsync_enabled");
         mFsyncs.add("/sys/module/sync/parameters/fsync_enabled");
+
+        mMagisks.add("/res/magisk");
+        mMagisks.add("/sbin/magisk");
     }
 
     private String LOGGER_FILE;
@@ -74,6 +76,8 @@ public class Misc {
     private Boolean CRC_USE_INTEGER;
     private String FSYNC_FILE;
     private Boolean FSYNC_USE_INTEGER;
+    private String MAGISK_BIN;
+    private String RESETPROP;
 
     private Misc() {
         for (String file : mLoggers) {
@@ -95,6 +99,14 @@ public class Misc {
             if (Utils.existFile(file)) {
                 FSYNC_FILE = file;
                 FSYNC_USE_INTEGER = Character.isDigit(Utils.readFile(FSYNC_FILE).toCharArray()[0]);
+                break;
+            }
+        }
+
+        for (String file : mMagisks) {
+            if (Utils.existFile(file)) {
+                MAGISK_BIN = file;
+                RESETPROP = MAGISK_BIN + " resetprop -v -n ";
                 break;
             }
         }
