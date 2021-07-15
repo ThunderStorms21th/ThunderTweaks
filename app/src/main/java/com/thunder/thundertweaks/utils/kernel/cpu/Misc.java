@@ -46,6 +46,7 @@ public class Misc {
     private static final String CPUQ_PATH = "/sys/devices/system/cpu/cpuquiet";
     private static final String CPU_MC_POWER_SAVING = "/sys/devices/system/cpu/sched_mc_power_savings";
     private static final String CPU_WQ_POWER_SAVING = "/sys/module/workqueue/parameters/power_efficient";
+    private static final String CPU_DVFS_DISABLE = "/sys/power/disable_dvfs";
 	private static final String CPU_FINGERPRINT_BOOST = "/sys/kernel/fp_boost/enabled";
     private static final String CPU_AVAILABLE_CFS_SCHEDULERS = "/sys/devices/system/cpu/sched_balance_policy/available_sched_balance_policy";
     private static final String CPU_CURRENT_CFS_SCHEDULER = "/sys/devices/system/cpu/sched_balance_policy/current_sched_balance_policy";
@@ -65,6 +66,18 @@ public class Misc {
 
     private static String[] sAvailableCFSSchedulers;
     private static String[] sCpuQuietAvailableGovernors;
+
+    public static void enableCpuDvfsDisabler(boolean enabled, Context context) {
+        run(Control.write(enabled ? "1" : "0", CPU_DVFS_DISABLE), CPU_DVFS_DISABLE, context);
+    }
+
+    public static boolean isCpuDvfsDisablerEnabled() {
+        return Utils.readFile(CPU_DVFS_DISABLE).equals("1");
+    }
+
+    public static boolean hasCpuDvfsDisabler() {
+        return Utils.existFile(CPU_DVFS_DISABLE);
+    }
 
     private static List<String> getAllSupportedKernel() {
         List<String> listKernel = new ArrayList<>();

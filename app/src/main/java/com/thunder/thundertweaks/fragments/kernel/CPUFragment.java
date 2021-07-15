@@ -153,6 +153,9 @@ public class CPUFragment extends RecyclerViewFragment {
         if (Misc.hasPowerSavingWq()) {
             powerSavingWqInit(items);
         }
+        if (Misc.hasCpuDvfsDisabler()) {
+            disableDvfsInit(items);
+        }
         if (mCPUBoost.haswqAffinity()) {
             wqAffinityInit(items);
         }
@@ -1050,6 +1053,22 @@ public class CPUFragment extends RecyclerViewFragment {
 		pwqCard.addItem(powerSavingWq);
         items.add(pwqCard);
     }
+
+    private void disableDvfsInit(List<RecyclerViewItem> items) {
+        CardView disableDvfsCard = new CardView(getActivity());
+        disableDvfsCard.setTitle("Cpu DVFS Disable");
+
+        SwitchView disableDvfs = new SwitchView();
+        disableDvfs.setSummaryOn(getString(R.string.enabled));
+        disableDvfs.setSummaryOff(getString(R.string.disabled));
+        disableDvfs.setChecked(Misc.isCpuDvfsDisablerEnabled());
+        disableDvfs.addOnSwitchListener((switchView, isChecked)
+                -> Misc.enableCpuDvfsDisabler(isChecked, getActivity()));
+
+        disableDvfsCard.addItem(disableDvfs);
+        items.add(disableDvfsCard);
+    }
+
 
     private void refreshKERNEL() {
         getHandler().postDelayed(() -> {
