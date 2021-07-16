@@ -1444,4 +1444,5 @@
     <string name="appupdater_json">https://raw.githubusercontent.com/corsicanu/thunderTweaks/master/app/update.json</string>
     <string name="mdnie">Force screen to use all colors at max</string>
     <string name="mif">MIF</string>
+    <string name="busInt">INT</string>
 </resources>

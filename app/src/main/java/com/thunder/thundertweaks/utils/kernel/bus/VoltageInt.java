@@ -37,7 +37,9 @@ public class VoltageInt {
 
     public static final String BACKUP = "/data/.thundertweaks/busInt_stock_voltage";
 
-    public static final String VOLTAGE = "/sys/class/devfreq/17000020.devfreq_int/volt_table";
+    public static final String INT = "/sys/class/devfreq/17000020.devfreq_int";
+    public static final String VOLTAGE = INT + "/volt_table";
+    public static final String TIMESTATES = INT + "/time_in_state";
 
     private static final HashMap<String, Boolean> sVoltages = new HashMap<>();
     private static final HashMap<String, Integer> sOffset = new HashMap<>();
@@ -134,6 +136,14 @@ public class VoltageInt {
         }
         if (sFreqs == null) return null;
         return Arrays.asList(sFreqs);
+    }
+
+    public static boolean hasTimeState() {
+        return Utils.existFile(TIMESTATES);
+    }
+
+    public static String getTimeStatesLocation() {
+        return TIMESTATES;
     }
 
     public static boolean supported() {
