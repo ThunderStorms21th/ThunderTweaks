@@ -70,6 +70,10 @@ public class Misc {
 
         mMagisks.add("/res/magisk");
         mMagisks.add("/sbin/magisk");
+        mMagisks.add("/system/bin/magisk");
+        mMagisks.add("/vendor/bin/magisk");
+        mMagisks.add("/system/system/bin/magisk");
+        mMagisks.add("/system_ext/system/bin/magisk");
 
         mBatterySavers.add("/sys/kernel/battery_saver/parameters/enabled");
         mBatterySavers.add("/sys/kernel/battery/parameters/battery_saver");
