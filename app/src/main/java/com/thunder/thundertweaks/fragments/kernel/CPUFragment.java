@@ -1142,8 +1142,8 @@ public class CPUFragment extends RecyclerViewFragment {
         CardView wqAffinityCard = new CardView(getActivity());
         wqAffinityCard.setTitle("CPU affinity for write-back flush");
 
-        GenericSelectView wqAffinity = new GenericSelectView();
-        wqAffinity.setSummary("CPU Affinity");
+        GenericSelectView2 wqAffinity = new GenericSelectView2();
+        wqAffinity.setTitle("CPU Affinity");
         wqAffinity.setValue(mCPUBoost.getwqAffinity());
         wqAffinity.setValueRaw(wqAffinity.getValue());
         wqAffinity.setOnGenericValueListener((genericSelectView, value)
@@ -1157,8 +1157,8 @@ public class CPUFragment extends RecyclerViewFragment {
         CardView irqAffinityCard = new CardView(getActivity());
         irqAffinityCard.setTitle("CPU affinity for irq");
 
-        GenericSelectView irqAffinity = new GenericSelectView();
-        irqAffinity.setSummary("CPU Affinity");
+        GenericSelectView2 irqAffinity = new GenericSelectView2();
+        irqAffinity.setTitle("CPU Affinity");
         irqAffinity.setValue(mCPUBoost.getirqAffinity());
         irqAffinity.setValueRaw(irqAffinity.getValue());
         irqAffinity.setOnGenericValueListener((genericSelectView, value)
