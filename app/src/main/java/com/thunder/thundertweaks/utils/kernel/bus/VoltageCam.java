@@ -37,7 +37,9 @@ public class VoltageCam {
 
     public static final String BACKUP = "/data/.thundertweaks/busCam_stock_voltage";
 
-    public static final String VOLTAGE = "/sys/class/devfreq/17000040.devfreq_cam/volt_table";
+    public static final String CAM = "/sys/class/devfreq/17000050.devfreq_cam";
+    public static final String VOLTAGE = CAM + "/volt_table";
+    public static final String TIMESTATES = CAM + "/time_in_state";
 
     private static final HashMap<String, Boolean> sVoltages = new HashMap<>();
     private static final HashMap<String, Integer> sOffset = new HashMap<>();
@@ -134,6 +136,14 @@ public class VoltageCam {
         }
         if (sFreqs == null) return null;
         return Arrays.asList(sFreqs);
+    }
+
+    public static boolean hasTimeState() {
+        return Utils.existFile(TIMESTATES);
+    }
+
+    public static String getTimeStatesLocation() {
+        return TIMESTATES;
     }
 
     public static boolean supported() {

@@ -1447,4 +1447,5 @@
     <string name="mif">MIF</string>
     <string name="busInt">INT</string>
     <string name="busDisp">DISPLAY</string>
+    <string name="busCam">CAMERA</string>
 </resources>
