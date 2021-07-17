@@ -49,6 +49,7 @@ import com.thunder.thundertweaks.utils.Log;
 import com.thunder.thundertweaks.utils.Utils;
 import com.thunder.thundertweaks.utils.kernel.bus.VoltageMif;
 import com.thunder.thundertweaks.utils.kernel.bus.VoltageInt;
+import com.thunder.thundertweaks.utils.kernel.bus.VoltageDisp;
 import com.thunder.thundertweaks.utils.kernel.cpu.CPUFreq;
 import com.thunder.thundertweaks.utils.kernel.gpu.GPUFreq;
 import com.thunder.thundertweaks.utils.kernel.gpu.GPUFreqExynos;
@@ -83,12 +84,14 @@ public class OverallFragment extends RecyclerViewFragment {
     private CardView mFreqGPU;
     private CardView mFreqMIF;
     private CardView mFreqINT;
+    private CardView mFreqDISP;
     private CpuSpyApp mCpuSpyBig;
     private CpuSpyApp mCpuSpyMid;
     private CpuSpyApp mCpuSpyLITTLE;
     private CpuSpyApp mCpuSpyGPU;
     private CpuSpyApp mCpuSpyMIF;
     private CpuSpyApp mCpuSpyINT;
+    private CpuSpyApp mCpuSpyDISP;
 
     private double mBatteryRaw;
 
@@ -143,6 +146,7 @@ public class OverallFragment extends RecyclerViewFragment {
             CpuStateMonitor cpuStateMonitorGPU = null;
             CpuStateMonitor cpuStateMonitorMIF = null;
             CpuStateMonitor cpuStateMonitorINT = null;
+            CpuStateMonitor cpuStateMonitorDISP = null;
             if (mCpuSpyLITTLE != null) {
                 cpuStateMonitorLITTLE = mCpuSpyLITTLE.getCpuStateMonitor();
                 if (mCpuSpyMid != null){
@@ -157,6 +161,9 @@ public class OverallFragment extends RecyclerViewFragment {
             }
             if (mCpuSpyINT != null) {
                 cpuStateMonitorINT = mCpuSpyINT.getCpuStateMonitor();
+            }
+            if (mCpuSpyDISP != null) {
+                cpuStateMonitorDISP = mCpuSpyDISP.getCpuStateMonitor();
             }
             try {
                 cpuStateMonitor.setOffsets();
@@ -174,6 +181,9 @@ public class OverallFragment extends RecyclerViewFragment {
                 }
                 if (cpuStateMonitorINT != null) {
                     cpuStateMonitorINT.setOffsets();
+                }
+                if (cpuStateMonitorDISP != null) {
+                    cpuStateMonitorDISP.setOffsets();
                 }
             } catch (CpuStateMonitor.CpuStateMonitorException ignored) {
             }
@@ -193,6 +203,9 @@ public class OverallFragment extends RecyclerViewFragment {
             if (mCpuSpyINT != null) {
                 mCpuSpyINT.saveOffsets();
             }
+            if (mCpuSpyDISP != null) {
+                mCpuSpyDISP.saveOffsets();
+            }
             updateView(cpuStateMonitor, mFreqBig);
             if (cpuStateMonitorLITTLE != null) {
                 updateView(cpuStateMonitorLITTLE, mFreqLITTLE);
@@ -209,6 +222,9 @@ public class OverallFragment extends RecyclerViewFragment {
             if (cpuStateMonitorINT != null) {
                 updateView(cpuStateMonitorINT, mFreqINT);
             }
+            if (cpuStateMonitorDISP != null) {
+                updateView(cpuStateMonitorDISP, mFreqDISP);
+            }
             adjustScrollPosition();
         });
         frequencyButtonView.setRestoreListener(v -> {
@@ -218,6 +234,7 @@ public class OverallFragment extends RecyclerViewFragment {
             CpuStateMonitor cpuStateMonitorGPU = null;
             CpuStateMonitor cpuStateMonitorMIF = null;
             CpuStateMonitor cpuStateMonitorINT = null;
+            CpuStateMonitor cpuStateMonitorDISP = null;
             if (mCpuSpyLITTLE != null) {
                 cpuStateMonitorLITTLE = mCpuSpyLITTLE.getCpuStateMonitor();
                 if (mCpuSpyMid != null) {
@@ -232,6 +249,9 @@ public class OverallFragment extends RecyclerViewFragment {
             }
             if (mCpuSpyINT != null) {
                 cpuStateMonitorINT = mCpuSpyINT.getCpuStateMonitor();
+            }
+            if (mCpuSpyDISP != null) {
+                cpuStateMonitorDISP = mCpuSpyDISP.getCpuStateMonitor();
             }
             cpuStateMonitor.removeOffsets();
             if (cpuStateMonitorLITTLE != null) {
@@ -249,6 +269,9 @@ public class OverallFragment extends RecyclerViewFragment {
             if (cpuStateMonitorINT != null) {
                 cpuStateMonitorINT.removeOffsets();
             }
+            if (cpuStateMonitorDISP != null) {
+                cpuStateMonitorDISP.removeOffsets();
+            }
             mCpuSpyBig.saveOffsets();
             if (mCpuSpyLITTLE != null) {
                 mCpuSpyLITTLE.saveOffsets();
@@ -265,6 +288,9 @@ public class OverallFragment extends RecyclerViewFragment {
             if (mCpuSpyINT != null) {
                 mCpuSpyINT.saveOffsets();
             }
+            if (mCpuSpyDISP != null) {
+                mCpuSpyDISP.saveOffsets();
+            }
             updateView(cpuStateMonitor, mFreqBig);
             if (mCpuSpyLITTLE != null) {
                 updateView(cpuStateMonitorLITTLE, mFreqLITTLE);
@@ -280,6 +306,9 @@ public class OverallFragment extends RecyclerViewFragment {
             }
             if (mCpuSpyINT != null) {
                 updateView(cpuStateMonitorINT, mFreqINT);
+            }
+            if (mCpuSpyDISP != null) {
+                updateView(cpuStateMonitorDISP, mFreqDISP);
             }
             adjustScrollPosition();
         });
@@ -323,6 +352,12 @@ public class OverallFragment extends RecyclerViewFragment {
             items.add(mFreqINT);
         }
 
+        if (VoltageDisp.hasTimeState()) {
+            mFreqDISP = new CardView(getActivity());
+            mFreqDISP.setTitle(getString(R.string.busDisp));
+            items.add(mFreqDISP);
+        }
+
         mCpuSpyBig = new CpuSpyApp(mCPUFreq.getBigCpu(), getActivity(),null);
         if (mCPUFreq.isBigLITTLE()) {
             mCpuSpyLITTLE = new CpuSpyApp(mCPUFreq.getLITTLECpu(), getActivity(),null);
@@ -338,6 +373,9 @@ public class OverallFragment extends RecyclerViewFragment {
         }
         if (VoltageInt.hasTimeState()) {
             mCpuSpyINT = new CpuSpyApp(-1, getActivity(), VoltageInt.getTimeStatesLocation());
+        }
+        if (VoltageDisp.hasTimeState()) {
+            mCpuSpyDISP = new CpuSpyApp(-1, getActivity(), VoltageDisp.getTimeStatesLocation());
         }
 
         updateFrequency();
@@ -358,6 +396,7 @@ public class OverallFragment extends RecyclerViewFragment {
         private CpuStateMonitor mGPUMonitor;
         private CpuStateMonitor mMIFMonitor;
         private CpuStateMonitor mINTMonitor;
+        private CpuStateMonitor mDISPMonitor;
 
         @Override
         protected OverallFragment doInBackground(OverallFragment... overallFragments) {
@@ -378,6 +417,9 @@ public class OverallFragment extends RecyclerViewFragment {
             if (VoltageInt.hasTimeState()) {
                 mINTMonitor = fragment.mCpuSpyINT.getCpuStateMonitor();
             }
+            if (VoltageDisp.hasTimeState()) {
+                mDISPMonitor = fragment.mCpuSpyDISP.getCpuStateMonitor();
+            }
             try {
                 mBigMonitor.updateStates();
                 if (fragment.mGPUFreq.hasTimeState()) {
@@ -388,6 +430,9 @@ public class OverallFragment extends RecyclerViewFragment {
                 }
                 if (VoltageInt.hasTimeState()) {
                     mINTMonitor.updateStates();
+                }
+                if (VoltageDisp.hasTimeState()) {
+                    mDISPMonitor.updateStates();
                 }
             } catch (CpuStateMonitor.CpuStateMonitorException ignored) {
                 Log.e("Problem getting states");
@@ -423,6 +468,9 @@ public class OverallFragment extends RecyclerViewFragment {
             }
             if (VoltageInt.hasTimeState()) {
                 fragment.updateView(mINTMonitor, fragment.mFreqINT);
+            }
+            if (VoltageDisp.hasTimeState()) {
+                fragment.updateView(mDISPMonitor, fragment.mFreqDISP);
             }
             fragment.adjustScrollPosition();
             fragment.mFrequencyTask = null;

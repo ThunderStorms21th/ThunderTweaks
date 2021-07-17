@@ -1445,4 +1445,5 @@
     <string name="mdnie">Force screen to use all colors at max</string>
     <string name="mif">MIF</string>
     <string name="busInt">INT</string>
+    <string name="busDisp">DISPLAY</string>
 </resources>
