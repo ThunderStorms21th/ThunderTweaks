@@ -1448,4 +1448,5 @@
     <string name="busInt">INT</string>
     <string name="busDisp">DISPLAY</string>
     <string name="busCam">CAMERA</string>
+    <string name="busIntCam">INT CAMERA</string>
 </resources>
