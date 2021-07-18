@@ -1450,4 +1450,5 @@
     <string name="busCam">CAMERA</string>
     <string name="busIntCam">INT CAMERA</string>
     <string name="busAud">AUDIO</string>
+    <string name="busIva">IVA</string>
 </resources>
