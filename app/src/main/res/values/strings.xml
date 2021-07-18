@@ -1453,4 +1453,5 @@
     <string name="busIva">IVA</string>
     <string name="busScore">SCORE</string>
     <string name="busFsys0">FSYS</string>
+    <string name="busMfc">MFC</string>
 </resources>
