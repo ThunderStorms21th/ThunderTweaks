@@ -1454,4 +1454,5 @@
     <string name="busScore">SCORE</string>
     <string name="busFsys0">FSYS</string>
     <string name="busMfc">MFC</string>
+    <string name="busNpu">NPU</string>
 </resources>
