@@ -1451,4 +1451,5 @@
     <string name="busIntCam">INT CAMERA</string>
     <string name="busAud">AUDIO</string>
     <string name="busIva">IVA</string>
+    <string name="busScore">SCORE</string>
 </resources>
