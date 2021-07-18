@@ -10,7 +10,7 @@
     <string name="open">Open %s</string>
     <string name="disable">Disable</string>
     <string name="changelog">ThunderTweaks v%s</string>
-    <string name="changelog_message">\n* Show remaining battery capaticy\n \n* Added CPU Affinity Mask Control\n \n* Added CPU DVFS disabler\n \n* Added CPU Iddle control\n \n*\Added MIF Time in State\n \n* Added ScreenColor Control and Mdnie bypass\n \n* Added Battery Saver Option\n \n* Improvements for Magisk and battery case of overcharge to stick full health\n</string>
+    <string name="changelog_message">\n* Show remaining battery capaticy\n \n* Added CPU Affinity Mask Control\n \n* Added CPU DVFS disabler\n \n* Added CPU Iddle control\n \n*\Added DevFreq (for all) Time in State\n \n* Added ScreenColor Control and Mdnie bypass\n \n* Added Battery Saver Option\n \n* Improvements for Magisk and battery case of overcharge to stick full health\n</string>
     <string name="close">Close</string>
 
     <!-- Security -->
