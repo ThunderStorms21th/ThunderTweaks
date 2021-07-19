@@ -631,17 +631,19 @@ public class GPUFragment extends RecyclerViewFragment {
                 items.add(voltCard);
             }
 
+            try {
+                TitleView tunables = new TitleView();
+                tunables.setText(getString(R.string.gpu_volts));
+                for (int i = 0; i < freqs.size(); i++) {
+                    SeekBarView seekbar = new SeekBarView();
+                    seekbarInit(seekbar, freqs.get(i), voltages.get(i), voltagesStock.get(i));
+                    mVoltages.add(seekbar);
+                }
+                items.add(tunables);
+                items.addAll(mVoltages);
+            } catch (Exception ignored){
 
-            TitleView tunables = new TitleView();
-            tunables.setText(getString(R.string.gpu_volts));
-            items.add(tunables);
-
-            for (int i = 0; i < freqs.size(); i++) {
-                SeekBarView seekbar = new SeekBarView();
-                seekbarInit(seekbar, freqs.get(i), voltages.get(i), voltagesStock.get(i));
-                mVoltages.add(seekbar);
             }
-            items.addAll(mVoltages);
         }
     }
 
