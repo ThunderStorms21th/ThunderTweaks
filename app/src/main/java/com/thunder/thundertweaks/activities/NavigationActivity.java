@@ -64,6 +64,7 @@ import com.thunder.thundertweaks.fragments.kernel.IOFragment;
 import com.thunder.thundertweaks.fragments.kernel.KSMFragment;
 import com.thunder.thundertweaks.fragments.kernel.LEDFragment;
 import com.thunder.thundertweaks.fragments.kernel.LMKFragment;
+import com.thunder.thundertweaks.fragments.kernel.PowerFragment;
 import com.thunder.thundertweaks.fragments.kernel.WakelockFragment;
 import com.thunder.thundertweaks.fragments.kernel.MiscFragment;
 import com.thunder.thundertweaks.fragments.kernel.ScreenFragment;
@@ -107,6 +108,7 @@ import com.thunder.thundertweaks.utils.kernel.io.IO;
 import com.thunder.thundertweaks.utils.kernel.ksm.KSM;
 import com.thunder.thundertweaks.utils.kernel.led.LED;
 import com.thunder.thundertweaks.utils.kernel.lmk.LMK;
+import com.thunder.thundertweaks.utils.kernel.power.marginVoltage;
 import com.thunder.thundertweaks.utils.kernel.screen.Screen;
 import com.thunder.thundertweaks.utils.kernel.sound.Sound;
 import com.thunder.thundertweaks.utils.kernel.spectrum.Spectrum;
@@ -209,6 +211,9 @@ public class NavigationActivity extends BaseActivity
         }
         if (Dvfs.supported()) {
             mFragments.add(new NavigationActivity.NavigationFragment(R.string.dvfs_nav, DvfsFragment.class, R.drawable.ic_dvfs));
+        }
+        if (marginVoltage.supported()) {
+            mFragments.add(new NavigationActivity.NavigationFragment(R.string.power_nav, PowerFragment.class, R.drawable.ic_bolt));
         }
         if (Screen.supported()) {
             mFragments.add(new NavigationActivity.NavigationFragment(R.string.screen, ScreenFragment.class, R.drawable.ic_display));

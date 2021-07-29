@@ -1455,4 +1455,23 @@
     <string name="busFsys0">FSYS</string>
     <string name="busMfc">MFC</string>
     <string name="busNpu">NPU</string>
+    <string name="marginVoltage">Voltage Margin</string>
+    <string name="marginVoltage_BIG_percent">Big Voltage Margin Percent</string>
+    <string name="marginVoltage_MID_percent">Middle Voltage Margin Percent</string>
+    <string name="marginVoltage_LIT_percent">Little Voltage Margin Percent</string>
+    <string name="marginVoltage_G3D_percent">Gpu Voltage Margin Percent</string>
+    <string name="marginVoltage_MIF_percent">Mif Voltage Margin Percent</string>
+    <string name="marginVoltage_MFC_percent">Mfc Voltage Margin Percent</string>
+    <string name="marginVoltage_NPU_percent">Npu Voltage Margin Percent</string>
+    <string name="marginVoltage_AUD_percent">Audio Voltage Margin Percent</string>
+    <string name="marginVoltage_CAM_percent">Camera Voltage Margin Percent</string>
+    <string name="marginVoltage_CP_percent">Cp Voltage Margin Percent</string>
+    <string name="marginVoltage_DISP_percent">Display Voltage Margin Percent</string>
+    <string name="marginVoltage_FSYS0_percent">Fsys Voltage Margin Percent</string>
+    <string name="marginVoltage_INT_percent">Int Voltage Margin Percent</string>
+    <string name="marginVoltage_INTCAM_percent">Int Camera Voltage Margin Percent</string>
+    <string name="marginVoltage_IVA_percent">Iva Voltage Margin Percent</string>
+    <string name="marginVoltage_SCORE_percent">Score Voltage Margin Percent</string>
+    <string name="power_nav">Power</string>
+    <string name="marginVoltage_Summary">Change Voltage with Percent of Stock Voltage</string>
 </resources>

@@ -49,6 +49,7 @@ import com.thunder.thundertweaks.fragments.kernel.IOFragment;
 import com.thunder.thundertweaks.fragments.kernel.KSMFragment;
 import com.thunder.thundertweaks.fragments.kernel.LEDFragment;
 import com.thunder.thundertweaks.fragments.kernel.LMKFragment;
+import com.thunder.thundertweaks.fragments.kernel.PowerFragment;
 import com.thunder.thundertweaks.fragments.kernel.WakelockFragment;
 import com.thunder.thundertweaks.fragments.kernel.MiscFragment;
 import com.thunder.thundertweaks.fragments.kernel.ScreenFragment;
@@ -95,6 +96,7 @@ public class ApplyOnBootFragment extends BaseFragment {
     public static final String VM = "vm_onboot";
     public static final String ENTROPY = "entropy_onboot";
     public static final String MISC = "misc_onboot";
+    public static final String POWER = "power_onboot";
 
     private static final HashMap<Class, String> sAssignments = new HashMap<>();
 
@@ -125,6 +127,7 @@ public class ApplyOnBootFragment extends BaseFragment {
         sAssignments.put(VMFragment.class, VM);
         sAssignments.put(EntropyFragment.class, ENTROPY);
         sAssignments.put(MiscFragment.class, MISC);
+        sAssignments.put(PowerFragment.class, POWER);
     }
 
     public static String getAssignment(Class fragment) {
