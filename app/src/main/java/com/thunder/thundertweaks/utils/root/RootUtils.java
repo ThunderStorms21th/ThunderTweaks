@@ -70,12 +70,37 @@ public class RootUtils {
         return false;
     }
 
+    public static boolean chmod_editable(String file) {
+        return chmod_editable(file, getSU());
+    }
+
+    public static boolean chmod_editable(String file, SU su) {
+        String permission;
+
+        permission = list(file, su);
+        if(permission != null){
+            permission = permission.substring(0,10);
+
+            return permission.contains("w");
+        }
+
+        return false;
+    }
+
     public static void chmod(String file, String permission) {
         chmod(file, permission, getSU());
     }
 
     public static void chmod(String file, String permission, SU su) {
         su.runCommand("chmod " + permission + " " + file);
+    }
+
+    public static String list(String file){
+        return list(file, getSU());
+    }
+
+    public static String list(String file, SU su){
+        return su.runCommand("ls -l " + file);
     }
 
     public static String getProp(String prop) {
