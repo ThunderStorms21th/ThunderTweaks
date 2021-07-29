@@ -644,6 +644,11 @@ public class GPUFragment extends RecyclerViewFragment {
             } catch (Exception ignored){
 
             }
+
+            if(!mGPUFreqExynos.hasEditableVoltage()){
+                voltControl.setChecked(true);
+                items.remove(voltCard);
+            }
         }
     }
 

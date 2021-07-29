@@ -32,6 +32,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.thunder.thundertweaks.utils.root.RootUtils.chmod_editable;
+
 /**
  * Created by willi on 12.05.16.
  */
@@ -258,6 +260,7 @@ public class GPUFreqExynos {
     }
 
     public String AVAILABLE_VOLTS;
+    private Boolean AVAILABLE_VOLTS_EDITABLE;
     private int AVAILABLE_VOLTS_OFFSET;
     private String CUR_FREQ;
     private Integer CUR_FREQ_OFFSET;
@@ -284,6 +287,7 @@ public class GPUFreqExynos {
         for (String file : mAvailableVolts.keySet()) {
             if (Utils.existFile(file)) {
                 AVAILABLE_VOLTS = file;
+                AVAILABLE_VOLTS_EDITABLE = chmod_editable(file);
                 AVAILABLE_VOLTS_OFFSET = mAvailableVolts.get(file);
                 break;
             }
@@ -628,6 +632,10 @@ public class GPUFreqExynos {
 
     public boolean hasVoltage() {
         return AVAILABLE_VOLTS != null;
+    }
+
+    public boolean hasEditableVoltage() {
+        return AVAILABLE_VOLTS_EDITABLE;
     }
 
     public void setPowerPolicy(String value, Context context) {
