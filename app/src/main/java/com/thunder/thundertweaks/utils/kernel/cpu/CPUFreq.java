@@ -724,7 +724,7 @@ public class CPUFreq {
     }
 
     public boolean hasMidCpu() {
-        return is9820() || is855();
+        return is9820() || is990() || is2100() || is855();
     }
 
     public int getClusterCount() {
@@ -752,6 +752,14 @@ public class CPUFreq {
                 mBigCpu = 6;
                 mLITTLECpu = 0;
             } else if (is9820()) {
+                mBigCpu = 6;
+                mMidCpu = 4;
+                mLITTLECpu = 0;
+            } else if (is990()) {
+                mBigCpu = 6;
+                mMidCpu = 4;
+                mLITTLECpu = 0;
+            } else if (is2100()) {
                 mBigCpu = 6;
                 mMidCpu = 4;
                 mLITTLECpu = 0;
@@ -803,6 +811,23 @@ public class CPUFreq {
                 || board.equalsIgnoreCase("universal9825")
                 || board.equalsIgnoreCase("exynos990")
                 || board.equalsIgnoreCase("exynos995");
+    }
+	
+    private boolean is990() {
+        String board = Device.getBoard();
+        return board.equalsIgnoreCase("exynos9830")
+                || board.equalsIgnoreCase("exynos990")
+                || board.equalsIgnoreCase("universal9830")
+                || board.equalsIgnoreCase("universal9835")
+                || board.equalsIgnoreCase("exynos995");
+    }
+	
+    private boolean is2100() {
+        String board = Device.getBoard();
+        return board.equalsIgnoreCase("exynos2100")
+                || board.equalsIgnoreCase("universal2100")
+                || board.equalsIgnoreCase("universal2105")
+                || board.equalsIgnoreCase("exynos2105");
     }
 
     private boolean is855() {
