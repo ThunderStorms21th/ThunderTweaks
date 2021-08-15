@@ -808,9 +808,7 @@ public class CPUFreq {
         return board.equalsIgnoreCase("exynos9820")
                 || board.equalsIgnoreCase("universal9820")
                 || board.equalsIgnoreCase("exynos9825")
-                || board.equalsIgnoreCase("universal9825")
-                || board.equalsIgnoreCase("exynos990")
-                || board.equalsIgnoreCase("exynos995");
+                || board.equalsIgnoreCase("universal9825");
     }
 	
     private boolean is990() {
