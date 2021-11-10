@@ -10,7 +10,7 @@
     <string name="open">Open %s</string>
     <string name="disable">Disable</string>
     <string name="changelog">ThunderTweaks v%s</string>
-    <string name="changelog_message">\n* Fixed save settings to SdCard\n</string>
+    <string name="changelog_message">\n* Support for DevFreq MIF frequencies\n</string>
     <string name="close">Close</string>
 
     <!-- Security -->
@@ -1049,6 +1049,13 @@
     <string name="dvfs_decision_mode_summary">CPU DVFS min/max limitation determined by decision mode.</string>
     <string name="dvfs_thermal_control">DVFS Thermal Control</string>
     <string name="dvfs_thermal_control_summary">CPU DVFS min/max limitation determined by temperature.</string>
+	<string name="dvfs_mif_control">DVFS MIF Control</string>
+    <string name="mif_min_freq">MIF DVFS min frequency.</string>
+    <string name="mif_max_freq">MIF DVFS max frequency.</string>
+    <string name="mif_min_freq_summary">MIF DVFS min frequency limitation.</string>
+    <string name="mif_max_freq_summary">MIF DVFS max frequency limitation.</string>	
+	
+	mif_max_freq_summary
 
     <!-- Wakelock -->
     <string name="wakelock_nav">Wakelock</string>
