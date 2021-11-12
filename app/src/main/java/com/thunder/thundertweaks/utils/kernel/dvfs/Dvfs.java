@@ -74,16 +74,6 @@ public class Dvfs {
         return Utils.existFile(THERMAL_CONTROL);
     }
 
-/*	public void setDevfreqMinFreq(int value, Context context) {
-        run(Control.write(String.valueOf(value), MIF_MIN_FREQ),
-                MIF_MIN_FREQ, context);
-    }
-
-    public static int getDevfreqMinFreq() {
-        return Utils.strToInt(Utils.readFile(MIF_MIN_FREQ));
-    }
-*/
-
     public static void setDevfreqMinFreq(String value, Context context) {
 	String board = Device.getBoard();
   if (board.equalsIgnoreCase("exynos9830") || board.equalsIgnoreCase("exynos990")) {
@@ -164,6 +154,7 @@ public class Dvfs {
     }
 
     public static String getDevfreqMinFreq() {
+			String board = Device.getBoard();
         if (Utils.readFile(MIF_MIN_FREQ) != null) {
             String value = Utils.readFile(MIF_MIN_FREQ);
             switch (value) {
@@ -173,8 +164,12 @@ public class Dvfs {
                     return "2535 MHz";
                 case "2288000":
                     return "2288 MHz";
+                case "2093000":
+                    return "2093 MHz";
                 case "2028000":
                     return "2028 MHz";
+                case "1794000":
+                    return "1794 MHz";
                 case "1716000":
                     return "1716 MHz";
                 case "1539000":
@@ -192,7 +187,7 @@ public class Dvfs {
                 case "421000":
                     return "421 MHz";
             }
-        }
+		}
         return null;
     }
 
@@ -200,18 +195,10 @@ public class Dvfs {
         return Utils.existFile(MIF_MIN_FREQ);
     }
 
-/*	public void setDevfreqMaxFreq(int value, Context context) {
-        run(Control.write(String.valueOf(value), MIF_MAX_FREQ),
-                MIF_MAX_FREQ, context);
-    }
-
-    public static int getDevfreqMaxFreq() {
-        return Utils.strToInt(Utils.readFile(MIF_MAX_FREQ));
-    }
-*/
-
     public static void setDevfreqMaxFreq(String value, Context context) {
-        switch (value){
+			String board = Device.getBoard();
+  if (board.equalsIgnoreCase("exynos9830") || board.equalsIgnoreCase("exynos990")) {
+		switch (value){
             case "2730 MHz" :
                 run(Control.write("2730000", MIF_MAX_FREQ), MIF_MAX_FREQ, context);
                 break;
@@ -249,9 +236,46 @@ public class Dvfs {
                 run(Control.write("421000", MIF_MAX_FREQ), MIF_MAX_FREQ, context);
                 break;
         }
+  } else if (board.equalsIgnoreCase("exynos9820") || board.equalsIgnoreCase("exynos9825")) {
+		switch (value){
+			case "2093 MHz" :
+                run(Control.write("2093000", MIF_MAX_FREQ), MIF_MAX_FREQ, context);
+                break;
+			case "1794 MHz" :
+                run(Control.write("1794000", MIF_MAX_FREQ), MIF_MAX_FREQ, context);
+                break;
+			case "1539 MHz" :
+                run(Control.write("1539000", MIF_MAX_FREQ), MIF_MAX_FREQ, context);
+                break;
+			case "1352 MHz" :
+                run(Control.write("1352000", MIF_MAX_FREQ), MIF_MAX_FREQ, context);
+                break;
+			case "1014 MHz" :
+                run(Control.write("1014000", MIF_MAX_FREQ), MIF_MAX_FREQ, context);
+                break;
+			case "845 MHz" :
+                run(Control.write("845000", MIF_MAX_FREQ), MIF_MAX_FREQ, context);
+                break;
+			case "676 MHz" :
+                run(Control.write("676000", MIF_MAX_FREQ), MIF_MAX_FREQ, context);
+                break;
+			case "546 MHz" :
+                run(Control.write("546000", MIF_MAX_FREQ), MIF_MAX_FREQ, context);
+                break;
+			case "421 MHz" :
+                run(Control.write("421000", MIF_MAX_FREQ), MIF_MAX_FREQ, context);
+                break;
+        }
+  } else {
+		  switch (value){
+		  case "not supported" :
+          break;
+		  }
+		}
     }
 
     public static String getDevfreqMaxFreq() {
+			String board = Device.getBoard();
         if (Utils.readFile(MIF_MAX_FREQ) != null) {
             String value = Utils.readFile(MIF_MAX_FREQ);
             switch (value) {
@@ -261,8 +285,12 @@ public class Dvfs {
                     return "2535 MHz";
                 case "2288000":
                     return "2288 MHz";
+                case "2093000":
+                    return "2093 MHz";
                 case "2028000":
                     return "2028 MHz";
+                case "1794000":
+                    return "1794 MHz";
                 case "1716000":
                     return "1716 MHz";
                 case "1539000":
@@ -280,7 +308,7 @@ public class Dvfs {
                 case "421000":
                     return "421 MHz";
             }
-        }
+		}
         return null;
     }
 
