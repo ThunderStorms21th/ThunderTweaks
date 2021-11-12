@@ -37,6 +37,7 @@ import com.thunder.thundertweaks.utils.kernel.cpu.Misc;
 import com.thunder.thundertweaks.views.dialog.Dialog;
 import com.thunder.thundertweaks.views.recyclerview.CardView;
 import com.thunder.thundertweaks.views.recyclerview.DescriptionView;
+import com.thunder.thundertweaks.views.recyclerview.GenericInputView;
 import com.thunder.thundertweaks.views.recyclerview.GenericSelectView2;
 import com.thunder.thundertweaks.views.recyclerview.RecyclerViewItem;
 import com.thunder.thundertweaks.views.recyclerview.SeekBarView;
@@ -162,6 +163,9 @@ public class CPUFragment extends RecyclerViewFragment {
         if (mCPUBoost.hasirqAffinity()) {
             irqAffinityInit(items);
         }
+		if (Misc.hasCPUSet()) {
+			cpusetInit(items);
+		}
         kernelTunablesInit(items);
     }
 
@@ -597,6 +601,32 @@ public class CPUFragment extends RecyclerViewFragment {
             items.add(cpuQuietCard);
 		}
     }
+
+	private void cpusetInit(List<RecyclerViewItem> items) {
+		CardView cpusetCard = new CardView(getActivity());
+		cpusetCard.setTitle(getString(R.string.cpuset));
+
+		for (int i = 0; i < Misc.size(); i++) {
+			if (Misc.exists(i)) {
+				GenericInputView cpuset = new GenericInputView();
+				cpuset.setTitle(Misc.getName(i));
+				cpuset.setValue(Misc.getValue(i));
+				cpuset.setValueRaw(cpuset.getValue());
+
+				final int position = i;
+				cpuset.setOnGenericValueListener((genericSelectView, value) -> {
+					mMisc.setValue(value, position, getActivity());
+					genericSelectView.setValue(value);
+				});
+				cpusetCard.addItem(cpuset);
+			}
+		}
+
+		if (cpusetCard.size() > 0) {
+			items.add(cpusetCard);
+		}
+
+	}
 
     private void cpuBoostInit(List<RecyclerViewItem> items) {
         CardView cpuBoostCard = new CardView(getActivity());

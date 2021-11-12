@@ -51,6 +51,9 @@ public class Misc {
     private static final String TCP_CONGESTIONS_CONTROL = "/proc/sys/net/ipv4/tcp_congestion_control";
     private static final String HOSTNAME_KEY = "net.hostname";
     private static final String WIREGUARD = "/sys/module/wireguard/version";
+    private static final String CPUSET = "/dev/cpuset";
+    private static final String[] PARAMETERS = {"abnormal/cpus", "background/cpus", "deoxp/cpus",
+            "foreground/cpus", "moderate/cpus", "restricted/cpus", "sf/cpus", "system-background/cpus", "top-app/cpus"};
 
     private final List<String> mLoggers = new ArrayList<>();
     private final List<String> mCrcs = new ArrayList<>();
@@ -262,6 +265,31 @@ public class Misc {
 
     public boolean hasLoggerEnable() {
         return LOGGER_FILE != null;
+    }
+
+    public void setValue(String value, int position, Context context) {
+        run(Control.write(value, CPUSET + "/" + PARAMETERS[position]), CPUSET + "/" +
+                PARAMETERS[position], context);
+    }
+
+    public static String getValue(int position) {
+        return Utils.readFile(CPUSET + "/" + PARAMETERS[position]);
+    }
+
+    public static String getName(int position) {
+        return Utils.upperCaseEachWord(PARAMETERS[position]).replace("/cpus", " CPU's");
+    }
+
+    public static boolean exists(int position) {
+        return Utils.existFile(CPUSET + "/" + PARAMETERS[position]);
+    }
+
+    public static int size() {
+        return PARAMETERS.length;
+    }
+
+    public static boolean hasCPUSet() {
+        return Utils.existFile(CPUSET);
     }
 
     private void run(String command, String id, Context context) {
