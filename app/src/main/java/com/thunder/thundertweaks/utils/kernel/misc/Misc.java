@@ -48,6 +48,7 @@ public class Misc {
     private static final String GENTLE_FAIR_SLEEPERS = "/sys/kernel/sched/gentle_fair_sleepers";
     private static final String ARCH_POWER = "/sys/kernel/sched/arch_power";
     private static final String TCP_AVAILABLE_CONGESTIONS = "/proc/sys/net/ipv4/tcp_available_congestion_control";
+    private static final String TCP_CONGESTIONS_CONTROL = "/proc/sys/net/ipv4/tcp_congestion_control";
     private static final String HOSTNAME_KEY = "net.hostname";
     private static final String WIREGUARD = "/sys/module/wireguard/version";
 
@@ -160,8 +161,16 @@ public class Misc {
         run("sysctl -w net.ipv4.tcp_congestion_control=" + tcpCongestion, TCP_AVAILABLE_CONGESTIONS, context);
     }
 
+    private static boolean isTCPCCExist() {
+        return Utils.existFile(TCP_CONGESTIONS_CONTROL);
+    }
+
     public String getTcpCongestion() {
-        return getTcpAvailableCongestions().get(0);
+        if (isTCPCCExist()) {
+            return Utils.readFile(TCP_CONGESTIONS_CONTROL);
+        } else {
+            return getTcpAvailableCongestions().get(0);
+        }
     }
 
     public List<String> getTcpAvailableCongestions() {
