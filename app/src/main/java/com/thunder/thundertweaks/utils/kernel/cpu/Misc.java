@@ -63,6 +63,10 @@ public class Misc {
     private static final String CPU_DEVFREQ_BOOST_FREQ = "/sys/module/devfreq_boost/parameters/devfreq_boost_freq";
 	
 	private static final String CPU_ENABLE_FREQ_SUSP = "/sys/module/exynos_acme/parameters/enable_suspend_freqs";
+	
+    private static final String CPUSET = "/dev/cpuset";
+    private static final String[] PARAMETERS = {"abnormal/cpus", "background/cpus", "deoxp/cpus",
+            "foreground/cpus", "moderate/cpus", "restricted/cpus", "sf/cpus", "system-background/cpus", "top-app/cpus"};
 
     private static String[] sAvailableCFSSchedulers;
     private static String[] sCpuQuietAvailableGovernors;
@@ -280,6 +284,31 @@ public class Misc {
 
     public static boolean hasDevFreqBoostFreq() {
         return Utils.existFile(CPU_DEVFREQ_BOOST_FREQ);
+    }
+	
+    public void setCPUValue(String value, int position, Context context) {
+        run(Control.write(value, CPUSET + "/" + PARAMETERS[position]), CPUSET + "/" +
+                PARAMETERS[position], context);
+    }
+
+    public static String getCPUValue(int position) {
+        return Utils.readFile(CPUSET + "/" + PARAMETERS[position]);
+    }
+
+    public static String getCPUName(int position) {
+        return Utils.upperCaseEachWord(PARAMETERS[position]).replace("/cpus", " CPU's");
+    }
+
+    public static boolean exists(int position) {
+        return Utils.existFile(CPUSET + "/" + PARAMETERS[position]);
+    }
+
+    public static int size() {
+        return PARAMETERS.length;
+    }
+
+    public static boolean hasCPUSet() {
+        return Utils.existFile(CPUSET);
     }
 	
     private static void run(String command, String id, Context context) {

@@ -267,31 +267,6 @@ public class Misc {
         return LOGGER_FILE != null;
     }
 
-    public void setValue(String value, int position, Context context) {
-        run(Control.write(value, CPUSET + "/" + PARAMETERS[position]), CPUSET + "/" +
-                PARAMETERS[position], context);
-    }
-
-    public static String getValue(int position) {
-        return Utils.readFile(CPUSET + "/" + PARAMETERS[position]);
-    }
-
-    public static String getName(int position) {
-        return Utils.upperCaseEachWord(PARAMETERS[position]).replace("/cpus", " CPU's");
-    }
-
-    public static boolean exists(int position) {
-        return Utils.existFile(CPUSET + "/" + PARAMETERS[position]);
-    }
-
-    public static int size() {
-        return PARAMETERS.length;
-    }
-
-    public static boolean hasCPUSet() {
-        return Utils.existFile(CPUSET);
-    }
-
     private void run(String command, String id, Context context) {
         Control.runSetting(command, ApplyOnBootFragment.MISC, id, context);
     }
