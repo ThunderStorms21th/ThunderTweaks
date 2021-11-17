@@ -306,16 +306,16 @@ public class MiscFragment extends RecyclerViewFragment {
         doze.setTitle(getString(R.string.doze));
 		
 		if (mMisc.hasDoze()) {
-				SwitchView dozes = new SwitchView();
+				SelectView dozes = new SelectView();
 				dozes.setTitle(getString(R.string.doze));
 				dozes.setSummary(getString(R.string.doze_summary));
-				dozes.setChecked(mMisc.isDozeEnabled());
-				dozes.addOnSwitchListener((switchView, isChecked)
-					-> mMisc.enableDoze(isChecked, getActivity()));
-			getHandler().postDelayed(() -> {
-			dozes.setChecked(mMisc.isDozeEnabled());
-			},
-			500);
+			    dozes.setItems(Misc.doze(requireActivity()));
+			    dozes.setItem(Misc.getDozeState());
+			    dozes.setOnItemSelected((selectView, position, item) -> {
+				    mMisc.setDoze(position, getActivity());
+				    getHandler().postDelayed(() -> doze.setItem(Misc.getDozeState()),
+						    500);
+			    });
 
             doze.addItem(dozes);
 		}

@@ -1194,7 +1194,9 @@
     <string name="pwm_summary">Reduces negative impact on eyesight</string>
     <string name="wireguard_title">WireGuard VPN</string>
     <string name="cpuset">CPU Sets</string>
-    <string name="doze">Doze Mode</string>
+    <string name="doze_deep">Deep Doze</string>
+    <string name="doze_light">Light Doze</string>
+    <string name="doze">Force Doze Mode</string>
     <string name="doze_summary">Enable doze mode to prevents certain tasks from running if your device is in idle state.</string>
 
     <!-- Data Sharing -->
