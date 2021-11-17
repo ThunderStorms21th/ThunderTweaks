@@ -55,6 +55,7 @@ public class MiscFragment extends RecyclerViewFragment {
     private Vibration mVibration;
     private Misc mMisc;
 
+
     @Override
     protected void init() {
         super.init();
@@ -97,6 +98,9 @@ public class MiscFragment extends RecyclerViewFragment {
         if (Pwm.supported()) {
             pwmInit(items);
         }
+		if (Misc.hasDoze()) {
+			dozeInit(items);
+		}
         networkInit(items);
         wakelockInit(items);
     }
@@ -296,6 +300,31 @@ public class MiscFragment extends RecyclerViewFragment {
 
         items.add(pwmCard);
     }
+
+    private void dozeInit(List<RecyclerViewItem> items) {
+        CardView doze = new CardView(getActivity());
+        doze.setTitle(getString(R.string.doze));
+		
+		if (mMisc.hasDoze()) {
+				SwitchView dozes = new SwitchView();
+				dozes.setTitle(getString(R.string.doze));
+				dozes.setSummary(getString(R.string.doze_summary));
+				dozes.setChecked(mMisc.isDozeEnabled());
+				dozes.addOnSwitchListener((switchView, isChecked)
+					-> mMisc.enableDoze(isChecked, getActivity()));
+			getHandler().postDelayed(() -> {
+			dozes.setChecked(mMisc.isDozeEnabled());
+			},
+			500);
+
+            doze.addItem(dozes);
+		}
+		
+        if (doze.size() > 0) {
+            items.add(doze);
+		}
+    }
+
     private void powersuspendInit(List<RecyclerViewItem> items) {
         String v = PowerSuspend.getVersion().replace("version: ", " v");
         CardView ps = new CardView(getActivity());

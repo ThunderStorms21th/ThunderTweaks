@@ -55,6 +55,8 @@ public class Misc {
     private static final String[] PARAMETERS = {"abnormal/cpus", "background/cpus", "deoxp/cpus",
             "foreground/cpus", "moderate/cpus", "restricted/cpus", "sf/cpus", "system-background/cpus", "top-app/cpus"};
 
+    private static final String DOZE = "dumpsys deviceidle";
+
     private final List<String> mLoggers = new ArrayList<>();
     private final List<String> mCrcs = new ArrayList<>();
     private final List<String> mFsyncs = new ArrayList<>();
@@ -142,6 +144,24 @@ public class Misc {
 
     public void setProp(String prop, boolean value, Context context){
         run(RESETPROP + prop + " " + (value ? 1 : 0), prop, context);
+    }
+
+    public static void enableDoze(boolean enable, Context context) {
+        if (enable) {
+            RootUtils.runCommand(DOZE + " enable");
+            RootUtils.runCommand(DOZE + " force-idle");
+        } else {
+            RootUtils.runCommand(DOZE + " disable");
+        }
+    }
+
+    public static boolean isDozeEnabled() {
+        return RootUtils.runCommand(DOZE + " enabled").equals("1");
+    }
+
+    public static boolean hasDoze() {
+        return RootUtils.runCommand(DOZE + " enabled").equals("1")
+	|| RootUtils.runCommand(DOZE + " enabled").equals("0");
     }
 
     public static boolean hasWireguard() {
