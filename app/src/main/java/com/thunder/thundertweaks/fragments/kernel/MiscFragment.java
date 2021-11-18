@@ -19,8 +19,10 @@
  */
 package com.thunder.thundertweaks.fragments.kernel;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.os.Vibrator;
+import android.text.InputType;
 
 import com.thunder.thundertweaks.R;
 import com.thunder.thundertweaks.fragments.ApplyOnBootFragment;
@@ -313,7 +315,7 @@ public class MiscFragment extends RecyclerViewFragment {
 			    dozes.setItem(Misc.getDozeState());
 			    dozes.setOnItemSelected((selectView, position, item) -> {
 				    mMisc.setDoze(position, getActivity());
-				    getHandler().postDelayed(() -> doze.setItem(Misc.getDozeState()),
+				    getHandler().postDelayed(() -> dozes.setItem(Misc.getDozeState()),
 						    500);
 			    });
 

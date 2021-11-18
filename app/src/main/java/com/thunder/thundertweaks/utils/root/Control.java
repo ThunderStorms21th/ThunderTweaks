@@ -140,4 +140,8 @@ public class Control {
         getInstance().run(command, category, id, context);
     }
 
+	public static String runCommand(String command) {
+        return command;
+    }
+
 }

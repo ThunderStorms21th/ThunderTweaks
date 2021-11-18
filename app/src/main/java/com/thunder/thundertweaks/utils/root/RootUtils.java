@@ -20,6 +20,7 @@
 package com.thunder.thundertweaks.utils.root;
 
 import android.os.Build;
+import androidx.annotation.NonNull;
 
 import com.thunder.thundertweaks.utils.Log;
 import com.thunder.thundertweaks.utils.Utils;
@@ -309,5 +310,4 @@ public class RootUtils {
             this.dummy1 = Integer.parseInt(dummy1);
         }
     }
-
 }

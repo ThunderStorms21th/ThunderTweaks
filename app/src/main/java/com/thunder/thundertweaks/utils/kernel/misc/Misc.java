@@ -20,6 +20,7 @@
 package com.thunder.thundertweaks.utils.kernel.misc;
 
 import android.content.Context;
+import com.thunder.thundertweaks.R;
 
 import com.thunder.thundertweaks.fragments.ApplyOnBootFragment;
 import com.thunder.thundertweaks.utils.Utils;
@@ -155,7 +156,7 @@ public class Misc {
     }
 
     public static int getDozeState() {
-        if (isDeepDozeEnabled()) {{
+        if (isDeepDozeEnabled()) {
             return 2;
         } else if (isLightDozeEnabled()) {
             return 1;
@@ -167,30 +168,30 @@ public class Misc {
     public void setDoze(int value, Context context) {
         switch (value) {
             case 0:
-                run(Control.runShellCommand(DOZE + " disable"), DOZE, context);
+                run(RootUtils.runCommand(DOZE + " disable"), DOZE, context);
                 break;
             case 1:
                 if (isDeepDozeEnabled()) {
-                    run(Control.runShellCommand(DOZE + " disable deep"), DOZE, context);
+                    run(RootUtils.runCommand(DOZE + " disable deep"), DOZE, context);
                 }
-                run(Control.runShellCommand(DOZE + " enable light"), DOZE, context);
+                run(RootUtils.runCommand(DOZE + " enable light"), DOZE, context);
                 break;
             case 2:
-                run(Control.runShellCommand(DOZE + " enable" + " && " + DOZE + " force-idle"), DOZE, context);
+                run(RootUtils.runCommand(DOZE + " enable" + " && " + DOZE + " force-idle"), DOZE, context);
                 break;
         }
     }
 
     private static boolean isLightDozeEnabled() {
-        return RootUtils.runAndGetOutput(DOZE + " enabled light").equals("1");
+        return RootUtils.runCommand(DOZE + " enabled light").equals("1");
     }
 
     private static boolean isDeepDozeEnabled() {
-        return RootUtils.runAndGetOutput(DOZE + " enabled deep").equals("1");
+        return RootUtils.runCommand(DOZE + " enabled deep").equals("1");
+	}
 
     public static boolean hasDoze() {
-        return RootUtils.runCommand(DOZE + " enabled").equals("1")
-	|| RootUtils.runCommand(DOZE + " enabled").equals("0");
+        return RootUtils.runCommand(DOZE + " enabled").equals("1") || RootUtils.runCommand(DOZE + " enabled").equals("0");
     }
 
     public static boolean hasWireguard() {
