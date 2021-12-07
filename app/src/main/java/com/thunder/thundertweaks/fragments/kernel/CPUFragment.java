@@ -164,6 +164,9 @@ public class CPUFragment extends RecyclerViewFragment {
         if (mCPUBoost.hasirqAffinity()) {
             irqAffinityInit(items);
         }
+        if (mCPUBoost.haswqeAffinity()) {
+            wqeAffinityInit(items);
+        }
 	/*	if (Misc.hasCPUSet()) {
 			cpusetInit(items);
 		}*/
@@ -1176,7 +1179,7 @@ public class CPUFragment extends RecyclerViewFragment {
         wqAffinityCard.setTitle("CPU affinity for write-back flush");
 
         GenericSelectView2 wqAffinity = new GenericSelectView2();
-        wqAffinity.setTitle("CPU Affinity");
+        wqAffinity.setTitle("CPU Affinity (0 - ff)");
         wqAffinity.setValue(mCPUBoost.getwqAffinity());
         wqAffinity.setValueRaw(wqAffinity.getValue());
         wqAffinity.setOnGenericValueListener((genericSelectView, value)
@@ -1191,7 +1194,7 @@ public class CPUFragment extends RecyclerViewFragment {
         irqAffinityCard.setTitle("CPU affinity for irq");
 
         GenericSelectView2 irqAffinity = new GenericSelectView2();
-        irqAffinity.setTitle("CPU Affinity");
+        irqAffinity.setTitle("CPU Affinity (0 - ff)");
         irqAffinity.setValue(mCPUBoost.getirqAffinity());
         irqAffinity.setValueRaw(irqAffinity.getValue());
         irqAffinity.setOnGenericValueListener((genericSelectView, value)
@@ -1199,6 +1202,21 @@ public class CPUFragment extends RecyclerViewFragment {
 
         irqAffinityCard.addItem(irqAffinity);
         items.add(irqAffinityCard);
+    }
+	
+    private void wqeAffinityInit(List<RecyclerViewItem> items) {
+        CardView wqeAffinityCard = new CardView(getActivity());
+        wqeAffinityCard.setTitle("CPU affinity for workqueue flush");
+
+        GenericSelectView2 wqeAffinity = new GenericSelectView2();
+        wqeAffinity.setTitle("CPU Affinity (0 - ff)");
+        wqeAffinity.setValue(mCPUBoost.getwqeAffinity());
+        wqeAffinity.setValueRaw(wqeAffinity.getValue());
+        wqeAffinity.setOnGenericValueListener((genericSelectView, value)
+                -> mCPUBoost.setwqeAffinity(value, getActivity()));
+
+        wqeAffinityCard.addItem(wqeAffinity);
+        items.add(wqeAffinityCard);
     }
 
     private float[] mCPUUsages;

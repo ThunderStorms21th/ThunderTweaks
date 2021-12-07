@@ -9,12 +9,6 @@ I've added some fixes and new stuff for better work with ThundeRStormS kernel : 
 ## Donation link of myself Nalas (Original creator of ThunderTweaks)
 [![PayPal](https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png)](https://paypal.me/pnalas)
 
-## Donation link for Corsicanu (Original creator of hKTweaks)
-[![PayPal](https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png)](https://paypal.me/corsicanu)
-
-## Donation link for Morogoku (Original creator of MTweaks)
-[![PayPal](https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png)](https://paypal.me/morogoku)
-
 
 ## Credits
 * Willi Ye, author of [KernelAdiutor](https://github.com/Grarak/KernelAdiutor)

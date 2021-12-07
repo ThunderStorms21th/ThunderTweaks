@@ -47,6 +47,7 @@ public class CPUBoost {
 	private static final String CPU_BOOST_EXYNOS8890 = "/sys/module/cpu_input_boost_8890/parameters";
     private static final String CPU_WQ_AFFINITY = "/sys/bus/workqueue/devices/writeback/cpumask";
     private static final String CPU_IRQ_AFFINITY = "/proc/irq/default_smp_affinity";
+    private static final String CPU_WQE_AFFINITY = "/sys/devices/virtual/workqueue/cpumask";
     private static final String CPU_IDLE_EXYNOS = "/sys/module/exynos_acme/parameters";
 
     private static final List<String> sEnable = new ArrayList<>();
@@ -327,6 +328,18 @@ public class CPUBoost {
         return Utils.existFile(CPU_IRQ_AFFINITY);
     }
 
+    public void setwqeAffinity(String value, Context context) {
+        run(Control.write(String.valueOf(value), CPU_WQE_AFFINITY), CPU_WQE_AFFINITY, context);
+    }
+
+    public String getwqeAffinity() {
+        return Utils.readFile(CPU_WQE_AFFINITY);
+    }
+
+    public boolean haswqeAffinity() {
+        return Utils.existFile(CPU_WQE_AFFINITY);
+    }
+
     public void enableCpuIdle(boolean enable, Context context) {
         run(Control.write(enable ? "Y" : "N", CPU_IDLE_EXYNOS_ENABLE), CPU_IDLE_EXYNOS_ENABLE, context);
     }
@@ -411,7 +424,7 @@ public class CPUBoost {
                 || hasCpuBoostInputFreq() || hasCpuBoostInputMs() || hasCpuBoostHotplug() || hasCpuBoostWakeup()
                 || hasCpuBoostExynosInputFreq() || hasCpuBoostExynosInputMs() || hasCpuBoostInput()
 				|| hasCpuBoostDurationMs() || hasCpuBoostFreqHp() || hasCpuBoostFreqLp() || hasCpuBoostMaxLp()
-				|| hasCpuBoostMaxPerf() || haswqAffinity() || hasirqAffinity() || hasCpuIdle();
+				|| hasCpuBoostMaxPerf() || haswqAffinity() || hasirqAffinity() || haswqeAffinity() || hasCpuIdle();
     }
 
     private static void run(String command, String id, Context context) {
