@@ -260,6 +260,36 @@ public class BatteryFragment extends RecyclerViewFragment {
             items.add(storeCard2);
         }
 
+        CardView limitCard = new CardView(getActivity());
+        limitCard.setTitle(getString(R.string.store_mode));
+        limitCard.setFullSpan(true);
+
+        if (mBattery.hasLimitCapacity()){
+            SeekBarView limitMax = new SeekBarView();
+            limitMax.setTitle(getString(R.string.limitCapacity));
+            limitMax.setSummary(getString(R.string.store_mode_min_summary));
+            limitMax.setMax(100);
+            limitMax.setMin(0);
+            limitMax.setUnit(getString(R.string.percent));
+            limitMax.setProgress(Utils.strToInt(mBattery.getLimitCapacity()));
+            limitMax.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+                @Override
+                public void onStop(SeekBarView seekBarView, int position, String value) {
+                    mBattery.setLimitCapacity(position, getActivity());
+                }
+
+                @Override
+                public void onMove(SeekBarView seekBarView, int position, String value) {
+                }
+            });
+
+            limitCard.addItem(limitMax);
+        }
+
+        if (limitCard.size() > 0) {
+            items.add(limitCard);
+        }
+
         CardView hvPower = new CardView(getActivity());
         hvPower.setTitle(getString(R.string.hv_power_supply));
         hvPower.setFullSpan(true);

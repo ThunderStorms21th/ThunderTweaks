@@ -930,6 +930,7 @@
     <string name="cs_pdic">Pdic Charging</string>
     <string name="cs_qc20">QC20 Rapid Charge</string>
     <string name="cs_qc30">QC30 Rapid Charge</string>
+    <string name="limitCapacity">Limit Battery Capacity While Charging</string>
 
     <!-- SPECTRUM -->
     <string name="spectrum">Spectrum</string>
@@ -1486,4 +1487,3 @@
     <string name="marginVoltage_SCORE_percent">Score Voltage Margin Percent</string>
     <string name="power_nav">Power</string>
     <string name="marginVoltage_Summary">Change Voltage with Percent of Stock Voltage</string>
-</resources>

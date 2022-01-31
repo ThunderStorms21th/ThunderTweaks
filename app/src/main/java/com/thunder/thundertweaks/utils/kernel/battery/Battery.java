@@ -111,6 +111,7 @@ public class Battery {
 	private static String STORE_MODE2 = "/sys/devices/platform/battery/power_supply/battery/store_mode";
     private static String STORE_MODE_MAX = "/sys/module/sec_battery/parameters/store_mode_max";
     private static String STORE_MODE_MIN = "/sys/module/sec_battery/parameters/store_mode_min";
+    private static String LIMIT_CAPACITY = "/sys/class/power_supply/battery/batt_full_capacity";
 
     private int mCapacity;
     private Battery(Context context) {
@@ -278,6 +279,18 @@ public class Battery {
 
     public void setStoreModeMin(int value, Context context){
         run(Control.write(String.valueOf(value), STORE_MODE_MIN), STORE_MODE_MIN, context);
+    }
+
+    public boolean hasLimitCapacity(){
+        return Utils.existFile(LIMIT_CAPACITY);
+    }
+
+    public String getLimitCapacity(){
+        return Utils.readFile(LIMIT_CAPACITY);
+    }
+
+    public void setLimitCapacity(int value, Context context){
+        run(Control.write(String.valueOf(value), LIMIT_CAPACITY), LIMIT_CAPACITY, context);
     }
 
     public void setChargingCurrent(int value, Context context) {
