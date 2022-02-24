@@ -10,7 +10,7 @@
     <string name="open">Open %s</string>
     <string name="disable">Disable</string>
     <string name="changelog">ThunderTweaks v%s</string>
-    <string name="changelog_message">\n* Support Battery Limiting Feature\n</string>
+    <string name="changelog_message">\n* Support Game Misc Control\n</string>
     <string name="close">Close</string>
 
     <!-- Security -->
@@ -76,6 +76,7 @@
     <string name="percent">%</string>
     <string name="gb">GB</string>
     <string name="db">dB</string>
+    <string name="second">sec</string>
 
     <!-- Special signs -->
     <string name="minus" translatable="false">-</string>
@@ -1414,12 +1415,12 @@
     <!--<string name="about_me">Hi, I\'m Willi Ye aka Grarak, a 19 year old student living in Vienna. I\'ve been developing on Android for quite a long time. Beside thunderstorm.ThunderTweaks I\'m also maintaining LineageOS for few devices and working on ParanoidAndroid. So please understand if I don\'t find the time to update this application.</string>-->
     <!--<string name="about_me">Hi, I\'m MoroGoku, developer of MoRoKernel of Samsung S7. This app is a mod of \"thunderstorm.ThunderTweaks\" of Willi Ye, aka Grarak. I make this mod for compatibilize thunderstorm.ThunderTweaks with Galaxy S7 smartphone, and add some new options. Thanks Willi for this great app.</string>-->
     <!--<string name="about_me">Hi, I\'m Corsicanu, developer of hadesKernel.\nThis app is a mod of \"MTweaks\" by MoroGoku, properly adaptated to exynos7870/7880/7884/7885/7904 devices (maybe even more).\n\nThanks Willi for this great app, special thanks to MoroGoku for his awesome MTweaks app.</string>-->
-    <string name="about_me">Hi, I\'m @nalas XDA, developer of ThundeRStormS Kernel.\nThis app is a mod of \"hKtweaks"\ by corsicanu and \"MTweaks\" by MoroGoku, properly adaptated to exynos7870/7880/7884/7885/7904/8890/8895/9810/9820 devices (maybe even more).\n\nThanks Willi for this great app, special thanks to MoroGoku and corsicanu for their awesome hkTweaks and MTweaks apps. Thanks for Rohan D. and graphics projects for XDA@Franz S. and XDA@phghost, @nckmml, XDA@VHFG22, @Game Over, XDA@matt_988 and XDA@Kyo-Ito</string>
+    <string name="about_me">Hi, I\'m @nalas XDA, developer of ThundeRStormS Kernel.\nThis app is a mod of \"hKtweaks"\ by corsicanu and \"MTweaks\" by MoroGoku, properly adaptated to exynos7870/7880/7884/7885/7904/8890/8895/9810/9820/9830/2100 devices (maybe even more).\n\nThanks Willi for this great app, special thanks to MoroGoku and corsicanu for their awesome hkTweaks and MTweaks apps. Thanks for Rohan D. and graphics projects for XDA@Franz S. and XDA@phghost, @nckmml, XDA@VHFG22, @Game Over, XDA@matt_988 and XDA@Kyo-Ito</string>
     <string name="libraries_used">Libraries used</string>
 
     <!-- Donation -->
     <string name="donation_title">Donation</string>
-    <string name="donation_summary_mg">Hi, ThunderTweaks is an application based on \"Kernel Adiutor\" by Willi Ye, aka Grarak.\n\nIt has several new modifications and adjustments, especially for the latest Samsung Galaxy S7.\n\nI do this because I have fun and I like to share my work, that\'s why it\'s free and does not carry advertising.\n\nAlthough if you liked the work I have done and you want to donate something and invite me to a beer, as they say, you can do it in the following Paypal link.</string>
+    <string name="donation_summary_mg">Hi, ThunderTweaks is an application based on \"Kernel Adiutor\" by Willi Ye, aka Grarak.\n\nIt has several new modifications and adjustments, especially for the latest Samsung Galaxy S7-S21 and N7-N21.\n\nI do this because I have fun and I like to share my work, that\'s why it\'s free and does not carry advertising.\n\nAlthough if you liked the work I have done and you want to donate something and invite me to a beer, as they say, you can do it in the following Paypal link.</string>
     <string name="donation_summary">ThunderTweaks is an app based on \"hKtweaks"\ by corsicanu and \"MTweaks\" by MoroGoku, properly adaptated to exynos7870/7880/7884/7885/7904/8890/8895/9810/9820 devices (maybe even more).\nIf you appreciate my work and you want to donate to support my work and provide me more coffee, you can do it on the following Paypal link.</string>
 
     <!-- Contributors -->
@@ -1487,3 +1488,29 @@
     <string name="marginVoltage_SCORE_percent">Score Voltage Margin Percent</string>
     <string name="power_nav">Power</string>
     <string name="marginVoltage_Summary">Change Voltage with Percent of Stock Voltage</string>
+	
+    <!-- GAME -->
+    <string name="gmcControl">Game Control</string>
+    <string name="gmcControl_Summary">Change freqs while playing selected games</string>
+    <string name="gmc_nav">Game</string>
+    <string name="gmcControl_is_game">Game Misc Control mode ON</string>
+    <string name="gmcControl_is_game_desc">Game Misc Control mode on/off. Turn on/off game mode.</string>
+    <string name="gmcControl_run">Always ON</string>
+    <string name="gmcControl_run_desc">Game Control will be enabled all the time</string>
+    <string name="gmcControl_bindcpu">Bind CPU ON/OFF</string>
+    <string name="gmcControl_bindcpu_desc">Game Control will be enabled to bind CPUs with Game Misc Control</string>
+    <string name="gmcControl_MIF_min">Minimum MIF freq while playing game</string>
+    <string name="gmcControl_MIF_max">Maximum MIF freq while playing game</string>
+    <string name="gmcControl_BIG_max">Maximum BIG Cpu freq while playing game</string>
+    <string name="gmcControl_BIG_min">Minimum BIG Cpu freq while playing game</string>
+    <string name="gmcControl_MIDDLE_max">Maximum MIDDLE Cpu freq while playing game</string>
+    <string name="gmcControl_MIDDLE_min">Minimum MIDDLE Cpu freq while playing game</string>
+    <string name="gmcControl_MIDDLE_sse">SSE MIDDLE Cpu freq while playing game</string>
+    <string name="gmcControl_LITTLE_max">Maximum LITTLE Cpu freq while playing game</string>
+    <string name="gmcControl_LITTLE_min">Minimum LITTLE Cpu freq while playing game</string>
+    <string name="gmcControl_GPU_max">Maximum GPU freq while playing game</string>
+    <string name="gmcControl_GPU_lite">Lite GPU freq while playing game</string>
+    <string name="gmcControl_GPU_min">Minimum GPU freq while playing game</string>
+    <string name="gmcControl_maxlock_delay">Minimim time for lock freqs for CPUs, GPU and MIF</string>
+    <string name="gmcControl_maxlock_delay_summary">Minimim time for lock freqs while playing game in sec</string>
+</resources>

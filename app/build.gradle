@@ -2,13 +2,12 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 30
-    buildToolsVersion '30.0.0'
     defaultConfig {
         applicationId 'com.thunder.thundertweaks'
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode 1105
-        versionName "1.1.0.5"
+        versionCode 1110
+        versionName "1.1.1.0"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -18,14 +17,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    lintOptions {
-        abortOnError false
-    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
     productFlavors {
+    }
+    lint {
+        abortOnError false
     }
     android.applicationVariants.all { final variant ->
         variant.outputs.all {

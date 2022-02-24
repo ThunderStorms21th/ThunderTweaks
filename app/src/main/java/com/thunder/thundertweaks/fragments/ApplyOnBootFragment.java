@@ -44,6 +44,7 @@ import com.thunder.thundertweaks.fragments.kernel.EntropyFragment;
 import com.thunder.thundertweaks.fragments.kernel.GPUFragment;
 // import com.thunder.thundertweaks.fragments.kernel.SpectrumFragment;
 import com.thunder.thundertweaks.fragments.kernel.DvfsFragment;
+import com.thunder.thundertweaks.fragments.kernel.GmcFragment;
 import com.thunder.thundertweaks.fragments.kernel.HmpFragment;
 import com.thunder.thundertweaks.fragments.kernel.IOFragment;
 import com.thunder.thundertweaks.fragments.kernel.KSMFragment;
@@ -83,6 +84,7 @@ public class ApplyOnBootFragment extends BaseFragment {
     public static final String GPU = "gpu_onboot";
     // public static final String SPECTRUM = "spectrum_onboot";
     public static final String DVFS = "dvfs_onboot";
+    public static final String GMC = "gmc_onboot";
     public static final String SCREEN = "screen_onboot";
     public static final String WAKE = "wake_onboot";
     public static final String SOUND = "sound_onboot";
@@ -114,6 +116,7 @@ public class ApplyOnBootFragment extends BaseFragment {
         sAssignments.put(GPUFragment.class, GPU);
     //  sAssignments.put(SpectrumFragment.class, SPECTRUM);
         sAssignments.put(DvfsFragment.class, DVFS);
+        sAssignments.put(GmcFragment.class, GMC);
         sAssignments.put(ScreenFragment.class, SCREEN);
         sAssignments.put(WakeFragment.class, WAKE);
         sAssignments.put(SoundFragment.class, SOUND);
