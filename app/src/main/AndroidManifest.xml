@@ -37,7 +37,8 @@
         android:requestLegacyExternalStorage="true"
         tools:targetApi="q">
 
-        <activity android:name="com.thunder.thundertweaks.activities.StartActivity">
+        <activity android:name="com.thunder.thundertweaks.activities.StartActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,7 +53,8 @@
         <activity
             android:name="com.thunder.thundertweaks.activities.StartActivityMaterial"
             android:enabled="false"
-            android:icon="@mipmap/ic_launcher_material">
+            android:icon="@mipmap/ic_launcher_material"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -99,7 +101,8 @@
         <receiver android:name="com.thunder.thundertweaks.services.monitor.Monitor$DisableReceiver" />
 
         <!-- Profile Widget -->
-        <receiver android:name="com.thunder.thundertweaks.services.profile.Widget">
+        <receiver android:name="com.thunder.thundertweaks.services.profile.Widget"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -114,7 +117,8 @@
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <!-- CM SDK -->
-        <receiver android:name="com.thunder.thundertweaks.services.profile.Tile">
+        <receiver android:name="com.thunder.thundertweaks.services.profile.Tile"
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.hades.thunderTweaks.action.ACTION_TOGGLE_STATE" />
             </intent-filter>
@@ -124,7 +128,8 @@
         <service
             android:name="com.thunder.thundertweaks.services.DashClock"
             android:icon="@drawable/ic_launcher_preview"
-            android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA">
+            android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA"
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.apps.dashclock.Extension" />
             </intent-filter>
@@ -135,13 +140,15 @@
         </service>
 
         <!-- Tasker -->
-        <activity android:name="com.thunder.thundertweaks.activities.tools.profile.ProfileTaskerActivity">
+        <activity android:name="com.thunder.thundertweaks.activities.tools.profile.ProfileTaskerActivity"
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.thunder.thundertweaks.services.profile.Tasker">
+        <receiver android:name="com.thunder.thundertweaks.services.profile.Tasker"
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.twofortyfouram.locale.intent.action.FIRE_SETTING" />
             </intent-filter>
@@ -153,7 +160,8 @@
             android:enabled="true"
             android:icon="@drawable/ic_spectrum_tile_logo"
             android:label="@string/profileTile"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
