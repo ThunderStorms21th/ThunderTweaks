@@ -65,10 +65,39 @@ public class Temperature {
     private int GPU_OFFSET;
 
     private static String EXYNOS_CPU_NODE;
+    private static String SD_CPU_NODE;
     private static String EXYNOS_GPU_NODE;
+    private static String SD_GPU_NODE;
     private static int EXYNOS_CPU_OFFSET;
+    private static int SD_CPU_OFFSET;
     private static int EXYNOS_GPU_OFFSET;
+    private static int SD_GPU_OFFSET;
     private static boolean isExynos = false;
+    private static boolean isSnappy = false;
+    private static void getSnappyNodes() {
+        for (String node : new String[] {
+                // Add on this list needed values for temp zones.
+                "/sys/class/thermal/thermal_zone"}
+        ) {
+            for (int i = 0; i < 65; i++) {
+                if (Utils.existFile(node + i)) {
+                    try {
+                        String type = "/type";
+                        if (Utils.readFile(node + i + type).contains("gpuss-0-usr")) {
+                            SD_GPU_NODE = node + i + "/temp";
+                            SD_GPU_OFFSET = (int) Math.pow(10, (double) (Utils.readFile(SD_GPU_NODE).length() - (Utils.readFile(SD_GPU_NODE).length() - 3)));
+                        } else if (Utils.readFile(node + i + type).contains("cpu-0-0-usr")) {
+                            SD_CPU_NODE = node + i + "/temp";
+                            SD_CPU_OFFSET = (int) Math.pow(10, (double) (Utils.readFile(SD_CPU_NODE).length() - (Utils.readFile(SD_CPU_NODE).length() - 3)));
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        break;
+                    }
+                }
+            }
+        }
+    }
     private static void getExyNodes() {
         for (String node : new String[] {
                 // Add on this list needed values for temp zones.
@@ -118,6 +147,10 @@ public class Temperature {
             GPU_NODE = EXYNOS_GPU_NODE;
             GPU_OFFSET = EXYNOS_GPU_OFFSET;
             return true;
+        } else if ((isSnappy) && SD_GPU_NODE != null) {
+            GPU_NODE = SD_GPU_NODE;
+            GPU_OFFSET = SD_GPU_OFFSET;
+            return true;
         } else if (TEMP_JSON != null && TEMP_JSON.getGPU() != null) {
             GPU_NODE = TEMP_JSON.getGPU();
             if (Utils.existFile(GPU_NODE)) {
@@ -148,6 +181,10 @@ public class Temperature {
         if ((isExynos) && EXYNOS_CPU_NODE != null) {
             CPU_NODE = EXYNOS_CPU_NODE;
             CPU_OFFSET = EXYNOS_CPU_OFFSET;
+            return true;
+        } else if ((isSnappy) && SD_CPU_NODE != null) {
+            CPU_NODE = SD_CPU_NODE;
+            CPU_OFFSET = SD_CPU_OFFSET;
             return true;
         } else if (TEMP_JSON != null && TEMP_JSON.getCPU() != null) {
             CPU_NODE = TEMP_JSON.getCPU();
@@ -192,9 +229,15 @@ public class Temperature {
             try {
                 JSONArray tempArray = new JSONArray(Utils.readAssetFile(context, "temp.json"));
                 String board = Build.BOARD.toLowerCase();
-                if (board.contains("exynos") || board.contains("universal")){
+                if (Build.BOARD.toLowerCase().contains("exynos") || Build.BOARD.toLowerCase().contains("universal")){
                     isExynos = true;
+                    isSnappy = false;
                     getExyNodes();
+                }
+                if (Build.HARDWARE.toLowerCase().contains("qcom")){
+                    isExynos = false;
+                    isSnappy = true;
+                    getSnappyNodes();
                 }
                 for (int i = 0; i < tempArray.length(); i++) {
                     JSONObject device = tempArray.getJSONObject(i);
