@@ -117,11 +117,20 @@ public class ApplyOnBoot {
         final boolean toast = AppSettings.isApplyOnBootToast(service);
         final boolean script = AppSettings.isApplyOnBootScript(service);
 
+        int cancelIntentFlags, contentIntentFlags;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+            cancelIntentFlags = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE;
+            contentIntentFlags = PendingIntent.FLAG_IMMUTABLE;
+        } else {
+            cancelIntentFlags = PendingIntent.FLAG_UPDATE_CURRENT;
+            contentIntentFlags = 0;
+        }
+
         PendingIntent cancelIntent = PendingIntent.getBroadcast(service, 1,
-                new Intent(service, CancelReceiver.class), PendingIntent.FLAG_UPDATE_CURRENT);
+                new Intent(service, CancelReceiver.class), cancelIntentFlags);
 
         Intent launchIntent = new Intent(service, MainActivity.class);
-        PendingIntent contentIntent = PendingIntent.getActivity(service, 0, launchIntent, 0);
+        PendingIntent contentIntent = PendingIntent.getActivity(service, 0, launchIntent, contentIntentFlags);
 
         final NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(service, ApplyOnBootService.CHANNEL_ID);

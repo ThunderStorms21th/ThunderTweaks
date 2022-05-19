@@ -199,9 +199,19 @@ public class Monitor extends Service {
                     getString(R.string.data_sharing), NotificationManager.IMPORTANCE_LOW);
             notificationManager.createNotificationChannel(notificationChannel);
 
+            int disableIntentFlags, contentIntentFlags;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+                disableIntentFlags = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE;
+                contentIntentFlags = PendingIntent.FLAG_IMMUTABLE;
+            } else {
+                disableIntentFlags = PendingIntent.FLAG_UPDATE_CURRENT;
+                contentIntentFlags = 0;
+            }
+
             PendingIntent disableIntent = PendingIntent.getBroadcast(this, 1,
                     new Intent(this, DisableReceiver.class),
-                    PendingIntent.FLAG_UPDATE_CURRENT);
+                    disableIntentFlags);
+
 
             Intent launchIntent = new Intent(this, MainActivity.class);
             launchIntent.setAction(Intent.ACTION_VIEW);
@@ -209,7 +219,7 @@ public class Monitor extends Service {
                     DataSharingFragment.class.getCanonicalName());
             launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
-                    launchIntent, 0);
+                    launchIntent, contentIntentFlags);
 
             /*
             Notification.Builder builder =

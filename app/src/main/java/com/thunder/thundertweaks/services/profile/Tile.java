@@ -90,6 +90,13 @@ public class Tile extends BroadcastReceiver {
         Intent intent = new Intent();
         intent.setAction(ACTION_TOGGLE_STATE);
 
+        int pendingIntentFlags;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+            pendingIntentFlags = PendingIntent.FLAG_IMMUTABLE;
+        } else {
+            pendingIntentFlags = 0;
+        }
+
         ArrayList<CustomTile.ExpandedListItem> expandedListItems = new ArrayList<>();
         for (int i = 0; i < profiles.size(); i++) {
             CustomTile.ExpandedListItem expandedListItem = new CustomTile.ExpandedListItem();
@@ -102,7 +109,7 @@ public class Tile extends BroadcastReceiver {
             }
             intent.putExtra(NAME, profiles.get(i).getName());
             intent.putExtra(COMMANDS, commands.toArray(new String[commands.size()]));
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(context, i, intent, 0);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(context, i, intent, pendingIntentFlags);
 
             expandedListItem.setExpandedListItemOnClickIntent(pendingIntent);
             expandedListItems.add(expandedListItem);

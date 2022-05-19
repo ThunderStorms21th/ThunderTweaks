@@ -74,8 +74,14 @@ class UtilsDisplay {
     }
 
     static void showUpdateAvailableNotification(Context context, String title, String content, UpdateFrom updateFrom, URL apk, int smallIconResourceId) {
-        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, context.getPackageManager().getLaunchIntentForPackage(UtilsLibrary.getAppPackageName(context)), PendingIntent.FLAG_CANCEL_CURRENT);
-        PendingIntent pendingIntentUpdate = PendingIntent.getActivity(context, 0, UtilsLibrary.intentToUpdate(context, updateFrom, apk), PendingIntent.FLAG_CANCEL_CURRENT);
+        int pendingIntentFlags;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+            pendingIntentFlags = PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE;
+        } else {
+            pendingIntentFlags = PendingIntent.FLAG_UPDATE_CURRENT;
+        }
+        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, context.getPackageManager().getLaunchIntentForPackage(UtilsLibrary.getAppPackageName(context)), pendingIntentFlags);
+        PendingIntent pendingIntentUpdate = PendingIntent.getActivity(context, 0, UtilsLibrary.intentToUpdate(context, updateFrom, apk), pendingIntentFlags);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
                 .setContentIntent(contentIntent)
@@ -93,7 +99,13 @@ class UtilsDisplay {
     }
 
     static void showUpdateNotAvailableNotification(Context context, String title, String content, int smallIconResourceId) {
-        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, context.getPackageManager().getLaunchIntentForPackage(UtilsLibrary.getAppPackageName(context)), PendingIntent.FLAG_CANCEL_CURRENT);
+        int pendingIntentFlags;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+            pendingIntentFlags = PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE;
+        } else {
+            pendingIntentFlags = PendingIntent.FLAG_CANCEL_CURRENT;
+        }
+        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, context.getPackageManager().getLaunchIntentForPackage(UtilsLibrary.getAppPackageName(context)), pendingIntentFlags);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
                 .setContentIntent(contentIntent)
