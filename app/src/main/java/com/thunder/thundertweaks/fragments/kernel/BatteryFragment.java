@@ -289,6 +289,25 @@ public class BatteryFragment extends RecyclerViewFragment {
         if (limitCard.size() > 0) {
             items.add(limitCard);
         }
+        
+        CardView ChargeByPass = new CardView(getActivity());
+        ChargeByPass.setTitle(getString(R.string.usb_charge_bypass));
+        ChargeByPass.setFullSpan(true);
+
+        if (mBattery.hasChargeByPassEnable()) {
+        SwitchView enable = new SwitchView();
+        enable.setTitle(getString(R.string.usb_charge_bypass));
+        enable.setSummary(getString(R.string.usb_charge_bypass_summary));
+        enable.setChecked(mBattery.isChargeByPassEnabled());
+        enable.addOnSwitchListener((switchView, isChecked)
+				-> mBattery.enableChargeByPass(isChecked, getActivity()));
+
+        ChargeByPass.addItem(enable);	
+		}
+		
+        if (ChargeByPass.size() > 0) {
+            items.add(ChargeByPass);
+        }
 
         CardView hvPower = new CardView(getActivity());
         hvPower.setTitle(getString(R.string.hv_power_supply));
@@ -779,7 +798,7 @@ public class BatteryFragment extends RecyclerViewFragment {
 
         items.add(mCharSource);
     }
-
+    
     private void forceFastChargeInit(List<RecyclerViewItem> items) {
         SwitchView forceFastCharge = new SwitchView();
         forceFastCharge.setTitle(getString(R.string.usb_fast_charge));

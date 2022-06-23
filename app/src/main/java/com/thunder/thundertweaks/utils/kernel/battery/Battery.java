@@ -106,6 +106,7 @@ public class Battery {
     private static String BLX = "/sys/devices/virtual/misc/batterylifeextender/charging_limit";
     private static String CHARGE_RATE = "/sys/kernel/thundercharge_control";
     private static String CHARGE_RATE_ENABLE = CHARGE_RATE + "/enabled";
+    private static final String CHARGE_BYPASS = "/sys/class/power_supply/battery/battery_charging_enabled";
     private static String CUSTOM_CURRENT = CHARGE_RATE + "/custom_current";
     private static String STORE_MODE = "/sys/devices/battery/power_supply/battery/store_mode";
 	private static String STORE_MODE2 = "/sys/devices/platform/battery/power_supply/battery/store_mode";
@@ -315,6 +316,18 @@ public class Battery {
 
     public boolean hasChargeRateEnable() {
         return Utils.existFile(CHARGE_RATE_ENABLE);
+    }
+
+    public void enableChargeByPass(boolean enable, Context context) {
+        run(Control.write(enable ? "0" : "1", CHARGE_BYPASS), CHARGE_BYPASS, context);
+    }
+
+    public boolean isChargeByPassEnabled() {
+        return Utils.readFile(CHARGE_BYPASS).equals("0");
+    }
+
+    public boolean hasChargeByPassEnable() {
+        return Utils.existFile(CHARGE_BYPASS);
     }
 
     public void setBlx(int value, Context context) {
