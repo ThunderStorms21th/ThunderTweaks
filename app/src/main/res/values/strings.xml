@@ -10,7 +10,7 @@
     <string name="open">Open %s</string>
     <string name="disable">Disable</string>
     <string name="changelog">ThunderTweaks v%s</string>
-    <string name="changelog_message">\n* Support Game Misc Control\n</string>
+    <string name="changelog_message">\n* Added support for bypass charging\n</string>
     <string name="close">Close</string>
 
     <!-- Security -->
@@ -862,6 +862,8 @@
     <string name="enable_unstable_charge_summary">If disabled, the charger chip will ignore unstable currents. Use at risk of your charger or charging ports. Unstable power detection will reduce the input current until a stable voltage from the power source is achieved.</string>
     <string name="usb_fast_charge_summary">Device will charge faster when connected with USB. Replug your charger when changing this option.</string>
 	<string name="adaptive_fast_charge_summary">Device will charge faster when this option is enabled. Replug your charger when changing this option.</string>
+    <string name="usb_charge_bypass">Bypass Charging</string>
+    <string name="usb_charge_bypass_summary">Use power directly from charger without charging/discharging the battery.</string>
     <string name="blx">Battery Life eXtender</string>
     <string name="blx_summary">Set a limit for the capacity to which the battery will be charged by passing a value between 0 and 100.</string>
     <string name="charge_rate">Charge Rate</string>
@@ -1121,6 +1123,7 @@
     <string name="zram_comp_algorithm_summary">First disable ZRAM to be able to adjust this setting.</string>
     <string name="zram_lzo">lzo</string>
     <string name="zram_lz4">lz4</string>
+    <string name="zram_lzo_rle">lzo-rle</string>
     <string name="zram_deflate">deflate</string>
     <string name="zram_none">Unknown compression algorithm or zram not supported!</string>
 	<string name="zram_dialog">If the swap is very full it will take several minutes to empty and disable and it will block the app, for this reason the application will be closed.\n\nDo you want to disable the Swap and close the app?</string>
