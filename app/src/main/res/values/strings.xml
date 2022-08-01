@@ -10,7 +10,7 @@
     <string name="open">Open %s</string>
     <string name="disable">Disable</string>
     <string name="changelog">ThunderTweaks v%s</string>
-    <string name="changelog_message">\n* Added support for bypass charging\n</string>
+    <string name="changelog_message">\n* Added some improvements\n \n* Added Snapdragon and S22 support\n</string>
     <string name="close">Close</string>
 
     <!-- Security -->
