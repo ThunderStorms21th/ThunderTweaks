@@ -26,6 +26,8 @@ import android.content.Intent;
 
 import com.thunder.thundertweaks.utils.Log;
 
+import android.os.Build;
+import com.thunder.thundertweaks.BuildConfig;
 import com.thunder.thundertweaks.R;
 import com.thunder.thundertweaks.database.tools.profiles.Profiles;
 import com.thunder.thundertweaks.services.boot.ApplyOnBoot;
@@ -91,7 +93,7 @@ public class Tile extends BroadcastReceiver {
         intent.setAction(ACTION_TOGGLE_STATE);
 
         int pendingIntentFlags;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             pendingIntentFlags = PendingIntent.FLAG_IMMUTABLE;
         } else {
             pendingIntentFlags = 0;

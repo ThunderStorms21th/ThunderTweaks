@@ -200,7 +200,7 @@ public class Monitor extends Service {
             notificationManager.createNotificationChannel(notificationChannel);
 
             int disableIntentFlags, contentIntentFlags;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 disableIntentFlags = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE;
                 contentIntentFlags = PendingIntent.FLAG_IMMUTABLE;
             } else {

@@ -1460,6 +1460,7 @@
     <string name="appupdater_download_filed">Download FAILED!</string>
     <string name="appupdater_downloading_file">Downloading</string>
     <string name="appupdater_json">https://raw.githubusercontent.com/corsicanu/thunderTweaks/master/app/update.json</string>
+	<string name="battery_health">Battery Health</string>
     <string name="mdnie">Force screen to use all colors at max</string>
     <string name="mif">MIF</string>
     <string name="busInt">INT</string>

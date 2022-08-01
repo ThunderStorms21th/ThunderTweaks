@@ -29,6 +29,7 @@ import android.os.Build;
 import android.os.Handler;
 import androidx.core.app.NotificationCompat;
 
+import com.thunder.thundertweaks.BuildConfig;
 import com.thunder.thundertweaks.R;
 import com.thunder.thundertweaks.activities.MainActivity;
 import com.thunder.thundertweaks.database.Settings;
@@ -118,7 +119,7 @@ public class ApplyOnBoot {
         final boolean script = AppSettings.isApplyOnBootScript(service);
 
         int cancelIntentFlags, contentIntentFlags;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             cancelIntentFlags = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE;
             contentIntentFlags = PendingIntent.FLAG_IMMUTABLE;
         } else {

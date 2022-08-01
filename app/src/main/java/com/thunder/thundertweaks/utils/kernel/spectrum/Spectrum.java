@@ -29,8 +29,6 @@ import org.json.JSONObject;
 
 public class Spectrum {
 
-//    public static String getProfile(){
-//        return RootUtils.runCommand("getprop persist.spectrum.profile");
 // added fix for some spectrum load - thx to sunilpaulmathew
     static boolean spectrumVendor = RootUtils.getProp("vendor.spectrum.support").equals("1");
 
@@ -47,7 +45,7 @@ public class Spectrum {
 
     // Method that interprets a profile and sets it
     public static void setProfile(int profile) {
-        int numProfiles = 11;
+        int numProfiles = 3;
         if (profile > numProfiles || profile < 0) {
             setProp(0);
         } else {
@@ -56,12 +54,10 @@ public class Spectrum {
     }
 
     // Method that sets system property
-    // private static void setProp(final int profile) {
 	public static void setProp(final int profile) {
         new AsyncTask<Object, Object, Void>() {
             @Override
             protected Void doInBackground(Object... params) {
- //               RootUtils.runCommand("setprop persist.spectrum.profile " + profile);
  // added fix for some spectrum load - thx to sunilpaulmathew
 		if (spectrumVendor) {
 		    RootUtils.runCommand("setprop persist.vendor.spectrum.profile " + profile);
@@ -76,7 +72,6 @@ public class Spectrum {
     }
 
     public static boolean supported() {
-//        return RootUtils.getProp("spectrum.support").equals("1");
 // added fix for some spectrum load
         return RootUtils.getProp("spectrum.support").equals("1")
 		|| RootUtils.getProp("vendor.spectrum.support").equals("1"); 

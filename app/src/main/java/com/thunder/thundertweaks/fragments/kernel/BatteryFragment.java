@@ -891,7 +891,6 @@ public class BatteryFragment extends RecyclerViewFragment {
             mBatteryCharSource = mBattery.getChargeSource(context);
             mBatteryTemp = intent.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, 0) / 10D;
             mBatteryStatus = Utils.readFile(Battery.BATTERY_NODE + "/power_supply/battery/status");
-            mBatteryHealth = Utils.readFile(Battery.BATTERY_NODE + "/power_supply/battery/health");
             mBatteryRemainingCapaticy = mBattery.getRemainingCapaticy();
             mBatteryHealthValue = mBattery.getHealthValue();
         }
@@ -923,7 +922,7 @@ public class BatteryFragment extends RecyclerViewFragment {
         }
         if (mHealth != null) {
             if (mBatteryHealthValue != null && mBatteryRemainingCapaticy != null) {
-                mHealth.setStat(mBatteryHealth + " / " + mBatteryHealthValue + getString(R.string.percent) + "(" + mBatteryRemainingCapaticy + getString(R.string.mah) + ")");
+                mHealth.setStat(mBatteryHealthValue + "(" + mBatteryRemainingCapaticy + getString(R.string.mah) + ")");
             } else {
                 mHealth.setStat(mBatteryHealth);
             }
