@@ -178,6 +178,27 @@ public class WakelockFragment extends RecyclerViewFragment {
 
             wake.addItem(nfc);
         }
+	
+        if(Wakelock.hasNFC_N()) {
+            SeekBarView nfc_n = new SeekBarView();
+            nfc_n.setTitle(getString(R.string.wkl_nfc));
+            nfc_n.setSummary(getString(R.string.wkl_nfc_summary));
+            nfc_n.setMax(3);
+            nfc_n.setMin(1);
+            nfc_n.setProgress(Utils.strToInt(Wakelock.getNFC_N()) - 1);
+            nfc_n.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+                @Override
+                public void onStop(SeekBarView seekBarView, int position, String value) {
+                    Wakelock.setNFC_N((position + 1), getActivity());
+                }
+
+                @Override
+                public void onMove(SeekBarView seekBarView, int position, String value) {
+                }
+            });
+
+            wake.addItem(nfc_n);
+        }
 
         if (wake.size() > 0) {
             items.add(wake);

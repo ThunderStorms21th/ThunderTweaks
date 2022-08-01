@@ -24,6 +24,7 @@ public class Wakelock {
     private static final String BLUETOOTH = PARENT + "/enable_bluedroid_timer_wl";
     private static final String BATTERY = "/sys/module/sec_battery/parameters/wl_polling";
     private static final String NFC = "/sys/module/sec_nfc/parameters/wl_nfc";
+    private static final String NFC_N = "/sys/module/pn547/parameters/wl_nfc";
 
 
     public static void enableSensorHub(boolean enable, Context context) {
@@ -156,6 +157,18 @@ public class Wakelock {
 
     public static boolean hasNFC() {
         return Utils.existFile(NFC);
+    }
+	
+    public static void setNFC_N(int value, Context context) {
+        run(Control.write(String.valueOf(value), NFC_N), NFC_N, context);
+    }
+
+    public static String getNFC_N() {
+        return Utils.readFile(NFC_N);
+    }
+
+    public static boolean hasNFC_N() {
+        return Utils.existFile(NFC_N);
     }
 
     private static void run(String command, String id, Context context) {
