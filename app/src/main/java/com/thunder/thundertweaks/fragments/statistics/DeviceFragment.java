@@ -24,6 +24,7 @@ import com.thunder.thundertweaks.fragments.DescriptionFragment;
 import com.thunder.thundertweaks.fragments.recyclerview.RecyclerViewFragment;
 import com.thunder.thundertweaks.utils.AppSettings;
 import com.thunder.thundertweaks.utils.Device;
+import com.thunder.thundertweaks.utils.kernel.battery.Battery;
 import com.thunder.thundertweaks.utils.root.RootUtils;
 import com.thunder.thundertweaks.views.recyclerview.CardView;
 import com.thunder.thundertweaks.views.recyclerview.DescriptionView;
@@ -85,12 +86,13 @@ public class DeviceFragment extends RecyclerViewFragment {
                 {getString(R.string.bootloader), Device.getBootloader()},
                 {getString(R.string.rom), Device.ROMInfo.getInstance().getVersion()},
                 {getString(R.string.trustzone), Device.TrustZone.getInstance().getVersion()},
-                {getString(R.string.asv), Device.getAsv()}
         };
 
         String[][] boardInfos = {
                 {getString(R.string.hardware), Device.getHardware()},
                 {getString(R.string.architecture), Device.getArchitecture()},
+                {getString(R.string.battery_health), Battery.getHealthValue()},
+                {getString(R.string.asv), Device.getAsv()},
                 {getString(R.string.kernel), Device.getKernelVersion(true)}
         };
 
