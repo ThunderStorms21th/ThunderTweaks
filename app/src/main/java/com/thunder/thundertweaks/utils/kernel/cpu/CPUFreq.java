@@ -724,7 +724,7 @@ public class CPUFreq {
     }
 
     public boolean hasMidCpu() {
-        return is9820() || is990() || is2100() || is855();
+        return is9820() || is990() || is2100() || is855() || is2200();
     }
 
     public int getClusterCount() {
@@ -760,6 +760,10 @@ public class CPUFreq {
                 mMidCpu = 4;
                 mLITTLECpu = 0;
             } else if (is2100()) {
+                mBigCpu = 6;
+                mMidCpu = 4;
+                mLITTLECpu = 0;
+            } else if (is2200()) {
                 mBigCpu = 6;
                 mMidCpu = 4;
                 mLITTLECpu = 0;
@@ -804,6 +808,7 @@ public class CPUFreq {
     }
 
     private boolean is9820() {
+   // triclustered 4 little, 2 middle, 2 big
         String board = Device.getBoard();
         return board.equalsIgnoreCase("exynos9820")
                 || board.equalsIgnoreCase("universal9820")
@@ -812,6 +817,7 @@ public class CPUFreq {
     }
 	
     private boolean is990() {
+   // triclustered 4 little, 2 middle, 2 big
         String board = Device.getBoard();
         return board.equalsIgnoreCase("exynos9830")
                 || board.equalsIgnoreCase("exynos990")
@@ -821,6 +827,7 @@ public class CPUFreq {
     }
 	
     private boolean is2100() {
+   // triclustered 4 little, 2 middle, 2 big
         String board = Device.getBoard();
         return board.equalsIgnoreCase("exynos2100")
                 || board.equalsIgnoreCase("universal2100")
@@ -828,9 +835,20 @@ public class CPUFreq {
                 || board.equalsIgnoreCase("exynos2105");
     }
 
+    private boolean is2200() {
+   // triclustered 4 little, 2 middle, 2 big
+        String board = Device.getBoard();
+        return board.equalsIgnoreCase("exynos2200")
+                || board.equalsIgnoreCase("universal2200")
+                || board.equalsIgnoreCase("universal2205")
+                || board.equalsIgnoreCase("exynos2205");
+    }
+
     private boolean is855() {
+    // triclustered 4 little, 3 middle, 1 big
         String board = Device.getBoard();
         return board.equalsIgnoreCase("msmnile")
+                || board.equalsIgnoreCase("lahaina")
                 || board.equalsIgnoreCase("kona");
     }
 
