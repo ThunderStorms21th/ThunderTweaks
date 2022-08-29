@@ -305,7 +305,10 @@ public class GPUFreq {
     }
 
     public void setMinFreq(int value, Context context) {
+        run(Control.chmod("644", MIN_FREQ), MIN_FREQ + "chmod", context);
         run(Control.write(String.valueOf(value), MIN_FREQ), MIN_FREQ, context);
+        run(Control.chmod("444", MIN_FREQ), MIN_FREQ + "chmod", context);
+        run(Control.chown("root", MIN_FREQ), MIN_FREQ + "chown", context);
     }
 
     public int getMinFreqOffset() {
@@ -321,7 +324,10 @@ public class GPUFreq {
     }
 
     public void setMaxFreq(int value, Context context) {
+        run(Control.chmod("644", MAX_FREQ), MAX_FREQ + "chmod", context);
         run(Control.write(String.valueOf(value), MAX_FREQ), MAX_FREQ, context);
+        run(Control.chmod("444", MAX_FREQ), MAX_FREQ + "chmod", context);
+        run(Control.chown("root", MAX_FREQ), MAX_FREQ + "chown", context);
     }
 
     public int getMaxFreqOffset() {
